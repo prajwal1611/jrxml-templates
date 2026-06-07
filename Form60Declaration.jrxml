@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="Form60Declaration"
+              pageWidth="595" pageHeight="842"
+              columnWidth="535"
+              leftMargin="30" rightMargin="30"
+              topMargin="30" bottomMargin="30"
+              uuid="c0000000-0000-0000-0000-000000000001">
+
+    <property name="net.sf.jasperreports.default.pdf.encoding" value="Identity-H"/>
+    <property name="net.sf.jasperreports.default.pdf.embedded" value="true"/>
+    <property name="net.sf.jasperreports.print.keep.full.text" value="true"/>
+
+    <!-- ===== Fields (ApplicantFormDTO) ===== -->
+    <field name="customerId" class="java.lang.String"/>
+    <field name="nameAndAddress" class="java.lang.String"/>
+    <field name="name" class="java.lang.String"/>
+    <field name="date" class="java.lang.String"/>
+    <field name="place" class="java.lang.String"/>
+    <field name="accountType" class="java.lang.String"/>
+    <field name="accountNumber" class="java.lang.String"/>
+    <field name="amount" class="java.lang.String"/>
+    <field name="applicantType" class="java.lang.String"/>
+    <field name="officeAddress" class="java.lang.String"/>
+
+    <detail>
+        <!-- One Form 60 per applicant record; new page before each record except the first -->
+        <band height="620" splitType="Stretch">
+            <break>
+                <reportElement positionType="Float" x="0" y="0" width="535" height="1" uuid="c1000000-0000-0000-0000-000000000000">
+                    <printWhenExpression><![CDATA[$V{REPORT_COUNT} > 1]]></printWhenExpression>
+                </reportElement>
+            </break>
+
+            <!-- ===== Company header ===== -->
+            <staticText>
+                <reportElement positionType="Float" x="0" y="0" width="535" height="18" uuid="c1000000-0000-0000-0000-000000000001"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="SansSerif" size="13" isBold="true"/></textElement>
+                <text><![CDATA[SARVAGRAM FINCARE PRIVATE LIMITED]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="18" width="535" height="12" uuid="c1000000-0000-0000-0000-000000000002"/>
+                <textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[CIN: U65990PN2018PTC224688]]></text>
+            </staticText>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement positionType="Float" x="0" y="30" width="535" height="12" uuid="c1000000-0000-0000-0000-000000000003"/>
+                <textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement>
+                <textFieldExpression><![CDATA["Registered Office: " + ($F{officeAddress} == null ? "" : $F{officeAddress})]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="44" width="178" height="12" uuid="c1000000-0000-0000-0000-000000000004"/>
+                <textElement textAlignment="Left"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[Email Id: cs@sarvagram.com]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="178" y="44" width="179" height="12" uuid="c1000000-0000-0000-0000-000000000005"/>
+                <textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[Website: www.sarvagram.com]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="357" y="44" width="178" height="12" uuid="c1000000-0000-0000-0000-000000000006"/>
+                <textElement textAlignment="Right"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[Mob: 91-81011777555]]></text>
+            </staticText>
+            <line>
+                <reportElement positionType="Float" x="0" y="58" width="535" height="1" uuid="c1000000-0000-0000-0000-000000000007"/>
+                <graphicElement><pen lineWidth="2.0" lineColor="#C9C7C7"/></graphicElement>
+            </line>
+
+            <!-- ===== Form 60 title ===== -->
+            <staticText>
+                <reportElement positionType="Float" x="0" y="62" width="535" height="16" uuid="c1000000-0000-0000-0000-000000000008"/>
+                <textElement textAlignment="Center"><font fontName="SansSerif" size="12" isBold="true"/></textElement>
+                <text><![CDATA[Form 60]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="78" width="535" height="12" uuid="c1000000-0000-0000-0000-000000000009"/>
+                <textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[[See third provision to of Rule 114B]]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="92" width="535" height="48" uuid="c1000000-0000-0000-0000-00000000000a"/>
+                <textElement textAlignment="Justified"><font fontName="Serif" size="10" isBold="true"/></textElement>
+                <text><![CDATA[Form of Declaration to be filled by a person who does not have either permanent account number of general index Register Number and who makes payment in respect of transaction specified in clauses(c) to (f) of rule 114B of the income Tax Act. 1962.]]></text>
+            </staticText>
+
+            <!-- ===== 1. Name and address ===== -->
+            <staticText>
+                <reportElement positionType="Float" x="0" y="140" width="535" height="14" uuid="c1000000-0000-0000-0000-00000000000b"/>
+                <textElement><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[1. Full Name and Address of the relevant:]]></text>
+            </staticText>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement positionType="Float" x="16" y="154" width="519" height="14" uuid="c1000000-0000-0000-0000-00000000000c"/>
+                <textElement><font fontName="SansSerif" size="9" isUnderline="true"/></textElement>
+                <textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement positionType="Float" x="16" y="168" width="519" height="28" uuid="c1000000-0000-0000-0000-00000000000d"/>
+                <textElement textAlignment="Justified"><font fontName="SansSerif" size="9" isUnderline="true"/></textElement>
+                <textFieldExpression><![CDATA[$F{nameAndAddress}]]></textFieldExpression>
+            </textField>
+
+            <!-- ===== 2. Particulars of transaction ===== -->
+            <staticText>
+                <reportElement positionType="Float" x="0" y="196" width="535" height="14" uuid="c1000000-0000-0000-0000-00000000000e"/>
+                <textElement><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[2. Particulars of transaction]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="16" y="210" width="234" height="14" uuid="c1000000-0000-0000-0000-00000000000f"/>
+                <textElement><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[Account Type]]></text>
+            </staticText>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement positionType="Float" x="250" y="210" width="285" height="14" uuid="c1000000-0000-0000-0000-000000000010"/>
+                <textElement><font fontName="SansSerif" size="9" isUnderline="true"/></textElement>
+                <textFieldExpression><![CDATA[$F{accountType}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement positionType="Float" x="16" y="224" width="234" height="14" uuid="c1000000-0000-0000-0000-000000000011"/>
+                <textElement><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[Number]]></text>
+            </staticText>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement positionType="Float" x="250" y="224" width="285" height="14" uuid="c1000000-0000-0000-0000-000000000012"/>
+                <textElement><font fontName="SansSerif" size="9" isUnderline="true"/></textElement>
+                <textFieldExpression><![CDATA[$F{accountNumber}]]></textFieldExpression>
+            </textField>
+
+            <!-- ===== 3. Amount ===== -->
+            <staticText>
+                <reportElement positionType="Float" x="0" y="238" width="267" height="14" uuid="c1000000-0000-0000-0000-000000000013"/>
+                <textElement><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[3. Amount of the Transaction]]></text>
+            </staticText>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement positionType="Float" x="267" y="238" width="268" height="14" uuid="c1000000-0000-0000-0000-000000000014"/>
+                <textElement><font fontName="SansSerif" size="9"/></textElement>
+                <textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+            </textField>
+
+            <!-- ===== 4. Assessed to tax ===== -->
+            <staticText>
+                <reportElement positionType="Float" x="0" y="252" width="267" height="14" uuid="c1000000-0000-0000-0000-000000000015"/>
+                <textElement><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[4. Are you assessed to tax?]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="267" y="252" width="268" height="14" uuid="c1000000-0000-0000-0000-000000000016"/>
+                <textElement><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[Yes/No]]></text>
+            </staticText>
+
+            <!-- ===== 5. If yes ===== -->
+            <staticText>
+                <reportElement positionType="Float" x="0" y="266" width="535" height="14" uuid="c1000000-0000-0000-0000-000000000017"/>
+                <textElement><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[5. If yes,]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="20" y="280" width="515" height="44" uuid="c1000000-0000-0000-0000-000000000018"/>
+                <textElement textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[- Details of Ward / Circle / Range where the last return of income was filed.
+- Reasons for not having permanent account number / General Index Register Number]]></text>
+            </staticText>
+
+            <!-- ===== 6. Documents ===== -->
+            <staticText>
+                <reportElement positionType="Float" x="0" y="324" width="535" height="28" uuid="c1000000-0000-0000-0000-000000000019"/>
+                <textElement textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[6. Details of document being produced in support of address in column (1)]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="352" width="535" height="14" uuid="c1000000-0000-0000-0000-00000000001a"/>
+                <textElement><font fontName="SansSerif" size="9" isUnderline="true"/></textElement>
+                <text><![CDATA[Aadhar Card]]></text>
+            </staticText>
+
+            <!-- ===== Declaration ===== -->
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement positionType="Float" x="0" y="366" width="535" height="28" uuid="c1000000-0000-0000-0000-00000000001b"/>
+                <textElement textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement>
+                <textFieldExpression><![CDATA["I, " + ($F{name} == null ? "" : $F{name}) + " do hereby declare that what is stated above is true to the best of my knowledge and belief"]]></textFieldExpression>
+            </textField>
+
+            <!-- ===== Date / Place ===== -->
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement positionType="Float" x="0" y="394" width="535" height="14" uuid="c1000000-0000-0000-0000-00000000001c"/>
+                <textElement><font fontName="SansSerif" size="9"/></textElement>
+                <textFieldExpression><![CDATA["Date: " + ($F{date} == null ? "" : $F{date})]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement positionType="Float" x="0" y="408" width="535" height="14" uuid="c1000000-0000-0000-0000-00000000001d"/>
+                <textElement><font fontName="SansSerif" size="9"/></textElement>
+                <textFieldExpression><![CDATA["Place: " + ($F{place} == null ? "" : $F{place})]]></textFieldExpression>
+            </textField>
+
+            <!-- ===== Signature ===== -->
+            <staticText>
+                <reportElement positionType="Float" x="235" y="426" width="300" height="14" uuid="c1000000-0000-0000-0000-00000000001e"/>
+                <textElement textAlignment="Right"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[_________________________________________]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="235" y="440" width="300" height="14" uuid="c1000000-0000-0000-0000-00000000001f"/>
+                <textElement textAlignment="Right"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[Signature of the declarant]]></text>
+            </staticText>
+
+            <!-- ===== Instruction ===== -->
+            <staticText>
+                <reportElement positionType="Float" x="0" y="458" width="535" height="14" uuid="c1000000-0000-0000-0000-000000000020"/>
+                <textElement><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[Instruction : Documents which can be produced in support of the address are:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="8" y="472" width="527" height="92" uuid="c1000000-0000-0000-0000-000000000021"/>
+                <textElement textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[(a) Ration Card
+(b) Passport
+(c) Driving License
+(d) Identity Card issued by any institution
+(e) Copy of Electricity bill or Telephone bill showing residential address.
+(f) Any document of communication issued by authority of Central Government or local bodies showing residential address.
+(g) Any other documentary evidence in support of his address given in the declaration.]]></text>
+            </staticText>
+
+            <!-- ===== Note ===== -->
+            <staticText>
+                <reportElement positionType="Float" x="0" y="566" width="535" height="44" uuid="c1000000-0000-0000-0000-000000000022"/>
+                <textElement textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[Note : Amendment with effect from 1st November, 1998 as per Income Tax Act, 1962 Rule 114 B: para (c) A time deposit exceeding Rs. 50,000/- with a banking company: para (f) opening an account with a Banking Company]]></text>
+            </staticText>
+        </band>
+    </detail>
+</jasperReport>
