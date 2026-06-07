@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="DeedOfHypothecation"
+              pageWidth="595" pageHeight="842"
+              columnWidth="535"
+              leftMargin="30" rightMargin="30"
+              topMargin="30" bottomMargin="30"
+              uuid="d0000000-0000-0000-0000-000000000001">
+
+    <property name="net.sf.jasperreports.default.pdf.encoding" value="Identity-H"/>
+    <property name="net.sf.jasperreports.default.pdf.embedded" value="true"/>
+    <property name="net.sf.jasperreports.print.keep.full.text" value="true"/>
+
+    <!-- ===== Sub datasets ===== -->
+    <subDataset name="CoApplicantDetailDataset" uuid="d0000000-0000-0000-0000-000000000002">
+        <field name="applicantName" class="java.lang.String"/>
+        <field name="address" class="java.lang.String"/>
+        <field name="mobile" class="java.lang.String"/>
+    </subDataset>
+    <subDataset name="TrancheDetailDataset" uuid="d0000000-0000-0000-0000-000000000003">
+        <field name="eventDate" class="java.lang.String"/>
+        <field name="trancheAmount" class="java.lang.String"/>
+    </subDataset>
+
+    <!-- ===== Fields (DeedOfHypoticationDTO) ===== -->
+    <field name="applicantName" class="java.lang.String"/>
+    <field name="applicantAddress" class="java.lang.String"/>
+    <field name="applicantMobile" class="java.lang.String"/>
+    <field name="repaymentDate" class="java.lang.String"/>
+    <field name="branchName" class="java.lang.String"/>
+    <field name="currentDate" class="java.lang.String"/>
+    <field name="officeAddress" class="java.lang.String"/>
+    <field name="amountText" class="java.lang.String"/>
+    <field name="tenure" class="java.lang.String"/>
+    <field name="roi" class="java.lang.String"/>
+    <field name="loanPurpose" class="java.lang.String"/>
+    <field name="emi" class="java.lang.String"/>
+    <field name="emiAmountText" class="java.lang.String"/>
+    <field name="processingFee" class="java.lang.String"/>
+    <field name="insurance" class="java.lang.String"/>
+    <field name="amount" class="java.lang.String"/>
+    <field name="coApplicantDetailList" class="java.util.List"/>
+    <field name="trancheDetails" class="java.util.List"/>
+
+    <detail>
+        <!-- ===================== BAND 1 : Title + Recitals ===================== -->
+        <band height="360" splitType="Stretch">
+            <staticText>
+                <reportElement positionType="Float" x="0" y="0" width="535" height="20" uuid="d1000000-0000-0000-0000-000000000001"/>
+                <textElement textAlignment="Center"><font fontName="SansSerif" size="13" isBold="true"/></textElement>
+                <text><![CDATA[UNATTESTED DEED OF HYPOTHECATION]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="24" width="535" height="64" uuid="d1000000-0000-0000-0000-000000000002"/>
+                <textElement markup="styled" textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[This deed of hypothecation is made and executed at the place and on the day, month and year set out in <b>Schedule I</b> ("<b>Deed</b>") by the Borrower/ Security Provider listed in <b>Schedule I</b> (hereinafter referred to as the "<b>Borrower</b>", which expression shall unless it be repugnant to the meaning or context thereof be deemed to mean and include its successor(s) and permitted assign(s)) of the <b>ONE PART</b>;]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="92" width="535" height="16" uuid="d1000000-0000-0000-0000-000000000003"/>
+                <textElement textAlignment="Center"><font fontName="SansSerif" size="10" isBold="true"/></textElement>
+                <text><![CDATA[IN FAVOUR OF]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="112" width="535" height="72" uuid="d1000000-0000-0000-0000-000000000004"/>
+                <textElement markup="styled" textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[<b>SARVAGRAM FINCARE PRIVATE LIMITED</b>, a company incorporated under the Companies Act, 2013 and having its registered office at Office No. 22, 4th Floor, Primrose Mall, Baner Road, Baner Gaon, Haveli, Pune - 411045, Maharashtra and amongst others, a branch office at the place specified in <b>Schedule I</b> hereof (hereinafter referred to as "<b>the Lender</b>", which expression shall, unless it be repugnant to the subject or context thereof, include its successors, novatees and assigns) of the <b>OTHER PART</b>.]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="188" width="535" height="28" uuid="d1000000-0000-0000-0000-000000000005"/>
+                <textElement markup="styled" textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[The Borrower and the Lender shall collectively be hereinafter referred to as the "<b>Parties</b>" and individually as a "<b>Party</b>".]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="216" width="535" height="14" uuid="d1000000-0000-0000-0000-000000000006"/>
+                <textElement><font fontName="SansSerif" size="9" isBold="true"/></textElement>
+                <text><![CDATA[WHEREAS]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="16" y="230" width="519" height="110" uuid="d1000000-0000-0000-0000-000000000007"/>
+                <textElement markup="styled" textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[A. The Borrower approached the Lender for a facility not exceeding the amount ("<b>Facility</b>" or "<b>Loan</b>") for the purpose more particularly described in <b>Schedule I</b>.
+
+B. The Lender has agreed, at the request of the Borrower, to grant to the Borrower the Facility vide facility agreement more particularly described in <b>Schedule I</b> ("<b>Facility Agreement</b>") for the purpose mentioned in the Facility Agreement.
+
+C. One of the conditions of the Facility Agreement is that the payment, repayment or reimbursement, as the case may be, of the principal amounts of the Loan, interest thereon, commission, premium on prepayment, all costs, charges and expenses and other monies owing by, and all other present and future obligations and liabilities of the Borrower to the Lender under the Facility Agreement, all costs, charges and expenses including but not limited to the costs, legal expenses and costs of preserving the securities and/or enforcement thereof, incurred by the Lender under the Loan/ Facility (hereinafter collectively referred to as the "<b>Secured Obligations</b>") shall be secured, inter alia, by way of hypothecation over the Assets (as defined below).
+
+D. In pursuance of the above, the Lender has called upon the Borrower to execute these presents and to create security in favour of the Lender as aforesaid, which the Borrower has agreed to do in the manner hereinafter appearing.]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="340" width="535" height="16" uuid="d1000000-0000-0000-0000-000000000008"/>
+                <textElement><font fontName="SansSerif" size="9" isBold="true"/></textElement>
+                <text><![CDATA[NOW THEREFORE THIS DEED PRESENTS WITNESSETH THAT:]]></text>
+            </staticText>
+        </band>
+
+
+        <!-- ===================== BAND 2 : Clauses 1-4 ===================== -->
+        <band height="380" splitType="Stretch">
+            <staticText>
+                <reportElement positionType="Float" x="0" y="0" width="535" height="14" uuid="d2000000-0000-0000-0000-000000000001"/>
+                <textElement><font fontName="SansSerif" size="9" isBold="true" isUnderline="true"/></textElement>
+                <text><![CDATA[1. Definition and Interpretation]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="16" y="14" width="519" height="80" uuid="d2000000-0000-0000-0000-000000000002"/>
+                <textElement textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[1.1  Any capitalised term used in this Deed (including the recitals) but not defined in this Deed shall have the meaning given to it in Schedule I hereto or the Facility Agreement which the same may have been defined together with the rules of interpretation, detailed in the Facility Agreement.
+
+1.2  It is hereby expressly agreed by and between the Parties hereto, that the obligations of the Borrower shall be governed by the provisions contained in the Facility Agreement as modified or supplemented from time to time, and in the event of there being any inconsistency or repugnancy between the provisions contained in the Facility Agreement and the Deed, the provisions contained in the Facility Agreement as modified or supplemented from time to time shall prevail to the extent of such inconsistency or repugnancy.]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="94" width="535" height="14" uuid="d2000000-0000-0000-0000-000000000003"/>
+                <textElement><font fontName="SansSerif" size="9" isBold="true" isUnderline="true"/></textElement>
+                <text><![CDATA[2. Covenant to Pay / Repay]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="16" y="108" width="519" height="80" uuid="d2000000-0000-0000-0000-000000000004"/>
+                <textElement textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[2.1  In pursuance of the Facility Agreement and in consideration of the Facility granted/ agreed to be granted and advanced to the Borrower by the Lender, the Borrower covenants and agrees that the Borrower shall repay the Facility, or any part thereof and the other payments including interest payments, additional penal charge, increased interest, charges, costs etc. as specified in the Facility Agreement (as and when the same fall due for payment as more particularly specified in the Facility Agreement) and shall pay all Secured Obligations due in the manner as set out in the Facility Agreement and shall duly observe and perform all the terms and conditions of the Facility Agreement.
+
+2.2  The hypothecation hereby created in favour of the Lender in respect of the Assets shall be a security by way of an exclusive first priority charge on the Assets.]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="188" width="535" height="14" uuid="d2000000-0000-0000-0000-000000000005"/>
+                <textElement><font fontName="SansSerif" size="9" isBold="true" isUnderline="true"/></textElement>
+                <text><![CDATA[3. Charge Creation]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="202" width="535" height="48" uuid="d2000000-0000-0000-0000-000000000006"/>
+                <textElement markup="styled" textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[In further pursuance of the Facility Agreement and for the consideration aforesaid, the Borrower doth hereby hypothecate the assets more particularly described in the <b>Schedule I</b> hereto (hereinafter referred to as the "<b>Assets</b>"), as and by way of charge hereto in favour of the Lender as security for the due payment, repayment or reimbursement, as the case may be, of the Secured Obligations by the Borrower.]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="250" width="535" height="14" uuid="d2000000-0000-0000-0000-000000000007"/>
+                <textElement><font fontName="SansSerif" size="9" isBold="true" isUnderline="true"/></textElement>
+                <text><![CDATA[4. Covenants]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="264" width="535" height="20" uuid="d2000000-0000-0000-0000-000000000008"/>
+                <textElement textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[In further pursuance of the Facility Agreement and for the consideration aforesaid, the Borrower doth hereby further agree, declare and covenant with the Lender as follows:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="16" y="284" width="519" height="90" uuid="d2000000-0000-0000-0000-000000000009"/>
+                <textElement textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[4.1  The Borrower shall at its expense and in accordance with good industry practice keep the Assets in marketable and good condition and upon request from the Lender insure and keep insured the same in the name of the Borrower and the Lender, with the Lender being designated as the loss payee against any loss or damage by theft, fire, lightning, earthquake, explosion, riot, strike, civil commotion, storm, tempest, flood, marine risk, erection risk, war risk, sabotage and such other risks as the Lender shall, from time to time, require with an insurance company or companies acceptable to the Lender. Further, the Borrower shall pay all taxes and outgoings in respect of any immoveable property in or on which the Assets may for the time being lying and/or stored and shall keep such property insured against loss or damage by fire and against such other risks as may be required by the Lender. In default of the Borrower to do so, the Lender may (but shall not be bound to) keep in good condition and render marketable the Assets and take out/ renew such insurance. Any premium paid by the Lender and any costs and expenses incurred by the Lender or any of them shall forthwith on receipt of a notice of demand from the Lender be reimbursed to the Lender together with same rate of interest as mentioned in the Facility Agreement from the date of payment by the Lender and until such reimbursement by the Borrower, the same shall be a charge on the Assets. Without prejudice to the above, the Lender shall have the right to recover the amount due above by debiting any account of the Borrower maintained with the Lender.
+
+4.2  The Borrower further declares that:
+     (a)  the Assets consist of moveable property not embedded in the earth or permanently fastened, fixed or attached to the earth or to anything permanently fastened or attached to the earth and the Assets will not be permanently attached to the earth so as to change the nature of Assets to immovable property; and
+     (b)  as otherwise permitted under the Facility Agreement, it has not done or knowingly suffered or been party or privy to anything whereby it is in any way prevented from charging, hypothecating, assuring or transferring the Assets to or in favour of the Lender.
+
+4.3  The nominees/ representatives of the Lender shall, at the expense of the Borrower, be entitled at all times to enter any place where the Assets may be and inspect, value, insure, superintend the disposal of and take particulars of all or any part of the Assets and check any statement, accounts, reports and information and the Borrower shall render all reasonable assistance in this behalf.
+
+4.4  The Borrower unconditionally undertakes to take all steps to ensure that such inspections as stated in sub-clauses 4.3 above shall not be disturbed or for any reason prevented, interfered with or stopped except as a result of the application of any law or regulation or other event or circumstances beyond the control of the Borrower and that the Borrower shall (at its own cost and expense) co-operate with such inspections without any demur or protest, including making available such staff as the Lender or its agents may require in connection with such inspection(s).
+
+4.5  The Borrower shall not enter into a single transaction or a series of transactions (whether related or not and whether voluntary or involuntary) to sell, lease, transfer, or otherwise dispose of, or remove, dismantle or cause or permit to be removed or dismantled any of the Assets from the place presently installed/ stored/ located or from its premises or divert or cause or permit any of the said Assets to be diverted while in transit to be brought into or stored at the said place/ premises, except as may be permitted by the Deed or the Facility Agreement or except with prior written consent of the Lender or where the Assets are broken, worn out or damaged.
+
+4.6  The Borrower shall execute all such deeds, documents and assurances and do all such acts and things as the Lender may require for exercising the rights, powers and authorities hereby conferred on the Lender for effecting and perfecting the security hereby created and shall from time to time and at all times after the security hereby constituted shall become enforceable, execute all such documents and do all such deeds, documents, acts and things as may be necessary for realisation of the Assets and in particular, the Borrower shall execute all transfers, conveyances, assignments and assurances of the Assets in favour of the Lender.
+
+4.7  The Borrower shall, if so required by the Lender, cause, and in default the Lender shall itself cause, a board or boards (with the name of the Lender as the charge-holder legibly or distinctly printed or written thereon to be) displayed and maintained in a conspicuous position upon and within the factories and warehouses of the Borrower and at all other places where the Assets may be stored or be lying.
+
+4.8  In respect of goods, movables and other assets stored and held in godowns owned or hired by or let to the Borrower, the Borrower shall provide the Lender and their respective agents and nominees with unimpaired access to its godowns at all times and where the godowns are hired by or let to the Borrower, the Borrower shall furnish to the Lender a letter from the landlords/ owners issuing consent to continue such unimpaired access to the godowns by the Lender and its respective nominees and also declaring that notwithstanding any claim for any unpaid rent, the landlords/ owners acknowledge the prior claim of the Lender on all the goods, movables and other assets stored and held in their godowns and hypothecated or otherwise charged to the Lender, and that the Lender and its respective nominees shall have the right, to remove the goods, movables and other assets so stored and held in the godowns whenever desired by the Lender.
+
+4.9  The Borrower shall release all its book debts and receivables comprised in the security of the Assets as and when the same shall become payable and it shall not without the prior written consent of the Lender, release or compound any of such Assets nor shall the Borrower do any act or omission whereby the recovery thereof may be delayed, impeded, prevented or become time-barred.
+
+4.10  Declarations of the Borrower
+     (a)  The Borrower reiterates the representations and warranties contained in the Facility Agreement and acknowledges and confirms that the same have been made with the intention of inducing the Lender to enter into this Deed, and further acknowledges that the Lender has entered into this Deed on the basis of, and relying on, each of such representations and warranties given by the Borrower.
+     (b)  In addition to the representations and warranties made by the Borrower under the Facility Agreement, the Borrower hereby declares, represents and warrants that the Borrower is legally entitled to enter into this Deed and the Assets are and will, at all times, be the absolute property of the Borrower at the sole disposal of the Borrower and is free from any charge, trust, pledge, lien, claim or encumbrance or any other security interest. The Borrower shall not create and allowed to be created any superior, pari passu or subordinate charge, trust, pledge, lien, claim or encumbrance or any other Security Interest on the Assets during subsistence of the Facility. The Borrower will always keep the Assets distinguishable and hold as exclusive property of, and specifically appropriated to, the Lender. The provisions of this Deed are effective to create in favor of the Lender a legal, valid and enforceable charge on the Assets.
+
+4.11  The Borrower shall not do anything or take any action which is inconsistent with or prejudicial to the right of the Lender quietly to possess and deal with the Assets and to receive the income, profits and benefits thereof without interruption or hindrance by the Borrower or by any person or persons whosoever, and upon the taking of such action, the Lender shall be freed and discharged from or otherwise by the Borrower well and sufficiently saved and kept harmless and indemnified of, from and against claims, demands and encumbrances whatsoever, unless caused by the fraud, gross negligence or willful misconduct of the Lender or that of its officers or employees.
+
+4.12  At any time after the security hereby created has become enforceable, whether or not the Lender shall then have entered into or taken possession of the Assets or any part thereof and in addition to the powers hereinbefore conferred upon the Lender after such entry into or taking possession of, the Lender (without any binding obligation) may have a receiver(s) (the "Receiver") appointed of the Assets or any part thereof. The following provisions shall apply to such Receiver:
+     (a)  Unless otherwise directed by the Lender, such Receiver shall have and exercise all powers and authorities vested in the Lender;
+     (b)  Such Receiver shall, in the exercise of his powers, authorities and discretions, conform to the regulations and directions from time to time made and given by the Lender;
+     (c)  The Lender may, from time to time, fix the remuneration of such Receiver and the Borrower shall be liable for the payment of such remuneration;
+     (d)  The Lender may, from time to time and at any time, require such Receiver to give security for the due performance of his duties as such Receiver and may fix the nature and amount of the security to be given to the Lender but the Lender shall not be bound to require such security in any case;
+     (e)  The Lender may pay over to such Receiver any monies constituting part of the security to the intent that the same may be applied for the purpose hereof by such Receiver and the Lender may, from time to time, determine what funds the Receiver shall be at liberty to keep in hand with a view to the performance of his duties as such Receiver; and
+     (f)  Every such Receiver shall be the agent of the Borrower for all purposes and the Borrower alone shall be responsible for his acts and defaults, loss or misconduct and liable on any contract or engagement made or entered into by him and for his remuneration and the Lender shall not incur any liability or responsibility therefor by reason of their making or consenting to his appointment as such Receiver.
+
+4.13  All the Assets and all proceeds and realisations thereof including insurance proceeds and all documents/ accounts in which security is created shall always be kept distinguishable and held as the exclusive property of the Lender, specifically appropriated to the security created hereunder and be dealt with only under the directions of the Lender, and the Borrower shall not create any other security interest upon or over the same or any part thereof except in favour of the Lender nor suffer any such security interest to affect the same or any part thereof nor do or allow anything that may prejudice the security created hereunder and the Lender shall be at liberty to incur all costs and expenses as may be necessary to preserve the security and to maintain the same undiminished and claim reimbursement thereof as mentioned in Clause 4.1 above.
+
+4.14  The Borrower hereby covenants with the Lender that it shall, so long as the Secured Obligations remain outstanding, promptly upon acquisition of any other movable assets and/or current assets or upon entering into or executing any other agreement or arrangement inform the Lender and immediately thereafter at its own expense without any demand on the part of the Lender, grant, convey, transfer and assign as and by way of additional security, on the terms of this Deed, for the benefit of the Lender all of the Borrower's rights and benefits to such additional movable assets and/or current assets. Until creation of security by the Borrower in favour of the Lender, the Borrower shall at all times stand seized and possessed of such additional movable assets and/or current assets. Such additional movable assets and/or current assets shall be held by the Borrower in trust for the Lender, until such additional security is created in favour of the Lender.
+
+4.15  The Borrower shall, whenever required by the Lender, give full particulars to the Lender of all the assets of the Borrower including the Assets the quantity, description and the market value thereof, the place where they are stored for the time being or whether they are in transit and are insured as provided herein and shall furnish and verify all statements, reports, returns, certificates and information from time to time and as required by the Lender and shall furnish and execute all necessary documents to give effect to this security.]]></text>
+            </staticText>
+        </band>
+
+
+        <!-- ===================== BAND 3 : Clauses 5-9 ===================== -->
+        <band height="490" splitType="Stretch">
+            <staticText>
+                <reportElement positionType="Float" x="0" y="0" width="535" height="14" uuid="d3000000-0000-0000-0000-000000000001"/>
+                <textElement><font fontName="SansSerif" size="9" isBold="true" isUnderline="true"/></textElement>
+                <text><![CDATA[5. Continuing Security]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="16" y="14" width="519" height="80" uuid="d3000000-0000-0000-0000-000000000002"/>
+                <textElement textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[5.1  The security created by or pursuant to this Deed and/or under the Facility Agreement or any other security documents executed by the Parties is a continuing security and shall remain in full force and effect until the final settlement date/ the date the Borrower repays/ pays in full the Secured Obligations, notwithstanding any extension of Facility any intermediate part payment or settlement of account or other matter or thing whatsoever, and in particular the intermediate part satisfaction by the Borrower of any part of the Secured Obligations, and is in addition, and without prejudice, to any other security, guarantees, lien, indemnities or other right or remedy which the Lender may now or hereafter hold for the Secured Obligations or any part thereof.
+
+5.2  Subject to the terms contained in the Facility Agreement, only on the Borrower paying in full the entire Secured Obligations to the satisfaction of the Lender in the manner provided in the Facility Agreement and any other amount payable by the Borrower to the Lender under any agreement or otherwise, the Lender shall with reasonable promptness, upon the written request and at the expense of the Borrower, release unto the Borrower, or as the Borrower shall direct and do all such other things as maybe reasonably necessary to release, the Assets from the security created hereunder (other than such of the Assets as may have already been released pursuant to the Facility Agreement).]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="94" width="535" height="14" uuid="d3000000-0000-0000-0000-000000000003"/>
+                <textElement><font fontName="SansSerif" size="9" isBold="true" isUnderline="true"/></textElement>
+                <text><![CDATA[6. Costs and Expenses]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="108" width="535" height="120" uuid="d3000000-0000-0000-0000-000000000004"/>
+                <textElement textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[The Borrower shall bear all costs, charges (including stamp duty and registration), levies, duties and expenses as may be required for:
+     (a)  the negotiation, preparation, printing and execution of this Deed and of any document or instrument connected therewith;
+     (b)  the registration of this Deed with CERSAI and other relevant statutory authorities;
+     (c)  the giving of any legal opinion required by the Lender in connection with this Deed;
+     (d)  any amendment or modification to or waiver under this Deed;
+     (e)  the administration or release of any security created pursuant to any security document;
+     (f)  the enforcement or attempted enforcement of this Deed and of the security hereby created or the protection or defense or perfection thereof;
+     (g)  the recovery of the monies hereby secured;
+     (h)  the defense of all suits and proceedings of whatsoever nature for the enforcement or realisation of the security hereby created or the recovery of such monies or otherwise in connection therewith or in connection with the Assets;
+and the Borrower shall reimburse the Lender with all such costs, charges and expenses incurred by the Lender in connection with the aforesaid. Any amount required to be paid by the Borrower and which may have been paid by the Lender shall be reimbursed by the Borrower on demand.]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="228" width="535" height="14" uuid="d3000000-0000-0000-0000-000000000005"/>
+                <textElement><font fontName="SansSerif" size="9" isBold="true" isUnderline="true"/></textElement>
+                <text><![CDATA[7. Attorney]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="242" width="535" height="80" uuid="d3000000-0000-0000-0000-000000000006"/>
+                <textElement textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[Upon the occurrence and during the subsistence of an Event of Default, the Borrower hereby irrevocably appoints the Lender as well as each Receiver to be appointed under these presents to be its attorney or attorneys, and in the name and on behalf of the Borrower and as its act and deed, to execute and do all acts, deeds and things which the Borrower is authorised to execute and do under the covenants and provisions herein contained and generally to use the name of the Borrower in the exercise of all or any of the powers by these presents or by law conferred on the Lender or any receiver appointed by the Lender and also to execute on behalf of the Borrower at the cost of the Borrower the powers hereunder or by law conferred on the Lender or any Receiver appointed by them and also to execute on behalf of the Borrower at the cost of the Borrower such documents and deeds as may be necessary to give effect to the provisions referred to hereinabove and also for protection preservation, enforcement and realisation of the security, and the Borrower shall bear the expenses that may be incurred by the Lender or any receiver in that behalf. The Borrower covenants with the Lender to ratify and confirm all acts or things made, done or executed by any attorney as contemplated by this Deed.]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="322" width="535" height="14" uuid="d3000000-0000-0000-0000-000000000007"/>
+                <textElement><font fontName="SansSerif" size="9" isBold="true" isUnderline="true"/></textElement>
+                <text><![CDATA[8. Event of Default]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="16" y="336" width="519" height="90" uuid="d3000000-0000-0000-0000-000000000008"/>
+                <textElement textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[8.1  The security created/ Assets hypothecated hereunder in favor of the Lender shall become enforceable by the Lender if any event of default as provided in the Facility Agreement occurs and/or be continuing. Lender shall at all times have the right to accelerate and demand from the Borrower to repay of Secured Obligations and/or all or any part of the amounts due together with accrued interest and all other amounts accrued under or otherwise in connection hereto and all such amounts shall become immediately due and payable without any notice.
+
+8.2  If the Facility has been accelerated as aforesaid and not repaid pursuant to the terms of the Facility Agreement, the Lender may without prejudice to any other rights and without prior written notice to the Borrower, subject to any limitations which are imposed by applicable Law and which cannot be waived by contract:
+     (a)  be entitled to do all such acts and deeds for taking control of and recovering the Assets and any other future Assets comprised in these presents, at the costs of the Borrower and appoint receiver(s) of the Assets ("Receiver") at the cost of the Borrower.
+     (b)  to have all or any of the Assets valued at the Borrower's expense by an appraiser/ valuer to be appointed by the Lender and the Borrower shall pay to the Lender on demand, the fees or other costs, charges and expenses of and incidental to such inspection or valuation.
+
+8.3  Upon occurrence of an Event of Default and during its continuance, the Lender may, without the intervention of the court and without prejudice to any other rights it may have under the Facility Agreement and/ or under law and without prior notice and without assigning any reason whatsoever and at the risk and expense of the Borrower:
+     (i)  enter upon the premises where the Assets are situated and remove/ take possession of the same, without any liability to the Lender and/or the Receiver or their agents for such entry or damage to the Assets or otherwise, and if necessary, the Lender and/or the Receiver may break open any such place and shall have the right to take away the Assets. The Borrower shall not prevent or obstruct the Lender or the Receiver, from taking possession of the Assets, who shall be entitled to take charge and/or possession of, seize, recover, receive and remove the Assets and/or sell by public auction or by private treaty or otherwise, dispatch or consign for realization or otherwise dispose of or deal with all or any part of the Assets and to enforce, realize, settle, compromise and deal with any rights or claims relating thereto, without being bound to exercise any of these powers or be liable for any losses in the exercise or non-exercise thereof and without prejudice to its rights and remedies of suit or otherwise. Notwithstanding any pending suit or other proceeding, the Borrower undertakes to give immediate possession on demand of the Assets to the nominees of the Lender and/or the Receiver and/or to transfer, and to deliver to the Lender and/or the Receiver, all relative bills, contracts, securities and documents and the Borrower hereby agrees to accept the Lender's and the Receiver's account of sales and realizations as sufficient proof of amounts realized and relative expenses and to pay on demand by the Lender and/or the Receiver, any shortfall or deficiency thereby shown; PROVIDED HOWEVER that neither the Lender nor the Receiver shall be in any way liable or responsible for any loss, damage or deterioration that the Assets may suffer or sustain on any account whatsoever whilst the same are in possession of the Lender or the Receiver or by reason of exercise or non-exercise of rights and remedies available to the Lender and/or the Receiver, as aforesaid and that all such loss, damage or deterioration shall be wholly debited to the account of the Borrower howsoever the same may have been caused;
+     (ii)  sell, call in, collect, convert into money or otherwise deal with or dispose of the Assets or any part thereof on an installment basis or otherwise and generally in such manner and upon such terms and conditions whatsoever as the Lender may consider fit;
+     (iii)  exercise any and all powers, which a Receiver could exercise hereunder or by law;
+     (iv)  appoint in writing, any person to be a Receiver of all or any part of the Assets, from time to time, determine the remuneration of the Receiver and remove the Receiver (except where an order of the court is required) and appoint another in place of any Receiver, whether such Receiver is removed by the Lender or by an order of the court or otherwise ceases to be the Receiver or one of two or more Receivers;
+     (v)  seize, take possession of the Assets and thereafter the Borrower shall take no action inconsistent with or prejudicial to the right of the Lender to possess, use and enjoy the same and to receive the income, profits and benefits thereof without interruption or hindrance by the Borrower or by any person, and upon the taking of such action, the Lender shall be discharged from or otherwise kept harmless and indemnified by the Borrower from and against all former and other estates, title, claims, demands and encumbrances whatsoever, unless such former and other estates, title, claims, demands and encumbrances are found in a final non-appealable judgment by a court of competent jurisdiction to have resulted from the fraud, gross negligence or willful default of the Lender or that of its respective officers or employees;
+     (vi)  take all such other action(s) expressly or impliedly permitted under this Deed or in law;
+     (vii)  to make any arrangement or compromise between the Borrower and any other person or pay any compensation or incur any obligation which the Lender shall consider fit;
+     (viii)  defray any costs or expenses which may be incurred by it in the exercise of any of the powers, authorities and discretions conferred on it by this Deed;
+     (ix)  to sell, lease, license, grant options to sell, deal with or manage or concur in, selling, leasing, licensing, granting options to sell, dealing with or managing and to vary, terminate or accept surrenders of leases, licenses or otherwise dispose of any part of the Assets in such manner and generally on such terms and conditions as the Lender shall consider fit;
+     (x)  to make, effect and do all maintenance, repairs, developments, improvements, alterations or additions to or in respect of the Assets;
+     (xi)  to settle, compromise and arrange any claims, accounts, disputes, questions and demands with or by any person or body who is or claims to be a creditor of the Borrower relating in any way to the Assets or any part thereof;
+     (xii)  to bring action, prosecute, enforce, defend and discontinue all such actions and proceedings in relation to the Assets or any part thereof as the Lender shall deem fit;
+     (xiii)  to do all such other acts, deeds and things (including without limitation, signing and executing all documents deeds and writings) as may be considered necessary or expedient by the Lender to be incidental or conducive to the protection, preservation, improvement or realization or otherwise of the Assets.
+
+8.4  The Borrower shall not raise any objections regarding the regularity of the sale and/or auctions conducted by the Lender and/or the Receiver nor shall the Lender and/or the Receiver be liable for any loss that may be caused or occasioned from the exercise of such power and/or may arise from any act or default on the part of any broker or auctioneer or other person or body engaged by the Lender and/or the Receiver for the said purpose.]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="426" width="535" height="14" uuid="d3000000-0000-0000-0000-000000000009"/>
+                <textElement><font fontName="SansSerif" size="9" isBold="true" isUnderline="true"/></textElement>
+                <text><![CDATA[9. Indemnity]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="16" y="440" width="519" height="48" uuid="d3000000-0000-0000-0000-00000000000a"/>
+                <textElement textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[9.1  The Borrower shall indemnify the Lender and every Receiver, attorney, manager, agent or other person appointed by the Lender against all actions, proceedings, claims, demands, losses, liabilities, damages, costs and expenses (unless such losses, liabilities, damages, costs and expenses are found in a final non-appealable judgment by a court of competent jurisdiction to have resulted from gross negligence or willful misconduct of the Lender or any of its directors, officers, employees, agents or Receivers) incurred by it or them in the execution or performance of the terms and conditions hereof and against all actions, proceedings, claims, demands, costs, charges and expenses which may be incurred, sustained or raised in respect of the non-performance of or non-observance of any of the undertakings and agreements on the part of the Borrower herein contained or in respect of any matter or thing done or omitted relating in any way whatsoever to the Assets.
+
+9.2  Without prejudice to the provisions of Clause 9.1 above, the Lender and every Receiver, attorney, manager, agent or other person appointed by it shall, be entitled to be indemnified out of the Assets charged or to be charged to the Lender in respect of all liabilities and expenses incurred by it in the execution or purported execution of the powers and trusts of the Lender including liabilities and expenses consequent to any mistake, oversight or error of judgment (other than those found in a final non-appealable judgment by a court of competent jurisdiction to have resulted from gross negligence or willful default) on the part of the Lender or any such appointee and against all actions, proceedings, costs, claims and demands in respect of any matter or thing done or omitted to be done in anyway relating to the Assets charged/to be charged to the Lender.]]></text>
+            </staticText>
+        </band>
+
+
+        <!-- ===================== BAND 4 : Clauses 10-14 + signatures ===================== -->
+        <band height="420" splitType="Stretch">
+            <staticText>
+                <reportElement positionType="Float" x="16" y="0" width="519" height="60" uuid="d4000000-0000-0000-0000-000000000001"/>
+                <textElement textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[10.  All remedies under these presents whether provided herein or conferred by statute, civil law, common law, custom, trade, or usage are cumulative and not alternative and may be enforced successively or concurrently.
+
+11.  The Borrower shall not without the prior written consent of the Lender, receive, compound or realise or commit any act with respect to the Assets whereby the recovery thereof is impeded, delayed or prevented.
+
+12.  The Borrower agrees to execute on demand by the Lender such further documents as may be required by the Lender in respect of the maintenance or realisation of the security created hereby.
+
+13.  Subject to any limitations which may be imposed by applicable law neither the Lender nor any Receiver shall be liable in respect of any loss or damage which arises out of the exercise, or the attempted or purported exercise of, or the failure to exercise any of their respective rights, powers, authorities, discretion and trusts that may be vested in the Lender.]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="60" width="535" height="14" uuid="d4000000-0000-0000-0000-000000000002"/>
+                <textElement><font fontName="SansSerif" size="9" isBold="true" isUnderline="true"/></textElement>
+                <text><![CDATA[14. Miscellaneous]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="16" y="74" width="519" height="160" uuid="d4000000-0000-0000-0000-000000000003"/>
+                <textElement markup="styled" textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[14.1  <u>Notices</u>: Any notice or request to be given or made to the Lender or to the Borrower shall be in accordance with the provisions of notice clause as contained in the Facility Agreement.
+
+14.2  <u>Discharges and Releases</u>: Notwithstanding any discharge, release or settlement from time to time between the Lender and the Borrower, if any discharge or payment in respect of the Secured Obligations by the Borrower or any other Person is avoided or set aside or ordered to be surrendered, paid away, refunded or reduced by virtue of any provision, law or enactment relating to bankruptcy, insolvency, liquidation, winding up, composition or arrangement for the time being in force or for any other reason whatsoever, the Lender shall be entitled hereafter to enforce this Deed as if no such discharge, release or settlement had occurred.
+
+14.3  <u>Other Remedies</u>: The rights and remedies conferred upon the Lender under this Deed:
+     (a)  shall not prejudice any other rights or remedies to which the Lender may, independently of this Deed, be entitled; and
+     (b)  shall not be prejudiced by any other rights or remedies to which the Lender may, independently of this Deed, be entitled to.
+
+14.4  <u>Liens/Right of Set Off</u>: In addition to all liens upon, and rights of set off against the monies, securities or other property of the Borrower given to the Lender by law, the Lender shall have a lien upon and a right of set off against, all monies, securities and other property of the Borrower now or hereafter in the possession of or on deposit with the Lender, whether held in a general or special account or deposit, or for safe keeping or otherwise; and every such lien and right of set off may be exercised without demand upon or notice to the Borrower. No lien or right of set off shall be deemed to have been waived by any act or conduct on the part of the Lender, or by any neglect to exercise such right of set off or to enforce such lien, or by any delay in so doing and every rights of set off and lien shall continue in full force and effect until such rights of set off or lien is specifically waived or released by an instrument in writing executed by Lender.
+
+14.5  <u>Governing Law and Jurisdiction</u>:
+     (a)  This Deed shall be governed by and construed in accordance with the laws in India.
+     (b)  Subject to the provisions of the Recovery of Debts Due to Banks and Financial Institutions Act, 1993, the courts in the city where the branch of the Lender is situated shall have exclusive jurisdiction in relation to this Deed and all matters arising in connection herewith.
+     (c)  Nothing contained in Clause 14.5(b) above, shall limit the right of the Lender to take proceedings in any other court or tribunal of competent jurisdiction, nor shall the taking of proceedings in one or more jurisdictions preclude the taking of proceedings in any other jurisdiction, whether concurrently or not and the Borrower irrevocably submit to and accept for themselves and in respect of their property, generally and unconditionally, the jurisdiction of such court or tribunal, and the Borrower irrevocably waive any objection it may have now or in the future to the laying of the venue of any proceedings and any claim that any such proceedings have been brought in an inconvenient forum.
+
+14.6  <u>Immunity</u>: To the extent that the Borrower may in any jurisdiction claim for itself or its assets immunity from suit, execution, attachment (whether in aid of execution, before judgment or otherwise) or other legal process and to the extent that in any such jurisdiction there may be attributed to itself or its assets such immunity (whether or not claimed), the Borrower hereby irrevocably agrees not to claim and hereby irrevocably waives such immunity.
+
+14.7  <u>No Partnership</u>: None of the provisions of this Deed shall be deemed to constitute a partnership between the Parties hereto and no Party shall have any authority to bind the other Party otherwise than under this Deed or shall be deemed to be the agent of the other in any way otherwise than as provided for herein or in the Facility Agreement.
+
+14.8  <u>Amendment</u>: No change to or modification of the terms of this Deed shall be valid, binding or enforceable unless the same is in writing and signed by the Parties hereto.
+
+14.9  <u>Assignment</u>: The Lender shall be free to assign it rights and obligations hereunder or any part thereof, without any reference or recourse to the Borrower. The Borrower shall not transfer its rights and obligations hereunder or any part thereof to any third party.
+
+14.10  <u>Waiver</u>: No failure or delay by the Lender in exercising any right, power or remedy hereunder shall impair, affect or extinguish such right, power or remedy or operate as a waiver thereof, nor shall any single or partial exercise of the same preclude any further exercise thereof or the exercise of any other right, power or remedy. The rights, powers and remedies herein provided are cumulative and do not exclude any other rights, powers and remedies provided by law. A waiver or consent granted by the Lender under this Deed will be effective only if given in writing and then only in the instance and for the purpose for which it is given.
+
+14.11  <u>Severability</u>: If for any reason whatever any provision of these presents is or becomes invalid, illegal or unenforceable, the validity of the remaining provisions shall not be affected in any manner.]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="234" width="535" height="28" uuid="d4000000-0000-0000-0000-000000000004"/>
+                <textElement markup="styled" textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[<b>IN WITNESS WHEREOF</b> the Borrower has caused this Deed to be executed on the day, month and year as mentioned in Schedule I hereof.]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="262" width="535" height="14" uuid="d4000000-0000-0000-0000-000000000005"/>
+                <textElement><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[Signed and Delivered by the within named Borrower:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="282" width="300" height="16" uuid="d4000000-0000-0000-0000-000000000006"/>
+                <textElement><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[Borrower Name: __________________]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="300" y="282" width="235" height="16" uuid="d4000000-0000-0000-0000-000000000007"/>
+                <textElement><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[Signature: __________________]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="304" width="300" height="16" uuid="d4000000-0000-0000-0000-000000000008"/>
+                <textElement><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[Co-Borrower Name: _________________]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="300" y="304" width="235" height="16" uuid="d4000000-0000-0000-0000-000000000009"/>
+                <textElement><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[Signature: __________________]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="328" width="535" height="28" uuid="d4000000-0000-0000-0000-00000000000a"/>
+                <textElement textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[Signed, and Delivered by the within named Lender, Sarvagram Fincare Private Limited through its authorized official.]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="356" width="535" height="16" uuid="d4000000-0000-0000-0000-00000000000b"/>
+                <textElement><font fontName="SansSerif" size="9"/></textElement>
+                <text><![CDATA[Signature : ______________________________________]]></text>
+            </staticText>
+        </band>
+
+
+        <!-- ===================== BAND 5 : SCHEDULE I (rows i-xi) ===================== -->
+        <band height="545" splitType="Stretch">
+            <break><reportElement positionType="Float" x="0" y="0" width="535" height="1" uuid="d5000000-0000-0000-0000-000000000000"/></break>
+            <staticText><reportElement positionType="Float" x="0" y="1" width="535" height="16" uuid="d5000000-0000-0000-0000-000000000001"/><textElement textAlignment="Center"><font fontName="SansSerif" size="11" isBold="true"/></textElement><text><![CDATA[SCHEDULE - I]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="0" y="17" width="535" height="14" uuid="d5000000-0000-0000-0000-000000000002"/><textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[(Terms and conditions of the financial assistance)]]></text></staticText>
+
+            <!-- (i) Date/Place -->
+            <staticText><reportElement positionType="Float" x="0" y="31" width="40" height="40" uuid="d5010000-0000-0000-0000-000000000001"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><topPen lineWidth="0.5"/><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[(i)]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="40" y="31" width="150" height="40" uuid="d5010000-0000-0000-0000-000000000002"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><topPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9" isBold="true"/></textElement><text><![CDATA[Date and Place of Execution of this Deed]]></text></staticText>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true"><reportElement positionType="Float" x="190" y="31" width="345" height="40" uuid="d5010000-0000-0000-0000-000000000003"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><topPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9"/></textElement><textFieldExpression><![CDATA["Date: " + ($F{currentDate} == null ? "" : $F{currentDate}) + "\n\nPlace: " + ($F{branchName} == null ? "" : $F{branchName})]]></textFieldExpression></textField>
+
+            <!-- (ii) Borrower's Details -->
+            <staticText><reportElement positionType="Float" x="0" y="71" width="40" height="70" uuid="d5020000-0000-0000-0000-000000000001"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[(ii)]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="40" y="71" width="150" height="70" uuid="d5020000-0000-0000-0000-000000000002"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9" isBold="true"/></textElement><text><![CDATA[Borrower's Details:]]></text></staticText>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true"><reportElement positionType="Float" x="190" y="71" width="345" height="70" uuid="d5020000-0000-0000-0000-000000000003"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9"/></textElement><textFieldExpression><![CDATA["Name: " + ($F{applicantName} == null ? "" : $F{applicantName}) + "\nAddress: " + ($F{applicantAddress} == null ? "" : $F{applicantAddress}) + "\nTel No: " + ($F{applicantMobile} == null ? "" : $F{applicantMobile}) + "\nEmail-id: "]]></textFieldExpression></textField>
+
+            <!-- (iii) Co-Borrower Details (dynamic) -->
+            <staticText><reportElement positionType="Float" x="0" y="141" width="40" height="60" uuid="d5030000-0000-0000-0000-000000000001"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[(iii)]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="40" y="141" width="150" height="60" uuid="d5030000-0000-0000-0000-000000000002"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9" isBold="true"/></textElement><text><![CDATA[Co-Borrower Details:]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="190" y="141" width="345" height="60" uuid="d5030000-0000-0000-0000-000000000004"/><box><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="6"/></textElement><text><![CDATA[]]></text></staticText>
+            <componentElement><reportElement positionType="Float" x="190" y="141" width="345" height="60" uuid="d5030000-0000-0000-0000-000000000005"/><jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical"><datasetRun subDataset="CoApplicantDetailDataset" uuid="d5030000-0000-0000-0000-000000000006"><dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{coApplicantDetailList})]]></dataSourceExpression></datasetRun><jr:listContents height="56" width="345"><textField isStretchWithOverflow="true" isBlankWhenNull="true"><reportElement x="0" y="0" width="345" height="56" uuid="d5030000-0000-0000-0000-000000000007"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"/><textElement><font fontName="SansSerif" size="9"/></textElement><textFieldExpression><![CDATA["Name: " + ($F{applicantName} == null ? "" : $F{applicantName}) + "\nAddress: " + ($F{address} == null ? "" : $F{address}) + "\nTel No.: " + ($F{mobile} == null ? "" : $F{mobile}) + "\nEmail ID: "]]></textFieldExpression></textField></jr:listContents></jr:list></componentElement>
+
+            <!-- (iv) Security Provider's Details -->
+            <staticText><reportElement positionType="Float" x="0" y="201" width="40" height="70" uuid="d5040000-0000-0000-0000-000000000001"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[(iv)]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="40" y="201" width="150" height="70" uuid="d5040000-0000-0000-0000-000000000002"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9" isBold="true"/></textElement><text><![CDATA[Security Provider's Details, if any:]]></text></staticText>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true"><reportElement positionType="Float" x="190" y="201" width="345" height="70" uuid="d5040000-0000-0000-0000-000000000003"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9"/></textElement><textFieldExpression><![CDATA["Name: " + ($F{applicantName} == null ? "" : $F{applicantName}) + "\nAddress: " + ($F{applicantAddress} == null ? "" : $F{applicantAddress}) + "\nTel No: " + ($F{applicantMobile} == null ? "" : $F{applicantMobile}) + "\nEmail-id: "]]></textFieldExpression></textField>
+
+            <!-- (v) Loan Amount -->
+            <staticText><reportElement positionType="Float" x="0" y="271" width="40" height="40" uuid="d5050000-0000-0000-0000-000000000001"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[(v)]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="40" y="271" width="150" height="40" uuid="d5050000-0000-0000-0000-000000000002"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9" isBold="true"/></textElement><text><![CDATA[Loan Amount/ Facility]]></text></staticText>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true"><reportElement positionType="Float" x="190" y="271" width="345" height="40" uuid="d5050000-0000-0000-0000-000000000003"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9"/></textElement><textFieldExpression><![CDATA["INR " + ($F{amount} == null ? "" : $F{amount}) + "\n\n(Indian Rupees " + ($F{amountText} == null ? "" : $F{amountText}) + " only)"]]></textFieldExpression></textField>
+
+            <!-- (vi) Loan Tenure -->
+            <staticText><reportElement positionType="Float" x="0" y="311" width="40" height="24" uuid="d5060000-0000-0000-0000-000000000001"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[(vi)]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="40" y="311" width="150" height="24" uuid="d5060000-0000-0000-0000-000000000002"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9" isBold="true"/></textElement><text><![CDATA[Loan Tenure (months)]]></text></staticText>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true"><reportElement positionType="Float" x="190" y="311" width="345" height="24" uuid="d5060000-0000-0000-0000-000000000003"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9" isUnderline="true"/></textElement><textFieldExpression><![CDATA[$F{tenure}]]></textFieldExpression></textField>
+
+            <!-- (vii) ROI -->
+            <staticText><reportElement positionType="Float" x="0" y="335" width="40" height="24" uuid="d5070000-0000-0000-0000-000000000001"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[(vii)]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="40" y="335" width="150" height="24" uuid="d5070000-0000-0000-0000-000000000002"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9" isBold="true"/></textElement><text><![CDATA[Applicable Rate of Interest]]></text></staticText>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true"><reportElement positionType="Float" x="190" y="335" width="345" height="24" uuid="d5070000-0000-0000-0000-000000000003"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9"/></textElement><textFieldExpression><![CDATA["Fixed Interest Rate " + ($F{roi} == null ? "" : $F{roi}) + "% p.a."]]></textFieldExpression></textField>
+
+            <!-- (viii) Purpose -->
+            <staticText><reportElement positionType="Float" x="0" y="359" width="40" height="40" uuid="d5080000-0000-0000-0000-000000000001"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[(viii)]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="40" y="359" width="150" height="40" uuid="d5080000-0000-0000-0000-000000000002"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9" isBold="true"/></textElement><text><![CDATA[Purpose]]></text></staticText>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true"><reportElement positionType="Float" x="190" y="359" width="345" height="40" uuid="d5080000-0000-0000-0000-000000000003"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement markup="styled"><font fontName="SansSerif" size="9"/></textElement><textFieldExpression><![CDATA["<b>Business Loans</b>\n" + ($F{loanPurpose} == null ? "" : $F{loanPurpose})]]></textFieldExpression></textField>
+
+            <!-- (ix) Processing Fee -->
+            <staticText><reportElement positionType="Float" x="0" y="399" width="40" height="54" uuid="d5090000-0000-0000-0000-000000000001"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[(ix)]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="40" y="399" width="150" height="54" uuid="d5090000-0000-0000-0000-000000000002"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9" isBold="true"/></textElement><text><![CDATA[Processing Fee + 18% GST]]></text></staticText>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true"><reportElement positionType="Float" x="190" y="399" width="345" height="54" uuid="d5090000-0000-0000-0000-000000000003"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement><textFieldExpression><![CDATA["INR " + ($F{processingFee} == null ? "" : $F{processingFee}) + "\n\nAll applicable stamp duties on Loan documentation and other charges/expenses/taxes/levies to be borne by the Borrower."]]></textFieldExpression></textField>
+
+            <!-- (x) Legal & Valuation -->
+            <staticText><reportElement positionType="Float" x="0" y="453" width="40" height="20" uuid="d50a0000-0000-0000-0000-000000000001"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[(x)]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="40" y="453" width="150" height="20" uuid="d50a0000-0000-0000-0000-000000000002"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9" isBold="true"/></textElement><text><![CDATA[Legal & Valuation Charges + 18% GST]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="190" y="453" width="345" height="20" uuid="d50a0000-0000-0000-0000-000000000003"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[INR  NA]]></text></staticText>
+
+            <!-- (xi) Insurance -->
+            <staticText><reportElement positionType="Float" x="0" y="473" width="40" height="60" uuid="d50b0000-0000-0000-0000-000000000001"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[(xi)]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="40" y="473" width="150" height="60" uuid="d50b0000-0000-0000-0000-000000000002"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9" isBold="true"/></textElement><text><![CDATA[Insurance Deduction]]></text></staticText>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true"><reportElement positionType="Float" x="190" y="473" width="345" height="60" uuid="d50b0000-0000-0000-0000-000000000003"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement><textFieldExpression><![CDATA["INR " + ($F{insurance} == null ? "" : $F{insurance}) + "\n\nThe Borrower acknowledges and confirms that the Insurance Premium Amount may vary on the date of disbursement under the Loan. The Borrower further agrees and confirms that the Insurance Premium Amount shall be deducted from the first disbursement under Loan."]]></textFieldExpression></textField>
+        </band>
+
+
+        <!-- ===================== BAND 6 : SCHEDULE I (rows xii-xxii) ===================== -->
+        <band height="660" splitType="Stretch">
+            <!-- (xii) Disbursement Schedule (dynamic) -->
+            <staticText><reportElement positionType="Float" x="0" y="0" width="40" height="70" uuid="d6010000-0000-0000-0000-000000000001"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[(xii)]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="40" y="0" width="150" height="70" uuid="d6010000-0000-0000-0000-000000000002"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9" isBold="true"/></textElement><text><![CDATA[Disbursement Schedule]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="190" y="0" width="345" height="70" uuid="d6010000-0000-0000-0000-000000000003"/><box><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="6"/></textElement><text><![CDATA[]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="190" y="0" width="172" height="20" uuid="d6010000-0000-0000-0000-000000000004"/><box leftPadding="2" rightPadding="2" topPadding="2" bottomPadding="2"><topPen lineWidth="0.5"/><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Center"><font fontName="SansSerif" size="8" isBold="true"/></textElement><text><![CDATA[On or Before Date/Event]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="362" y="0" width="173" height="20" uuid="d6010000-0000-0000-0000-000000000005"/><box leftPadding="2" rightPadding="2" topPadding="2" bottomPadding="2"><topPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Center"><font fontName="SansSerif" size="8" isBold="true"/></textElement><text><![CDATA[Amount (Rs.)]]></text></staticText>
+            <componentElement><reportElement positionType="Float" x="190" y="20" width="345" height="18" uuid="d6010000-0000-0000-0000-000000000006"/><jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical"><datasetRun subDataset="TrancheDetailDataset" uuid="d6010000-0000-0000-0000-000000000007"><dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{trancheDetails})]]></dataSourceExpression></datasetRun><jr:listContents height="18" width="345"><textField isStretchWithOverflow="true" isBlankWhenNull="true"><reportElement x="0" y="0" width="172" height="18" uuid="d6010000-0000-0000-0000-000000000008"/><box leftPadding="2" rightPadding="2" topPadding="2" bottomPadding="2"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Center"><font fontName="SansSerif" size="8"/></textElement><textFieldExpression><![CDATA[$F{eventDate}]]></textFieldExpression></textField><textField isStretchWithOverflow="true" isBlankWhenNull="true"><reportElement x="172" y="0" width="173" height="18" uuid="d6010000-0000-0000-0000-000000000009"/><box leftPadding="2" rightPadding="2" topPadding="2" bottomPadding="2"><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Center"><font fontName="SansSerif" size="8"/></textElement><textFieldExpression><![CDATA[$F{trancheAmount}]]></textFieldExpression></textField></jr:listContents></jr:list></componentElement>
+
+            <!-- (xiii) Fixed EMI -->
+            <staticText><reportElement positionType="Float" x="0" y="70" width="40" height="40" uuid="d6020000-0000-0000-0000-000000000001"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[(xiii)]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="40" y="70" width="150" height="40" uuid="d6020000-0000-0000-0000-000000000002"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9" isBold="true"/></textElement><text><![CDATA[Fixed EMI Amount]]></text></staticText>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true"><reportElement positionType="Float" x="190" y="70" width="345" height="40" uuid="d6020000-0000-0000-0000-000000000003"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9"/></textElement><textFieldExpression><![CDATA["INR " + ($F{emi} == null ? "" : $F{emi}) + "\n\n(Indian Rupees " + ($F{emiAmountText} == null ? "" : $F{emiAmountText}) + " only)"]]></textFieldExpression></textField>
+
+            <!-- (xiv) First EMI Date -->
+            <staticText><reportElement positionType="Float" x="0" y="110" width="40" height="24" uuid="d6030000-0000-0000-0000-000000000001"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[(xiv)]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="40" y="110" width="150" height="24" uuid="d6030000-0000-0000-0000-000000000002"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9" isBold="true"/></textElement><text><![CDATA[First EMI Payment Date (DD/MM/YY)]]></text></staticText>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true"><reportElement positionType="Float" x="190" y="110" width="345" height="24" uuid="d6030000-0000-0000-0000-000000000003"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9"/></textElement><textFieldExpression><![CDATA[$F{repaymentDate}]]></textFieldExpression></textField>
+
+            <!-- (xv) Frequency -->
+            <staticText><reportElement positionType="Float" x="0" y="134" width="40" height="24" uuid="d6040000-0000-0000-0000-000000000001"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[(xv)]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="40" y="134" width="150" height="24" uuid="d6040000-0000-0000-0000-000000000002"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9" isBold="true"/></textElement><text><![CDATA[EMI Payment Frequency]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="190" y="134" width="345" height="24" uuid="d6040000-0000-0000-0000-000000000003"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[Monthly]]></text></staticText>
+
+            <!-- (xvi) Mode of Repayment -->
+            <staticText><reportElement positionType="Float" x="0" y="158" width="40" height="56" uuid="d6050000-0000-0000-0000-000000000001"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[(xvi)]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="40" y="158" width="150" height="56" uuid="d6050000-0000-0000-0000-000000000002"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9" isBold="true"/></textElement><text><![CDATA[Mode of Repayment]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="190" y="158" width="345" height="56" uuid="d6050000-0000-0000-0000-000000000003"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[[  ] Electronic Clearing System (ECS)
+[\u2713] National Automated Clearing House (NACH)
+[  ] Standing Instruction (SI)
+[  ] Post Dated Cheques (PDC)]]></text></staticText>
+
+            <!-- (xvii) Security -->
+            <staticText><reportElement positionType="Float" x="0" y="214" width="40" height="70" uuid="d6060000-0000-0000-0000-000000000001"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[(xvii)]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="40" y="214" width="150" height="70" uuid="d6060000-0000-0000-0000-000000000002"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9" isBold="true"/></textElement><text><![CDATA[Security]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="190" y="214" width="345" height="70" uuid="d6060000-0000-0000-0000-000000000003"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[Exclusive hypothecation and charge over the movable asset
+Security Type - Plant & Machinery / Stock
+Make (movable) : __________________
+Model (movable) : _________________
+Estimated Value : __________________
+Security to be created before 1st (first) disbursement under the Loan.]]></text></staticText>
+
+            <!-- (xviii) Part Prepayment -->
+            <staticText><reportElement positionType="Float" x="0" y="284" width="40" height="24" uuid="d6070000-0000-0000-0000-000000000001"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[(xviii)]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="40" y="284" width="150" height="24" uuid="d6070000-0000-0000-0000-000000000002"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9" isBold="true"/></textElement><text><![CDATA[Part Prepayment of Loan]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="190" y="284" width="345" height="24" uuid="d6070000-0000-0000-0000-000000000003"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[2% of every part pre-payment amount + 18% GST]]></text></staticText>
+
+            <!-- (xix) Foreclosure -->
+            <staticText><reportElement positionType="Float" x="0" y="308" width="40" height="70" uuid="d6080000-0000-0000-0000-000000000001"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[(xix)]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="40" y="308" width="150" height="70" uuid="d6080000-0000-0000-0000-000000000002"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9" isBold="true"/></textElement><text><![CDATA[Foreclosure Charges]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="190" y="308" width="345" height="70" uuid="d6080000-0000-0000-0000-000000000003"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[Any foreclosure of the Loan shall attract prepayment charges at the rate of (a) 4% (four percent) of the outstanding amount of Loan in case prepayment is effectuated before the payment of 50% (fifty percent) of the total EMIs payable (in number) under the Loan + 18% GST; and (b) 3% (three percent) of the outstanding amount of Loan in case prepayment is effectuated after the payment of 50% (fifty percent) of the total EMIs payable (in number) under the Loan + 18% GST.]]></text></staticText>
+
+            <!-- (xx) Cheque dishonor -->
+            <staticText><reportElement positionType="Float" x="0" y="378" width="40" height="30" uuid="d6090000-0000-0000-0000-000000000001"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[(xx)]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="40" y="378" width="150" height="30" uuid="d6090000-0000-0000-0000-000000000002"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9" isBold="true"/></textElement><text><![CDATA[Cheque/ Instruction Dishonor Charges]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="190" y="378" width="345" height="30" uuid="d6090000-0000-0000-0000-000000000003"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[INR 500 (Rupees Five Hundred Only) per instrument per instance]]></text></staticText>
+
+            <!-- (xxi) Penal -->
+            <staticText><reportElement positionType="Float" x="0" y="408" width="40" height="24" uuid="d60a0000-0000-0000-0000-000000000001"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[(xxi)]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="40" y="408" width="150" height="24" uuid="d60a0000-0000-0000-0000-000000000002"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9" isBold="true"/></textElement><text><![CDATA[Penal Charges]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="190" y="408" width="345" height="24" uuid="d60a0000-0000-0000-0000-000000000003"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9" isBold="true"/></textElement><text><![CDATA[30% p.a. penal charges applicable on due non-payment of outstanding amount.]]></text></staticText>
+
+            <!-- (xxii) General Conditions -->
+            <staticText><reportElement positionType="Float" x="0" y="432" width="40" height="220" uuid="d60b0000-0000-0000-0000-000000000001"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[(xxii)]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="40" y="432" width="150" height="220" uuid="d60b0000-0000-0000-0000-000000000002"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement><font fontName="SansSerif" size="9" isBold="true"/></textElement><text><![CDATA[General Conditions]]></text></staticText>
+            <staticText><reportElement positionType="Float" x="190" y="432" width="345" height="220" uuid="d60b0000-0000-0000-0000-000000000003"/><box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box><textElement textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement><text><![CDATA[(i).  The Borrower agrees and authorises the Lender to debit to and recover from any account maintained by on or behalf of the Borrower with the Lender, now or in future, towards recovery of any and all costs, charges and expenses stipulated herein or in connection with or incidental to the Loan.
+
+(ii).  The Borrower shall upon demand pay to or reimburse the Lender in full:
+     a.  The legal costs of the preparation of loan/security document, creation of security etc.;
+     b.  All costs, expenses and other charges at actuals including but not limited to all costs, expenses and fees relating to the periodic valuation, title search, site visit, inspection, insurance and protection/preservation in any other manner of the security tendered to the Lender; and
+     c.  All costs (including legal fees) incurred by the Lender in preserving perfecting or enforcing any of its rights under or in respect of this letter/loan documents, or any present or future security and other documents.
+
+(iii).  The Borrower understands, acknowledges and agrees that the undrawn portion of the Loan may be cancelled and repudiated in part or in entirety by the Lender, at any time without notice and without giving any reason.
+
+(iv).  All costs, charges, interest rates are exclusive of applicable taxes.
+
+(v).  Change in Applicable Rate of Interest and other pricing parameters may be communicated by the Lender through any of the following modes - through Email ID as updated in Lender's records, letter sent to Borrower's address as updated in Lender's records, over website of the Lender, through account statements, through Short Message Service (SMS) or through its branches or such other medium as the Lender may consider appropriate.]]></text></staticText>
+        </band>
+    </detail>
+</jasperReport>
