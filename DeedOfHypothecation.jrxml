@@ -374,19 +374,19 @@
             <elementGroup>
                 <textField isStretchWithOverflow="true" isBlankWhenNull="true">
                     <reportElement positionType="Float" x="0" y="0" width="40" height="400" uuid="d60b0000-0000-0000-0000-000000000001" stretchType="ElementGroupHeight"/>
-                    <box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box>
+                    <box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><topPen lineWidth="0.5"/><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box>
                     <textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement>
                     <textFieldExpression><![CDATA["(xxii)"]]></textFieldExpression>
                 </textField>
                 <textField isStretchWithOverflow="true" isBlankWhenNull="true">
                     <reportElement positionType="Float" x="40" y="0" width="150" height="400" uuid="d60b0000-0000-0000-0000-000000000002" stretchType="ElementGroupHeight"/>
-                    <box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box>
+                    <box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><topPen lineWidth="0.5"/><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box>
                     <textElement><font fontName="SansSerif" size="9" isBold="true"/></textElement>
                     <textFieldExpression><![CDATA["General Conditions"]]></textFieldExpression>
                 </textField>
                 <textField isStretchWithOverflow="true" isBlankWhenNull="true">
                     <reportElement positionType="Float" x="190" y="0" width="345" height="400" uuid="d60b0000-0000-0000-0000-000000000003" stretchType="ElementGroupHeight"/>
-                    <box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box>
+                    <box leftPadding="3" rightPadding="3" topPadding="3" bottomPadding="3"><topPen lineWidth="0.5"/><leftPen lineWidth="0.5"/><bottomPen lineWidth="0.5"/><rightPen lineWidth="0.5"/></box>
                     <textElement textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement>
                     <textFieldExpression><![CDATA["(i).  The Borrower agrees and authorises the Lender to debit to and recover from any account maintained by on or behalf of the Borrower with the Lender, now or in future, towards recovery of any and all costs, charges and expenses stipulated herein or in connection with or incidental to the Loan.\n\n(ii).  The Borrower shall upon demand pay to or reimburse the Lender in full:\n     a.  The legal costs of the preparation of loan/security document, creation of security etc.;\n     b.  All costs, expenses and other charges at actuals including but not limited to all costs, expenses and fees relating to the periodic valuation, title search, site visit, inspection, insurance and protection/preservation in any other manner of the security tendered to the Lender; and\n     c.  All costs (including legal fees) incurred by the Lender in preserving perfecting or enforcing any of its rights under or in respect of this letter/loan documents, or any present or future security and other documents.\n\n(iii).  The Borrower understands, acknowledges and agrees that the undrawn portion of the Loan may be cancelled and repudiated in part or in entirety by the Lender, at any time without notice and without giving any reason.\n\n(iv).  All costs, charges, interest rates are exclusive of applicable taxes.\n\n(v).  Change in Applicable Rate of Interest and other pricing parameters may be communicated by the Lender through any of the following modes - through Email ID as updated in Lender's records, letter sent to Borrower's address as updated in Lender's records, over website of the Lender, through account statements, through Short Message Service (SMS) or through its branches or such other medium as the Lender may consider appropriate."]]></textFieldExpression>
                 </textField>
