@@ -14,16 +14,16 @@
     <property name="net.sf.jasperreports.print.keep.full.text" value="true"/>
 
     <!-- ===== Fields (ApplicantFormDTO) ===== -->
-    <field name="customerId" class="java.lang.String"/>
-    <field name="nameAndAddress" class="java.lang.String"/>
-    <field name="name" class="java.lang.String"/>
-    <field name="date" class="java.lang.String"/>
-    <field name="place" class="java.lang.String"/>
-    <field name="accountType" class="java.lang.String"/>
-    <field name="accountNumber" class="java.lang.String"/>
-    <field name="amount" class="java.lang.String"/>
-    <field name="applicantType" class="java.lang.String"/>
-    <field name="officeAddress" class="java.lang.String"/>
+    <parameter name="customerId" class="java.lang.String"/>
+    <parameter name="nameAndAddress" class="java.lang.String"/>
+    <parameter name="name" class="java.lang.String"/>
+    <parameter name="date" class="java.lang.String"/>
+    <parameter name="place" class="java.lang.String"/>
+    <parameter name="accountType" class="java.lang.String"/>
+    <parameter name="accountNumber" class="java.lang.String"/>
+    <parameter name="amount" class="java.lang.String"/>
+    <parameter name="applicantType" class="java.lang.String"/>
+    <parameter name="officeAddress" class="java.lang.String"/>
 
     <detail>
         <!-- One Form 60 per applicant record; new page before each record except the first -->
@@ -48,7 +48,7 @@
             <textField isStretchWithOverflow="true" isBlankWhenNull="true">
                 <reportElement positionType="Float" x="0" y="30" width="535" height="12" uuid="c1000000-0000-0000-0000-000000000003"/>
                 <textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement>
-                <textFieldExpression><![CDATA["Registered Office: " + ($F{officeAddress} == null ? "" : $F{officeAddress})]]></textFieldExpression>
+                <textFieldExpression><![CDATA["Registered Office: " + ($P{officeAddress} == null ? "" : $P{officeAddress})]]></textFieldExpression>
             </textField>
             <textField isStretchWithOverflow="true" isBlankWhenNull="true">
                 <reportElement positionType="Float" x="0" y="44" width="178" height="12" uuid="c1000000-0000-0000-0000-000000000004"/>
@@ -96,12 +96,12 @@
             <textField isStretchWithOverflow="true" isBlankWhenNull="true">
                 <reportElement positionType="Float" x="16" y="154" width="519" height="14" uuid="c1000000-0000-0000-0000-00000000000c"/>
                 <textElement><font fontName="SansSerif" size="9" isUnderline="true"/></textElement>
-                <textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$P{name}]]></textFieldExpression>
             </textField>
             <textField isStretchWithOverflow="true" isBlankWhenNull="true">
                 <reportElement positionType="Float" x="16" y="168" width="519" height="28" uuid="c1000000-0000-0000-0000-00000000000d"/>
                 <textElement textAlignment="Justified"><font fontName="SansSerif" size="9" isUnderline="true"/></textElement>
-                <textFieldExpression><![CDATA[$F{nameAndAddress}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$P{nameAndAddress}]]></textFieldExpression>
             </textField>
 
             <!-- ===== 2. Particulars of transaction ===== -->
@@ -118,7 +118,7 @@
             <textField isStretchWithOverflow="true" isBlankWhenNull="true">
                 <reportElement positionType="Float" x="250" y="210" width="285" height="14" uuid="c1000000-0000-0000-0000-000000000010"/>
                 <textElement><font fontName="SansSerif" size="9" isUnderline="true"/></textElement>
-                <textFieldExpression><![CDATA[$F{accountType}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$P{accountType}]]></textFieldExpression>
             </textField>
             <textField isStretchWithOverflow="true" isBlankWhenNull="true">
                 <reportElement positionType="Float" x="16" y="224" width="234" height="14" uuid="c1000000-0000-0000-0000-000000000011"/>
@@ -128,7 +128,7 @@
             <textField isStretchWithOverflow="true" isBlankWhenNull="true">
                 <reportElement positionType="Float" x="250" y="224" width="285" height="14" uuid="c1000000-0000-0000-0000-000000000012"/>
                 <textElement><font fontName="SansSerif" size="9" isUnderline="true"/></textElement>
-                <textFieldExpression><![CDATA[$F{accountNumber}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$P{accountNumber}]]></textFieldExpression>
             </textField>
 
             <!-- ===== 3. Amount ===== -->
@@ -140,7 +140,7 @@
             <textField isStretchWithOverflow="true" isBlankWhenNull="true">
                 <reportElement positionType="Float" x="267" y="238" width="268" height="14" uuid="c1000000-0000-0000-0000-000000000014"/>
                 <textElement><font fontName="SansSerif" size="9"/></textElement>
-                <textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$P{amount}]]></textFieldExpression>
             </textField>
 
             <!-- ===== 4. Assessed to tax ===== -->
@@ -183,19 +183,19 @@
             <textField isStretchWithOverflow="true" isBlankWhenNull="true">
                 <reportElement positionType="Float" x="0" y="366" width="535" height="28" uuid="c1000000-0000-0000-0000-00000000001b"/>
                 <textElement textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement>
-                <textFieldExpression><![CDATA["I, " + ($F{name} == null ? "" : $F{name}) + " do hereby declare that what is stated above is true to the best of my knowledge and belief"]]></textFieldExpression>
+                <textFieldExpression><![CDATA["I, " + ($P{name} == null ? "" : $P{name}) + " do hereby declare that what is stated above is true to the best of my knowledge and belief"]]></textFieldExpression>
             </textField>
 
             <!-- ===== Date / Place ===== -->
             <textField isStretchWithOverflow="true" isBlankWhenNull="true">
                 <reportElement positionType="Float" x="0" y="394" width="535" height="14" uuid="c1000000-0000-0000-0000-00000000001c"/>
                 <textElement><font fontName="SansSerif" size="9"/></textElement>
-                <textFieldExpression><![CDATA["Date: " + ($F{date} == null ? "" : $F{date})]]></textFieldExpression>
+                <textFieldExpression><![CDATA["Date: " + ($P{date} == null ? "" : $P{date})]]></textFieldExpression>
             </textField>
             <textField isStretchWithOverflow="true" isBlankWhenNull="true">
                 <reportElement positionType="Float" x="0" y="408" width="535" height="14" uuid="c1000000-0000-0000-0000-00000000001d"/>
                 <textElement><font fontName="SansSerif" size="9"/></textElement>
-                <textFieldExpression><![CDATA["Place: " + ($F{place} == null ? "" : $F{place})]]></textFieldExpression>
+                <textFieldExpression><![CDATA["Place: " + ($P{place} == null ? "" : $P{place})]]></textFieldExpression>
             </textField>
 
             <!-- ===== Signature ===== -->

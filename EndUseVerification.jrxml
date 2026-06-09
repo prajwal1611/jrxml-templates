@@ -27,25 +27,25 @@
     </subDataset>
 
     <!-- =================== Fields (mapped from EndUseDocumentDTO) =================== -->
-    <field name="lan" class="java.lang.String"/>
-    <field name="loanAmount" class="java.lang.String"/>
-    <field name="mobile" class="java.lang.String"/>
-    <field name="applicantVisited" class="java.lang.String"/>
-    <field name="metBorrower" class="java.lang.String"/>
-    <field name="endUseAsPerApplication" class="java.lang.String"/>
-    <field name="endUseAsPerVisit" class="java.lang.String"/>
-    <field name="fundsUtilized" class="java.lang.String"/>
-    <field name="remark" class="java.lang.String"/>
-    <field name="imageUrls" class="java.util.List"/>
-    <field name="typeOfFacility" class="java.lang.String"/>
-    <field name="dateOfVisit" class="java.lang.String"/>
-    <field name="branchName" class="java.lang.String"/>
-    <field name="latitude" class="java.lang.String"/>
-    <field name="longitude" class="java.lang.String"/>
-    <field name="region" class="java.lang.String"/>
-    <field name="applicants" class="java.util.List"/>
-    <field name="employeeName" class="java.lang.String"/>
-    <field name="employeeId" class="java.lang.String"/>
+    <parameter name="lan" class="java.lang.String"/>
+    <parameter name="loanAmount" class="java.lang.String"/>
+    <parameter name="mobile" class="java.lang.String"/>
+    <parameter name="applicantVisited" class="java.lang.String"/>
+    <parameter name="metBorrower" class="java.lang.String"/>
+    <parameter name="endUseAsPerApplication" class="java.lang.String"/>
+    <parameter name="endUseAsPerVisit" class="java.lang.String"/>
+    <parameter name="fundsUtilized" class="java.lang.String"/>
+    <parameter name="remark" class="java.lang.String"/>
+    <parameter name="imageUrls" class="java.util.List"/>
+    <parameter name="typeOfFacility" class="java.lang.String"/>
+    <parameter name="dateOfVisit" class="java.lang.String"/>
+    <parameter name="branchName" class="java.lang.String"/>
+    <parameter name="latitude" class="java.lang.String"/>
+    <parameter name="longitude" class="java.lang.String"/>
+    <parameter name="region" class="java.lang.String"/>
+    <parameter name="applicants" class="java.util.List"/>
+    <parameter name="employeeName" class="java.lang.String"/>
+    <parameter name="employeeId" class="java.lang.String"/>
 
     <!-- =================== Title =================== -->
     <title>
@@ -68,26 +68,26 @@
             <textField isStretchWithOverflow="true" isBlankWhenNull="true">
                 <reportElement x="0" y="0" width="257" height="20" uuid="c0000000-0000-0000-0000-000000000001"/>
                 <textElement><font fontName="SansSerif" size="11"/></textElement>
-                <textFieldExpression><![CDATA["Date of Visit: " + ($F{dateOfVisit} == null ? "" : $F{dateOfVisit})]]></textFieldExpression>
+                <textFieldExpression><![CDATA["Date of Visit: " + ($P{dateOfVisit} == null ? "" : $P{dateOfVisit})]]></textFieldExpression>
             </textField>
             <textField isStretchWithOverflow="true" isBlankWhenNull="true">
                 <reportElement x="258" y="0" width="257" height="20" uuid="c0000000-0000-0000-0000-000000000002"/>
                 <textElement><font fontName="SansSerif" size="11"/></textElement>
-                <textFieldExpression><![CDATA["Type of Facility: " + ($F{typeOfFacility} == null ? "" : $F{typeOfFacility})]]></textFieldExpression>
+                <textFieldExpression><![CDATA["Type of Facility: " + ($P{typeOfFacility} == null ? "" : $P{typeOfFacility})]]></textFieldExpression>
             </textField>
 
             <!-- Row: Branch / Region Name -->
             <textField isStretchWithOverflow="true" isBlankWhenNull="true">
                 <reportElement x="0" y="30" width="515" height="20" uuid="c0000000-0000-0000-0000-000000000003"/>
                 <textElement><font fontName="SansSerif" size="11"/></textElement>
-                <textFieldExpression><![CDATA["Branch / Region Name: " + ($F{branchName} == null ? "" : $F{branchName}) + " / " + ($F{region} == null ? "" : $F{region})]]></textFieldExpression>
+                <textFieldExpression><![CDATA["Branch / Region Name: " + ($P{branchName} == null ? "" : $P{branchName}) + " / " + ($P{region} == null ? "" : $P{region})]]></textFieldExpression>
             </textField>
 
             <!-- Row: Loan Amount -->
             <textField isStretchWithOverflow="true" isBlankWhenNull="true">
                 <reportElement x="0" y="60" width="515" height="20" uuid="c0000000-0000-0000-0000-000000000004"/>
                 <textElement><font fontName="SansSerif" size="11"/></textElement>
-                <textFieldExpression><![CDATA["Loan Amount: " + ($F{loanAmount} == null ? "" : $F{loanAmount})]]></textFieldExpression>
+                <textFieldExpression><![CDATA["Loan Amount: " + ($P{loanAmount} == null ? "" : $P{loanAmount})]]></textFieldExpression>
             </textField>
 
             <!-- ============ Bordered key/value table ============ -->
@@ -114,9 +114,9 @@
                         <rightPen lineWidth="0.75" lineColor="#000000"/>
                     </box>
                     <textElement verticalAlignment="Top"><font fontName="SansSerif" size="11"/></textElement>
-                    <textFieldExpression><![CDATA[($F{applicants} == null || $F{applicants}.isEmpty()) ? "" :
-                        java.util.stream.IntStream.range(0, $F{applicants}.size())
-                            .mapToObj(i -> (i + 1) + ". " + String.valueOf($F{applicants}.get(i)))
+                    <textFieldExpression><![CDATA[($P{applicants} == null || $P{applicants}.isEmpty()) ? "" :
+                        java.util.stream.IntStream.range(0, $P{applicants}.size())
+                            .mapToObj(i -> (i + 1) + ". " + String.valueOf($P{applicants}.get(i)))
                             .collect(java.util.stream.Collectors.joining("\n"))]]></textFieldExpression>
                 </textField>
             </elementGroup>
@@ -141,7 +141,7 @@
                         <rightPen lineWidth="0.75" lineColor="#000000"/>
                     </box>
                     <textElement verticalAlignment="Top"><font fontName="SansSerif" size="11"/></textElement>
-                    <textFieldExpression><![CDATA[$F{lan}]]></textFieldExpression>
+                    <textFieldExpression><![CDATA[$P{lan}]]></textFieldExpression>
                 </textField>
             </elementGroup>
 
@@ -165,7 +165,7 @@
                         <rightPen lineWidth="0.75" lineColor="#000000"/>
                     </box>
                     <textElement verticalAlignment="Top"><font fontName="SansSerif" size="11"/></textElement>
-                    <textFieldExpression><![CDATA[$F{mobile}]]></textFieldExpression>
+                    <textFieldExpression><![CDATA[$P{mobile}]]></textFieldExpression>
                 </textField>
             </elementGroup>
 
@@ -189,7 +189,7 @@
                         <rightPen lineWidth="0.75" lineColor="#000000"/>
                     </box>
                     <textElement verticalAlignment="Top"><font fontName="SansSerif" size="11"/></textElement>
-                    <textFieldExpression><![CDATA[$F{applicantVisited}]]></textFieldExpression>
+                    <textFieldExpression><![CDATA[$P{applicantVisited}]]></textFieldExpression>
                 </textField>
             </elementGroup>
 
@@ -213,7 +213,7 @@
                         <rightPen lineWidth="0.75" lineColor="#000000"/>
                     </box>
                     <textElement verticalAlignment="Top"><font fontName="SansSerif" size="11"/></textElement>
-                    <textFieldExpression><![CDATA[$F{metBorrower}]]></textFieldExpression>
+                    <textFieldExpression><![CDATA[$P{metBorrower}]]></textFieldExpression>
                 </textField>
             </elementGroup>
 
@@ -237,7 +237,7 @@
                         <rightPen lineWidth="0.75" lineColor="#000000"/>
                     </box>
                     <textElement verticalAlignment="Top"><font fontName="SansSerif" size="11"/></textElement>
-                    <textFieldExpression><![CDATA[$F{endUseAsPerApplication}]]></textFieldExpression>
+                    <textFieldExpression><![CDATA[$P{endUseAsPerApplication}]]></textFieldExpression>
                 </textField>
             </elementGroup>
 
@@ -261,7 +261,7 @@
                         <rightPen lineWidth="0.75" lineColor="#000000"/>
                     </box>
                     <textElement verticalAlignment="Top"><font fontName="SansSerif" size="11"/></textElement>
-                    <textFieldExpression><![CDATA[$F{endUseAsPerVisit}]]></textFieldExpression>
+                    <textFieldExpression><![CDATA[$P{endUseAsPerVisit}]]></textFieldExpression>
                 </textField>
             </elementGroup>
 
@@ -285,7 +285,7 @@
                         <rightPen lineWidth="0.75" lineColor="#000000"/>
                     </box>
                     <textElement verticalAlignment="Top"><font fontName="SansSerif" size="11"/></textElement>
-                    <textFieldExpression><![CDATA[$F{fundsUtilized}]]></textFieldExpression>
+                    <textFieldExpression><![CDATA[$P{fundsUtilized}]]></textFieldExpression>
                 </textField>
             </elementGroup>
 
@@ -309,7 +309,7 @@
                         <rightPen lineWidth="0.75" lineColor="#000000"/>
                     </box>
                     <textElement verticalAlignment="Top"><font fontName="SansSerif" size="11"/></textElement>
-                    <textFieldExpression><![CDATA[$F{remark}]]></textFieldExpression>
+                    <textFieldExpression><![CDATA[$P{remark}]]></textFieldExpression>
                 </textField>
             </elementGroup>
 
@@ -331,21 +331,21 @@
             <textField isStretchWithOverflow="true" isBlankWhenNull="true">
                 <reportElement x="0" y="28" width="515" height="18" uuid="e0000000-0000-0000-0000-000000000002"/>
                 <textElement><font fontName="SansSerif" size="11"/></textElement>
-                <textFieldExpression><![CDATA["Latitude: " + ($F{latitude} == null ? "" : $F{latitude}) + "    Longitude: " + ($F{longitude} == null ? "" : $F{longitude})]]></textFieldExpression>
+                <textFieldExpression><![CDATA["Latitude: " + ($P{latitude} == null ? "" : $P{latitude}) + "    Longitude: " + ($P{longitude} == null ? "" : $P{longitude})]]></textFieldExpression>
             </textField>
 
             <!-- Employee ID -->
             <textField isStretchWithOverflow="true" isBlankWhenNull="true">
                 <reportElement x="0" y="52" width="515" height="18" uuid="e0000000-0000-0000-0000-000000000003"/>
                 <textElement><font fontName="SansSerif" size="11"/></textElement>
-                <textFieldExpression><![CDATA["Employee ID : " + ($F{employeeId} == null ? "" : $F{employeeId})]]></textFieldExpression>
+                <textFieldExpression><![CDATA["Employee ID : " + ($P{employeeId} == null ? "" : $P{employeeId})]]></textFieldExpression>
             </textField>
 
             <!-- Employee Name -->
             <textField isStretchWithOverflow="true" isBlankWhenNull="true">
                 <reportElement x="0" y="72" width="515" height="18" uuid="e0000000-0000-0000-0000-000000000004"/>
                 <textElement><font fontName="SansSerif" size="11"/></textElement>
-                <textFieldExpression><![CDATA["Employee Name : " + ($F{employeeName} == null ? "" : $F{employeeName})]]></textFieldExpression>
+                <textFieldExpression><![CDATA["Employee Name : " + ($P{employeeName} == null ? "" : $P{employeeName})]]></textFieldExpression>
             </textField>
 
             <!-- Dynamic images list -->
@@ -356,7 +356,7 @@
                          printOrder="Vertical"
                          ignoreWidth="false">
                     <datasetRun subDataset="ImagesDataset" uuid="e0000000-0000-0000-0000-000000000006">
-                        <dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{imageUrls})]]></dataSourceExpression>
+                        <dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{imageUrls})]]></dataSourceExpression>
                     </datasetRun>
                     <jr:listContents height="170" width="250">
                         <image scaleImage="RetainShape" hAlign="Center" vAlign="Middle" onErrorType="Blank" isUsingCache="true">
