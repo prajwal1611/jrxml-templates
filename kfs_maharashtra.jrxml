@@ -2,6 +2,8 @@
 <!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="KFS_Marathi" pageWidth="595" pageHeight="842" columnWidth="495" leftMargin="50" rightMargin="50" topMargin="40" bottomMargin="40" uuid="a1a2b3c4-d5e6-7890-abcd-500000000001">
 	<property name="net.sf.jasperreports.print.keep.full.text" value="true"/>
+	<property name="net.sf.jasperreports.default.pdf.encoding" value="Identity-H"/>
+	<property name="net.sf.jasperreports.default.pdf.embedded" value="true"/>
 	<style name="T" fontName="Noto Sans Devanagari" fontSize="10"/>
 	<style name="TB" fontName="Noto Sans Devanagari" fontSize="10" isBold="true"/>
 	<style name="TC" fontName="Noto Sans Devanagari" fontSize="10">
@@ -314,7 +316,7 @@
 				<textFieldExpression><![CDATA[$P{repaymentDate}]]></textFieldExpression>
 			</textField>
 		</band>
-		<band height="20" splitType="Stretch">
+		<band height="20" splitType="Prevent">
 			<frame>
 				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="f493914e-9044-4d44-9485-a95e19701bc2"/>
 				<textField textAdjust="StretchHeight">
@@ -362,33 +364,179 @@
 				</textField>
 			</frame>
 		</band>
-		<band height="20" splitType="Stretch">
+		<band height="40" splitType="Prevent">
 			<frame>
-				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="cb977fa5-6190-4307-b34f-0f1897f9b34c"/>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="40" uuid="c1500001-0000-0000-0000-000000000001"/>
 				<textField textAdjust="StretchHeight">
-					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="3c4e0342-498d-44df-8d0a-4d2f2458d394"/>
+					<reportElement style="TCB" stretchType="ContainerHeight" x="0" y="0" width="62" height="40" uuid="c1500001-0000-0000-0000-000000000002"/>
 					<textElement textAlignment="Center" verticalAlignment="Top">
-						<font fontName="Noto Sans Devanagari" size="10" isBold="false"/>
+						<font fontName="Noto Sans Devanagari" size="8" isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[""]]></textFieldExpression>
+					<textFieldExpression><![CDATA["संदर्भ बेंचमार्क"]]></textFieldExpression>
 				</textField>
 				<textField textAdjust="StretchHeight">
-					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="240" height="20" uuid="b1f4b4ee-9c5c-4191-937e-f8ab39381fb9"/>
-					<textElement textAlignment="Left" verticalAlignment="Top">
-						<font fontName="Noto Sans Devanagari" size="10" isBold="false"/>
-						<paragraph leftIndent="3"/>
+					<reportElement style="TCB" stretchType="ContainerHeight" x="62" y="0" width="62" height="40" uuid="c1500001-0000-0000-0000-000000000003"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["बेंचमार्क रेट (%) (B)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TCB" stretchType="ContainerHeight" x="124" y="0" width="62" height="40" uuid="c1500001-0000-0000-0000-000000000004"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["स्प्रेड (%) (S)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TCB" stretchType="ContainerHeight" x="186" y="0" width="62" height="40" uuid="c1500001-0000-0000-0000-000000000005"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["अंतिम रेट (%) R = (B) + (S)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TCB" stretchType="ContainerHeight" x="248" y="0" width="124" height="40" uuid="c1500001-0000-0000-0000-000000000006"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["नियतकालिकता रीसेट (महीने)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TCB" stretchType="ContainerHeight" x="372" y="0" width="123" height="40" uuid="c1500001-0000-0000-0000-000000000007"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["संदर्भ बेंचमार्कमधील बदलाचा प्रभाव ('R' मध्ये 25 bps बदलासाठी, पुढील मधील बदल:)"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Prevent">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="c1500002-0000-0000-0000-000000000001"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="62" height="20" uuid="c1500002-0000-0000-0000-000000000002"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="62" y="0" width="62" height="20" uuid="c1500002-0000-0000-0000-000000000003"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="124" y="0" width="62" height="20" uuid="c1500002-0000-0000-0000-000000000004"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="186" y="0" width="62" height="20" uuid="c1500002-0000-0000-0000-000000000005"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="248" y="0" width="62" height="20" uuid="c1500002-0000-0000-0000-000000000006"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["B"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="310" y="0" width="62" height="20" uuid="c1500002-0000-0000-0000-000000000007"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["S"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="372" y="0" width="62" height="20" uuid="c1500002-0000-0000-0000-000000000008"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["EPI (₹)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="434" y="0" width="61" height="20" uuid="c1500002-0000-0000-0000-000000000009"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["No. of EPIs"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Prevent">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="c1500003-0000-0000-0000-000000000001"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="62" height="20" uuid="c1500003-0000-0000-0000-000000000002"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="8"/>
 					</textElement>
 					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
 				</textField>
 				<textField textAdjust="StretchHeight">
-					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="225" height="20" uuid="924bf660-4f83-4173-865a-857b001aa948"/>
-					<textElement textAlignment="Left" verticalAlignment="Top">
-						<font fontName="Noto Sans Devanagari" size="10"/>
-						<paragraph leftIndent="3"/>
+					<reportElement style="TC" stretchType="ContainerHeight" x="62" y="0" width="62" height="20" uuid="c1500003-0000-0000-0000-000000000003"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="124" y="0" width="62" height="20" uuid="c1500003-0000-0000-0000-000000000004"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="186" y="0" width="62" height="20" uuid="c1500003-0000-0000-0000-000000000005"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="248" y="0" width="62" height="20" uuid="c1500003-0000-0000-0000-000000000006"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="310" y="0" width="62" height="20" uuid="c1500003-0000-0000-0000-000000000007"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="372" y="0" width="62" height="20" uuid="c1500003-0000-0000-0000-000000000008"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="434" y="0" width="61" height="20" uuid="c1500003-0000-0000-0000-000000000009"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="8"/>
 					</textElement>
 					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
 				</textField>
 			</frame>
+		</band>
+		<band height="1" splitType="Stretch">
+			<break>
+				<reportElement x="0" y="0" width="495" height="1" uuid="c3500001-0000-0000-0000-000000000001"/>
+			</break>
 		</band>
 		<band height="20" splitType="Stretch">
 			<frame>
@@ -407,6 +555,79 @@
 						<paragraph leftIndent="3"/>
 					</textElement>
 					<textFieldExpression><![CDATA["फी/ शुल्क"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Prevent">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="c2500001-0000-0000-0000-000000000001"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="130" height="20" uuid="c2500001-0000-0000-0000-000000000002"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TCB" stretchType="ContainerHeight" x="130" y="0" width="140" height="20" uuid="c2500001-0000-0000-0000-000000000003"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["कंपनीमध्ये पेयेबल (A)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TCB" stretchType="ContainerHeight" x="270" y="0" width="225" height="20" uuid="c2500001-0000-0000-0000-000000000004"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["कंपनीद्वारे तृतीय पक्षाला पेयेबल (B)"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="30" splitType="Prevent">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="30" uuid="c2500002-0000-0000-0000-000000000001"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="30" uuid="c2500002-0000-0000-0000-000000000002"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="100" height="30" uuid="c2500002-0000-0000-0000-000000000003"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="130" y="0" width="60" height="30" uuid="c2500002-0000-0000-0000-000000000004"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["एक-वेळ/ आवर्ती"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="190" y="0" width="80" height="30" uuid="c2500002-0000-0000-0000-000000000005"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["रक्कम (₹ मध्ये) किंवा टक्के (%) लागू असेल त्याप्रमाणे"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="60" height="30" uuid="c2500002-0000-0000-0000-000000000006"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["एक-वेळ/ आवर्ती"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="330" y="0" width="165" height="30" uuid="c2500002-0000-0000-0000-000000000007"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["रक्कम (₹ मध्ये) किंवा टक्के (%) लागू असेल त्याप्रमाणे"]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>
@@ -838,7 +1059,7 @@
 				</textField>
 			</frame>
 		</band>
-		<band height="20" splitType="Stretch">
+		<band height="20" splitType="Prevent">
 			<frame>
 				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="15a63bf4-eac5-4a17-8eeb-a73706a34726"/>
 				<textField textAdjust="StretchHeight">
@@ -1440,7 +1661,7 @@
 				</frame>
 			</frame>
 		</band>
-		<band height="20" splitType="Stretch">
+		<band height="20" splitType="Prevent">
 			<frame>
 				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="e8a3a4c5-3387-4acf-8953-3b5e4f303a52"/>
 				<textField textAdjust="StretchHeight">
@@ -1468,7 +1689,7 @@
 				</textField>
 			</frame>
 		</band>
-		<band height="20" splitType="Stretch">
+		<band height="20" splitType="Prevent">
 			<frame>
 				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="b0ad304a-f821-491c-8777-f6d977467bdc"/>
 				<textField textAdjust="StretchHeight">
@@ -2174,7 +2395,7 @@
 				</jr:table>
 			</componentElement>
 		</band>
-		<band height="40" splitType="Stretch">
+		<band height="40" splitType="Prevent">
 			<textField textAdjust="StretchHeight">
 				<reportElement style="T" positionType="Float" x="0" y="2" width="495" height="38" uuid="a956d012-bc05-4a0c-9a46-7b73fcccded4"/>
 				<textElement textAlignment="Justified">
