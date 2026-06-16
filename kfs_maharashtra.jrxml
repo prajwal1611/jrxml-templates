@@ -316,7 +316,7 @@
 				<textFieldExpression><![CDATA[$P{repaymentDate}]]></textFieldExpression>
 			</textField>
 		</band>
-		<band height="20" splitType="Prevent">
+		<band height="20" splitType="Stretch">
 			<frame>
 				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="f493914e-9044-4d44-9485-a95e19701bc2"/>
 				<textField textAdjust="StretchHeight">
@@ -335,7 +335,7 @@
 					<textFieldExpression><![CDATA["लागू व्याज दर (%) आणि प्रकार (स्थिर किंवा बदलता किंवा संकरित) [लागू व्याज दर हा कर्ज मंजुरीच्या वेळी मूल्यांकन केलेल्या कर्जदाराच्या जोखीम प्रोफाइलच्या आधारावर निर्धारित करण्यात आला आहे. कंपनीचे व्याज दर धोरण, ज्यामध्ये दरांची श्रेणी आणि जोखीम-आधारित श्रेणीकरण मापदंडांचा समावेश आहे, ते कंपनीच्या www.sarvagram.com या वेबसाइटवर उपलब्ध आहे.]"]]></textFieldExpression>
 				</textField>
 				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
-					<reportElement style="TC" x="270" y="0" width="225" height="20" uuid="22c6a025-543d-486b-b418-e24674494b8a"/>
+					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="225" height="20" uuid="22c6a025-543d-486b-b418-e24674494b8a"/>
 					<textElement textAlignment="Left" verticalAlignment="Top">
 						<font fontName="Noto Sans Devanagari" size="10"/>
 						<paragraph leftIndent="3"/>
@@ -1325,6 +1325,9 @@
 			</frame>
 		</band>
 		<band height="25" splitType="Stretch">
+			<break>
+				<reportElement x="0" y="0" width="495" height="1" uuid="b3a40003-0000-0000-0000-500000000301"/>
+			</break>
 			<textField>
 				<reportElement style="TB" positionType="Float" x="0" y="5" width="495" height="18" uuid="49041ffd-d15c-4cce-ba1f-a01939e72089"/>
 				<textElement textAlignment="Center">
@@ -1661,7 +1664,7 @@
 				</frame>
 			</frame>
 		</band>
-		<band height="20" splitType="Prevent">
+		<band height="20" splitType="Stretch">
 			<frame>
 				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="e8a3a4c5-3387-4acf-8953-3b5e4f303a52"/>
 				<textField textAdjust="StretchHeight">
@@ -1689,7 +1692,7 @@
 				</textField>
 			</frame>
 		</band>
-		<band height="20" splitType="Prevent">
+		<band height="20" splitType="Stretch">
 			<frame>
 				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="b0ad304a-f821-491c-8777-f6d977467bdc"/>
 				<textField textAdjust="StretchHeight">
