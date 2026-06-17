@@ -1080,6 +1080,9 @@
 			</frame>
 		</band>
 		<band height="25" splitType="Stretch">
+			<break>
+				<reportElement x="0" y="0" width="495" height="1" uuid="b3a40002-0000-0000-0000-500000000201"/>
+			</break>
 			<textField>
 				<reportElement style="TB" positionType="Float" x="0" y="5" width="495" height="18" uuid="97f85579-8af6-4e9b-9607-7f8dca6ca9a7"/>
 				<textElement textAlignment="Center">
@@ -1104,7 +1107,7 @@
 						<font fontName="Noto Sans Devanagari" size="10" isBold="false"/>
 						<paragraph leftIndent="3"/>
 					</textElement>
-					<textFieldExpression><![CDATA["रिकव्हरी एजंटच्या सहभागाशी संबंधित कलम"]]></textFieldExpression>
+					<textFieldExpression><![CDATA["रिकव्हरी एजंटच्या सहभागाशी संबंधित असलेले कर्ज कराराचे कलम"]]></textFieldExpression>
 				</textField>
 				<textField textAdjust="StretchHeight">
 					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="225" height="20" uuid="44b6d496-63cb-463a-9dde-2d7d680f5535"/>
@@ -1132,7 +1135,7 @@
 						<font fontName="Noto Sans Devanagari" size="10" isBold="false"/>
 						<paragraph leftIndent="3"/>
 					</textElement>
-					<textFieldExpression><![CDATA["तक्रार निवारण यंत्रणेचा तपशील देणारे कलम"]]></textFieldExpression>
+					<textFieldExpression><![CDATA["कर्ज कराराचे कलम जे तक्रार निवारण यंत्रणेचा तपशील देते"]]></textFieldExpression>
 				</textField>
 				<textField textAdjust="StretchHeight">
 					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="225" height="20" uuid="79c39f08-bbe4-43fa-ba7a-8dae68c9b30c"/>
@@ -1160,7 +1163,7 @@
 						<font fontName="Noto Sans Devanagari" size="10" isBold="false"/>
 						<paragraph leftIndent="3"/>
 					</textElement>
-					<textFieldExpression><![CDATA["नोडल/तक्रार निवारण अधिकारी"]]></textFieldExpression>
+					<textFieldExpression><![CDATA["नोडल/ तक्रार निवारण अधिकाऱ्याचा फोन नंबर आणि ईमेल आयडी"]]></textFieldExpression>
 				</textField>
 				<textField textAdjust="StretchHeight">
 					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="225" height="20" uuid="81983d1e-5b28-4fae-abd5-e51eba426c05"/>
@@ -1168,7 +1171,7 @@
 						<font fontName="Noto Sans Devanagari" size="10"/>
 						<paragraph leftIndent="3"/>
 					</textElement>
-					<textFieldExpression><![CDATA["कुमारी अश्विनी पुजारी\nपद: तक्रार निवारण अधिकारी\n+91 8101777555\nपत्ता: प्रमुख प्लाझा, बी विंग, 603, अंधेरी (ई), मुंबई – 400099\nईमेल: care@sarvagram.com / ashwini.pujari@sarvagram.com"]]></textFieldExpression>
+					<textFieldExpression><![CDATA["कुमारी अश्विनी पुजारी\nपद: तक्रार निवारण अधिकारी\n+91 8101777555\nपत्ता: प्रमुख प्लाझा, बी विंग, 603, चकाला, अंधेरी (ई), मुंबई – 400099, महाराष्ट्र\nईमेल: care@sarvagram.com / ashwini.pujari@sarvagram.com"]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>
@@ -1188,7 +1191,7 @@
 						<font fontName="Noto Sans Devanagari" size="10" isBold="false"/>
 						<paragraph leftIndent="3"/>
 					</textElement>
-					<textFieldExpression><![CDATA["कर्ज सिक्युरिटायझेशनच्या अधीन"]]></textFieldExpression>
+					<textFieldExpression><![CDATA["कर्ज आता किंवा भविष्यात, इतर REs किंवा सिक्युरिटायझेशनच्या अधीन असेल (होय/नाही)"]]></textFieldExpression>
 				</textField>
 				<textField textAdjust="StretchHeight">
 					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="225" height="20" uuid="85caf7eb-b72a-49d4-995d-ce9f4319e45c"/>
@@ -1216,7 +1219,7 @@
 						<font fontName="Noto Sans Devanagari" size="10" isBold="false"/>
 						<paragraph leftIndent="3"/>
 					</textElement>
-					<textFieldExpression><![CDATA["सहयोगी कर्ज व्यवस्थेअंतर्गत तपशील:"]]></textFieldExpression>
+					<textFieldExpression><![CDATA["सहयोगी कर्ज व्यवस्थेअंतर्गत कर्ज देण्याच्या बाबतीत (उदा. सह-कर्ज/आउटसोर्सिंग), पुढील अतिरिक्त तपशील सादर केले जाऊ शकतात:"]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>
@@ -1224,27 +1227,57 @@
 			<frame>
 				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="1ffed7fa-6ee1-48c1-8e91-149d127bbf49"/>
 				<textField textAdjust="StretchHeight">
-					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="11161cf7-7c6b-473b-9c60-478555caa609"/>
-					<textElement textAlignment="Center" verticalAlignment="Top">
-						<font fontName="Noto Sans Devanagari" size="10" isBold="false"/>
-					</textElement>
-					<textFieldExpression><![CDATA[""]]></textFieldExpression>
-				</textField>
-				<textField textAdjust="StretchHeight">
-					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="240" height="20" uuid="6d4b8845-c973-4d6a-ab4b-8cdadc5dac5d"/>
+					<reportElement style="TCB" stretchType="ContainerHeight" x="0" y="0" width="165" height="20" uuid="11161cf7-7c6b-473b-9c60-478555caa609"/>
 					<textElement textAlignment="Left" verticalAlignment="Top">
-						<font fontName="Noto Sans Devanagari" size="10" isBold="false"/>
+						<font fontName="Noto Sans Devanagari" size="9" isBold="true"/>
 						<paragraph leftIndent="3"/>
 					</textElement>
-					<textFieldExpression><![CDATA["मूळ RE / भागीदार RE / मिश्रित व्याज दर"]]></textFieldExpression>
+					<textFieldExpression><![CDATA["मूळ REचे नाव, त्याच्या निधीच्या प्रमाणासह"]]></textFieldExpression>
 				</textField>
 				<textField textAdjust="StretchHeight">
-					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="225" height="20" uuid="57040474-905d-4119-9b80-c2aa4e03e1a8"/>
+					<reportElement style="TCB" stretchType="ContainerHeight" x="165" y="0" width="165" height="20" uuid="6d4b8845-c973-4d6a-ab4b-8cdadc5dac5d"/>
 					<textElement textAlignment="Left" verticalAlignment="Top">
-						<font fontName="Noto Sans Devanagari" size="10"/>
+						<font fontName="Noto Sans Devanagari" size="9" isBold="true"/>
 						<paragraph leftIndent="3"/>
 					</textElement>
-					<textFieldExpression><![CDATA["N.A. / N.A. / N.A."]]></textFieldExpression>
+					<textFieldExpression><![CDATA["भागीदार REचे नाव त्याच्या निधीच्या प्रमाणासह"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TCB" stretchType="ContainerHeight" x="330" y="0" width="165" height="20" uuid="57040474-905d-4119-9b80-c2aa4e03e1a8"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="9" isBold="true"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["मिश्रित व्याज दर"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="1ffed7fb-6ee1-48c1-8e91-149d127bbf50"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="165" height="20" uuid="11161cf8-7c6b-473b-9c60-478555caa610"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="9"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="165" y="0" width="165" height="20" uuid="6d4b8846-c973-4d6a-ab4b-8cdadc5dac5e"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="9"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="330" y="0" width="165" height="20" uuid="57040475-905d-4119-9b80-c2aa4e03e1a9"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="9"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>
@@ -1264,7 +1297,7 @@
 						<font fontName="Noto Sans Devanagari" size="10" isBold="false"/>
 						<paragraph leftIndent="3"/>
 					</textElement>
-					<textFieldExpression><![CDATA["डिजिटल कर्जाच्या बाबतीत:"]]></textFieldExpression>
+					<textFieldExpression><![CDATA["डिजिटल कर्जाच्या बाबतीत, खालील विशिष्ट खुलासे दिले जाऊ शकतात:"]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>
@@ -1284,7 +1317,7 @@
 						<font fontName="Noto Sans Devanagari" size="10" isBold="false"/>
 						<paragraph leftIndent="3"/>
 					</textElement>
-					<textFieldExpression><![CDATA["कूलिंग ऑफ/ लुक-अप कालावधी"]]></textFieldExpression>
+					<textFieldExpression><![CDATA["RE च्या बोर्डाने मंजूर केलेल्या पॉलिसीनुसार कूलिंग ऑफ/ लुक-अप कालावधी, ज्या दरम्यान कर्जदाराला कर्जाच्या प्रीपेमेंटवर कोणताही दंड आकारला जाणार नाही."]]></textFieldExpression>
 				</textField>
 				<textField textAdjust="StretchHeight">
 					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="225" height="20" uuid="9a1e1ea1-4655-47c3-bad2-cbd357b7b8b3"/>
@@ -1312,7 +1345,7 @@
 						<font fontName="Noto Sans Devanagari" size="10" isBold="false"/>
 						<paragraph leftIndent="3"/>
 					</textElement>
-					<textFieldExpression><![CDATA["रिकव्हरी एजंट LSP तपशील"]]></textFieldExpression>
+					<textFieldExpression><![CDATA["रिकव्हरी एजंट म्हणून काम करणाऱ्या आणि कर्जदाराशी संपर्क साधण्यासाठी अधिकृत असणाऱ्या LSP चे तपशील"]]></textFieldExpression>
 				</textField>
 				<textField textAdjust="StretchHeight">
 					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="225" height="20" uuid="c97d23fb-2c57-48b9-bad9-b245c0169801"/>
@@ -1773,7 +1806,7 @@
 						<font fontName="Noto Sans Devanagari" size="9" isBold="false"/>
 						<paragraph leftIndent="3"/>
 					</textElement>
-					<textFieldExpression><![CDATA["दीर्घ कालावधी (KFS – भाग 1 चे अनू. क्र 4)"]]></textFieldExpression>
+					<textFieldExpression><![CDATA["दीर्घ कालावधी (वर्ष/ महीने/ दिवसांमध्ये) (KFS  – भाग 1 चे अनू. क्र 4)"]]></textFieldExpression>
 				</textField>
 				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
 					<reportElement style="TC" x="280" y="0" width="215" height="20" uuid="7a83f287-09db-41bd-b201-a7397929aca8"/>
@@ -1801,7 +1834,7 @@
 						<font fontName="Noto Sans Devanagari" size="9" isBold="false"/>
 						<paragraph leftIndent="3"/>
 					</textElement>
-					<textFieldExpression><![CDATA["समतुल्य नियतकालिक हप्त्यांची संख्या"]]></textFieldExpression>
+					<textFieldExpression><![CDATA["समतुल्य नियतकालिक कर्जाच्या बाबतीत, मुद्दलाच्या पेमेंटसाठी हप्त्यांची संख्या"]]></textFieldExpression>
 				</textField>
 				<textField textAdjust="StretchHeight">
 					<reportElement style="TC" stretchType="ContainerHeight" x="280" y="0" width="215" height="20" uuid="c8130ec6-6a44-4146-bd48-7ffd69a1b037"/>
@@ -1829,7 +1862,7 @@
 						<font fontName="Noto Sans Devanagari" size="9" isBold="false"/>
 						<paragraph leftIndent="3"/>
 					</textElement>
-					<textFieldExpression><![CDATA["EPI चा प्रकार (KFS – भाग 1 चे अनू. क्र. 5)"]]></textFieldExpression>
+					<textFieldExpression><![CDATA["EPI चा प्रकार\nप्रत्येक EPI ची रक्कम (रुपयांमध्ये) आणि\nEPI ची संख्या (उदा., मासिक हप्त्यांच्या बाबतीत EMIची संख्या)\n(KFS – भाग 1 चे अनू. क्र. 5)"]]></textFieldExpression>
 				</textField>
 				<textField textAdjust="StretchHeight">
 					<reportElement style="TC" stretchType="ContainerHeight" x="280" y="0" width="215" height="20" uuid="83ac7e55-d617-4352-a88b-5715dfaac0d2"/>
@@ -1857,7 +1890,7 @@
 						<font fontName="Noto Sans Devanagari" size="9" isBold="false"/>
 						<paragraph leftIndent="3"/>
 					</textElement>
-					<textFieldExpression><![CDATA["भांडवली व्याज भरण्यासाठी हप्त्यांची संख्या"]]></textFieldExpression>
+					<textFieldExpression><![CDATA["भांडवली व्याज भरण्यासाठी हप्त्यांची संख्या, जर असेल तर"]]></textFieldExpression>
 				</textField>
 				<textField textAdjust="StretchHeight">
 					<reportElement style="TC" stretchType="ContainerHeight" x="280" y="0" width="215" height="20" uuid="0116535f-1faf-4352-9915-fc39c233d904"/>
@@ -1885,7 +1918,7 @@
 						<font fontName="Noto Sans Devanagari" size="9" isBold="false"/>
 						<paragraph leftIndent="3"/>
 					</textElement>
-					<textFieldExpression><![CDATA["परतफेड सुरू करणे (KFS – भाग 1 चे अनू. क्र. 5)"]]></textFieldExpression>
+					<textFieldExpression><![CDATA["परतफेड सुरू करणे, मंजुरीनंतर (KFS – भाग 1 चे अनू. क्र. 5)"]]></textFieldExpression>
 				</textField>
 				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
 					<reportElement style="TC" x="280" y="0" width="215" height="20" uuid="daefc41c-a0fe-4e94-853b-da3a5e33236a"/>
@@ -1913,7 +1946,7 @@
 						<font fontName="Noto Sans Devanagari" size="9" isBold="false"/>
 						<paragraph leftIndent="3"/>
 					</textElement>
-					<textFieldExpression><![CDATA["व्याजदराचा प्रकार (KFS – भाग 1 चे अनू. क्र. 6)"]]></textFieldExpression>
+					<textFieldExpression><![CDATA["व्याजदराचा प्रकार (निश्चित, फ्लोटिंग किंवा हायब्रीड) (KFS – भाग 1 चे अनू. क्र. 6)"]]></textFieldExpression>
 				</textField>
 				<textField textAdjust="StretchHeight">
 					<reportElement style="TC" stretchType="ContainerHeight" x="280" y="0" width="215" height="20" uuid="e4e56b89-8caf-4fc9-aade-6f2b94803083"/>
@@ -1969,7 +2002,7 @@
 						<font fontName="Noto Sans Devanagari" size="9" isBold="false"/>
 						<paragraph leftIndent="3"/>
 					</textElement>
-					<textFieldExpression><![CDATA["एकूण व्याजाची रक्कम (रुपयामध्ये)"]]></textFieldExpression>
+					<textFieldExpression><![CDATA["कर्जाच्या संपूर्ण कालावधीत मंजूरीच्या तारखेला प्रचलित असलेल्या दरानुसार आकारण्यात येणारी एकूण व्याजाची रक्कम (रुपयामध्ये)"]]></textFieldExpression>
 				</textField>
 				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
 					<reportElement style="TC" x="280" y="0" width="215" height="20" uuid="1b574833-fee3-40c7-8727-56bd1b87a6e9"/>
@@ -2053,7 +2086,7 @@
 						<font fontName="Noto Sans Devanagari" size="9" isBold="false"/>
 						<paragraph leftIndent="3"/>
 					</textElement>
-					<textFieldExpression><![CDATA["तृतीय पक्षाला पेयेबल (KFS – भाग 1चे अनू. क्र. 8B)"]]></textFieldExpression>
+					<textFieldExpression><![CDATA["RE च्या माध्यमातून तृतीय पक्षाला पेयेबल (KFS – भाग 1चे अनू. क्र. 8B)"]]></textFieldExpression>
 				</textField>
 				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
 					<reportElement style="TC" x="280" y="0" width="215" height="20" uuid="d14d294a-cd2e-4f6d-bee0-9ec0f25453a0"/>
