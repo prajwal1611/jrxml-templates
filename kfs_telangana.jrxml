@@ -1,0 +1,2420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="KFS_Telugu" pageWidth="595" pageHeight="842" columnWidth="495" leftMargin="50" rightMargin="50" topMargin="40" bottomMargin="40" uuid="a1a2b3c4-d5e6-7890-abcd-500000000001">
+	<property name="net.sf.jasperreports.print.keep.full.text" value="true"/>
+	<property name="net.sf.jasperreports.default.pdf.encoding" value="Identity-H"/>
+	<property name="net.sf.jasperreports.default.pdf.embedded" value="true"/>
+	<style name="T" fontName="Noto Sans Telugu" fontSize="10"/>
+	<style name="TB" fontName="Noto Sans Telugu" fontSize="10" isBold="true"/>
+	<style name="TC" fontName="Noto Sans Telugu" fontSize="10">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="TCB" fontName="Noto Sans Telugu" fontSize="10" isBold="true">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="CoApplicantDS" uuid="d1500001-0000-0000-0000-500000000002">
+		<field name="applicantName" class="java.lang.String"/>
+		<field name="address" class="java.lang.String"/>
+		<field name="mobile" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="CollateralDS" uuid="d1500002-0000-0000-0000-500000000003">
+		<field name="ownerName" class="java.lang.String"/>
+		<field name="propertyAddress" class="java.lang.String"/>
+		<field name="totalAmount" class="java.lang.String"/>
+		<field name="mobile" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="CollateralSecurityDS" uuid="d1500006-0000-0000-0000-500000000007">
+		<field name="ownerName" class="java.lang.String"/>
+		<field name="propertyAddress" class="java.lang.String"/>
+		<field name="totalAmount" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="TrancheCondDS" uuid="d1500003-0000-0000-0000-500000000004">
+		<field name="condition" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="TrancheDetailDS" uuid="d1500004-0000-0000-0000-500000000005">
+		<field name="trancheNumber" class="java.lang.String"/>
+		<field name="trancheAmount" class="java.lang.String"/>
+		<field name="trancheCondition" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="InstallmentDS" uuid="d1500005-0000-0000-0000-500000000006">
+		<field name="installmentNo" class="java.lang.String"/>
+		<field name="principalOutstanding" class="java.lang.String"/>
+		<field name="principalDue" class="java.lang.String"/>
+		<field name="interestDue" class="java.lang.String"/>
+		<field name="installmentAmount" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="lan" class="java.lang.String"/>
+	<parameter name="loanType" class="java.lang.String"/>
+	<parameter name="amount" class="java.lang.String"/>
+	<parameter name="amountText" class="java.lang.String"/>
+	<parameter name="tenure" class="java.lang.String"/>
+	<parameter name="frequency" class="java.lang.String"/>
+	<parameter name="emi" class="java.lang.String"/>
+	<parameter name="emiAmountText" class="java.lang.String"/>
+	<parameter name="repaymentDate" class="java.lang.String"/>
+	<parameter name="roi" class="java.lang.String"/>
+	<parameter name="processingFee" class="java.lang.String"/>
+	<parameter name="insurance" class="java.lang.String"/>
+	<parameter name="valuationFee" class="java.lang.String"/>
+	<parameter name="legalCharges" class="java.lang.String"/>
+	<parameter name="stampDuty" class="java.lang.String"/>
+	<parameter name="aprPercentage" class="java.lang.String"/>
+	<parameter name="totalInterestAmount" class="java.lang.String"/>
+	<parameter name="rePayable" class="java.lang.String"/>
+	<parameter name="reThirdPartyPayable" class="java.lang.String"/>
+	<parameter name="netDisbursementAmount" class="java.lang.String"/>
+	<parameter name="borrowerAmount" class="java.lang.String"/>
+	<parameter name="bouncingCharges" class="java.lang.String"/>
+	<parameter name="applicantName" class="java.lang.String"/>
+	<parameter name="appplicantAddress" class="java.lang.String"/>
+	<parameter name="mobile" class="java.lang.String"/>
+	<parameter name="loanPurpose" class="java.lang.String"/>
+	<parameter name="title" class="java.lang.String"/>
+	<parameter name="otherDeductions" class="java.lang.String"/>
+	<parameter name="emiDate" class="java.lang.String"/>
+	<parameter name="date" class="java.lang.String"/>
+	<parameter name="officeAddress" class="java.lang.String"/>
+	<parameter name="CoApplicantDetailListDS" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<parameter name="CollateralListDS" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<parameter name="CollateralSecurityListDS" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<parameter name="TrancheConditionsDS" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<parameter name="TrancheDetailsDS" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<parameter name="InstallmentsDS" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<title>
+		<band height="55">
+			<textField>
+				<reportElement style="TB" x="0" y="0" width="495" height="18" uuid="9964f81b-0a85-4822-bbb6-ed38b90a6995"/>
+				<textElement textAlignment="Center">
+					<font fontName="Noto Sans Telugu" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["షెడ్యూల్ I"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TB" x="0" y="18" width="495" height="18" uuid="885e114b-e342-47b7-96cc-6d4b0de88b19"/>
+				<textElement textAlignment="Center">
+					<font fontName="Noto Sans Telugu" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["కీ ఫ్యాక్ట్ స్టేట్‍మెంట్"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TB" x="0" y="36" width="495" height="18" uuid="8249d591-de0e-4200-b37e-7cf988d04e46"/>
+				<textElement textAlignment="Center">
+					<font fontName="Noto Sans Telugu" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["పార్ట్ 1 (వడ్డీ రేటు మరియు ఫీజులు/ఛార్జీలు)"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="9715b737-2ba0-43c2-aec4-7d111573e841"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TCB" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="0175ea7d-51ff-4afa-a540-dc44f20510b3"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["1"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="120" height="20" uuid="587ff373-ef1a-408a-8e66-c16c4104608c"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["రుణ ప్రతిపాదన/ ఖాతా సంఖ్య"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" stretchType="ContainerHeight" x="150" y="0" width="95" height="20" uuid="388d675b-5579-45c3-a873-8fbc4b5eebdf"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{lan}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TCB" stretchType="ContainerHeight" x="245" y="0" width="120" height="20" uuid="c3ee89fa-a393-4224-a3ad-51316d1b9263"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="true"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Type of Loan"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" stretchType="ContainerHeight" x="365" y="0" width="130" height="20" uuid="7234870b-93ba-45b6-a3cf-6d80b26a5459"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{loanType}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="dcfa3659-f7f9-4014-baca-2d41c41b6b8e"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="549f76b2-ab27-4695-a4f2-461e751b020a"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["2"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="240" height="20" uuid="24102f6e-9ffb-4a79-8138-01dc196f372b"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="true"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["మంజూరు చేసిన రుణ మొత్తం (రూపాయిలలో)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" x="270" y="0" width="225" height="20" uuid="a3b8b719-8aff-4221-9d5d-d423be707bcb"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{amount}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="ce997e15-b80e-4527-9cec-ea04b6664c23"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="7eb6e5b2-359b-471e-be42-3e183000ed79"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["3"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="240" height="20" uuid="7a4ebb6b-06cf-4073-90f6-44ff5cc5efd1"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["పంపిణీ షెడ్యూల్\n(i) డిస్బర్సుమెంట్ దశల్లో లేదా 100% ముందస్తు.\n(ii) ఇది దశలవారీగా ఉంటే, సంబంధిత వివరాలను కలిగి ఉన్న రుణ ఒప్పందం యొక్క నిబంధనను పేర్కొనండి"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="225" height="20" uuid="64782983-4f9e-4519-a6e2-7167791c3820"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["దిగువ పార్ట్ 3(vii) లో అందించిన విధంగా."]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="8e6e8f06-c357-48ea-92aa-27c9b9eef7cf"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="eb653fb2-d073-4cdd-996d-6ae56b710b35"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["4"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="240" height="20" uuid="a1f9266f-d125-45b3-a87e-c00f04c97344"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="true"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["రుణ వ్యవధి (సంవత్సరం/నెలలు/రోజులు)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" x="270" y="0" width="225" height="20" uuid="057f839b-43c0-4f29-ad4e-d59839cd8401"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{tenure} + " నెలలు"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="33e41161-149b-4808-8715-f9efc491d204"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="76b40f17-8c94-4adf-8688-11035fe6d60f"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["5"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="465" height="20" uuid="ed164af1-2c14-425c-99d4-4643f8a91bd0"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="true"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["వాయిదాల వివరాలు"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="40" splitType="Stretch">
+			<textField textAdjust="StretchHeight">
+				<reportElement style="TCB" x="0" y="0" width="124" height="20" uuid="b407f84d-c364-449c-bf3a-57996e6c2ac2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Noto Sans Telugu" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["వాయిదాల రకం"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement style="TCB" x="124" y="0" width="124" height="20" uuid="21419dd5-d5e9-418e-a287-01ccc0db5cbc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Noto Sans Telugu" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["EPIలు/ EMIల సంఖ్య"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement style="TCB" x="248" y="0" width="124" height="20" uuid="333a5385-2286-463a-b510-ff44e7259b08"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Noto Sans Telugu" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["EPI/ EMI (₹)"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement style="TCB" x="372" y="0" width="123" height="20" uuid="b3f32357-22f4-4df3-8d7c-3db4f7391d8a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Noto Sans Telugu" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["మంజూరు తరువాత, తిరిగి చెల్లింపు చేయడం"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="TC" x="0" y="20" width="124" height="20" uuid="fc67bb77-0b8b-48bd-b5cd-84ac2d3fdfe2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Noto Sans Telugu" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{frequency}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="TC" x="124" y="20" width="124" height="20" uuid="26fe4ef4-15ca-466e-b556-2843a2b36d4d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Noto Sans Telugu" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tenure}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="TC" x="248" y="20" width="124" height="20" uuid="c635fa05-43a0-46ce-9d33-d67ddc88a0e0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Noto Sans Telugu" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{emi}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="TC" x="372" y="20" width="123" height="20" uuid="9618259e-8c7e-4097-a7b6-5d69c2b89614"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Noto Sans Telugu" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{repaymentDate}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="f493914e-9044-4d44-9485-a95e19701bc2"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="8aa30295-254e-4af4-bb29-38f6baa76091"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["6"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="240" height="20" uuid="95afec15-59b1-496d-aaa8-65db6ccd36c3"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["వర్తించే వడ్డీ రేటు (%) మరియు Type (ఫిక్స్‌డ్ లేదా ఫ్లోటింగ్ లేదా హైబ్రిడ్) [వర్తించే వడ్డీ రేటు, అండర్‌రైటింగ్ సమయంలో బారోవర్ యొక్క రిస్క్ ప్రొఫైల్ ఆధారంగా నిర్ణయించబడింది. రేట్ల పరిధి మరియు రిస్క్-ఆధారిత గ్రేడేషన్ పారామీటర్‌లతో సహా కంపెనీ యొక్క వడ్డీ రేటు విధానం, కంపెనీ వెబ్‌సైట్ www.sarvagram.comలో అందుబాటులో ఉంది.]"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="225" height="20" uuid="22c6a025-543d-486b-b418-e24674494b8a"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{roi} + " ఫిక్స్‌డ్"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="2124a4de-34a7-4afe-b2d7-9236591e903a"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="c57eb41f-2733-4754-b1cd-a43282e47d65"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["7"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="465" height="20" uuid="60ad8492-c3b9-4cdb-a9a7-8a72e5d5b176"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="true"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ఫ్లోటింగ్ వడ్డీ రేటు విషయంలో అదనపు సమాచారం"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="40" splitType="Prevent">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="40" uuid="c1500001-0000-0000-0000-000000000001"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TCB" stretchType="ContainerHeight" x="0" y="0" width="62" height="40" uuid="c1500001-0000-0000-0000-000000000002"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["రిఫరెన్స్ బెంచ్ ‌మార్క్"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TCB" stretchType="ContainerHeight" x="62" y="0" width="62" height="40" uuid="c1500001-0000-0000-0000-000000000003"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["బెంచ్ ‌మార్క్ రేటు (%) (B)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TCB" stretchType="ContainerHeight" x="124" y="0" width="62" height="40" uuid="c1500001-0000-0000-0000-000000000004"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["స్ప్రెడ్ (%) (లు)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TCB" stretchType="ContainerHeight" x="186" y="0" width="62" height="40" uuid="c1500001-0000-0000-0000-000000000005"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["తుది రేటు (%) R = (B) + (S)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TCB" stretchType="ContainerHeight" x="248" y="0" width="124" height="40" uuid="c1500001-0000-0000-0000-000000000006"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ఆవర్తనతను రీసెట్ చేయండి (నెలలు)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TCB" stretchType="ContainerHeight" x="372" y="0" width="123" height="40" uuid="c1500001-0000-0000-0000-000000000007"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["రిఫరెన్స్ బెంచ్ మార్క్ ‌లో మార్పు ప్రభావం ('R' లో 25 bps మార్పు కోసం, మార్పులో:)"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Prevent">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="c1500002-0000-0000-0000-000000000001"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="62" height="20" uuid="c1500002-0000-0000-0000-000000000002"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="62" y="0" width="62" height="20" uuid="c1500002-0000-0000-0000-000000000003"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="124" y="0" width="62" height="20" uuid="c1500002-0000-0000-0000-000000000004"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="186" y="0" width="62" height="20" uuid="c1500002-0000-0000-0000-000000000005"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="248" y="0" width="62" height="20" uuid="c1500002-0000-0000-0000-000000000006"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["B"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="310" y="0" width="62" height="20" uuid="c1500002-0000-0000-0000-000000000007"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["S"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="372" y="0" width="62" height="20" uuid="c1500002-0000-0000-0000-000000000008"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["EPI (₹)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="434" y="0" width="61" height="20" uuid="c1500002-0000-0000-0000-000000000009"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["EPIల సంఖ్య"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Prevent">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="c1500003-0000-0000-0000-000000000001"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="62" height="20" uuid="c1500003-0000-0000-0000-000000000002"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="62" y="0" width="62" height="20" uuid="c1500003-0000-0000-0000-000000000003"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="124" y="0" width="62" height="20" uuid="c1500003-0000-0000-0000-000000000004"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="186" y="0" width="62" height="20" uuid="c1500003-0000-0000-0000-000000000005"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="248" y="0" width="62" height="20" uuid="c1500003-0000-0000-0000-000000000006"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="310" y="0" width="62" height="20" uuid="c1500003-0000-0000-0000-000000000007"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="372" y="0" width="62" height="20" uuid="c1500003-0000-0000-0000-000000000008"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="434" y="0" width="61" height="20" uuid="c1500003-0000-0000-0000-000000000009"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="1" splitType="Stretch">
+			<break>
+				<reportElement x="0" y="0" width="495" height="1" uuid="c3500001-0000-0000-0000-000000000001"/>
+			</break>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="1b2601d2-f850-4960-bdae-0bfc03035a2b"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="42ed9142-fca4-4486-bc7a-c9a8e49f832b"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["8"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="465" height="20" uuid="e6e632b0-03b3-4115-986c-30c0bb37cd75"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="true"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["రుసుము/ ఛార్జీలు"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Prevent">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="c2500001-0000-0000-0000-000000000001"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="130" height="20" uuid="c2500001-0000-0000-0000-000000000002"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TCB" stretchType="ContainerHeight" x="130" y="0" width="140" height="20" uuid="c2500001-0000-0000-0000-000000000003"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["కంపెనీకి చెల్లించవలసినది (A)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TCB" stretchType="ContainerHeight" x="270" y="0" width="225" height="20" uuid="c2500001-0000-0000-0000-000000000004"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["కంపెనీ (B) ద్వారా మూడవ పక్షానికి చెల్లించాలి"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="30" splitType="Prevent">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="30" uuid="c2500002-0000-0000-0000-000000000001"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="30" uuid="c2500002-0000-0000-0000-000000000002"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="100" height="30" uuid="c2500002-0000-0000-0000-000000000003"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="130" y="0" width="60" height="30" uuid="c2500002-0000-0000-0000-000000000004"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ఒక్కసారి/ పునరావృతం"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="190" y="0" width="80" height="30" uuid="c2500002-0000-0000-0000-000000000005"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["మొత్తం (₹ లో) లేదా శాతం (%) గా వర్తించే విధంగా"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="60" height="30" uuid="c2500002-0000-0000-0000-000000000006"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ఒక్కసారి/ పునరావృతం"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="330" y="0" width="165" height="30" uuid="c2500002-0000-0000-0000-000000000007"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["మొత్తం (₹ లో) లేదా శాతం (%) గా వర్తించే విధంగా"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="3b78a3aa-1305-4329-a3bf-db2a47a54144"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="55c3a4eb-9e52-44ca-8b90-2627da0e3a78"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA["(i)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="100" height="20" uuid="d22d4ea8-079d-4a1c-bccc-a8f1a88ff3bd"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+						<paragraph leftIndent="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ప్రాసెసింగ్ ఫీజు"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="130" y="0" width="60" height="20" uuid="5b521265-8556-44e4-92e3-978979ca1575"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ఒక్కసారి"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" stretchType="ContainerHeight" x="190" y="0" width="80" height="20" uuid="d1aeb383-caf3-41a8-b813-d4dc19088609"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{processingFee}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="60" height="20" uuid="e4f60176-09b6-405c-b3e0-f8de322a1180"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["NIL"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" stretchType="ContainerHeight" x="330" y="0" width="165" height="20" uuid="e4fe8b72-847f-4fb0-b31b-c148b0d429b2"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA["NIL"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="7606901b-c251-463a-a25a-48986ebddafe"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="e2f2b9e5-744c-4ec8-8e92-d938e1c2b838"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA["(ii)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="100" height="20" uuid="94d408b5-42b1-4607-97b8-0fdb6c77b8d1"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+						<paragraph leftIndent="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA["బీమా ఛార్జీలు"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="130" y="0" width="60" height="20" uuid="9ff0a1a7-3fce-4928-86b0-93df8085604d"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" stretchType="ContainerHeight" x="190" y="0" width="80" height="20" uuid="a363f63e-bd3f-46b5-8268-cb65e17f6173"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="60" height="20" uuid="2c2a980d-20f4-4bb8-89f2-ab883e3e71b0"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ఒక్కసారి"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" stretchType="ContainerHeight" x="330" y="0" width="165" height="20" uuid="0073f2b9-e344-43e5-bfdd-e55814ab4d9e"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{insurance}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="a6e7fae2-b749-468c-a2d9-a49ae7960e80"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="8de783da-3cbe-41d5-b839-228905dd1181"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA["(iii)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="100" height="20" uuid="fe4461c7-7604-4df4-b39b-0d9090b416f9"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+						<paragraph leftIndent="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA["వాల్యుయేషన్ ఫీజులు"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="130" y="0" width="60" height="20" uuid="cc7f5e48-c02f-490a-8aec-8dec17d293b8"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ఒక్కసారి"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" stretchType="ContainerHeight" x="190" y="0" width="80" height="20" uuid="910dd69b-2b20-4be6-9cf1-59c7a4f85c49"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{valuationFee}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="60" height="20" uuid="de23bbd5-57b2-4600-a1b4-48abea20889d"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["NIL"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" stretchType="ContainerHeight" x="330" y="0" width="165" height="20" uuid="45f011d7-8ca3-4ac0-b55e-5ec73ee55bbc"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA["NIL"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="ce2bb12f-43d8-40eb-b97a-43834858b439"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="66964017-e033-471e-9ffa-7a41c08085ad"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA["(iv)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="100" height="20" uuid="233900f2-a8e3-4cdb-b9f6-5c43f3974928"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+						<paragraph leftIndent="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ఏదైనా ఇతర (దయచేసి పేర్కొనండి) – చట్టపరమైన రుసుములు"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="130" y="0" width="60" height="20" uuid="0061cf12-a65b-40f9-b5ea-ca3b850e5ff5"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ఒక్కసారి"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" stretchType="ContainerHeight" x="190" y="0" width="80" height="20" uuid="3d2fae41-1f89-4af1-9b9b-8d7fdacb0a0c"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{legalCharges}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="60" height="20" uuid="ed021005-5ef6-4f0e-81a0-46a5310e40d0"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["NIL"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" stretchType="ContainerHeight" x="330" y="0" width="165" height="20" uuid="9fb69eae-a5df-417d-afb7-69d8329e2fdd"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA["NIL"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="5e676af8-121f-4d39-ab29-5a9b4a2272bf"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="b6bb1abb-1722-476f-8a1e-de5f31eeffc0"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA["(v)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="100" height="20" uuid="a4dca5c2-e023-4513-8a97-ce77362d6524"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+						<paragraph leftIndent="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ఏదైనా ఇతర (దయచేసి పేర్కొనండి) – స్టాంప్ డ్యూటీ ఛార్జీలు"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="130" y="0" width="60" height="20" uuid="8e40e72e-8514-4caf-83a0-163fd1cab2eb"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" stretchType="ContainerHeight" x="190" y="0" width="80" height="20" uuid="3919ec2b-f067-4414-bfa5-b1ac8a53b0f7"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="60" height="20" uuid="7167ec46-bae1-4183-b7fb-90fab9a9d6cd"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ఒక్కసారి"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" stretchType="ContainerHeight" x="330" y="0" width="165" height="20" uuid="2b065c38-c398-42bb-8ad0-665e370a6276"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{stampDuty}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="dbb0ad8f-2216-41b9-96de-b76a3e686dc5"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="4ec75b62-faf9-4560-87f9-dd0d9f0393b2"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["9"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="240" height="20" uuid="ef51f23b-7cd7-4c88-a6bb-a78823660d57"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["వార్షిక శాతం రేటు (APR) (%)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" x="270" y="0" width="225" height="20" uuid="f47f65a2-e3b0-464b-909c-e823aa51772c"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{aprPercentage}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="9c0fada0-2335-4687-9b23-ed7bf48659dd"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="3ccde0a9-0538-4ec5-bf0d-9677270f8bc5"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["10"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="465" height="20" uuid="8523b15e-3bb2-4c29-a827-84e49b5a7d8b"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="true"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ఆకస్మిక ఛార్జీల వివరాలు (వర్తించే విధంగా ₹ లేదా % లో)"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="bb67b04b-7ac3-4f6c-a3bb-f6393b621c58"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="ecc1a65b-01d7-4309-b486-355c7f1cc150"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["(i)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="240" height="20" uuid="25a46de5-a080-4454-8bd5-dd674ee1d032"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ఆలస్యం చెల్లింపు విషయంలో జరిమానా ఛార్జీలు, ఏదైనా ఉంటే"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="225" height="20" uuid="9c135ab3-e698-470c-921e-e6cf3a5bc51e"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["30% సంవత్సరానికి అదనంగా గడువు ముగిసిన అసలు మొత్తంపై వర్తించే పన్నులు"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="35e69f16-4fb9-4126-aff6-658531c00f39"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="59ac318a-abd2-416a-959d-fd3c75c109b2"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["(ii)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="240" height="20" uuid="c1f7b73a-0ccb-411b-9fed-ac7785c69a0a"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ఇతర జరిమానా ఛార్జీలు, ఏదైనా ఉంటే (చెక్/ NACH దిస్ హానర్ లేదా బౌన్స్ ఛార్జీలు)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" x="270" y="0" width="225" height="20" uuid="c63b96a9-dd17-49ba-81f6-529230dc4e8f"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ఒక్కో పరికరానికి రూ. " + $P{bouncingCharges} + " మరియు వర్తించే పన్నులు"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="b4476ad8-3cde-4dc4-b720-060353ffa0ee"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="4afb5458-c39c-4943-ab41-17bcfd8e82f4"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["(iii)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="240" height="20" uuid="cc4de892-790e-4c48-b567-57a5530ad34b"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ఫోర్ ‌క్లోజర్ ఛార్జీలు, (వర్తిస్తే)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="225" height="20" uuid="52e1a13f-d116-418a-84e6-021d1e67557d"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["రుణం కింద చెల్లించవలసిన మొత్తం EMIలలో 50% చెల్లింపుకు ముందు ముందస్తు చెల్లింపు అయితే బకాయి రుణంపై 4%, 50% చెల్లించిన తర్వాత అయితే 3% తో పాటు వర్తించే పన్నులు."]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="434fa719-d129-40d3-9122-7e0aa1bbf343"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="8e38aba1-cf60-4dc8-8cac-f85a1f130c9b"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["(iv)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="240" height="20" uuid="f231885d-07f3-4f9d-8823-be132a987e11"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["రుణాలు ఫ్లోటింగ్ నుండి స్థిర రేటుకు మారడానికి ఛార్జీలు మరియు దీనికి విరుద్ధంగా"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="225" height="20" uuid="f02f513c-b90a-4566-99f8-b9053bed3b12"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="ef9933bb-734b-41ac-be98-e5ed8df93097"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="79bbd352-5592-4e24-826f-3cc70569dc28"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["(v)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="240" height="20" uuid="819c9bbe-3052-49a4-a074-6f8fb51fd514"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ఇతరములు (దయచేసి పేర్కొనండి)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" x="270" y="0" width="225" height="20" uuid="9e561898-5b9e-4c5c-bb11-d9587d1fbdb9"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{otherDeductions}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Prevent">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="15a63bf4-eac5-4a17-8eeb-a73706a34726"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="5b1e6199-3c32-4eb9-a21b-3c91a726c2e1"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["(vi)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="465" height="20" uuid="325ddc06-4205-476c-88a5-0e47f2d68084"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["మూడవ పక్ష చెల్లింపు గేట్‌వే రుసుములపై గమనిక:\nసాధారణ EMI చెల్లింపు కోసం కంపెనీ ఎటువంటి రుసుమును వసూలు చేయదు. మొబైల్ యాప్ లేదా ఏదైనా ఇతర ఆన్‌లైన్ విధానం ద్వారా థర్డ్-పార్టీ చెల్లింపు గేట్‌వేల ద్వారా చేసే చెల్లింపులపై, వర్తించే చోట, థర్డ్-పార్టీ చెల్లింపు సేవల అందించేవారు విధించే సౌకర్య రుసుములు/సేవా ఛార్జీలు వర్తించవచ్చు."]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="25" splitType="Stretch">
+			<break>
+				<reportElement x="0" y="0" width="495" height="1" uuid="b3a40007-0000-0000-0000-500000000305"/>
+			</break>
+			<textField>
+				<reportElement style="TB" positionType="Float" x="0" y="5" width="495" height="18" uuid="97f85579-8af6-4e9b-9607-7f8dca6ca9a7"/>
+				<textElement textAlignment="Center">
+					<font fontName="Noto Sans Telugu" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["పార్ట్ 2 (ఇతర గుణాత్మక సమాచారం)"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="569f3237-d662-4f9d-bd68-ecfcfd92029b"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="04d1c4c8-d53e-4adf-a23f-5d791b55b7ff"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["1"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="240" height="20" uuid="f06f09a1-8429-41db-b708-fa99ea472c03"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["రికవరీ ఏజెంట్ల నియామకానికి సంబంధించిన రుణ ఒప్పందం యొక్క నిబంధన"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="225" height="20" uuid="44b6d496-63cb-463a-9dde-2d7d680f5535"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="b845cb2d-b05e-4941-bf8e-33ed74618072"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="4d64df49-6f1e-4778-ac30-a6342daa71aa"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["2"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="240" height="20" uuid="883c2c4b-3dbf-4daa-a966-e3b815e89cb8"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ఫిర్యాదుల పరిష్కార యంత్రాంగాన్ని వివరించే రుణ ఒప్పందం యొక్క నిబంధన"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="225" height="20" uuid="79c39f08-bbe4-43fa-ba7a-8dae68c9b30c"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["నిబంధన 12.11"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="fc580df6-5cc0-4b68-8e18-af3849bdeae3"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="ff7a7055-4ff7-433a-a48a-0763e96be483"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["3"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="240" height="20" uuid="b40eab87-b1bd-4cca-b637-28a5555f464c"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["నోడల్/ గ్రీవెన్స్ రిడ్రెసల్ ఫిర్యాదుల పరిష్కారం కోసం ఆఫీసర్ యొక్క ఫోన్ నంబర్ మరియు ఇమెయిల్ ఐడి"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="225" height="20" uuid="81983d1e-5b28-4fae-abd5-e51eba426c05"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["శ్రీమతి అశ్విని పూజారి\nహోదా: ఫిర్యాదుల పరిష్కార అధికారి\n+91 8101777555\nచిరునామా: ప్రముఖ్ ప్లాజా, B వింగ్, 603, చకల, అంధేరి (E), ముంబై – 400099, మహారాష్ట్ర\nఇమెయిల్: care@sarvagram.com / ashwini.pujari@sarvagram.com"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="97068ee5-4048-4da1-b91c-0cab5a4a0813"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="89d3759f-4aa0-404b-94f4-1a4403de637f"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["4"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="240" height="20" uuid="265c6032-ead4-4c3f-9d20-c03d0c09bc04"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["రుణం ఇప్పుడు లేదా భవిష్యత్తులో, ఇతర REలు లేదా సెక్యురిటైజేషన్‌కు బదిలీకి లోబడి ఉంటుంది (అవును/ లేదు)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="225" height="20" uuid="85caf7eb-b72a-49d4-995d-ce9f4319e45c"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["అవును"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="6af8efd9-97bb-4562-9079-379894adf887"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="6bfeb754-c64e-4bf7-8c9e-321a40159a9d"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["5"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="465" height="20" uuid="c84a8cc8-4801-4422-95ad-f7d96a964c7d"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["సహకార రుణ ఏర్పాట్ల కింద రుణాలు ఇచ్చినట్లయితే (ఉదా., కో-లెండింగ్/ అవుట్‌ సోర్సింగ్), ఈ క్రింది అదనపు వివరాలను అందించవచ్చు:"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="1ffed7fa-6ee1-48c1-8e91-149d127bbf49"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="11161cf7-7c6b-473b-9c60-478555caa609"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[""]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="240" height="20" uuid="6d4b8845-c973-4d6a-ab4b-8cdadc5dac5d"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["మూలాధారమైన RE పేరు, దాని నిధుల నిష్పత్తితో పాటు / భాగస్వామి RE పేరు దాని నిధుల నిష్పత్తి తో పాటు / వడ్డీ రేటు"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="225" height="20" uuid="57040474-905d-4119-9b80-c2aa4e03e1a8"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A. / N.A. / N.A."]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="4e7e08dd-6cf7-43e8-90dd-dce7a5458497"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="a4f338ec-4bdf-4c61-a01e-7bcd52769777"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["6"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="465" height="20" uuid="bd2fc04f-d83b-4a81-afab-04aeb2978b53"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["డిజిటల్ రుణాల విషయంలో, ఈ క్రింది నిర్దిష్ట ప్రకటనలు ఇవ్వవచ్చు:"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="b5cca4ea-9286-4eef-b5c5-30306d0e85b6"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="5aa52d1d-5e95-4144-9a92-d4e7a5f0d205"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["(i)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="240" height="20" uuid="348901e1-da44-4ee6-bb12-867292bab41a"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["RE బోర్డు ఆమోదించిన విధానం ప్రకారం, కూలింగ్ ఆఫ్/ లుక్-అప్ వ్యవధి"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="225" height="20" uuid="9a1e1ea1-4655-47c3-bad2-cbd357b7b8b3"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="30c09933-88f7-41b8-a091-34892ab238ca"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="ad46a3b2-3a47-44b0-954e-83635f9da840"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["(ii)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="240" height="20" uuid="6c380e27-2eea-4607-afb8-01816aea6433"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["రికవరీ ఏజెంట్‌గా వ్యవహరిస్తున్న LSP వివరాలు మరియు రుణగ్రహీతను సంప్రదించే అధికారం"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="225" height="20" uuid="c97d23fb-2c57-48b9-bad9-b245c0169801"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="25" splitType="Stretch">
+			<break>
+				<reportElement x="0" y="0" width="495" height="1" uuid="b3a40003-0000-0000-0000-500000000301"/>
+			</break>
+			<textField>
+				<reportElement style="TB" positionType="Float" x="0" y="5" width="495" height="18" uuid="49041ffd-d15c-4cce-ba1f-a01939e72089"/>
+				<textElement textAlignment="Center">
+					<font fontName="Noto Sans Telugu" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["పార్ట్ 3 (ఇతరాలు)"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="2058fbd3-3301-44d2-b805-41fe5f8875c7"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="8c7395d7-db6b-411a-822b-fa78fc2ebfc6"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["(i)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="140" height="20" uuid="d30118b1-ac8a-4312-8d43-211be2f845d6"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="true"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ఉద్దేశ్యం"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" x="170" y="0" width="325" height="20" uuid="d69226b8-75d0-4292-b4b5-fec7e98731da"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{title} + " రుణాలు\n" + $P{loanPurpose}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="bd19da45-ea38-40ac-b15c-2b6d869aac5f"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="8862e555-55ed-4f45-89b7-1741fa4f7718"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["(ii)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="140" height="20" uuid="bb6a26ab-c099-4d8a-96bf-73929bb583db"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="true"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["రుణగ్రహీత వివరాలు:"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" x="170" y="0" width="325" height="20" uuid="839b2f2f-c884-45e8-a199-86d964349c6b"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["పేరు: " + $P{applicantName} + "\nచిరునామా: " + $P{appplicantAddress} + "\nటెలిఫోన్ నంబర్: " + $P{mobile} + "\nఇమెయిల్ ID:"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="25" uuid="8088e28a-fd79-4951-8e0c-4b8cfc98c39c"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="25" uuid="c3eaa2ca-731b-4927-a604-1ddfe87e1e75"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA["(iii)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TCB" stretchType="ContainerHeight" x="30" y="0" width="140" height="25" uuid="fdc96180-2536-4dcd-9b55-386fe311c152"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="true"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["సహ రుణగ్రహీత వివరాలు:"]]></textFieldExpression>
+				</textField>
+				<frame>
+					<reportElement style="TC" stretchType="ContainerHeight" x="170" y="0" width="325" height="25" uuid="c0d35797-7fd8-4708-87b2-ee92c9b5848f"/>
+					<componentElement>
+						<reportElement x="2" y="2" width="321" height="20" uuid="b38d711e-3dc7-4cdb-ad95-a460b52756ae"/>
+						<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+							<datasetRun subDataset="CoApplicantDS" uuid="59ad1833-9c37-41c8-b74b-e104cad3069f">
+								<dataSourceExpression><![CDATA[$P{CoApplicantDetailListDS}]]></dataSourceExpression>
+							</datasetRun>
+							<jr:listContents height="50" width="321">
+								<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+									<reportElement x="0" y="0" width="321" height="50" uuid="08e3bbc2-4731-42c5-8166-d4bf7c42c47e"/>
+									<textElement>
+										<font fontName="Noto Sans Telugu" size="9"/>
+									</textElement>
+									<textFieldExpression><![CDATA["పేరు: " + $F{applicantName} + "\nచిరునామా: " + $F{address} + "\nటెలిఫోన్ నంబర్: " + $F{mobile} + "\nఇమెయిల్ ID:\n"]]></textFieldExpression>
+								</textField>
+							</jr:listContents>
+						</jr:list>
+					</componentElement>
+				</frame>
+			</frame>
+		</band>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="25" uuid="2524dc58-2abf-4d49-b7a5-0993b410b83a"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="25" uuid="b62a1663-4b74-4170-8100-a64d36666a40"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA["(iv)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TCB" stretchType="ContainerHeight" x="30" y="0" width="140" height="25" uuid="162693ae-b421-404c-90d2-15a55804f83a"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="true"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["సెక్యూరిటీ ప్రొవైడర్ వివరాలు, ఏదైనా ఉంటే:"]]></textFieldExpression>
+				</textField>
+				<frame>
+					<reportElement style="TC" stretchType="ContainerHeight" x="170" y="0" width="325" height="25" uuid="9014d8a6-5b9b-4f72-9d4b-dc051e40973a"/>
+					<componentElement>
+						<reportElement x="2" y="2" width="321" height="20" uuid="9b9737a3-5e08-4cc5-be9e-f0310e617b91"/>
+						<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+							<datasetRun subDataset="CollateralDS" uuid="36195010-ae87-4177-b0e3-b7fa18cdb19a">
+								<dataSourceExpression><![CDATA[$P{CollateralListDS}]]></dataSourceExpression>
+							</datasetRun>
+							<jr:listContents height="50" width="321">
+								<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+									<reportElement x="0" y="0" width="321" height="50" uuid="927c8032-11b6-445a-bc34-407e5020ecc2"/>
+									<textElement>
+										<font fontName="Noto Sans Telugu" size="9"/>
+									</textElement>
+									<textFieldExpression><![CDATA["పేరు: " + $F{ownerName} + "\nచిరునామా: " + $F{propertyAddress} + "\nటెలిఫోన్ నంబర్: " + $F{mobile} + "\nఇమెయిల్ ID:\n"]]></textFieldExpression>
+								</textField>
+							</jr:listContents>
+						</jr:list>
+					</componentElement>
+				</frame>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="9856e4e9-a183-4af5-b2a6-d5580e66fd6d"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="bcdbf357-ab61-4482-8cec-9a7c9c8e3c53"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["(v)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="140" height="20" uuid="bf0d5396-613a-4b97-ac67-965a131cbd7f"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="true"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["తిరిగి చెల్లించే విధానం"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="170" y="0" width="325" height="20" uuid="686689de-d90d-4f69-ab30-bd1fb5d64bad"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["[●] నేషనల్ ఆటోమేటెడ్ క్లియరింగ్ హౌస్ (NACH)"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="25" uuid="ff16dffd-d845-48f5-91e8-48ecce66a9f3"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="25" uuid="2f518f18-d842-4319-a066-752e8fd20775"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA["(vi)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TCB" stretchType="ContainerHeight" x="30" y="0" width="140" height="25" uuid="9fa38be0-f334-4bfb-bd9c-14208677e976"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="true"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["తనఖా"]]></textFieldExpression>
+				</textField>
+				<frame>
+					<reportElement style="TC" stretchType="ContainerHeight" x="170" y="0" width="325" height="25" uuid="53cd262e-eec1-4d5b-8238-d8baba9dd990"/>
+					<componentElement>
+						<reportElement x="2" y="2" width="321" height="20" uuid="d9203a2d-0c6f-4985-a8d8-f6374760dd27"/>
+						<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+							<datasetRun subDataset="CollateralSecurityDS" uuid="d7eff6c6-aceb-4c84-b2f1-a108269edaf8">
+								<dataSourceExpression><![CDATA[$P{CollateralSecurityListDS}]]></dataSourceExpression>
+							</datasetRun>
+							<jr:listContents height="90" width="321">
+								<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+									<reportElement x="0" y="0" width="321" height="90" uuid="4b785fa7-5eda-4218-851e-7307cc4e65bf"/>
+									<textElement>
+										<font fontName="Noto Sans Telugu" size="9"/>
+									</textElement>
+									<textFieldExpression><![CDATA["స్థిరమైన/చలించే ఆస్తిపై ప్రత్యేక తనఖా మరియు ఛార్జీ\nతనఖా – స్థిరాస్తి/చరాస్థి\nతనఖా రకం – ఆస్తి\nఅంచనా విలువ : " + $F{totalAmount} + "\nచిరునామా(స్థిరాస్తి) : " + $F{propertyAddress} + "\n────────────────────\nడిమాండ్ ప్రామిసరీ నోట్ (DPN)\nరుణం కింద 1వ (మొదటి) పంపిణీకి ముందు సెక్యూరిటీని సృష్టించాలి."]]></textFieldExpression>
+								</textField>
+							</jr:listContents>
+						</jr:list>
+					</componentElement>
+				</frame>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="c6725279-32ac-4d2d-9254-c46fedcb9642"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="f14495a3-87c9-45c4-ad67-deaa203e0d03"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["(vii)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="140" height="20" uuid="a7c23d3b-832d-4460-adbe-2dac026139d6"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="true"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["రుణం యొక్క పార్ట్ ముందస్తు చెల్లింపు"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="170" y="0" width="325" height="20" uuid="76dc2277-005e-47ad-b804-6d972f268a6d"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ప్రతి పార్ట్ ప్రీ-పేమెంట్ మొత్తంలో 2%, అలాగే వర్తించే పన్నులు."]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="56812ae3-a737-4866-a314-4b0bda93a4ac"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="80834f88-d23a-4bca-8627-fa3666bbaf75"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["(viii)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="140" height="20" uuid="d047b52d-574a-457a-9890-37b17e6f4a0d"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="true"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["లభ్యత కాలం"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="170" y="0" width="325" height="20" uuid="ab5f3caf-5e4f-45f5-9325-cad1c8d3684a"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["60 (అరవై) రోజులు"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="0733a20e-9c3d-4ee5-a3ca-0cd7c8e954a2"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="6ff6c8ea-b085-40d5-ae92-c52439bc2097"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["(ix)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="140" height="20" uuid="f4b66873-75e1-4716-86ab-fe4ab093aef1"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="true"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["మారటోరియం కాలం"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="170" y="0" width="325" height="20" uuid="8e113b2f-2cab-46d7-8531-d2fa0dbe0405"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="25" uuid="722d831c-dee9-4851-ae72-9a6296ceff2f"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="25" uuid="a87ff8b4-ee82-4387-b387-dda8d81e8db9"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA["(x)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TCB" stretchType="ContainerHeight" x="30" y="0" width="140" height="25" uuid="59bed80d-00bb-4043-8799-a5d8bdbd464b"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="10" isBold="true"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ట్రాన్చ్ కండిషన్"]]></textFieldExpression>
+				</textField>
+				<frame>
+					<reportElement style="TC" stretchType="ContainerHeight" x="170" y="0" width="325" height="25" uuid="ce3bbc13-2626-481e-8ade-00b9a58bce3b"/>
+					<componentElement>
+						<reportElement x="2" y="2" width="321" height="20" uuid="979b240a-fef3-44e3-bf1a-10a094a3dfe9"/>
+						<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+							<datasetRun subDataset="TrancheCondDS" uuid="1e25b47b-7eff-4d58-8f81-d699c61be96b">
+								<dataSourceExpression><![CDATA[$P{TrancheConditionsDS}]]></dataSourceExpression>
+							</datasetRun>
+							<jr:listContents height="18" width="321">
+								<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+									<reportElement x="0" y="0" width="321" height="18" uuid="71c55b63-22ab-470d-be80-cfca84f551cf"/>
+									<textElement>
+										<font fontName="Noto Sans Telugu" size="9"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{condition}]]></textFieldExpression>
+								</textField>
+							</jr:listContents>
+						</jr:list>
+					</componentElement>
+				</frame>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="e8a3a4c5-3387-4acf-8953-3b5e4f303a52"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="e10016aa-7819-4560-adb5-8eb6393a9e76"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["(xi)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="140" height="20" uuid="b48d7cb5-b306-4c1e-b161-3db118029b8d"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="true"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["సాధారణ షరతులు"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="170" y="0" width="325" height="20" uuid="59c1f8a9-8b50-4723-b2ef-92f352d46e15"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["I. రుణగ్రహీత ఇప్పుడు లేదా భవిష్యత్తులో, రుణదాతతో రుణగ్రహీత ద్వారా నిర్వహించబడుతున్న ఏదైనా ఖాతా నుండి డెబిట్ చేయడానికి మరియు తిరిగి పొందటానికి, ఇక్కడ నిర్దేశించిన ఏదైనా మరియు అన్ని ఖర్చులు, ఛార్జీలు మరియు ఖర్చులను తిరిగి పొందటానికి లేదా రుణానికి సంబంధించి అంగీకరిస్తారు మరియు అధికారం ఇస్తారు.\n\nII. రుణగ్రహీత, రుణదాత అడిగినప్పుడు పూర్తిగా చెల్లించాలి:\na. ఫైనాన్సింగ్/సెక్యూరిటీ డాక్యుమెంట్ తయారీ, సెక్యూరిటీ సృష్టి మొదలైన చట్టపరమైన ఖర్చులు.\nb. ఆవర్తన మదింపు, శీర్షిక శోధన, సైట్ సందర్శన, తనిఖీ, భీమా మరియు రక్షణ/సంరక్షణకు సంబంధించిన అన్ని ఖర్చులు, వ్యయాలు మరియు రుసుములు; మరియు\nc. ఈ లేఖ/ఫైనాన్సింగ్ పత్రాలకు సంబంధించి దాని హక్కులను పరిపూర్ణంగా లేదా అమలు చేయడంలో రుణదాత చేసిన అన్ని ఖర్చులు (చట్టపరమైన రుసుములతో సహా).\n\nIII. రుణగ్రహీత రుణంలోని కొంత భాగాన్ని పాక్షికంగా లేదా పూర్తిగా రుణదాత రద్దు చేసి, తిరస్కరించవచ్చని, ఏ సమయంలోనైనా నోటీసు లేకుండా మరియు ఎటువంటి కారణం చెప్పకుండానే అర్థం చేసుకుంటారు, అంగీకరిస్తారు."]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="b0ad304a-f821-491c-8777-f6d977467bdc"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="1f880e6f-026c-48a5-89a8-b504656c29f1"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[""]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="140" height="20" uuid="57459281-50eb-4951-9341-c3c11c934f8f"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA[""]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="170" y="0" width="325" height="20" uuid="1e50ff26-1ccb-4606-8c3e-c81fa0699e9f"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["IV. అన్ని ఖర్చులు, ఛార్జీలు, వడ్డీ రేట్లు వర్తించే పన్నులకు మినహాయించబడ్డాయి.\n\nV. అసలు చరాస్థి/ స్థిరాస్తి పత్రాల విడుదల: రుణగ్రహీత(లు) రుణ ఖాతా సేవ చేసిన శాఖ నుండి అసలు కదిలే/ స్థిరమైన ఆస్తి పత్రాలను 30 (ముప్పై) రోజులలోపు సేకరించవచ్చు.\n\nVI. రుణగ్రహీత(లు) కు నోటీసు లేకుండా, KYC సమాచార ధృవీకరణ, క్రెడిట్ రిస్క్ విశ్లేషణ లేదా ఇతర సంబంధిత ప్రయోజనాల కోసం రుణదాత యొక్క ఇతర శాఖలు, అనుబంధ సంస్థలు, గ్రూప్ కంపెనీలు, క్రెడిట్ బ్యూరోలు, రేటింగ్ ఏజెన్సీలు, బ్యాంకులు/ ఆర్థిక సంస్థలు, ప్రభుత్వం/ నియంత్రణ అధికారులకు సమాచారాన్ని వెల్లడించడానికి రుణగ్రహీత రుణదాతకు అధికారం ఇస్తారు మరియు గోప్యత అధికారాన్ని వదులుకుంటారు.\n\nVII. వర్తించే వడ్డీ రేటు మరియు ఇతర ధరల పారామితులలో మార్పును ఇమెయిల్, లేఖ, వెబ్‌సైట్, ఖాతా ప్రకటన, SMS లేదా శాఖల ద్వారా రుణదాత తెలియజేయవచ్చు."]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="25" splitType="Stretch">
+			<break>
+				<reportElement x="0" y="0" width="495" height="1" uuid="b3a40008-0000-0000-0000-500000000306"/>
+			</break>
+			<textField>
+				<reportElement style="TB" positionType="Float" x="0" y="5" width="495" height="18" uuid="feef7979-fd7d-466f-8183-dfb0cdcc27b8"/>
+				<textElement textAlignment="Center">
+					<font fontName="Noto Sans Telugu" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ఎగ్జిబిట్ I"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="0795dfb8-0e1d-4f3e-b4f3-48bb3265757e"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="5bb6d7df-3d78-494c-a0ef-0338c188ae11"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["1"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="40" y="0" width="240" height="20" uuid="7bac80e5-941c-48d9-a6f5-deab4be29ec3"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["మంజూరు చేసిన రుణ మొత్తం (రూపాయిలలో) (KFS యొక్క క్రమ సంఖ్య 2 – పార్ట్ 1)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" x="280" y="0" width="215" height="20" uuid="b4e27cb0-e2d1-4ff3-b90c-d74a1ff3b22f"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{amount}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="eca1db3f-a718-4d73-b17a-8e258895daf1"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="af326689-bc73-43c7-a714-b38a9eb7b9db"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["2"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="40" y="0" width="240" height="20" uuid="e7847fd8-7e31-4bf5-9b55-1fe1bb551ecc"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["రుణం టర్మ్ (సంవత్సరాలు/ నెలలు/ రోజులలో) (KFS యొక్క క్రమ సంఖ్య 4 – పార్ట్ 1)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" x="280" y="0" width="215" height="20" uuid="7a83f287-09db-41bd-b201-a7397929aca8"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{tenure} + " Months"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="33e75310-31ce-4383-8cef-8683e2bf1efd"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="77df9e56-02e9-484e-ab09-0076859eae6a"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["a)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="40" y="0" width="240" height="20" uuid="d0805ca3-9a8e-4141-886b-b463b14ffb96"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["నాన్-ఈక్వేటెడ్ పీరియాడిక్ రుణాల విషయంలో, అసలు చెల్లింపు కోసం వాయిదాల సంఖ్య"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="280" y="0" width="215" height="20" uuid="c8130ec6-6a44-4146-bd48-7ffd69a1b037"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="fe41c9b4-3c80-4edf-b470-b10fd06e51d0"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="400531f4-8b07-4a6b-bb00-f3968d7e2206"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["b)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="40" y="0" width="240" height="20" uuid="4acd5aa1-8451-4684-9c9c-e00c6fdec126"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["EPI రకం\nప్రతి EPI మొత్తం (రూపాయిలలో) మరియు EPIల సంఖ్య (KFS యొక్క క్రమ సంఖ్య 5 – పార్ట్ 1)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="280" y="0" width="215" height="20" uuid="83ac7e55-d617-4352-a88b-5715dfaac0d2"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["నెలవారీ"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="d53b73f0-e7d6-4ddd-9c59-2686ad1cfd5d"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="41dea33b-0786-4ee1-95f5-14f96e0eb4e9"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["c)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="40" y="0" width="240" height="20" uuid="1aec2f77-de93-4511-9409-f2d6a4e0ff0e"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["క్యాపిటలైజ్డ్ వడ్డీ చెల్లింపు కోసం వాయిదాల సంఖ్య, ఏదైనా ఉంటే"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="280" y="0" width="215" height="20" uuid="0116535f-1faf-4352-9915-fc39c233d904"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["N.A."]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="dcbab191-a698-4cf6-916b-9d26ed5edc71"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="2e936ca8-97ab-47c9-99b8-cee96650a3e9"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["d)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="40" y="0" width="240" height="20" uuid="b6a2e2d7-cb0a-4797-a87c-1aa20f3a4a23"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["తిరిగి చెల్లింపుల ప్రారంభం, పోస్ట్ పంపిణీ (KFS యొక్క క్రమ సంఖ్య 5 – పార్ట్ 1)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" x="280" y="0" width="215" height="20" uuid="daefc41c-a0fe-4e94-853b-da3a5e33236a"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{repaymentDate}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="9f95f51a-0824-4f6d-832c-4d640853ca60"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="8010513a-7773-43f1-b399-3305f405d867"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["3"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="40" y="0" width="240" height="20" uuid="1bb8543a-54dd-49e1-9eee-6d11d55041b6"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["వడ్డీ రేటు రకం (స్థిర లేదా ఫ్లోటింగ్ లేదా హైబ్రిడ్) (KFS యొక్క క్రమ సంఖ్య 6 – పార్ట్ 1)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="280" y="0" width="215" height="20" uuid="e4e56b89-8caf-4fc9-aade-6f2b94803083"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["స్థిర"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="c700d776-ab34-4ffc-b2e0-38099fe1f4c4"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="e9ec1a0b-a743-4a5b-a0cd-577a0ffc2109"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["4"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="40" y="0" width="240" height="20" uuid="8d7cb72b-7575-4b19-a308-aa47b0882df4"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["వడ్డీ రేటు (KFS యొక్క క్రమ సంఖ్య 6 – పార్ట్ 1)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" x="280" y="0" width="215" height="20" uuid="5ec64e0e-9151-438d-94e2-844ef73a3806"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{roi}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="722b9a32-b12c-465c-8708-bb6bb834ed87"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="f12e717a-8cfc-48c0-af2d-24ba9ef070f4"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["5"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="40" y="0" width="240" height="20" uuid="cc47051e-b03c-49d1-983a-e013a4717e1e"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["మంజూరు చేసిన తేదీ లో ఉన్న రేటు ప్రకారం రుణం యొక్క మొత్తం కాల వ్యవధిలో వసూలు చేయవలసిన మొత్తం వడ్డీ (రూపాయిలలో)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" x="280" y="0" width="215" height="20" uuid="1b574833-fee3-40c7-8727-56bd1b87a6e9"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{totalInterestAmount}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="2cdf7572-ddeb-4adb-a736-024c567e195c"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="50ee9ce2-7df8-4df3-818f-20c6c9612000"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["6"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="40" y="0" width="240" height="20" uuid="44457fc0-c088-4cb4-931b-edf09f8cad2c"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["చెల్లించవలసిన రుసుము/ ఛార్జీలు (రూపాయిలలో)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="280" y="0" width="215" height="20" uuid="79e4ed90-3d8b-429b-bb1f-35ee6f7a7e4d"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA[""]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="9f1433c9-18b3-49d3-94f6-720bf69da546"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="80a78b9d-2a3a-4f8f-a23e-3e44128d73e6"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["A"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="40" y="0" width="240" height="20" uuid="7ffeda0e-4758-43b8-941b-30fb23d54f26"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["RE కి చెల్లించవలసినది (KFS యొక్క క్రమ సంఖ్య 8A – పార్ట్ 1)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" x="280" y="0" width="215" height="20" uuid="2e36d2ae-4078-4d5c-8b77-c5e5f0ca5552"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{rePayable}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="3478eba3-d4d0-41e4-a3ad-6f0832648f0d"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="92198373-c3ff-43c5-802b-63942aec6a88"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["B"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="40" y="0" width="240" height="20" uuid="c327cee5-e9ad-4c44-9a2e-837115cb32b4"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["RE ద్వారా రూట్ చేయబడిన థర్డ్ పార్టీకి చెల్లించబడుతుంది (KFS యొక్క క్రమ సంఖ్య 8B – పార్ట్ 1)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" x="280" y="0" width="215" height="20" uuid="d14d294a-cd2e-4f6d-bee0-9ec0f25453a0"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{reThirdPartyPayable}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="3020bd49-3e14-4606-aa09-5edd4be5ad39"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="a4961063-9d28-4f3c-bac5-e526c8f55215"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["7"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="40" y="0" width="240" height="20" uuid="fa04838d-47d1-4d41-97cf-3fdeb481575e"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["నికర పంపిణీ మొత్తం (1-6) (రూపాయిలలో)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" x="280" y="0" width="215" height="20" uuid="4267823d-70ea-4048-b946-58c2891d3249"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{netDisbursementAmount}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="d784d812-e357-48a6-b5eb-bc0098fd3755"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="f8087663-137f-469d-b646-bc2ebc960a0f"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["8"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="40" y="0" width="240" height="20" uuid="30ea9a4f-ccf3-4680-ad2c-c598147bc50a"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["రుణగ్రహీత చెల్లించాల్సిన మొత్తం (1 మరియు 5 మొత్తం) (రూపాయిలలో)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" x="280" y="0" width="215" height="20" uuid="06de67a3-bbd4-4313-9d20-70f13a4a3efc"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{borrowerAmount}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="ab03802f-cb82-4c04-8810-0a54aea163bd"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="dcb8c247-2ed7-457e-982b-d93024c03c26"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["9"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="40" y="0" width="240" height="20" uuid="31d0b7d1-b09e-44fa-b62a-b7331a34dbef"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["వార్షిక శాతం రేటు- ప్రభావవంతమైన వార్షిక వడ్డీ రేటు (శాతం లో) (KFS యొక్క క్రమ సంఖ్య 9 – పార్ట్ 1)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" x="280" y="0" width="215" height="20" uuid="f80748ae-3cf1-4a75-ada5-1b93a50091b7"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{aprPercentage}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="25" uuid="674841e5-6727-4735-8867-8e285b14c4da"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="40" height="25" uuid="1e63e040-1aca-4a7d-8a16-a87d64e849e0"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA["10"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="40" y="0" width="240" height="25" uuid="054d6ca1-d75d-4030-afb8-f61a6922e1ec"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["నిబంధనలు మరియు షరతుల ప్రకారం పంపిణీ షెడ్యూల్"]]></textFieldExpression>
+				</textField>
+				<frame>
+					<reportElement style="TC" stretchType="ContainerHeight" x="280" y="0" width="215" height="25" uuid="77962a02-3ee0-4f5f-950a-90b0a5c5dd12"/>
+					<textField>
+						<reportElement x="0" y="0" width="72" height="15" uuid="60ac114c-7457-4987-900d-dfe4e9dba586"/>
+						<box>
+							<pen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Noto Sans Telugu" size="7" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA["Tranche Number"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="72" y="0" width="72" height="15" uuid="6daf44ec-5865-4a14-abb3-395632922010"/>
+						<box>
+							<pen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Noto Sans Telugu" size="7" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA["Amount (Rs.)"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="144" y="0" width="71" height="15" uuid="39c94b01-d038-4f5a-9113-580ca07e4ff0"/>
+						<box>
+							<pen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Noto Sans Telugu" size="7" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA["Condition"]]></textFieldExpression>
+					</textField>
+					<componentElement>
+						<reportElement positionType="Float" x="0" y="15" width="215" height="8" uuid="425b8633-3ffe-45bb-9cb4-6607dff4c9ba"/>
+						<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+							<datasetRun subDataset="TrancheDetailDS" uuid="b3cbec0e-3eff-4694-9dc0-60aa06f0ca1c">
+								<dataSourceExpression><![CDATA[$P{TrancheDetailsDS}]]></dataSourceExpression>
+							</datasetRun>
+							<jr:listContents height="14" width="215">
+								<textField isBlankWhenNull="true">
+									<reportElement x="0" y="0" width="72" height="14" uuid="e9a5ea2b-752b-47d8-a9c9-75a0a716c193"/>
+									<box>
+										<pen lineWidth="0.5"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Noto Sans Telugu" size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{trancheNumber}]]></textFieldExpression>
+								</textField>
+								<textField isBlankWhenNull="true">
+									<reportElement x="72" y="0" width="72" height="14" uuid="80865fa4-e29c-4703-a4d1-f88b63ae4aa1"/>
+									<box>
+										<pen lineWidth="0.5"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Noto Sans Telugu" size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{trancheAmount}]]></textFieldExpression>
+								</textField>
+								<textField isBlankWhenNull="true">
+									<reportElement x="144" y="0" width="71" height="14" uuid="22328c33-150e-4e0a-9d77-ef58fa91556a"/>
+									<box>
+										<pen lineWidth="0.5"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Noto Sans Telugu" size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{trancheCondition}]]></textFieldExpression>
+								</textField>
+							</jr:listContents>
+						</jr:list>
+					</componentElement>
+				</frame>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="ab778738-e812-4a29-93d3-0842be2e61ec"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="959f4a10-556f-46f4-abb7-fc8149b2a82d"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["11"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="TC" stretchType="ContainerHeight" x="40" y="0" width="240" height="20" uuid="f75822a6-48ca-499c-b6ee-807d1bb12f0a"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["వాయిదాలు మరియు వడ్డీని చెల్లించవలసిన గడువు తేదీ"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TC" x="280" y="0" width="215" height="20" uuid="1bfb2bd5-adee-4949-863e-7b12d678c641"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Noto Sans Telugu" size="9"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{emiDate} + " of every month"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="25" splitType="Stretch">
+			<break>
+				<reportElement x="0" y="0" width="495" height="1" uuid="b3a40009-0000-0000-0000-500000000307"/>
+			</break>
+			<textField>
+				<reportElement style="TB" positionType="Float" x="0" y="5" width="495" height="18" uuid="1d4de4dc-ab03-4a0f-a472-e377690d6561"/>
+				<textElement textAlignment="Center">
+					<font fontName="Noto Sans Telugu" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ఎగ్జిబిట్ II"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20" splitType="Stretch">
+			<textField textAdjust="StretchHeight">
+				<reportElement style="TB" positionType="Float" x="0" y="0" width="495" height="18" uuid="d2c62023-447a-4d7f-b33a-0edadea09b1c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Noto Sans Telugu" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ఎగ్జిబిట్ I లో వివరించిన రుణం కోసం సమానమైన ఆవర్తన వాయిదాల కింద సచిత్ర తిరిగి చెల్లింపు షెడ్యూల్"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="25" splitType="Stretch">
+			<componentElement>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="64529b68-810b-40c7-91bc-ead2d089d582"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="InstallmentDS" uuid="fa4d4b73-5b96-421a-b079-141c844118a5">
+						<dataSourceExpression><![CDATA[$P{InstallmentsDS}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="60" uuid="150aa3a1-50f4-43c7-a973-f2e81552d67b">
+						<jr:columnHeader style="TCB" height="25">
+							<textField>
+								<reportElement style="TCB" x="0" y="0" width="60" height="25" uuid="2a0e1a0e-9404-4083-b577-f8f1eeada8ef"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Noto Sans Telugu" size="8" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["వాయిదా సంఖ్య"]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="TC" height="18">
+							<textField isBlankWhenNull="true">
+								<reportElement style="TC" x="0" y="0" width="60" height="18" uuid="5cfef83e-41a3-47b6-b912-bdfb458e3171"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Noto Sans Telugu" size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{installmentNo}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="110" uuid="8eea3dd5-4f10-43dc-b66b-3849ebb02b37">
+						<jr:columnHeader style="TCB" height="25">
+							<textField>
+								<reportElement style="TCB" x="0" y="0" width="110" height="25" uuid="9d34dde5-8c7e-47d3-bcfd-6c737585074f"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Noto Sans Telugu" size="8" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["బాకీ మొత్తం (రూపాయిలలో)"]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="TC" height="18">
+							<textField isBlankWhenNull="true">
+								<reportElement style="TC" x="0" y="0" width="110" height="18" uuid="8b34b9b2-ad15-490e-ad75-a9f024420a24"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Noto Sans Telugu" size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{principalOutstanding}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="110" uuid="ed628d8e-5030-4b9b-a8cc-fb53051ff857">
+						<jr:columnHeader style="TCB" height="25">
+							<textField>
+								<reportElement style="TCB" x="0" y="0" width="110" height="25" uuid="5e9cd9b6-f1df-4919-bc31-2a7032e552d9"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Noto Sans Telugu" size="8" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["అసలు (రూపాయిలలో)"]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="TC" height="18">
+							<textField isBlankWhenNull="true">
+								<reportElement style="TC" x="0" y="0" width="110" height="18" uuid="bb0493cd-201b-4f6e-b0f8-3b4877f0728e"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Noto Sans Telugu" size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{principalDue}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="110" uuid="ab18f6fe-8737-4bed-8452-8f9b9806049c">
+						<jr:columnHeader style="TCB" height="25">
+							<textField>
+								<reportElement style="TCB" x="0" y="0" width="110" height="25" uuid="65dce25a-9cab-47b6-b67c-17750007a54d"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Noto Sans Telugu" size="8" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["వడ్డీ (రూపాయిలలో)"]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="TC" height="18">
+							<textField isBlankWhenNull="true">
+								<reportElement style="TC" x="0" y="0" width="110" height="18" uuid="674f91f6-6248-4ad0-9f15-ddb42f7be4b4"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Noto Sans Telugu" size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{interestDue}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="105" uuid="c280746c-9871-484d-9c25-5580a96801c5">
+						<jr:columnHeader style="TCB" height="25">
+							<textField>
+								<reportElement style="TCB" x="0" y="0" width="105" height="25" uuid="438e35d8-db77-4de1-b3e6-11853f70730c"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Noto Sans Telugu" size="8" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["వాయిదా (రూపాయిలలో)"]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="TC" height="18">
+							<textField isBlankWhenNull="true">
+								<reportElement style="TC" x="0" y="0" width="105" height="18" uuid="7331d30e-33d2-4375-b158-6644e8fa2ae3"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Noto Sans Telugu" size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{installmentAmount}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="40" splitType="Prevent">
+			<textField textAdjust="StretchHeight">
+				<reportElement style="T" positionType="Float" x="0" y="2" width="495" height="38" uuid="a956d012-bc05-4a0c-9a46-7b73fcccded4"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Noto Sans Telugu" size="9" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["** ఈ తిరిగి చెల్లింపు షెడ్యూల్ తాత్కాలికమైనది. రుణం పంపిణీ చేసిన తర్వాత తుది తిరిగి చెల్లించే షెడ్యూల్ విడిగా అందించబడుతుంది మరియు రుణం తిరిగి చెల్లించడానికి ఖచ్చితమైన గడువు తేదీలు, అసలు మరియు వడ్డీ మధ్య విభజన, తిరిగి చెల్లించడం ప్రారంభించిన ఖచ్చితమైన తేదీ మొదలైన వాటికి సంబంధించిన వివరాలను కలిగి ఉంటుంది."]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
