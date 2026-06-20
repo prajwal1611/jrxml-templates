@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- CD / Consumer Finance Loan Sanction Letter - Terms & Conditions section (through Declaration). Matches SanctionLettterGoldUpdated.jrxml conventions. -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cdLoanSanctionLetter" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="30" uuid="c0000000-0000-0000-0000-000000000001">
+	<property name="net.sf.jasperreports.default.pdf.encoding" value="Identity-H"/>
+	<property name="net.sf.jasperreports.default.pdf.embedded" value="true"/>
+	<property name="net.sf.jasperreports.print.keep.full.text" value="true"/>
+	<subDataset name="CoApplicantDetailDataset" uuid="c0000000-0000-0000-0000-000000000002">
+		<field name="applicantName" class="java.lang.String"/>
+		<field name="address" class="java.lang.String"/>
+		<field name="mobile" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="applicantName" class="java.lang.String"/>
+	<parameter name="date" class="java.lang.String"/>
+	<parameter name="coApplicantDetailList" class="java.util.List"/>
+	<detail>
+		<band height="760" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="0" width="535" height="16" uuid="c1000000-0000-0000-0000-000000000001"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["TERMS & CONDITIONS"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="20" width="535" height="16" uuid="c1000000-0000-0000-0000-000000000002"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Terms and Conditions applicable to Loans for Consumer Finance, Digital, Life Style Products"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="42" width="535" height="14" uuid="c1000000-0000-0000-0000-000000000003"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["1. Definitions"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="58" width="535" height="40" uuid="c1000000-0000-0000-0000-000000000004"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["All capitalised terms used but not specifically defined herein shall have respective meanings ascribed to them in the Loan Term Sheet including the Commercial Terms. For the purposes of these terms and conditions, capitalized words shall have the meaning as set-out herein below.<br/><br/>&#8220;<b>Acceptable Means of Communication</b>&#8221; shall mean the modes of communication which can be used by either party to provide any information in relation to a Loan to the other party and with reference to:<br/><br/>(A)&#160;&#160;&#160;&#160; Borrower, shall mean<br/>i.&#160;&#160;&#160; a telephonic call on the registered mobile number / landline number of the Borrower as provided in the Application Form;<br/>ii.&#160;&#160;&#160; an email on the registered email address of the Borrower as provided in the Application Form;<br/>iii.&#160;&#160;&#160; a text message on the registered mobile number of the Borrower;<br/>iv.&#160;&#160;&#160; a written notice sent by courier / post on the registered postal address of the Borrower as provided in the Application Form;<br/>v.&#160;&#160;&#160; notification by SFPL on its Website;<br/><br/>(B)&#160;&#160;&#160;&#160; SFPL, shall mean<br/>i.&#160;&#160;&#160; a telephonic call on the designated mobile/landline number of SFPL as provided on the Website;<br/>ii.&#160;&#160;&#160; an email on the designated email address of SFPL;<br/>iii.&#160;&#160;&#160; a text message on the designated mobile number of SFPL;<br/>iv.&#160;&#160;&#160; a written notice sent by courier on the postal designated address of SFPL."]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="98" width="535" height="60" uuid="c1000000-0000-0000-0000-000000000005"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["&#8220;<b>Applicable Laws</b>&#8221; shall mean, any statute, law, regulation, ordinance, rule, judgment, rule of law, order, decree, clearance, approval, directive, guideline, policy, requirement, or other governmental restriction or any similar form of decision, or determination by, or any interpretation or administration of any of the foregoing by, any statutory or regulatory authority whether in effect as of the date of the Loan or thereafter and in each case as amended.<br/><br/>&#8220;<b>Application Form</b>&#8221; shall mean, any or each of the application(s) which is/are submitted by the Borrower for availing of the Loan, through any Mode of Application together with such information, particulars and clarifications as required by SFPL and furnished by the Borrower in a form and manner acceptable to SFPL.<br/><br/>&#8220;<b>Borrower</b>&#8221; shall mean one or more individual(s), sole proprietorship firm, a partnership firm, Hindu Undivided Family (HUF), a limited liability partnership or a limited company details whereof is/are stated in the Loan Term Sheet and the term Borrower, unless repugnant to the subject or context hereof shall be deemed to include legal heirs, representatives, administrators, successors and permitted assigns of the Borrower. Unless the context requires otherwise or specifically mentioned herein, reference to the Borrower shall include Co- Borrower as well as specified in the Loan Term Sheet.<br/><br/>&#8220;<b>Bounce Charges</b>&#8221; shall mean an amount payable by the Borrower to SFPL, as set out in the Loan Term Sheet, where the NACH or such other payment instruments issued by the Borrower for the payment of Outstanding Amounts is not honored by the Borrower&#8217;s bank and/ or is returned unpaid, as may be revised from time to time."]]></textFieldExpression>
+			</textField>
+		</band>
+
+		<band height="760" splitType="Stretch">
+			<break>
+				<reportElement positionType="Float" x="0" y="0" width="535" height="1" uuid="c2000000-0000-0000-0000-000000000001"/>
+			</break>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="4" width="535" height="60" uuid="c2000000-0000-0000-0000-000000000002"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["&#8220;<b>Business Day</b>&#8221; shall mean a day (other than Saturday or Sunday or public holiday) on which banks are open for general business in Mumbai or any relevant local office of SFPL as may be specified in the Application Form.<br/><br/>&#8220;<b>Co-Borrower</b>&#8221; shall mean one or more individual(s), sole proprietorship firm, a partnership firm, Hindu Undivided Family (HUF), a limited liability partnership or a limited company details whereof is/are stated in the Loan Term Sheet and the term Co-Borrower, unless repugnant to the subject or context hereof shall be deemed to include legal heirs, representatives, administrators, successors and permitted assigns of the Co-Borrower.<br/><br/>&#8220;<b>Commercial Terms</b>&#8221; shall mean commercial terms of the Loan availed of by the Borrower from SFPL and includes amount of the Loan, the EMI, Loan tenure, applicable rate of interest, Charges for Prepayment, Default Interest and such other charges/fees as more particularly set out in the Loan Term Sheet.<br/><br/>&#8220;<b>Charges for Prepayment</b>&#8221; shall mean an amount payable by the Borrower to SFPL as a penalty for part pre-payment or full pre-payment of the Loan, as set out in the Loan Term Sheet as may be revised from time to time.<br/><br/>&#8220;<b>Default Interest</b>&#8221; shall mean the additional interest at the rate as set out in the Loan Term Sheet payable by the Borrower to SFPL, over and above the interest, in case of delay/ default in payment of EMI by the Borrower on the due date, as may be revised from time to time.<br/><br/>&#8220;<b>Equated Monthly Instalment (EMI)/ Equated Periodic Instalment (EPI)</b>&#8221; means the amount of pro-rated monthly payment consisting of principal amount of the Loan and/or interest payable thereon payable by the Borrower to SFPL, as set out in the Loan Term Sheet.<br/><br/>&#8220;<b>Event of Default</b>&#8221; shall mean all or any of the events specified in Clause 4.<br/><br/>&#8220;<b>Loan</b>&#8221; shall mean the financial assistance availed of by the Borrower/to be availed of by the Borrower from SFPL as stipulated in the Loan Term Sheet in connection with purchase of the Product."]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="64" width="535" height="60" uuid="c2000000-0000-0000-0000-000000000003"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["&#8220;<b>Loan Term Sheet</b>&#8221; shall mean the document setting out the Commercial Terms of the Loan provided by SFPL to the Borrower and accepted by the Borrower including any variations and amendments thereto, from time to time. Loan Term Sheet shall form an integral part of these Terms and Conditions and shall always be read in conjunction with the same.<br/><br/>&#8220;<b>Merchant</b>&#8221; shall mean the dealer or merchant specified in the Loan Term Sheet who is registered and enrolled with SFPL in connection with purchase of the Product by the customers of SFPL and from whom the Borrower has purchased/ proposes to purchase the Product.<br/><br/>&#8220;<b>Merchant Account</b>&#8221; shall mean the designated account of a Merchant which is registered by the Merchant with SFPL, from time to time.<br/><br/>&#8220;<b>Mode of Application</b>&#8221; shall mean submission of the Application Form by the Borrower to SFPL by using either of the following modes:<br/>(a)&#160;&#160;&#160;&#160; submitting an Application Form to an authorised SFPL Representative;<br/>(b)&#160;&#160;&#160;&#160; submitting an Online Application;<br/>(c)&#160;&#160;&#160;&#160; any other mode prescribed and acceptable to SFPL.<br/><br/>&#8220;<b>NACH</b>&#8221; shall mean National Automated Clearing House.<br/><br/>&#8220;<b>Online Application</b>&#8221; shall mean direct application made by the Borrower to SFPL on Website or SFPL&#8217;s mobile application and/or through any other electronic or other mode of communication prescribed by SFPL."]]></textFieldExpression>
+			</textField>
+		</band>
+
+		<band height="760" splitType="Stretch">
+			<break>
+				<reportElement positionType="Float" x="0" y="0" width="535" height="1" uuid="c3000000-0000-0000-0000-000000000001"/>
+			</break>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="4" width="535" height="60" uuid="c3000000-0000-0000-0000-000000000002"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["&#8220;<b>Outstanding Amount</b>&#8221; shall mean the total outstanding amount due and payable by the Borrower to SFPL with respect to Loan including but not limited to principal amount of Loan, interest, Default Interest (if any), Charges for Prepayment (if any) and any other amount, fee, charges due and/ or payable by the Borrower to SFPL in connection with the Loan.<br/><br/>&#8220;<b>Product</b>&#8221; shall mean specified consumer Finance, digital, lifestyle products and such other products proposed to be purchased by the Borrower by availing Loan, as more particularly specified in the Loan Term Sheet.<br/><br/>&#8220;<b>RBI</b>&#8221; shall mean the Reserve Bank of India, a statutory corporation established under the Reserve Bank of India Act, 1934.<br/><br/>&#8220;<b>SFPL Representatives</b>&#8221; shall mean employees and/or personnel directly or indirectly engaged by SFPL from time to time.<br/><br/>&#8220;<b>Terms and Conditions</b>&#8221; shall mean the terms and conditions set out herein as amended and/or modified by SFPL from time to time.<br/><br/>&#8220;<b>Website</b>&#8221; shall mean www.sarvagram.com."]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="64" width="535" height="14" uuid="c3000000-0000-0000-0000-000000000003"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["2. Scope"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="80" width="535" height="40" uuid="c3000000-0000-0000-0000-000000000004"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["The Loan sanctioned by SFPL to the Borrower shall be governed by these Terms and Conditions together with the terms set out in the <b>Schedule I</b>, Application Form, the Loan Term Sheet, and other conditions as may be agreed between SFPL and the Borrower and communicated from time to time. These Terms and Conditions, in themselves, do not create, transfer or record any rights or obligation of SFPL, and shall be read along with the provisions of the Application Form and the Loan Term Sheet. The Application Form and the Loan Term Sheet shall form an integral part of these Terms and Conditions and shall always be read in conjunction with the same."]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="120" width="535" height="14" uuid="c3000000-0000-0000-0000-000000000005"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["3. Loan"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="136" width="535" height="14" uuid="c3000000-0000-0000-0000-000000000006"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["3.1 Disbursement"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="152" width="535" height="60" uuid="c3000000-0000-0000-0000-000000000007"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["(a)&#160;&#160;&#160;&#160; Subject to Clause 3.1(b), the Borrower agrees and acknowledges that upon acceptance of the Loan Term Sheet and these Terms and Conditions by the Borrower, the Loan shall be disbursed by SFPL in the Merchant Account in one lump sum or in instalments as may be decided by SFPL at its sole discretion. It is clarified that the Loan disbursed by SFPL directly to Merchant Account shall be deemed to be disbursement by SFPL to the Borrower.<br/><br/>(b)&#160;&#160;&#160;&#160; The Borrower shall be liable to pay to SFPL all fees and charges referred to in the Loan Term Sheet and/ or the Application Form. Such fees and charges may be (i) deducted by SFPL at the time of disbursal of the Loan by SFPL to the Merchant; and/ or (ii) recovered by SFPL in any other manner as may be mutually agreed between the Borrower and SFPL.<br/><br/>(c)&#160;&#160;&#160;&#160; The Borrower shall utilize the Loan only for purchase of the Product and for the payment of expenses incidental thereto.<br/><br/>(d)&#160;&#160;&#160;&#160; The cancellation of the transaction for the purchase of the Product for which Loan has been utilized either by the Borrower or the Merchant concerned shall lead to an automatic cancellation of the entire Loan and all amounts due from the Borrower in respect of the Loan shall forthwith become due and payable to SFPL. It is further clarified that amounts already paid towards interest on the Loan shall not be reversed or repaid by SFPL to the Borrower.<br/><br/>(e)&#160;&#160;&#160;&#160; Notwithstanding anything provided to the contrary, in the event disbursement proceeds of Loan are not received by the Merchant, for any reason whatsoever, the Borrower hereby agrees unconditionally to cooperate with SFPL, take all steps and actions that may be required by SFPL and to execute such letters or documents as SFPL may require it to do so as to recover or reverse such incorrect disbursement."]]></textFieldExpression>
+			</textField>
+		</band>
+
+		<band height="760" splitType="Stretch">
+			<break>
+				<reportElement positionType="Float" x="0" y="0" width="535" height="1" uuid="c4000000-0000-0000-0000-000000000001"/>
+			</break>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="4" width="535" height="14" uuid="c4000000-0000-0000-0000-000000000002"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["3.2 Repayment"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="20" width="535" height="60" uuid="c4000000-0000-0000-0000-000000000003"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["(a)&#160;&#160;&#160;&#160; The Borrower shall repay the Loan along with interest computed at the rate specified in the Loan Term Sheet by way of EMIs, on the scheduled due date, as per the mode of payment, as specified in the Loan Term Sheet. The Borrower agrees that timely payment of EMI is the essence of the Loan. Notwithstanding anything to the contrary contained herein, the interest payable by the Borrower shall be subject to the applicable regulations/policies/guidelines of the RBI from time to time.<br/><br/>(b)&#160;&#160;&#160;&#160; All sums payable by the Borrower to SFPL in relation to the Loan shall be exclusive of all taxes and statutory levies as may be applicable on the same including but not limited to goods &amp; service tax and cesses thereon. Should any Applicable Law at any time require any deduction or withholding to be made from a payment, Borrower&#8217;s liability in respect of such payment shall be for a revised amount such that after making of such deduction or withholding, the net payment shall be equal to the amount which SFPL would have received, had no such deduction or withholding been made. The Borrower shall hold SFPL harmless and fully indemnified for any claim which may be made in this regard by any tax authorities and undertake to pay forthwith any such demands which SFPL may become liable to pay. Failure of the Borrower to pay the amount so demanded by SFPL shall be an Event of Default under these Terms and Conditions.<br/><br/>(c)&#160;&#160;&#160;&#160; Interest on the Loan shall begin to accrue simultaneously with the Lender&#8217;s disbursement of the Loan without the Lender concerning itself with the receipt of such disbursement by the Merchant/beneficiary/recipient or with the time taken in such realization.<br/><br/>(d)&#160;&#160;&#160;&#160; Unless otherwise agreed by SFPL at its sole discretion, credit/discharge for any payments made by the Borrower shall be given only on realization of the amounts due by SFPL or the relevant due date, whichever is later."]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="80" width="535" height="60" uuid="c4000000-0000-0000-0000-000000000004"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["(e)&#160;&#160;&#160;&#160; If there is any delay in payment of an EMI by the Borrower, SFPL, without prejudice to any other right it may have under these presents and/ or Applicable Law, shall be entitled to charge the Default Interest on the said EMI from the due date until the payment of such EMI by the Borrower.<br/><br/>(f)&#160;&#160;&#160;&#160; Notwithstanding anything to the contrary contained herein, the Borrower acknowledges and agrees that SFPL may in its sole and absolute discretion and without assigning any reason make a demand on the Borrower at any time to repay all or part of Outstanding Amounts and the Borrower shall forthwith make payment of such amounts demanded.<br/><br/>(g)&#160;&#160;&#160;&#160; Notwithstanding anything to the contrary in these Terms and Conditions or any other document, the Borrower irrevocably and unconditionally agrees that the payment of EMI shall not be dependent or conditional upon any dispute between the Borrower and the Merchant or any other event, and the Borrower undertakes to make the payment of the EMI regardless and despite any such dispute or event, on due dates specified in the Loan Term Sheet.<br/><br/>(h)&#160;&#160;&#160;&#160; The Borrower agrees, declares and confirms that, notwithstanding any of the provisions of the Indian Contract Act, 1872 or any other Applicable Law, or any terms and conditions to the contrary relating to the Loan, SFPL may, at its absolute discretion, appropriate any payments including any delayed payment made by the Borrower /any amounts realized by SFPL by enforcement of security or otherwise, towards the dues payable by the Borrower to SFPL in connection with the Loan and/or other agreements entered into between the Borrower and SFPL and in any manner whatsoever."]]></textFieldExpression>
+			</textField>
+		</band>
+
+		<band height="760" splitType="Stretch">
+			<break>
+				<reportElement positionType="Float" x="0" y="0" width="535" height="1" uuid="c5000000-0000-0000-0000-000000000001"/>
+			</break>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="4" width="535" height="14" uuid="c5000000-0000-0000-0000-000000000002"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["3.3 Commercial Terms"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="20" width="535" height="60" uuid="c5000000-0000-0000-0000-000000000003"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["(a)&#160;&#160;&#160;&#160; SFPL shall be entitled to revise all or any of the Commercial Terms including but not limited to Bounce Charges, Charges for Prepayment, Default Interest or any other fees and charges payable by the Borrower to SFPL from time to time as per its policy and/or Applicable Laws and regulations, if any, during the tenure of the Loan, at its sole discretion. SFPL shall ensure that changes in rates of Default Interest and such fees and charges are effected only prospectively and due notice of the same is provided to the Borrower through the Acceptable Means of Communication. The Borrower shall be bound by such revision made by SFPL.<br/><br/>(b)&#160;&#160;&#160;&#160; The EMI shall automatically stand increased due to increase in any taxes, charges, imposts, levies and monies whatsoever that are or may be levied on the Loan or the transaction contemplated herein. Such increase in rates, taxes, charges, imposts, levies and monies as stated above shall automatically form part of the Loan Term Sheet. The increase in amount of EMI shall be notified by SFPL to the Borrower from time to time.<br/><br/>(c)&#160;&#160;&#160;&#160; The Borrower undertakes that in the event of increase in the EMI, the Borrower shall forthwith issue fresh NACH instructions to SFPL as may be required by SFPL."]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="80" width="535" height="14" uuid="c5000000-0000-0000-0000-000000000004"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["3.4 Mode of Payment"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="96" width="535" height="60" uuid="c5000000-0000-0000-0000-000000000005"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["(a)&#160;&#160;&#160;&#160; <b>Payment by National Automated Clearing House (NACH) or any other electronic clearing mandate</b><br/>In case the payment of EMI is to be made by way of NACH mandate or such other electronic mandate given by the Borrower in favor of SFPL covering all or any of the amounts due to SFPL towards the Loan, the Borrower hereby irrevocably and unconditionally agrees and covenants that:<br/>i.&#160;&#160;&#160; NACH mandate or any other electronic or other clearing mandate given by the Borrower shall be valid throughout the respective date of such NACH mandate or such other mandate given by the Borrower and the same shall be valid during the tenure of the Loan. SFPL shall present such mandate from time to time in the Borrower&#8217;s bank account towards the payment of the Outstanding Amount, with or without advance intimation to the Borrower and the Borrower shall not claim that the NACH mandate or such other mandate given by the Borrower is invalid due to any reason whatsoever.<br/>ii.&#160;&#160;&#160; the Borrower shall ensure availability of sufficient funds in the bank account on which NACH mandate or such other mandate has been given by the Borrower in favor of SFPL and the Borrower shall not at any time close such bank account and/ or issue any notice instructing SFPL to suspend the NACH mandate or instruct the relevant bank to terminate or revoke the NACH mandate. The Borrower shall ensure that the bank account shall be debited towards the EMI and in case bank account has not been debited, the Borrower shall be obliged to inform SFPL in this regard within 7 days from the due date of such EMI. If the Borrower intends to change the existing NACH mandate, the Borrower shall be entitled to replace the NACH mandate and issue fresh NACH mandates for the new bank only on payment of swapping charges to SFPL as may be determined by SFPL and fresh NACH mandate shall be submitted to SFPL at least 5 days prior to the subsequent EMI due date.<br/>iii.&#160;&#160;&#160; the Borrower agrees that where the funds in the relevant bank account are not sufficient to honour the NACH mandate as per its terms, the Borrower shall not object to SFPL presenting such NACH mandate all over again for recovery of any amount due and payable in connection with the Loan.<br/><br/>(b)&#160;&#160;&#160;&#160; <b>Bounce Charges</b><br/>The Borrower agrees in the event of any dishonour of NACH instruction, the Borrower shall pay to SFPL Bounce Charges in addition to any Default Interest that may be levied by SFPL as per the terms of the Loan."]]></textFieldExpression>
+			</textField>
+		</band>
+
+		<band height="760" splitType="Stretch">
+			<break>
+				<reportElement positionType="Float" x="0" y="0" width="535" height="1" uuid="c6000000-0000-0000-0000-000000000001"/>
+			</break>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="4" width="535" height="14" uuid="c6000000-0000-0000-0000-000000000002"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["3.5 Prepayment"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="20" width="535" height="60" uuid="c6000000-0000-0000-0000-000000000003"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Subject to the provisions of these Terms and Conditions, the Borrower shall not, without the prior written approval of SFPL, prepay whole or any part of the Outstanding Amount before the due date specified in the Loan Term Sheet. SFPL may, at its discretion, give approval to the Borrower for the prepayment of Outstanding Amounts in full or in part, subject to payments of Charges for Prepayment on the Outstanding Amount.<br/><br/>Subject to foregoing, in case of part prepayment of the Outstanding Amount, SFPL shall be entitled to adjust the amount pre-paid against the amount payable by the Borrower in such manner as the SFPL thinks fit. In such an event SFPL shall be entitled to reschedule the repayment schedule at its sole discretion and the Borrower agrees to adhere to such altered re-payment schedule. A copy of such altered repayment schedule shall be provided to the Borrower for its information and records.<br/><br/>In the event of change in repayment schedule of the Loan due to part prepayment of the Loan by the Borrower, the Borrower shall submit to SFPL fresh NACH mandate as may be required by SFPL."]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="80" width="535" height="14" uuid="c6000000-0000-0000-0000-000000000004"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["3.6 Other conditions of Loan"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="96" width="535" height="60" uuid="c6000000-0000-0000-0000-000000000005"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["(a)&#160;&#160;&#160;&#160; Any advance EMI and/or security deposit/initial payment made by the Borrower as more specifically described in the Loan Term Sheet shall be subject to any adjustment against amounts due to SFPL.<br/><br/>(b)&#160;&#160;&#160;&#160; The Borrower shall be exclusively responsible to take possession and get the delivery of the Product from the Merchant, and SFPL shall not be liable for any delay in delivery or non-delivery of the Product and/or with respect to the quality, quantity, condition, fitness, suitability, or otherwise whatsoever of the Product.<br/><br/>(c)&#160;&#160;&#160;&#160; The Borrower shall bear and pay all costs, expenses, fees, taxes (as applicable from time to time), duties (including stamp duties), charges, and other imposts and obligations, existing as well as future, which may become payable by SFPL in respect of the Loan, including without limitation (i) the execution, delivery and performance of any documentation in relation to the Loan, (ii) the servicing and administration of the Loan; and (iii) the enforcement of SFPL&#8217;s rights in respect of the Loan.<br/><br/>(d)&#160;&#160;&#160;&#160; In case the Borrower seeks any refund for the Product from the Merchant or its agent or the manufacturer, he/she/it shall use the refund mandatorily and fully for prepayment of the Loan.<br/><br/>(e)&#160;&#160;&#160;&#160; In case the Borrower receives any insurance proceeds with respect to the Product, he/she/it shall use the said proceeds mandatorily and fully for prepayment of the Loan.<br/><br/>(f)&#160;&#160;&#160;&#160; It is being clarified that any prepayment by the Borrower pursuant to Clause 3.6(d) and Clause 3.6(e) shall be made by the Borrower to SFPL along with Charges for Prepayment.<br/><br/>(g)&#160;&#160;&#160;&#160; It is clarified that if there are more than one Borrower, each one of them shall be jointly and severally liable to fulfill obligations imposed on the Borrower under these Terms and Conditions, Loan Term Sheet, and any other documents executed in connection with the Loan.<br/><br/>(h)&#160;&#160;&#160;&#160; The Borrower shall also execute a demand promissory note and/or a letter of continuity in favour of SFPL in the form and manner as may be acceptable to SFPL, which shall be treated as an integral part of the terms entered into between the Borrower and SFPL.<br/><br/>(i)&#160;&#160;&#160;&#160; It is clarified that where there are more than one Borrower, each one of them shall be jointly and severally liable on the demand promissory note."]]></textFieldExpression>
+			</textField>
+		</band>
+
+		<band height="760" splitType="Stretch">
+			<break>
+				<reportElement positionType="Float" x="0" y="0" width="535" height="1" uuid="c7000000-0000-0000-0000-000000000001"/>
+			</break>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="4" width="535" height="14" uuid="c7000000-0000-0000-0000-000000000002"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["3.7 Representation and Warranties"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="20" width="535" height="60" uuid="c7000000-0000-0000-0000-000000000003"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["The Borrower represents and warranties to SFPL as under:<br/><br/>(a)&#160;&#160;&#160;&#160; The Borrower is competent to contract under the Indian Contract Act, 1872 (as amended from time to time) and the Borrower by way of availing Loan from SFPL does not and will not conflict with any Applicable Law or regulation applicable to the Borrower;<br/><br/>(b)&#160;&#160;&#160;&#160; The Borrower is fully empowered to avail of the Loan and adhere to the Loan Term Sheet, these Terms and Conditions, and to perform the obligations contained herein, and the Loan Term Sheet and these Terms and Conditions have been duly executed and delivered by the Borrower as may be required, and once the Loan is disbursed by SFPL, the Application Form, Loan Term Sheet together with these Terms and Conditions constitute a legal, valid and binding obligation of the Borrower enforceable against him/her/it in accordance therewith;<br/><br/>(c)&#160;&#160;&#160;&#160; All information/documents provided by the Borrower to SFPL in the Application Form or otherwise howsoever in relation to the Loan, are true, correct, accurate, and complete in all respects and are not misleading in letter or spirit, whether by reason of omission to state a material fact or otherwise;<br/><br/>(d)&#160;&#160;&#160;&#160; The Borrower is not an undischarged insolvent and there are no insolvency proceedings pending against the Borrower. Further, the Borrower has not at any time been adjudged as an insolvent and has not at any time suspended payment to his/her/its creditors or has not at any time made a composition with them; or has not at any time been convicted by a court.<br/><br/>(e)&#160;&#160;&#160;&#160; The Borrower does not violate any terms and conditions under any existing agreement entered into by the Borrower with any third party by availing of the Loan from SFPL."]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="80" width="535" height="14" uuid="c7000000-0000-0000-0000-000000000004"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["3.8 Undertaking"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="96" width="535" height="60" uuid="c7000000-0000-0000-0000-000000000005"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Until satisfaction of all amounts due to SFPL with respect to Loan, the Borrower hereby irrevocably and unconditionally undertakes that the Borrower shall:<br/><br/>(a)&#160;&#160;&#160;&#160; comply with the Applicable Laws;<br/><br/>(b)&#160;&#160;&#160;&#160; use the Product(s) only for personal use and not use the Product(s) for unlawful or any antisocial purposes;<br/><br/>(c)&#160;&#160;&#160;&#160; maintain the Product in good order and condition;<br/><br/>(d)&#160;&#160;&#160;&#160; not do or suffer any act or thing whereby the Product may be detained or taken in the execution under legal process, or by any public authority or government department;<br/><br/>(e)&#160;&#160;&#160;&#160; not use or permit the use of the Product for any purpose not permitted by the terms of the insurance/warranty policy for the Product, not do or permit to be done any act or thing which might render the insurance/warranties for the Product invalid;<br/><br/>(f)&#160;&#160;&#160;&#160; pay and bear all duties, charges and other imposts and obligations including but not limited to insurance, existing as well as in future (if any), in respect of the Product and the transaction;<br/><br/>(g)&#160;&#160;&#160;&#160; do all such things and execute all such writings as may be required by SFPL from time to time for duly or more perfectly securing the repayment of the Outstanding Amounts;<br/><br/>(h)&#160;&#160;&#160;&#160; not default or delay in the payment of the EMI or any other dues beyond the due dates;<br/><br/>(i)&#160;&#160;&#160;&#160; not create any charge/lien/security interest (of whatsoever nature) on the Product or sell, gift or transfer the possession of the Product to any third party.<br/><br/>(j)&#160;&#160;&#160;&#160; the Borrower shall have no right to terminate the Loan Term Sheet or these Terms and Conditions;"]]></textFieldExpression>
+			</textField>
+		</band>
+
+		<band height="760" splitType="Stretch">
+			<break>
+				<reportElement positionType="Float" x="0" y="0" width="535" height="1" uuid="c8000000-0000-0000-0000-000000000001"/>
+			</break>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="4" width="535" height="60" uuid="c8000000-0000-0000-0000-000000000002"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["(k)&#160;&#160;&#160;&#160; the Borrower acknowledges that the rate of interest, Default Interest, Charges for Prepayment, and other fees and charges payable and/or agreed to be paid by the Borrower under the Loan Term Sheet and these Terms and Conditions are reasonable and acceptable to him/her/it;<br/><br/>(l)&#160;&#160;&#160;&#160; The Borrower additionally irrevocably and unconditionally agrees and undertakes that:<br/>i.&#160;&#160;&#160; It will be his/her/its sole responsibility to ensure that the use of name, password, and credentials (collectively &#8220;<b>Confidential Details</b>&#8221;), if any, for securely accessing the online/digital/phone-based platform of SFPL, are kept confidential and not disclosed to any third party. Further, he/she/it shall take all possible care to prevent discovery of such Confidential Details by any person, failing which SFPL shall not be liable for any loss/damage arising as a consequence thereof;<br/>ii.&#160;&#160;&#160; That he/she/it shall be solely responsible for the selection, maintenance, security, and operation of the electronic device and for all issues relating thereof;<br/>iii.&#160;&#160;&#160; That his/her/its electronic devices are free of viruses and harmful components and further such devices would be protected by installing reputed antivirus software to ensure safety/security of the Confidential Details;<br/>iv.&#160;&#160;&#160; To protect himself/herself/itself from electronic frauds (including but not limited to email and phone-based frauds) and to exercise utmost care, caution, and diligence while responding and accessing these fraudulent emails and websites to protect themselves against such fraud and criminal acts; and<br/>v.&#160;&#160;&#160; To reach out to the nearest SFPL branch or to contact SFPL to check the authenticity of a claim made in any suspicious email/phone call/communication.<br/><br/>(m)&#160;&#160;&#160;&#160; SFPL shall not be made a party to any disputes between the Borrower and the Merchant including any dispute relating to the Product and that the obligation of the Borrower with respect to the Loan shall subsist notwithstanding any dispute between the Borrower and the Merchant."]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="64" width="535" height="14" uuid="c8000000-0000-0000-0000-000000000003"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["3.9 Security"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="80" width="535" height="30" uuid="c8000000-0000-0000-0000-000000000004"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["The Borrower hereby creates first and exclusive charge by way of hypothecation over the Product for the purpose of securing the Loan together with all Outstanding Amounts and any other amount payable by the Borrower in respect of the Loan."]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="110" width="535" height="14" uuid="c8000000-0000-0000-0000-000000000005"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["4. Events of Default"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="126" width="535" height="60" uuid="c8000000-0000-0000-0000-000000000006"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>4.1</b> An &#8216;Event of Default&#8217; shall be deemed to have occurred if:-<br/><br/>(a)&#160;&#160;&#160;&#160; an EMI or any payments due by the Borrower has not been paid on the relevant due date;<br/><br/>(b)&#160;&#160;&#160;&#160; the Borrower is in breach of his/her/its obligations contained in these Terms and Conditions, Loan Term Sheet and/or other documents executed by the Borrower with SFPL;<br/><br/>(c)&#160;&#160;&#160;&#160; any representations and/or warranties contained in these presents are found to be untrue, misleading or incorrect, when made or deemed to be made;<br/><br/>(d)&#160;&#160;&#160;&#160; the Product is damaged, stolen, confiscated, attached, rendered unusable, taken into custody by any government official, authority or any other person, subject to any legal proceedings, or is disclaimed;"]]></textFieldExpression>
+			</textField>
+		</band>
+
+		<band height="760" splitType="Stretch">
+			<break>
+				<reportElement positionType="Float" x="0" y="0" width="535" height="1" uuid="c9000000-0000-0000-0000-000000000001"/>
+			</break>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="4" width="535" height="60" uuid="c9000000-0000-0000-0000-000000000002"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["(e)&#160;&#160;&#160;&#160; there is a reasonable apprehension that the Borrower is unable to pay his/her/its debts or the Borrower has admitted its inability to pay his/her/its debts, as they become payable; and/or if the Borrower suffers any adverse material change in his/her/its financial position; and/or if the Borrower has voluntarily or compulsorily become the subject to proceedings under any bankruptcy or insolvency law or under any other law providing protection as a relief undertaking; and/or the Borrower compounds with his/her/its creditors; and/or permits any attachment or sequestrations or other process against any of his/her/its assets or properties;<br/><br/>(f)&#160;&#160;&#160;&#160; the death/lunacy or other disability of the Borrower, as may be applicable;<br/><br/>(g)&#160;&#160;&#160;&#160; the Borrower commits any default under the terms and conditions of any other loan availed of by the Borrower from SFPL;<br/><br/>(h)&#160;&#160;&#160;&#160; there exists any other circumstance, which in the sole opinion of SFPL is prejudicial to the interest of SFPL;<br/><br/>(i)&#160;&#160;&#160;&#160; any litigation, arbitration or administrative proceedings are filed against the Borrower which proceedings may in the sole opinion of SFPL adversely affect the interests of SFPL;<br/><br/>It is clarified that were there are more than one Borrower, the occurrence of any of the aforesaid events in respect of one of the Borrowers shall be an Event of Default in respect of all of them."]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="64" width="535" height="30" uuid="c9000000-0000-0000-0000-000000000003"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>4.2</b> Upon the occurrence of an Event of Default, SFPL may, without prejudice to the other remedies available under law or in equity, take one or more of the following actions:"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="94" width="535" height="60" uuid="c9000000-0000-0000-0000-000000000004"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["(a)&#160;&#160;&#160;&#160; SFPL may declare all Outstanding Amounts and any other amount payable by the Borrower in respect of the Loan to be forthwith due and payable, whereupon such amounts shall become forthwith due and payable without presentment, demand, protest or any other notice of any kind, all of which are hereby expressly waived, notwithstanding anything contained herein to the contrary and in case the Borrower fails to pay Outstanding Amount or any part thereof to SFPL on the due date, the Borrower undertakes to forthwith surrender to SFPL or its representatives the Product or any other asset of the Borrower of value sufficient to satisfy the Outstanding Amount or part thereof not paid by the Borrower. SFPL or its representative shall also be entitled to take possession of the Product and/or dispose of the same and adjust the proceeds against the Outstanding Amounts. If there is any deficit, the same shall be made good to SFPL by the Borrower.<br/><br/>(b)&#160;&#160;&#160;&#160; Without prejudice to the forgoing and in addition thereto, SFPL shall be entitled to invoke the demand promissory note issued by the Borrower.<br/><br/>(c)&#160;&#160;&#160;&#160; SFPL shall be entitled to appoint and authorize third party agents to assist SFPL for enforcement of security and collection of Outstanding Amounts from the Borrower.<br/><br/>(d)&#160;&#160;&#160;&#160; Without prejudice to other rights and remedies of SFPL under law or in equity, in case of default by reason of dishonor of (i) the NACH mandate signed by the Borrower; or (ii) any other electronic or other clearing mandate approved by the Borrower, when used or presented by SFPL towards repayment of dues by the Borrower, (A) SFPL shall levy on the Borrower (a) a Default Interest on the amount of EMI for every such default till such default continues and is not rectified by the Borrower; and (b) Bounce Charges as applicable from time to time per default, (B) SFPL may initiate legal proceedings under Section 138 of the Negotiable Instruments Act, 1881 or Section 25 of the Payment and Settlement Systems Act, 2007 or under other provisions of Applicable Law."]]></textFieldExpression>
+			</textField>
+		</band>
+
+		<band height="760" splitType="Stretch">
+			<break>
+				<reportElement positionType="Float" x="0" y="0" width="535" height="1" uuid="ca000000-0000-0000-0000-000000000001"/>
+			</break>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="4" width="535" height="14" uuid="ca000000-0000-0000-0000-000000000002"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["5. Disclosures"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="20" width="535" height="60" uuid="ca000000-0000-0000-0000-000000000003"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>5.1</b> The Borrower hereby consents and authorizes SFPL to disclose as it may deem appropriate and necessary, all or any:<br/><br/>(a)&#160;&#160;&#160;&#160; information and/or data relating to the Borrower;<br/><br/>(b)&#160;&#160;&#160;&#160; information and/or data relating to the Loan and Product/assets furnished by the Borrower;<br/><br/>(c)&#160;&#160;&#160;&#160; obligations assumed/to be assumed by the Borrower in relation to the Loan under the Loan Term Sheet and these Terms and Conditions; and/or<br/><br/>(d)&#160;&#160;&#160;&#160; default, if any, committed by the Borrower in discharge of his/her/its obligations under the Loan Term Sheet and these Terms and Conditions;<br/><br/>(e)&#160;&#160;&#160;&#160; to TransUnion CIBIL Limited (&#8220;<b>CIBIL</b>&#8221;) or any other agency authorized by RBI. CIBIL and/or any other agency, authorized by RBI, may use and/or process the aforesaid information and/or data disclosed by SFPL in any manner as deemed fit by it. CIBIL and/or any other agency, authorized by the RBI, may furnish for consideration, the processed information and/or data or products thereof prepared by it to SFPL or other financial institutions and/or other credit grantors or registered users, as may be necessary in the usual course of business or as may be specified by RBI."]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="80" width="535" height="30" uuid="ca000000-0000-0000-0000-000000000004"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>5.2</b> The Borrower confirms and consents that SFPL may also disclose any information / documents relating to the Borrower to SFPL&#8217;s employees, agents, contractors, insurance providers or third party service providers professional advisers, branches, affiliates or group companies."]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="110" width="535" height="14" uuid="ca000000-0000-0000-0000-000000000005"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["6. Governing Law, Jurisdiction and Dispute Resolution"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="126" width="535" height="60" uuid="ca000000-0000-0000-0000-000000000006"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>6.1</b> The Parties agree that these Terms and Conditions shall be governed by the laws of India and subject to Clause 6.2 below, the courts at Pune, Maharashtra shall have exclusive jurisdiction in relation to all matters arising from or in connection with these Terms and Conditions.<br/><br/>Provided that, nothing contained herein, shall limit the right of the Lender to take proceedings in any other court or tribunal of competent jurisdiction, nor shall the taking of proceedings in one or more jurisdictions preclude the taking of proceedings in any other jurisdiction, whether concurrently or not and the Borrower(s) irrevocably submits to and accepts for themselves and in respect of their property, generally and unconditionally, the jurisdiction of such court or tribunal, and the Borrower(s) irrevocably waives any objection it may have now or in the future to the laying of the venue of any proceedings and any claim that any such proceedings have been brought in an inconvenient forum."]]></textFieldExpression>
+			</textField>
+		</band>
+
+		<band height="760" splitType="Stretch">
+			<break>
+				<reportElement positionType="Float" x="0" y="0" width="535" height="1" uuid="cb000000-0000-0000-0000-000000000001"/>
+			</break>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="4" width="535" height="14" uuid="cb000000-0000-0000-0000-000000000002"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["6.1 Dispute Resolution"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="20" width="535" height="60" uuid="cb000000-0000-0000-0000-000000000003"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["In case any dispute arising out of, or in connection with, these Terms and Conditions, including any question regarding its existence, validity or termination, shall be referred to, and finally be resolved by arbitration in accordance with the Arbitration and Conciliation Act, 1996 for the time being in force, whose provisions are deemed to be incorporated by reference in this Clause 6.2 (Dispute Resolution).<br/><br/>The arbitral tribunal shall consist of a sole arbitrator to be appointed mutually by the parties to the dispute. In the event, the parties to the dispute do not agree upon or failure to appoint an arbitrator within a period of 30 (thirty) days, the sole arbitrator shall be appointed in accordance with the provisions of Arbitration and Conciliation Act, 1996 for the time being in force or any enactment or modification made thereafter.<br/><br/>The language of the arbitration shall be English and the venue and seat of arbitration shall be Pune, Maharashtra. The award made by the sole arbitrator shall be final and binding upon the Parties."]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="80" width="535" height="14" uuid="cb000000-0000-0000-0000-000000000004"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["7. Set-off"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="96" width="535" height="40" uuid="cb000000-0000-0000-0000-000000000005"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["In addition to any general or similar lien to which SFPL may be entitled by law, SFPL shall, without prejudice to any of its specific rights under any other agreements with the Borrower, at its sole discretion and without notice to the Borrower, be at liberty to apply any other money or amounts standing to the credit of the Borrower in any account with SFPL in or towards payment of the monies due from the Borrower. The rights of SFPL under these presents are in addition to other rights and remedies (including without limitation other rights or set off) which SFPL may have under Applicable Law or otherwise."]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="136" width="535" height="14" uuid="cb000000-0000-0000-0000-000000000006"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["8. Notices"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="152" width="535" height="40" uuid="cb000000-0000-0000-0000-000000000007"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Any notice to be given to the Borrower in respect of the Terms and Conditions shall be deemed to have been validly given if provided by using the Acceptable Means of Communication and SFPL shall not be liable for any error on the Borrower&#8217;s part or on the part of the mobile service provider in this regards. Provided, any notice sent by way of a courier shall be deemed to have been received by the Borrower within 2 (two) Business Days from the time of its posting."]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="192" width="535" height="14" uuid="cb000000-0000-0000-0000-000000000008"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["9. Grievance Redressal Mechanism"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="208" width="535" height="60" uuid="cb000000-0000-0000-0000-000000000009"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["If the Borrower(s) have any issues or wish to register a complaint or grievance, they can reach us through any of the following channels, however, the Borrower(s) may also refer to the Grievance Redressal Mechanism Policy available on our website (www.sarvagram.com):<br/><br/><u><b>STEP 1: Channel of Complaint Registration</b></u><br/><br/>i.&#160;&#160;&#160; <u>Online</u><br/>The Lender sends SMS/ message to all its customers along with a link of feedback form. Borrower(s) can also share feedback/ complaint by scanning the QR code (available on posters displayed in each branch). Feedback form link will be displayed accordingly.<br/>The Borrower(s) can share feedback/ complaints via Google review/ Facebook review or through SarvaGram&#8217;s Facebook page or on Google page or through the Lender&#8217;s website by providing the full details of the complaints.<br/><br/>ii.&#160;&#160;&#160; <u>Email</u><br/>The E-mail ID of customer care and Grievance Redressal Officer will be displayed on the notice board of each branch and on Kender&#8217;s official website i.e., www.sarvagram.com.<br/>Borrower(s) can write to info@sarvagram.com and lodge official complaint/ grievance with the Lender.<br/><br/>iii.&#160;&#160;&#160; <u>Phone to Toll Free Number</u><br/>The Borrower(s) can lodge a complaint by way of phone to the designated Toll-free number at 8101777555. The customer care executive handling the Toll-free number will handle and accept the complaint on phone and the complaint/ grievance will be directed to concerned team for resolution.<br/><br/>iv.&#160;&#160;&#160; <u>Customer Walk-in&#8217;s at Branch/Office</u><br/>The Borrower(s) can visit and lodge their complaint at any of the branches/ offices of the Lender. Designated manager/ official/ customer service team will attend the Borrower(s) and try to resolve the problem at his/ her end, if possible."]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="268" width="535" height="60" uuid="cb000000-0000-0000-0000-00000000000a"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<u><b>STEP 2: Process</b></u><br/><br/>i.&#160;&#160;&#160; The customer service team/ Branch Manager shall be the first point of interaction with the customer/ Borrower(s) and shall record all complaints received in writing.<br/>If there is no response from the customer service team/ Branch Manager within 7 (seven) working days from filing the complaint or if the customer/ Borrower(s) is not satisfied with the provided solution then the same complaint may be escalated to the zonal manager of the Lender.<br/><br/>ii.&#160;&#160;&#160; If there is no response from the zonal manager within 7 (seven) working days from filing the complaint or if the customer/ Borrower(s) is not satisfied with the provided solution then the same complaint may be escalated to the Grievance Redressal Officer of the Lender, details of which is provided in <b>Schedule I Part 2(3)</b> (<u>Other qualitative information</u>).<br/><br/>iii.&#160;&#160;&#160; Notwithstanding the above, all complaints shall be resolved within 30 (thirty) days from the date of receipt of the complaint/ query from the customer/ Borrower(s) in the first instance. If a case requires additional time, Lender or the concerned grievance redressal representative will inform the customer/ Borrower(s) the reasons of delay in resolution within the timelines specified above and provide regular updates on the progress of the resolution and the expected timelines for the resolution of the complaint.<br/><br/>iv.&#160;&#160;&#160; If the customer is not satisfied with the reply / action / resolution given by Grievance Redressal Officer, he/ she may appeal to the Officer-in-Charge of the Regional Office of Department of Non-Banking Supervision (DNBS) of The RBI Mumbai, the details of which are mentioned below:<br/><i>Reserve Bank of India, Department of Non-Banking Supervision, 3rd Floor, RBI Building, Opp. Mumbai Central Railway Station, Near Maratha Mandir, Byculla, Mumbai - 400 008, Maharashtra.</i><br/>The customers/ Borrower(s) can also file their complaints on the Complaint Management System (&#8220;CMS&#8221;) launched by the RBI. CMS is an online portal which is a single window for customer complaints relating to banks and NBFCs."]]></textFieldExpression>
+			</textField>
+		</band>
+
+		<band height="760" splitType="Stretch">
+			<break>
+				<reportElement positionType="Float" x="0" y="0" width="535" height="1" uuid="cc000000-0000-0000-0000-000000000001"/>
+			</break>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="4" width="535" height="14" uuid="cc000000-0000-0000-0000-000000000002"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["10. Recovery Agents"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="20" width="535" height="60" uuid="cc000000-0000-0000-0000-000000000003"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["The Lender does not involve or outsource the collection of any outstanding amounts under this Agreement and any other agreement to any third-party recovery agent, agency, or entity (&#8220;<b>Recovery Agent</b>&#8221;). The collection of any outstanding amounts under this Agreement and any other agreement are done by the employees of the Lender.<br/><br/>The Lender shall communicate directly with the Borrower(s) regarding any matters related to the collection of outstanding amounts, including but not limited to repayment schedules, default notices, and negotiation of repayment terms.<br/><br/>The Lender shall ensure that all communication and collection activities conducted directly by the Lender or its authorized representatives are carried out in a fair, transparent, and respectful manner, in compliance with applicable laws and regulations. Please refer to the collection and recovery policy of the Lender available on its website.<br/><br/>The Lender may utilize the services of recovery agents for collection of dues and repossession of securities, as and when required.<br/><br/>Recovery agents, if utilized, will be appointed as per regulatory guidelines issued in this regard. In this respect:<br/><br/>(a)&#160;&#160;&#160;&#160; Only recovery agents from the empaneled vendors will be engaged by the Lender.<br/><br/>(b)&#160;&#160;&#160;&#160; In case the Lender engages service of such recovery/ enforcement/ seizure agent for any recovery case, the identity of the agent will be disclosed and proper communication will be sent to the Borrower(s); and<br/><br/>(c)&#160;&#160;&#160;&#160; The recovery agents engaged by the Lender will be required to follow a code of conduct covering their dealings with customers and in compliance with collection and recovery policy of the Lender."]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="80" width="535" height="14" uuid="cc000000-0000-0000-0000-000000000004"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["11. Loan Protection/ Insurance"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="96" width="535" height="60" uuid="cc000000-0000-0000-0000-000000000005"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["The Borrower(s) shall procure such loan protection insurance from insurance service provider, as may be acceptable to the Lender, in order to protect the Borrower(s) against any risk of payment incapacities in case of critical illness/ disability/ death/ job loss, as per the scope of the insurance policy. The premium of such Insurance, if opted, may be paid either separately by the Borrower(s) or may be included in the Loan. Any cancellation of such insurance may be permitted during the tenor of the Loan, as defined in the scope of the insurance policy. Such insurance shall be assigned to the Lender in a form and manner satisfactory to the Lender. The Lender shall be mentioned as the FIRST loss payee under the insurance policy.<br/><br/>Insurance is non-mandatory and offered only to customer who voluntarily choose to opt for the same.<br/><br/>In case if the Loan is cancelled, the insurance policy will also get cancelled automatically and the certificate of insurance (if received/issued) will remain cancelled/ revoked."]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="156" width="535" height="14" uuid="cc000000-0000-0000-0000-000000000006"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["12. Applicability of Terms and Conditions"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="172" width="535" height="30" uuid="cc000000-0000-0000-0000-000000000007"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["These Terms and Conditions shall apply to the Borrower on and from the date of the Loan Term Sheet and these Terms and Conditions until there are any Outstanding Amount."]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="202" width="535" height="14" uuid="cc000000-0000-0000-0000-000000000008"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["13. Miscellaneous"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="218" width="535" height="60" uuid="cc000000-0000-0000-0000-000000000009"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>13.1</b> Any statement of account furnished by SFPL regarding the balance amount due and payable by the Borrower with respect to the Loan shall be accepted by and be binding on the Borrower and shall be conclusive proof of the amounts due from the Borrower to SFPL. Without prejudice to the above, if the Borrower desires to question any statement or any part thereof, the Borrower shall furnish SFPL full details of the same within 15 (fifteen) days of the receipt of the statement by the Borrower, and SFPL may consider the same and the Borrower shall not be entitled to object thereafter on any ground whatsoever. It is however clarified that the Borrower shall not be entitled to delay any payment of EMI on the ground of the statement of account furnished by SFPL being inaccurate or any other ground.<br/><br/><b>13.2</b> Every provision contained in these Terms and Conditions shall be severable and distinct from every other such provision and if at any time any one or more of such provisions is or becomes invalid, illegal or unenforceable in any respect in any jurisdiction, the validity, legality and enforceability of the remaining provisions hereof shall not be in any way affected or impaired thereby nor shall such provision be effected in any other jurisdiction.<br/><br/><b>13.3</b> The Borrower understands and agrees that all fees and charges levied by SFPL under these Terms and Conditions and Loan Term Sheet in relation to the Loan are non-refundable and non-transferable.<br/><br/><b>13.4</b> SFPL shall at any time, be entitled to assign, sell, securitize, discount or transfer all or any part of SFPL&#8217;s rights and obligations with respect to the Loan, to any person(s)/entity without any notice/intimation to the Borrower and in such manner as SFPL may deem appropriate from time to time. The Borrower shall not be entitled to assign or in any manner transfer any of its rights or obligations with respect to Loan to any person.<br/><br/><b>13.5</b> The Borrower agrees that these Terms and Conditions may be amended and/or modified and/or supplemented from time to time by SFPL due to any reason including due to any change in the market conditions and the Borrower shall be obligated to comply with such revised terms and conditions. Any change to the terms of these Terms and Conditions shall be communicated to the Borrower by way of the Acceptable Means of Communication. The revised terms under these Terms and Conditions may also be accessed, read and downloaded by the Borrower from the Website. The revised Terms and Conditions shall be effective and applicable prospectively. Circulation of the amendment by way of the Acceptable Means of Communication by SFPL to the Borrower with respect to the revised Terms and Conditions shall be sufficient intimation to the Borrower for effectiveness and applicability of the revised Terms and Conditions. Such revised Terms and Conditions shall hold true, valid and applicable with respect to the Loan.<br/><br/><b>13.6</b> The Borrower shall indemnify the Lender, its officers, directors, employees, representatives, advisors, transferee and agents from and hold each of them harmless against any and all liabilities, taxes, obligations, losses, damages, penalties, claims, actions, judgments, suits, costs, expenses and disbursements incurred by any of them as a result of, or arising out of, or in any way related to, or by reason of, any investigation, litigation or other proceeding (whether or not the Lender is a party thereto) related to the entering into and/or performance of these Terms and Conditions, the Loan Documents, or any other document related hereto or the consummation of any transactions contemplated herein or therein or the use of proceeds of the Loan, including, without limitation, the reasonable fees and disbursements of counsel incurred in connection with any such investigation, litigation or other proceeding (but excluding any such liabilities, obligations, losses, etc., to the extent incurred by reason of the gross negligence or wilful misconduct of the indemnified person). This indemnity shall survive termination of these Terms and Conditions."]]></textFieldExpression>
+			</textField>
+		</band>
+
+		<band height="760" splitType="Stretch">
+			<break>
+				<reportElement positionType="Float" x="0" y="0" width="535" height="1" uuid="cd000000-0000-0000-0000-000000000001"/>
+			</break>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="4" width="535" height="60" uuid="cd000000-0000-0000-0000-000000000002"/>
+				<textElement markup="html" textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>13.7</b> The Borrower agrees to execute, deliver and perform, any and all further acts or documents which SFPL may reasonably require to effectuate the purposes of these Terms and Conditions.<br/><br/><b>13.8</b> Any omission or delay on the part of SFPL shall not be deemed to constitute a waiver by SFPL of any of its rights under these Terms and Conditions.<br/><br/><b>13.9</b> The Borrower hereby agrees and undertakes that the SFPL shall not be responsible to the Borrower for any post purchase services of the Product.<br/><br/><b>13.10</b> The Borrower agrees that SFPL may at its sole and absolute discretion reduce and/or cancel the limit of Loan granted by it to the Borrower at any time, without prior notice and without assigning any reason to the Borrower. The Borrower shall be bound by such reduction or cancellation in the Loan limit and hereby confirms that SFPL shall not be liable to the Borrower or any person in any manner whatsoever on its decision to recall or reduce or cancel the Loan limit.<br/><br/><b>13.11</b> The Borrower may not make or pass any disparaging statement against the Lender and/or its employees, representatives, etc. in any written and/or verbal forms by any mediums of communication that may or will harm the repute of the processes of the Lender.<br/><br/><b>13.12</b> Each Party acknowledges and affirms that:<br/>i.&#160;&#160;&#160; They have had the opportunity to fully review and negotiate this terms and conditions.<br/>ii.&#160;&#160;&#160; The language of this terms and conditions has been carefully considered and drafted, and the Parties have had ample time to discuss, revise, and make any necessary changes, where required, to ensure that the terms and conditions accurately reflect their intentions.<br/>iii.&#160;&#160;&#160; Therefore, each word, term, clause, and provision contained in this terms and conditions shall be deemed to have been independently drafted/reviewed by each Party, and neither Party shall claim any ambiguity or unintended meaning in any part of these Terms and Conditions due to its authorship.<br/>iv.&#160;&#160;&#160; The Parties acknowledge that they are entering into this terms and conditions freely and voluntarily, and no Party has exerted any undue influence or coercion upon the other."]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="64" width="535" height="30" uuid="cd000000-0000-0000-0000-000000000003"/>
+				<textElement markup="html" textAlignment="Left">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>SFPL customer care contact details:</b><br/>1. For any queries, Borrower can write to SFPL at info@sarvagram.com"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="98" width="535" height="14" uuid="cd000000-0000-0000-0000-000000000004"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Declaration"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="116" width="535" height="30" uuid="cd000000-0000-0000-0000-000000000005"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["I/ We hereby expressly acknowledge and confirm that I/we have carefully gone through the provisions of these Terms and Conditions and hereby record my/our agreement and consent to abide by the provisions of these Terms and Conditions."]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="156" width="535" height="14" uuid="cd000000-0000-0000-0000-000000000006"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Name: Borrower: " + ($P{applicantName} == null ? "" : $P{applicantName})]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement positionType="Float" x="0" y="178" width="535" height="16" uuid="cd000000-0000-0000-0000-000000000007"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="CoApplicantDetailDataset" uuid="cd000000-0000-0000-0000-000000000008">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{coApplicantDetailList})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="16" width="535">
+						<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="0" y="0" width="535" height="14" uuid="cd000000-0000-0000-0000-000000000009"/>
+							<textElement textAlignment="Left">
+								<font fontName="SansSerif" size="9"/>
+							</textElement>
+							<textFieldExpression><![CDATA["Name: Co-Borrower : " + ($F{applicantName} == null ? "" : $F{applicantName})]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="200" width="535" height="14" uuid="cd000000-0000-0000-0000-00000000000a"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Date: " + ($P{date} == null ? "" : $P{date})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
