@@ -4,29 +4,24 @@
               xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
               name="EndUseVerification"
               pageWidth="595" pageHeight="842"
-              columnWidth="515"
-              leftMargin="40" rightMargin="40"
-              topMargin="40" bottomMargin="40"
+              columnWidth="535"
+              leftMargin="30" rightMargin="30"
+              topMargin="30" bottomMargin="30"
               isSummaryNewPage="true"
               uuid="a1b2c3d4-0000-0000-0000-000000000001">
 
-    <property name="net.sf.jasperreports.default.pdf.encoding" value="UTF-8"/>
+    <property name="net.sf.jasperreports.default.pdf.encoding" value="Identity-H"/>
     <property name="net.sf.jasperreports.default.pdf.embedded" value="true"/>
+    <property name="net.sf.jasperreports.print.keep.full.text" value="true"/>
 
-    <!-- =================== Sub datasets for dynamic lists =================== -->
-    <subDataset name="ApplicantsDataset" uuid="a1b2c3d4-0000-0000-0000-000000000002">
-        <field name="_THIS" class="java.lang.String">
-            <fieldDescription><![CDATA[_THIS]]></fieldDescription>
-        </field>
-    </subDataset>
-
+    <!-- =================== Sub dataset for the dynamic image list =================== -->
     <subDataset name="ImagesDataset" uuid="a1b2c3d4-0000-0000-0000-000000000003">
         <field name="_THIS" class="java.lang.String">
             <fieldDescription><![CDATA[_THIS]]></fieldDescription>
         </field>
     </subDataset>
 
-    <!-- =================== Fields (mapped from EndUseDocumentDTO) =================== -->
+    <!-- =================== Parameters (mapped from EndUseDocumentDTO) =================== -->
     <parameter name="lan" class="java.lang.String"/>
     <parameter name="loanAmount" class="java.lang.String"/>
     <parameter name="mobile" class="java.lang.String"/>
@@ -49,9 +44,9 @@
 
     <!-- =================== Title =================== -->
     <title>
-        <band height="50" splitType="Stretch">
-            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                <reportElement x="0" y="10" width="515" height="30" uuid="b0000000-0000-0000-0000-000000000001"/>
+        <band height="44" splitType="Stretch">
+            <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                <reportElement x="0" y="8" width="535" height="28" uuid="b0000000-0000-0000-0000-000000000001"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font fontName="SansSerif" size="16" isBold="true" isUnderline="true"/>
                 </textElement>
@@ -62,40 +57,40 @@
 
     <!-- =================== Page 1 : Header info + Table =================== -->
     <detail>
-        <band height="500" splitType="Stretch">
+        <band height="340" splitType="Stretch">
 
             <!-- Row: Date of Visit | Type of Facility -->
-            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                <reportElement x="0" y="0" width="257" height="20" uuid="c0000000-0000-0000-0000-000000000001"/>
+            <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                <reportElement x="0" y="0" width="267" height="20" uuid="c0000000-0000-0000-0000-000000000001"/>
                 <textElement><font fontName="SansSerif" size="11"/></textElement>
                 <textFieldExpression><![CDATA["Date of Visit: " + ($P{dateOfVisit} == null ? "" : $P{dateOfVisit})]]></textFieldExpression>
             </textField>
-            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                <reportElement x="258" y="0" width="257" height="20" uuid="c0000000-0000-0000-0000-000000000002"/>
+            <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                <reportElement x="268" y="0" width="267" height="20" uuid="c0000000-0000-0000-0000-000000000002"/>
                 <textElement><font fontName="SansSerif" size="11"/></textElement>
                 <textFieldExpression><![CDATA["Type of Facility: " + ($P{typeOfFacility} == null ? "" : $P{typeOfFacility})]]></textFieldExpression>
             </textField>
 
             <!-- Row: Branch / Region Name -->
-            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                <reportElement x="0" y="30" width="515" height="20" uuid="c0000000-0000-0000-0000-000000000003"/>
+            <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                <reportElement x="0" y="30" width="535" height="20" uuid="c0000000-0000-0000-0000-000000000003"/>
                 <textElement><font fontName="SansSerif" size="11"/></textElement>
                 <textFieldExpression><![CDATA["Branch / Region Name: " + ($P{branchName} == null ? "" : $P{branchName}) + " / " + ($P{region} == null ? "" : $P{region})]]></textFieldExpression>
             </textField>
 
             <!-- Row: Loan Amount -->
-            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                <reportElement x="0" y="60" width="515" height="20" uuid="c0000000-0000-0000-0000-000000000004"/>
+            <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                <reportElement x="0" y="60" width="535" height="20" uuid="c0000000-0000-0000-0000-000000000004"/>
                 <textElement><font fontName="SansSerif" size="11"/></textElement>
                 <textFieldExpression><![CDATA["Loan Amount: " + ($P{loanAmount} == null ? "" : $P{loanAmount})]]></textFieldExpression>
             </textField>
 
             <!-- ============ Bordered key/value table ============ -->
 
-            <!-- Row 1 : Borrower's Name (with dynamic numbered applicants list) -->
+            <!-- Row 1 : Borrower's Name (dynamic numbered applicants list) -->
             <elementGroup>
-                <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="0" y="100" width="206" height="25" uuid="d0000000-0000-0000-0000-000000000001"/>
+                <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="0" y="100" width="214" height="25" uuid="d0000000-0000-0000-0000-000000000001"/>
                     <box leftPadding="5" rightPadding="5" topPadding="5" bottomPadding="5">
                         <topPen lineWidth="0.75" lineColor="#000000"/>
                         <leftPen lineWidth="0.75" lineColor="#000000"/>
@@ -105,8 +100,8 @@
                     <textElement verticalAlignment="Top"><font fontName="SansSerif" size="11" isBold="true"/></textElement>
                     <textFieldExpression><![CDATA["Borrower's Name:"]]></textFieldExpression>
                 </textField>
-                <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="206" y="100" width="309" height="25" uuid="d0000000-0000-0000-0000-000000000002"/>
+                <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="214" y="100" width="321" height="25" uuid="d0000000-0000-0000-0000-000000000002"/>
                     <box leftPadding="5" rightPadding="5" topPadding="5" bottomPadding="5">
                         <topPen lineWidth="0.75" lineColor="#000000"/>
                         <leftPen lineWidth="0.75" lineColor="#000000"/>
@@ -123,8 +118,8 @@
 
             <!-- Row 2 : Loan account No. -->
             <elementGroup>
-                <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="0" y="125" width="206" height="25" uuid="d0000000-0000-0000-0000-000000000003"/>
+                <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="0" y="125" width="214" height="25" uuid="d0000000-0000-0000-0000-000000000003"/>
                     <box leftPadding="5" rightPadding="5" topPadding="5" bottomPadding="5">
                         <leftPen lineWidth="0.75" lineColor="#000000"/>
                         <bottomPen lineWidth="0.75" lineColor="#000000"/>
@@ -133,8 +128,8 @@
                     <textElement verticalAlignment="Top"><font fontName="SansSerif" size="11" isBold="true"/></textElement>
                     <textFieldExpression><![CDATA["Loan account No."]]></textFieldExpression>
                 </textField>
-                <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="206" y="125" width="309" height="25" uuid="d0000000-0000-0000-0000-000000000004"/>
+                <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="214" y="125" width="321" height="25" uuid="d0000000-0000-0000-0000-000000000004"/>
                     <box leftPadding="5" rightPadding="5" topPadding="5" bottomPadding="5">
                         <leftPen lineWidth="0.75" lineColor="#000000"/>
                         <bottomPen lineWidth="0.75" lineColor="#000000"/>
@@ -147,8 +142,8 @@
 
             <!-- Row 3 : Mobile No. -->
             <elementGroup>
-                <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="0" y="150" width="206" height="25" uuid="d0000000-0000-0000-0000-000000000005"/>
+                <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="0" y="150" width="214" height="25" uuid="d0000000-0000-0000-0000-000000000005"/>
                     <box leftPadding="5" rightPadding="5" topPadding="5" bottomPadding="5">
                         <leftPen lineWidth="0.75" lineColor="#000000"/>
                         <bottomPen lineWidth="0.75" lineColor="#000000"/>
@@ -157,8 +152,8 @@
                     <textElement verticalAlignment="Top"><font fontName="SansSerif" size="11" isBold="true"/></textElement>
                     <textFieldExpression><![CDATA["Mobile No."]]></textFieldExpression>
                 </textField>
-                <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="206" y="150" width="309" height="25" uuid="d0000000-0000-0000-0000-000000000006"/>
+                <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="214" y="150" width="321" height="25" uuid="d0000000-0000-0000-0000-000000000006"/>
                     <box leftPadding="5" rightPadding="5" topPadding="5" bottomPadding="5">
                         <leftPen lineWidth="0.75" lineColor="#000000"/>
                         <bottomPen lineWidth="0.75" lineColor="#000000"/>
@@ -171,8 +166,8 @@
 
             <!-- Row 4 : Applicant/Co-applicant Visited -->
             <elementGroup>
-                <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="0" y="175" width="206" height="25" uuid="d0000000-0000-0000-0000-000000000007"/>
+                <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="0" y="175" width="214" height="25" uuid="d0000000-0000-0000-0000-000000000007"/>
                     <box leftPadding="5" rightPadding="5" topPadding="5" bottomPadding="5">
                         <leftPen lineWidth="0.75" lineColor="#000000"/>
                         <bottomPen lineWidth="0.75" lineColor="#000000"/>
@@ -181,8 +176,8 @@
                     <textElement verticalAlignment="Top"><font fontName="SansSerif" size="11" isBold="true"/></textElement>
                     <textFieldExpression><![CDATA["Name of Applicant/Co-applicant Visited"]]></textFieldExpression>
                 </textField>
-                <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="206" y="175" width="309" height="25" uuid="d0000000-0000-0000-0000-000000000008"/>
+                <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="214" y="175" width="321" height="25" uuid="d0000000-0000-0000-0000-000000000008"/>
                     <box leftPadding="5" rightPadding="5" topPadding="5" bottomPadding="5">
                         <leftPen lineWidth="0.75" lineColor="#000000"/>
                         <bottomPen lineWidth="0.75" lineColor="#000000"/>
@@ -195,8 +190,8 @@
 
             <!-- Row 5 : Met Borrower -->
             <elementGroup>
-                <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="0" y="200" width="206" height="25" uuid="d0000000-0000-0000-0000-000000000009"/>
+                <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="0" y="200" width="214" height="25" uuid="d0000000-0000-0000-0000-000000000009"/>
                     <box leftPadding="5" rightPadding="5" topPadding="5" bottomPadding="5">
                         <leftPen lineWidth="0.75" lineColor="#000000"/>
                         <bottomPen lineWidth="0.75" lineColor="#000000"/>
@@ -205,8 +200,8 @@
                     <textElement verticalAlignment="Top"><font fontName="SansSerif" size="11" isBold="true"/></textElement>
                     <textFieldExpression><![CDATA["Met Borrower at Home/Business Premise/Agri land/Job Location/Other"]]></textFieldExpression>
                 </textField>
-                <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="206" y="200" width="309" height="25" uuid="d0000000-0000-0000-0000-00000000000a"/>
+                <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="214" y="200" width="321" height="25" uuid="d0000000-0000-0000-0000-00000000000a"/>
                     <box leftPadding="5" rightPadding="5" topPadding="5" bottomPadding="5">
                         <leftPen lineWidth="0.75" lineColor="#000000"/>
                         <bottomPen lineWidth="0.75" lineColor="#000000"/>
@@ -219,8 +214,8 @@
 
             <!-- Row 6 : End Use as per application -->
             <elementGroup>
-                <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="0" y="225" width="206" height="25" uuid="d0000000-0000-0000-0000-00000000000b"/>
+                <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="0" y="225" width="214" height="25" uuid="d0000000-0000-0000-0000-00000000000b"/>
                     <box leftPadding="5" rightPadding="5" topPadding="5" bottomPadding="5">
                         <leftPen lineWidth="0.75" lineColor="#000000"/>
                         <bottomPen lineWidth="0.75" lineColor="#000000"/>
@@ -229,8 +224,8 @@
                     <textElement verticalAlignment="Top"><font fontName="SansSerif" size="11" isBold="true"/></textElement>
                     <textFieldExpression><![CDATA["End Use as per application/Sanctioned"]]></textFieldExpression>
                 </textField>
-                <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="206" y="225" width="309" height="25" uuid="d0000000-0000-0000-0000-00000000000c"/>
+                <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="214" y="225" width="321" height="25" uuid="d0000000-0000-0000-0000-00000000000c"/>
                     <box leftPadding="5" rightPadding="5" topPadding="5" bottomPadding="5">
                         <leftPen lineWidth="0.75" lineColor="#000000"/>
                         <bottomPen lineWidth="0.75" lineColor="#000000"/>
@@ -243,8 +238,8 @@
 
             <!-- Row 7 : End Use as per visit -->
             <elementGroup>
-                <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="0" y="250" width="206" height="25" uuid="d0000000-0000-0000-0000-00000000000d"/>
+                <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="0" y="250" width="214" height="25" uuid="d0000000-0000-0000-0000-00000000000d"/>
                     <box leftPadding="5" rightPadding="5" topPadding="5" bottomPadding="5">
                         <leftPen lineWidth="0.75" lineColor="#000000"/>
                         <bottomPen lineWidth="0.75" lineColor="#000000"/>
@@ -253,8 +248,8 @@
                     <textElement verticalAlignment="Top"><font fontName="SansSerif" size="11" isBold="true"/></textElement>
                     <textFieldExpression><![CDATA["End Use of fund as per visit"]]></textFieldExpression>
                 </textField>
-                <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="206" y="250" width="309" height="25" uuid="d0000000-0000-0000-0000-00000000000e"/>
+                <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="214" y="250" width="321" height="25" uuid="d0000000-0000-0000-0000-00000000000e"/>
                     <box leftPadding="5" rightPadding="5" topPadding="5" bottomPadding="5">
                         <leftPen lineWidth="0.75" lineColor="#000000"/>
                         <bottomPen lineWidth="0.75" lineColor="#000000"/>
@@ -267,8 +262,8 @@
 
             <!-- Row 8 : Funds Utilized -->
             <elementGroup>
-                <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="0" y="275" width="206" height="25" uuid="d0000000-0000-0000-0000-00000000000f"/>
+                <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="0" y="275" width="214" height="25" uuid="d0000000-0000-0000-0000-00000000000f"/>
                     <box leftPadding="5" rightPadding="5" topPadding="5" bottomPadding="5">
                         <leftPen lineWidth="0.75" lineColor="#000000"/>
                         <bottomPen lineWidth="0.75" lineColor="#000000"/>
@@ -277,8 +272,8 @@
                     <textElement verticalAlignment="Top"><font fontName="SansSerif" size="11" isBold="true"/></textElement>
                     <textFieldExpression><![CDATA["Whether funds utilised are as declared in application/Sanctioned"]]></textFieldExpression>
                 </textField>
-                <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="206" y="275" width="309" height="25" uuid="d0000000-0000-0000-0000-000000000010"/>
+                <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="214" y="275" width="321" height="25" uuid="d0000000-0000-0000-0000-000000000010"/>
                     <box leftPadding="5" rightPadding="5" topPadding="5" bottomPadding="5">
                         <leftPen lineWidth="0.75" lineColor="#000000"/>
                         <bottomPen lineWidth="0.75" lineColor="#000000"/>
@@ -291,8 +286,8 @@
 
             <!-- Row 9 : Any other Observations (Remark) -->
             <elementGroup>
-                <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="0" y="300" width="206" height="25" uuid="d0000000-0000-0000-0000-000000000011"/>
+                <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="0" y="300" width="214" height="25" uuid="d0000000-0000-0000-0000-000000000011"/>
                     <box leftPadding="5" rightPadding="5" topPadding="5" bottomPadding="5">
                         <leftPen lineWidth="0.75" lineColor="#000000"/>
                         <bottomPen lineWidth="0.75" lineColor="#000000"/>
@@ -301,8 +296,8 @@
                     <textElement verticalAlignment="Top"><font fontName="SansSerif" size="11" isBold="true"/></textElement>
                     <textFieldExpression><![CDATA["Any other Observations"]]></textFieldExpression>
                 </textField>
-                <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="206" y="300" width="309" height="25" uuid="d0000000-0000-0000-0000-000000000012"/>
+                <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                    <reportElement positionType="Float" stretchType="ElementGroupHeight" x="214" y="300" width="321" height="25" uuid="d0000000-0000-0000-0000-000000000012"/>
                     <box leftPadding="5" rightPadding="5" topPadding="5" bottomPadding="5">
                         <leftPen lineWidth="0.75" lineColor="#000000"/>
                         <bottomPen lineWidth="0.75" lineColor="#000000"/>
@@ -321,46 +316,46 @@
         <band height="300" splitType="Stretch">
 
             <!-- Section heading -->
-            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                <reportElement x="0" y="0" width="515" height="22" uuid="e0000000-0000-0000-0000-000000000001"/>
+            <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                <reportElement x="0" y="0" width="535" height="22" uuid="e0000000-0000-0000-0000-000000000001"/>
                 <textElement verticalAlignment="Middle"><font fontName="SansSerif" size="13" isBold="true"/></textElement>
                 <textFieldExpression><![CDATA["Photograph of End use with Customer :"]]></textFieldExpression>
             </textField>
 
             <!-- Latitude / Longitude -->
-            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                <reportElement x="0" y="28" width="515" height="18" uuid="e0000000-0000-0000-0000-000000000002"/>
+            <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                <reportElement x="0" y="28" width="535" height="18" uuid="e0000000-0000-0000-0000-000000000002"/>
                 <textElement><font fontName="SansSerif" size="11"/></textElement>
                 <textFieldExpression><![CDATA["Latitude: " + ($P{latitude} == null ? "" : $P{latitude}) + "    Longitude: " + ($P{longitude} == null ? "" : $P{longitude})]]></textFieldExpression>
             </textField>
 
             <!-- Employee ID -->
-            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                <reportElement x="0" y="52" width="515" height="18" uuid="e0000000-0000-0000-0000-000000000003"/>
+            <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                <reportElement x="0" y="52" width="535" height="18" uuid="e0000000-0000-0000-0000-000000000003"/>
                 <textElement><font fontName="SansSerif" size="11"/></textElement>
                 <textFieldExpression><![CDATA["Employee ID : " + ($P{employeeId} == null ? "" : $P{employeeId})]]></textFieldExpression>
             </textField>
 
             <!-- Employee Name -->
-            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                <reportElement x="0" y="72" width="515" height="18" uuid="e0000000-0000-0000-0000-000000000004"/>
+            <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                <reportElement x="0" y="72" width="535" height="18" uuid="e0000000-0000-0000-0000-000000000004"/>
                 <textElement><font fontName="SansSerif" size="11"/></textElement>
                 <textFieldExpression><![CDATA["Employee Name : " + ($P{employeeName} == null ? "" : $P{employeeName})]]></textFieldExpression>
             </textField>
 
             <!-- Dynamic images list -->
             <componentElement>
-                <reportElement positionType="Float" stretchType="ContainerHeight" x="0" y="100" width="515" height="180" uuid="e0000000-0000-0000-0000-000000000005"/>
+                <reportElement positionType="Float" stretchType="ContainerHeight" x="0" y="100" width="535" height="180" uuid="e0000000-0000-0000-0000-000000000005"/>
                 <jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components"
                          xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd"
                          printOrder="Vertical"
                          ignoreWidth="false">
                     <datasetRun subDataset="ImagesDataset" uuid="e0000000-0000-0000-0000-000000000006">
-                        <dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{imageUrls})]]></dataSourceExpression>
+                        <dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{imageUrls} == null ? new java.util.ArrayList() : $P{imageUrls})]]></dataSourceExpression>
                     </datasetRun>
-                    <jr:listContents height="170" width="250">
+                    <jr:listContents height="170" width="535">
                         <image scaleImage="RetainShape" hAlign="Center" vAlign="Middle" onErrorType="Blank" isUsingCache="true">
-                            <reportElement x="20" y="5" width="210" height="160" uuid="e0000000-0000-0000-0000-000000000007"/>
+                            <reportElement x="20" y="5" width="495" height="160" uuid="e0000000-0000-0000-0000-000000000007"/>
                             <imageExpression><![CDATA[$F{_THIS}]]></imageExpression>
                         </image>
                     </jr:listContents>
