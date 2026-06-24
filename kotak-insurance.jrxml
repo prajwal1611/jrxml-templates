@@ -46,7 +46,7 @@
 	<title>
 		<band height="812">
 			<!-- Row 1: Plan Checkboxes + Logo -->
-			<!-- Kotak Group Assure checkbox -->
+			<!-- Kotak Group Assure checkbox (unchecked) -->
 			<image>
 				<reportElement x="0" y="0" width="8" height="8" uuid="60000001-0001-0001-0001-600000000101"/>
 				<imageExpression><![CDATA[new java.io.ByteArrayInputStream(java.util.Base64.getDecoder().decode($P{uncheckedBoxBase64}))]]></imageExpression>
@@ -56,7 +56,7 @@
 				<textElement><font size="7"/></textElement>
 				<text><![CDATA[Kotak Group Assure (UIN:107N051V03)]]></text>
 			</staticText>
-			<!-- Kotak Group Shield checkbox -->
+			<!-- Kotak Group Shield checkbox (checked) -->
 			<image>
 				<reportElement x="280" y="0" width="8" height="8" uuid="60000001-0001-0001-0001-600000000103"/>
 				<imageExpression><![CDATA[new java.io.ByteArrayInputStream(java.util.Base64.getDecoder().decode($P{checkedBoxBase64}))]]></imageExpression>
@@ -66,7 +66,7 @@
 				<textElement><font size="7"/></textElement>
 				<text><![CDATA[Kotak Group Shield (UIN:107N050V04)]]></text>
 			</staticText>
-			<!-- Kotak Complete Cover checkbox -->
+			<!-- Kotak Complete Cover checkbox (checked) -->
 			<image>
 				<reportElement x="0" y="11" width="8" height="8" uuid="60000001-0001-0001-0001-600000000105"/>
 				<imageExpression><![CDATA[new java.io.ByteArrayInputStream(java.util.Base64.getDecoder().decode($P{checkedBoxBase64}))]]></imageExpression>
@@ -76,7 +76,7 @@
 				<textElement><font size="7"/></textElement>
 				<text><![CDATA[Kotak Complete Cover Group Plan (UIN:107N018V06)]]></text>
 			</staticText>
-			<!-- Kotak Credit Term checkbox -->
+			<!-- Kotak Credit Term checkbox (unchecked) -->
 			<image>
 				<reportElement x="280" y="11" width="8" height="8" uuid="60000001-0001-0001-0001-600000000107"/>
 				<imageExpression><![CDATA[new java.io.ByteArrayInputStream(java.util.Base64.getDecoder().decode($P{uncheckedBoxBase64}))]]></imageExpression>
@@ -121,11 +121,12 @@
 				<textElement markup="styled"><font size="7"/></textElement>
 				<textFieldExpression><![CDATA["<b>Sum Assured(\u20B9) :</b> " + ($P{amount} != null ? $P{amount} : "") + "          <b>Premium(\u20B9) :</b> " + ($P{insuranceAmount} != null ? $P{insuranceAmount} : "") + "          <b>Cover Term :</b> <u>1Yr,10Yrs</u>          <b>Plan Option :</b> <u>Life Cover, Easy Group Shield</u>"]]></textFieldExpression>
 			</textField>
-			<!-- Premium Payment Term row with checkboxes -->
+			<!-- Premium Payment Term row with checkboxes (hardcoded) -->
 			<staticText>
 				<reportElement style="Bold" x="0" y="88" width="70" height="18" uuid="60000001-0001-0001-0001-600000000115"/>
 				<text><![CDATA[Premium Payment Term:]]></text>
 			</staticText>
+			<!-- Singly Pay (checked) -->
 			<image>
 				<reportElement x="72" y="88" width="8" height="8" uuid="60000001-0001-0001-0001-600000000116"/>
 				<imageExpression><![CDATA[new java.io.ByteArrayInputStream(java.util.Base64.getDecoder().decode($P{checkedBoxBase64}))]]></imageExpression>
