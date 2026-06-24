@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="IndentureMortgageRajasthan" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="40" uuid="a1a2b3c4-d5e6-7890-abcd-500000000001">
+	<property name="net.sf.jasperreports.print.keep.full.text" value="true"/>
+	<style name="Body" hTextAlign="Justified" vTextAlign="Top" fontName="SansSerif" fontSize="10"/>
+	<style name="Bold" hTextAlign="Left" vTextAlign="Top" fontName="SansSerif" fontSize="10" isBold="true"/>
+	<style name="Title" hTextAlign="Center" fontName="SansSerif" fontSize="11" isBold="true" isUnderline="true"/>
+	<style name="Ftr" fontName="SansSerif" fontSize="9"/>
+	<subDataset name="PropertyListDS" uuid="d1000001-0000-0000-0000-400000000002">
+		<field name="propertyIndex" class="java.lang.String"/>
+		<field name="ownerNames" class="java.lang.String"/>
+		<field name="propertyAddress" class="java.lang.String"/>
+		<field name="propertyType" class="java.lang.String"/>
+		<field name="propertyArea" class="java.lang.String"/>
+		<field name="constructionArea" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="OwnersListDS" uuid="d1000002-0000-0000-0000-400000000003">
+		<field name="propertyOwnerName" class="java.lang.String"/>
+		<field name="address" class="java.lang.String"/>
+		<field name="permanentAddress" class="java.lang.String"/>
+		<field name="dateOfBirth" class="java.lang.String"/>
+		<field name="occupation" class="java.lang.String"/>
+		<field name="mobileNumber" class="java.lang.String"/>
+		<field name="stateCode" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="BoundariesDS" uuid="d1000003-0000-0000-0000-400000000004">
+		<field name="propertyIndex" class="java.lang.String"/>
+		<field name="propertyAddress" class="java.lang.String"/>
+		<field name="boundariesOnEast" class="java.lang.String"/>
+		<field name="boundariesOnWest" class="java.lang.String"/>
+		<field name="boundariesOnNorth" class="java.lang.String"/>
+		<field name="boundariesOnSouth" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="SignatoryDS" uuid="d1000004-0000-0000-0000-400000000005">
+		<field name="propertyOwnerName" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="SecondScheduleDS" uuid="d1000005-0000-0000-0000-500000000006">
+		<field name="propertyIndex" class="java.lang.String"/>
+		<field name="propertyAddress" class="java.lang.String"/>
+		<field name="propertyType" class="java.lang.String"/>
+		<field name="propertyArea" class="java.lang.String"/>
+		<field name="constructionArea" class="java.lang.String"/>
+		<field name="boundariesOnEast" class="java.lang.String"/>
+		<field name="boundariesOnWest" class="java.lang.String"/>
+		<field name="boundariesOnNorth" class="java.lang.String"/>
+		<field name="boundariesOnSouth" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="officeAddress" class="java.lang.String"/>
+	<parameter name="loanAmount" class="java.lang.String"/>
+	<parameter name="loanAmountWord" class="java.lang.String"/>
+	<parameter name="dateOfExecutionOfAgreement" class="java.lang.String"/>
+	<parameter name="applicantNameAndCoApplicantDetail" class="java.lang.String"/>
+	<parameter name="currentAddress" class="java.lang.String"/>
+	<parameter name="branchName" class="java.lang.String"/>
+	<parameter name="lan" class="java.lang.String"/>
+	<parameter name="PropertyListDataSource" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<parameter name="OwnersListDataSource" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<parameter name="BoundariesDataSource" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<parameter name="SignatoryDataSource" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<parameter name="MemoOwnersListDataSource" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<parameter name="SecondScheduleDataSource" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<title>
+		<band height="25">
+			<staticText>
+				<reportElement style="Title" x="0" y="0" width="535" height="22" uuid="9ea8b5f7-3b49-4000-b10c-f29f1150be5f"/>
+				<text><![CDATA[INDENTURE OF MORTGAGE]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="89379b77-73aa-4751-9790-ca0629f14f4f"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["This INDENTURE OF MORTGAGE (the \"Indenture\") is made at the place ______________________ and on the date ________________________ specified in the Schedule I attached hereto by and between:\n\n1. THE PERSON(S), whose name and address is as described in Schedule I attached hereto (hereinafter referred to as the \"Mortgagor\", which term shall, wherever the context permits, mean, and include his/her/its heirs, estate, legal representatives, administrators, successors, its executors and permitted assigns) of the FIRST PART;\n\nAND\n\n2. SARVAGRAM FINCARE PRIVATE LIMITED, a company incorporated under the Companies Act, 2013 and registered as a non-banking finance company with the Reserve Bank of India, and having its registered office at " + $P{officeAddress} + " (hereinafter referred to as the \"Company\", which expression shall, unless repugnant to the context, be deemed to include its successors, transferees, and permitted assigns) of the SECOND PART.\n\n(The Mortgagor and the Company are hereinafter collectively referred to as \"Parties\" and individually as a \"Party\".)\n\nWHEREAS:\n\n(A) The Borrower has requested the Company and the Company has agreed to make available to the Borrower a Loan (as defined below), subject to the terms and conditions of the loan agreement dated on or about the date of this Indenture entered into amongst, inter alia, the Borrower and the Company (\"Agreement\").\n\n(B) One of the conditions of the Agreement is that the principal amount of the Loan together with the equated monthly instalments, all interest thereon, including the pre-equated monthly instalment interest, additional interest, default interest, compound interest, liquidated damages, premia on prepayment, costs, charges, expenses and other monies whatsoever, stipulated in or payable together with other debts and liabilities of the Borrower to the Company (the \"Obligations\"), shall be secured, inter alia, by an exclusive first ranking mortgage and charge on the Mortgaged Property (defined below) of the Mortgagor in favour of the Company by way of execution of an indenture of mortgage in favour of the Company in respect of the Obligations.\n\n(C) The Company and the Mortgagor have agreed that the Security Interest (defined below) over the Mortgaged Property will be created in favour of and for the benefit of the Company. Accordingly, the Company and the Mortgagor have agreed that the Security Interest to be created on the Mortgaged Property shall be by way this Indenture which the Mortgagor has executed in the manner hereinafter expressed.\n\nNOW THIS INDENTURE WITNESSES AND IT IS HEREBY AGREED AND DECLARED BY THE PARTIES AS UNDER:"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="39e1bea3-0e21-4fc6-8c1a-ae48489c928f"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["1. DEFINITIONS\nUnless otherwise defined herein, capitalised terms in this Indenture (including as used in the recitals) shall have the meanings ascribed to such terms in the Agreement. In addition:\n\"Agreement\" shall have the meaning specified in Recital A;\n\"Borrower\" shall have the meaning ascribed to it under the Agreement;\n\"Business Day\" shall mean a day (excluding Saturdays and Sundays) on which banks generally are open in Mumbai, India, for the transaction of normal banking business;\n\"Final Settlement Date\" shall mean the date on which all the Obligations have been irrevocably and unconditionally paid and discharged in full to the satisfaction of the Company;\n\"Indenture\" shall mean this Indenture of Mortgage, as amended, or modified from time to time;\n\"Loan\" shall mean the finance facilities availed by the Borrower from the Company, the details of which are specified in Schedule I;\n\"Mortgaged Property\" shall mean the properties more particularly described in Clause 4 of this Indenture;\n\"Obligations\" shall have the meaning specified in Recital A;\n\"Security Interest\" shall mean and include any mortgage, pledge, lien (statutory or other), charge, assignment, hypothecation, deposit arrangement, encumbrance, preference, security interest and any other lien, priority or other security agreement or arrangement of any description whatsoever including, without limitation, (i) any conditional sale or other title retention agreement, any financing or similar statement or notice filed under any recording or notice statute, or any escrow arrangement in relation to any asset or any lease having substantially the same effect as any of the foregoing, and (ii) any designation of loss payees i.e., beneficiaries or any similar arrangement under any insurance policies; and;\n\"Transfer of Property Act\" shall mean the Transfer of Property Act, 1882, as may be amended and/ or substituted from time to time."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="49faec23-f283-4195-b3a2-aac27e5b2e21"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["2. CONSTRUCTION\nIn this Indenture:\n(a) reference to an account includes a reference to any sub-account of that account;\n(b) unless the context otherwise requires, the singular includes the plural and vice versa;\n(c) headings and the use of bold typeface shall be ignored in its construction;\n(d) a reference to a clause, section or schedule is, unless indicated to the contrary, a reference to a clause, section, or schedule to this Indenture;\n(e) references to this Indenture shall be construed as references also to any separate or independent stipulation or agreement contained in it;\n(f) the words \"other\", \"or otherwise\" and \"whatsoever\" shall not be construed ejusdem generis or be construed as any limitation upon the generality of any preceding words or matters specifically referred to;\n(g) references to the word \"includes\" or \"including\" are to be construed without limitation;\n(h) a \"person\" includes any;\n(i) references to a person shall include such person's successors and permitted assignees or transferees;\n(j) all references to agreements, documents or other instruments include (subject to all relevant approvals) a reference to that agreement, document, or instrument as amended, supplemented, substituted, novated, or assigned from time to time;\n(k) words importing a particular gender include all genders;\n(l) any reference to a public organisation shall be deemed to include a reference to any successor to such public organisation or any organisation or entity which has taken over the functions or responsibilities of such public organisation;\n(m) references to \"Party\" means a party to this Indenture and references to \"Parties\" shall be construed accordingly;\n(n) references to any law shall include references to such law as it may, after the date of this Indenture, from time to time be amended, supplemented, or re-enacted;\n(o) words and abbreviations, which have, well known technical or trade/commercial meanings are used in this Indenture in accordance with such meanings;\n(p) any consent, approval, determination, waiver or finding to be given or made by the Company shall be made or given by the Company in its sole discretion;\n(q) any consent required to be provided by the Company shall mean the prior written consent of the Company; and\n(r) in the event of any disagreement or dispute between the Company and the Borrower/ Mortgagor regarding the determination of whether any matter, event, occurrence, circumstance, change, fact, information, document, authorisation, proceeding, act, omission, claims, breach, default or otherwise, is material, as provided in the Loan Documents or this Indenture, the opinion of the Company in respect thereof shall be final and binding on the Borrower/ Mortgagor."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="843f5e6a-d9a7-40c1-9ad0-ae811cc9823d"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["3. COVENANT TO PAY\n\nPursuant to the Agreement and in consideration of the Company agreeing to lend and advance the Loan to the Borrower, the Mortgagor hereby covenants and agrees that it shall comply with the terms hereunder and the terms and conditions of the Loan Documents and shall irrevocably and unconditionally discharge and repay the Obligations in accordance with the Agreement and Loan Documents on the terms and conditions mentioned therein.\n\n3A. BENEFIT OF THIS INDENTURE\n\n(i) The Mortgagor represents that it is absolutely seized and possessed of or otherwise well and sufficiently entitled to the Mortgaged Property.\n\n(ii) The Company shall hold the Security Interest created by the Mortgagor in its favour under this Indenture over the Mortgaged Property, including the covenants and mortgages given by the Mortgagor pursuant hereto, subject to the powers and provisions contained in this Indenture and the other Loan Documents.\n\n4. GRANT AND TRANSFERS\n\nFor the consideration aforesaid and as continuing security for the payment and discharge of the Obligations, the Mortgagor hereby grants, assigns, conveys, assures, charges and transfers to the Company for the use and benefit of the Company by way of an exclusive first ranking mortgage and charge, to have and to hold, all and singular, unto and to the use and benefit of the Company, absolutely upon trust and subject to the powers and provisions herein declared and contained herein, all rights, title, interest, benefits, claims and demands whatsoever of the Mortgagor in respect of the property situated, lying and being at such locations more particularly described in Schedule I, together with all buildings, erections and constructions of every description which are standing, erected or attached or shall at any time during the continuance of this Indenture be erected and standing or attached to the aforesaid lands and premises or any part thereof, all rights to use common areas, facilities and incidentals attached thereto and all privileges, easements and appurtenances whatsoever to the said lands, hereditaments or premises or any part thereof, whether presently in existence or in the future belonging to or in any way appurtenant thereto (the \"Mortgaged Property\").\n\n4A. DEALINGS WITH RESPECT TO THE MORTGAGED PROPERTY\n\nThe Mortgaged Property shall be specifically appropriated to the charge and mortgage and lien created under this Indenture and the Mortgagor shall not sell, transfer, lease out, assign, dispose of or otherwise part with the Mortgaged Property or any part thereof, or deal with the same or create or suffer any mortgage, charge, lien, or other encumbrance on the Mortgaged Property, without the prior written consent of the Company. Any mortgage/charge created hereafter by the Mortgagor on the Mortgaged Property, in violation of this Indenture, shall be subject to the present mortgage/charge created in favour of the Company under this Indenture, and the mortgage/charge created in terms of this Indenture shall in all circumstances rank superior to any other charge created in violation of the terms of the Loan Documents."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="1604dae2-f197-49f1-833d-2e0ac1646393"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["5. RANKING\n\nThe Security Interest recorded/created pursuant to Clause 4 (Grant and Transfers) in favour of the Company shall rank as a first and exclusive charge in favour of the Company.\n\n6. SECURITY\n\n6.1 Continuing Security\nThe Security Interest created by or pursuant to this Indenture is a continuing security and shall remain in full force and effect till the Final Settlement Date, notwithstanding any intermediate payment, restructuring or settlement of accounts or other matter or thing, whatsoever and in particular the intermediate satisfaction by the Mortgagor of the whole or any part of the Obligations in accordance with the Loan Documents.\n\n6.2 Other Security\nThe Security Interest created hereunder:\n(a) is in addition to, and shall neither be merged in, nor in any way exclude or prejudice, or be affected by any other security interest, right of recourse, guarantee, lien, indemnity or other right or remedy whatsoever (or the invalidity thereof) which the Company may now or at any time hereafter hold or have (or would apart from this Security Interest hold or have) from the Mortgagor or any other person in respect of the Obligations;\n(b) may be enforced against the Mortgagor in whole or in any part(s) without first having recourse to any other rights of the Company; and\n(c) The Security Interest created hereunder includes inter-alia all rights, title, interests, and entitlements as may be required to fully enjoy the mortgage created over the Mortgaged Properties and to effectually enjoy and enforce the mortgage created over the Mortgaged Properties.\nIf, at any time during the subsistence of this Indenture, the Company is of the opinion that the Security Interest provided by the Mortgagor under this Indenture or otherwise has become inadequate to secure the Obligations, then upon notice to that effect by the Company in respect of such inadequacy, the Mortgagor shall provide and furnish to the Company, to their satisfaction, such additional security to cover such deficiency.\n\n6.3 Cumulative Powers\nThe Security Interest created hereunder:\n(a) is in addition to, and shall neither be merged in, nor in any way exclude or prejudice, or be affected by any other security interest, right of recourse, guarantee, lien, indemnity or other right or remedy whatsoever;\n(b) The Company or the receiver may, in connection with the exercise of their powers, join or concur with any person in any transaction, scheme or arrangement whatsoever and the Company acknowledges that the respective powers of the Company and the receiver shall in no circumstances whatsoever be suspended, waived, or otherwise prejudiced by anything other than an express waiver or variation in writing by the Company or receiver, as relevant.\n\n6.4 Avoidance of Payments\nNotwithstanding any discharge, release or settlement from time to time between the Company and the Borrower, if any amount paid by the Borrower in respect of the Obligations is, (i) avoided or set aside on the winding up, bankruptcy or administration of the Borrower/Mortgagor or otherwise; or (ii) required to be shared by the Company under applicable law or under any sharing arrangement with any other creditor of the Borrower/Mortgagor or any other person, then for the purpose of this Indenture such amount shall not be considered to have been paid when such payment is returned or becomes liable to be returned to the Borrower/Mortgagor or any other claimant by the Company.\n\n6.5 Unconditionality of Lien\nThe mortgage, charge and lien created by this Indenture and the enforceability of this Indenture and the liability of the Mortgagor hereunder, shall not be discharged or affected by:\n(i) any time, indulgence, concession, waiver, forbearance, or consent at any time given to the Mortgagor or any other person;\n(ii) any amendment, modification, variation and/or supplement to this Indenture, the Loan Documents or any other agreement;\n(iii) the making or absence of any demand on the Mortgagor or any other person for payment;\n(iv) any other Loan Document, charge, guarantee or other security or right or remedy available to the Company being or becoming wholly or partly void, voidable, unenforceable;\n(v) the taking, existence or release of any other agreement, Security Interest, guarantee, indemnity, right, remedy or lien;\n(vi) Any incapacity, disability, or limitation of the Mortgagor;\n(vii) the invalidity, irregularity or unenforceability of any obligation or liability of any person under any Loan Documents;\n(viii) any act, omission, event, or circumstance which would operate to prejudice, affect, or discharge this Indenture;\n(ix) any deficiency in the powers of the Mortgagor or any other person;\n(x) the illegality, invalidity or unenforceability of the Obligations or any part thereof; and\n(xi) any other matter or thing whatsoever."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="58f7f20b-5fa6-4dfe-bdef-55983d41427b"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["7. EASEMENTS\n\nFor the consideration aforesaid, the Mortgagor hereby irrevocably grants full and free rights and liberty in the Mortgaged Property as and by way of easement to pass, re pass and have unfettered access at all times to the Company and its nominees, agents and representatives over the Mortgaged Property, or any part thereof, in common with all other persons entitled to like rights at all times thereafter.\n\nNotwithstanding the assignments and transfer by way of security made or to be made under Clause 4 (Grant and Transfer), the Mortgagor shall at all times continue to perform all its obligations (whether financial, performance or otherwise) under each of the Loan Documents and repay all its Obligations and perform all its obligations to the Company under the Loan Documents. Nothing herein or therein contained shall constitute or be deemed to constitute settlement of any obligations or indebtedness of the Mortgagor.\n\n8. PROVISION FOR REDEMPTION\n\nIf the Borrower has paid in full the Obligations in accordance with the Loan Documents to the satisfaction of the Company, the Company shall, with reasonable promptness, upon the written request and at the expense of the Borrower, reassign, re-transfer and release unto the Mortgagor or as the Mortgagor shall direct and do all such other things as may be reasonably necessary to release from the Security Interest created hereunder for the benefit of the Company, without recourse and without any representation or warranty of any kind by or on behalf of the Company. Provided that such reassignment, re-transfer, or release of the Security Interest created under this Indenture shall not thereby affect or cause the reassignment, re-transfer or release of any property or assets secured under any other mortgage or charge."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="d3887587-8c3d-4029-912a-bdba379fcaf4"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["9. REPRESENTATIONS AND WARRANTIES\n\n9.1 The Company has entered into the respective Loan Documents and accepted the mortgages and charges created hereunder on the basis of the representations and warranties set forth in the respective Loan Documents which are incorporated herein by reference and made a part of this Indenture as if such representations and warranties were set forth in full herein.\n\n9.2 The Mortgagor acknowledges and accepts that the Company has agreed to enter into this Indenture on the basis of and in full reliance of the representations and warranties made herein.\n\n9.3 The Mortgagor further represents and warrants to the Company on the date of this Indenture and on each day until the Final Settlement Date that:\n(a) The execution, delivery and performance of this Indenture and all instruments and agreements required hereunder do not contravene, violate or constitute a default under, (i) any terms, covenants, conditions or provisions of any agreement or other instrument to which the Mortgagor is a party or by which the Mortgagor is bound; (ii) to the best of the knowledge of the Mortgagor any applicable law; or (iii) any judgment, injunction, order or decree binding upon the Mortgagor or the Mortgage Property;\n(b) No event has occurred or is continuing or to the best of the knowledge of the Mortgagor reasonably expected to occur which constitutes or which, upon the lapse of time or the giving of notice or both, would become an Event of Default under the Loan Documents;\n(c) All information communicated to or supplied by or on behalf of the Mortgagor in connection with the transaction contemplated under the Loan Documents is true and correct and not misleading;\n(d) None of the documents provided by the Mortgagor in connection with this Indenture are forged and/or fabricated;\n(e) The Mortgagor has not received any notice from the relevant authority for breach/violation under extant law which materially and adversely affects the rights of the Mortgagor under this Indenture; and\n(f) There are no outstanding Security Interests, and the Mortgagor does not have any outstanding lien or obligation to create any Security Interest, with respect to the interests secured by this Indenture except those secured by this Indenture and as permitted under the Loan Documents."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="40c27be4-244b-4ac2-a292-2a1f229e4a8b"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["9.4 The Mortgagor further represents and warrants that:\n(a) The Mortgagor is legally entitled and possessed of the powers to execute, deliver, and perform the terms and provisions of this Indenture and has taken all necessary action to authorise the execution, delivery, and performance by it of this Indenture.\n(b) This Indenture when executed and delivered will constitute its legal, valid, and binding obligation and the provisions of this Indenture are effective to create in favour of the Company, a legal, valid, and binding Security Interest expressed to be created hereunder on the Mortgaged Property;\n(c) The Mortgagor confirms that it is lawfully possessed of and has his/her/its valid and subsisting interest in the Mortgaged Property, freehold or leasehold as indicated in Schedule I;\n(d) All necessary and appropriate recordings and filings have been and shall be made in all appropriate public offices;\n(e) All authorisations for the creation, effectiveness, priority and enforcement of the mortgage and charge on the Mortgaged Property have been obtained and are valid and subsisting;\n(f) The Mortgaged Property is free from all mortgage, charge or encumbrance;\n(g) The Mortgagor is the owner of and stands seized and lawfully possessed of a valid and subsisting title in and to the Mortgaged Property;\n(h) The provisions of this Indenture are effective to create in favour of the Company, a legal, valid and binding Security Interest expressed to be created in Clause 4 (Grant and Transfer) on all of the Mortgaged Property;\n(i) As on the date hereof, there is no litigation, action, suit, investigation, claim, complaint, or other legal proceedings before any domestic/foreign court, tribunal or government authority against the Mortgagor;\n(j) The Mortgagor is not aware of any documents, judgements or legal processes or other charges affecting the title of the Mortgaged Property;\n(k) None of the Mortgaged Property is included in or affected by any of the schemes of any public body or authority;\n(l) No suit is pending in any court of law in respect of any part of the Mortgaged Property;\n(m) The Mortgagor has paid all public demands such as income tax, corporation tax and all other taxes and revenue payable;\n(n) All payments in respect of the Mortgaged Property, payable to any person whosoever, have been duly made;\n(o) The Mortgagor shall keep the Company informed of any event as a result of which any of the aforementioned representations and warranties may not be true and correct;\n(p) The Mortgagor has complied with all legal requirements and has obtained all consents and approvals required for creation of the Security Interest;\n(q) The Mortgagor has paid applicable stamp duty in respect of this Indenture as per the applicable law; and\n(r) The execution or entering into this Indenture by the Mortgagor and the performance of its obligations under this Indenture constitute, private and commercial acts done and performed for private and commercial purposes."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="9c9d4002-cad7-4f72-ac56-f88452a7ba8f"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["10. COVENANTS AND PERMITTED USE\n\n10.1 The Mortgagor shall observe and perform each of the covenants set forth in Clause 7 (Borrower's Representations, Warranties, Covenants and Undertakings) of the Agreement, which covenants are incorporated herein mutatis mutandis by reference and made a part of the Indenture as if such covenants and other relevant provisions were set forth in full herein.\n\n10.2 In addition to the covenants specified in Clause 10.1 the Mortgagor hereby further covenants the following, throughout the continuance of this Indenture and so long as the Obligations or any part thereof remains due, unless the Company otherwise agrees:\n(a) The Mortgaged Property and all sale realizations and insurance proceeds thereof and all documents received under this Indenture shall always be kept distinguishable and held as the exclusive property of the Company specifically appropriated to the Security Interest created hereunder and be dealt with only under the directions of the Company and the Mortgagor shall not create any Security Interest upon or over the same, or any part thereof or do or permit anything that may prejudice the Security Interest created hereunder except in favour of the Company or except as permitted under the Loan Documents.\n(b) The Mortgagor shall ensure that the Mortgaged Property continues to remain the absolute property of the Mortgagor and at the disposal of the Mortgagor save and except to the extent of the Security Interest permitted to be created hereunder.\n(c) The Mortgagor and all other persons lawfully or equitably claiming or being entitled to claim any estate, right, title or further assurances shall from time to time execute, make and do every such assurance, act and thing for further and more perfectly assuring the Mortgaged Property unto and to the use and the benefit of the Company on the terms of this Indenture.\n(d) The Mortgagor shall at all times during the continuance of this Indenture duly and punctually pay any imposts, duties, taxes, premium and outgoings which become lawfully payable by the Mortgagor in respect of the Mortgaged Property. If the Mortgagor fails to pay, then the Company may pay such amounts on behalf of the Mortgagor and such amounts shall constitute a part of the Obligations.\n(e) The Mortgagor shall at all times and at its own cost and expense keep and maintain all buildings and erections forming part of the Mortgaged Property in good and substantial repair and in good working order and condition.\n(f) The Mortgagor shall at its expense keep the Mortgaged Property in marketable and good condition and insure the same against any such loss or risk as may be determined by the Company from time to time and ensure that the Company be designated as \"loss payee\" or \"beneficiary\" or \"additional insured\" in respect of all such insurance policies.\n(g) If the Mortgagor fails to pay any penalty or legal costs or any other charges for the stamping and registration of this Indenture, the Mortgagor will pay to the Company the amount thereof with interest.\n\n10.3 The Mortgagor hereby undertakes that during the subsistence of the Security Interest created by the Mortgagor in favour of the Company, the Mortgagor shall not do or suffer to be done or be party or privy to any act, deed, matter, or thing which may, in any manner prejudicially affect the securities and the rights created in favour of the Company.\n\n10.4 General Covenants\nThe Mortgagor hereby covenants and undertakes, from time to time and at all times, whether before or after the Mortgaged Property constituted hereunder shall have become enforceable, to execute and do, at its own expense, all such mortgages, charges, agreements, instruments, acts, matters and things in such form and otherwise as the Company may require for perfecting and protecting the mortgage created hereunder."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="6c924ffe-238c-48f0-9dc7-8b4b1420246d"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["11. SPECIFIC ACTIONS\n\nWithout limiting the generality of the assurances and covenants hereinabove, the Mortgagor will promptly upon receiving a request from the Company:\n(a) execute such documents as may be necessary to transfer the Mortgaged Property to the Company and/or to any third party so appointed by the Company upon the occurrence of an Event of Default;\n(b) execute such further writings and take all such further actions as may be necessary for creating security on the terms of this Indenture over the Mortgaged Property; and\n(c) otherwise execute all transfers, conveyances, assignments, assurances, and other instruments of security whatsoever which the Company may reasonably require.\n\n12. FAILURE TO PAY\n\nIf the Borrower fails to pay to the Company the Obligations or any part thereof in the manner provided in the Loan Documents, the Mortgaged Property hereby mortgaged and charged cannot be redeemed or be redeemable by the Mortgagor until the Obligations are paid and discharged in their entirety, to the satisfaction of the Company."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="d26ded33-1012-4d55-950f-d9caa9a5452c"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["13. ENFORCEMENT\n\nThis Agreement shall be valid until the Repayment of all Outstanding Amount to the satisfaction of the Lender.\n\n13.1 General Enforcement Powers\nUpon the occurrence of an Event of Default, the Security Interest created hereunder in favour of the Company shall become enforceable by the Company upon which the Company may, without prejudice to any other rights they may have and without prior notice to the Borrower/Mortgagor:\n(a) enforce the Security Interest created hereunder;\n(b) sell, call in, collect, convert into money, or otherwise deal with or dispose of the Mortgaged Property;\n(c) exercise any and all powers which a receiver could exercise hereunder or by applicable law;\n(d) appoint by writing any person or persons to be a receiver of all or any part of the Mortgaged Property;\n(e) substitute itself or its designee for the Mortgagor under any or all of the contracts;\n(f) enter into and upon and take possession of the Mortgaged Property and any future assets comprised in this Indenture;\n(g) institute, prosecute and defend any proceedings/suits in the name of the Mortgagor;\n(h) make any arrangement, settlement or compromise or enter into any contracts;\n(i) subject to such consent as may be necessary, demise or let out, sub-let the Mortgaged Property;\n(j) do all such other acts and things as may be considered by the Company to be incidental; and\n(k) take all such other action expressly or impliedly permitted under this Indenture or under applicable law.\n\n13.2 Powers of the Company\nThe Company shall have the authority to act upon and enforce the provisions of this Indenture or to adopt all remedies in that behalf and shall exercise all powers under applicable law and the Loan Documents.\n\n13.3 Expenses\nAll expenses incurred by the Company in connection with creation, perfection, preservation and enforcement of the Mortgaged Property shall be payable by the Borrower/Mortgagor and shall stand secured under this Indenture.\n\n13.4 Sale without Intervention of Court\n\n13.4.1 Subject to sub-clause 13.4.2, following the occurrence of an Event of Default, it shall be lawful for the Company at any time without any further consent of the Borrower/Mortgagor, to sell, assign or concur with any other person in selling or assigning the Mortgaged Property, either by public auction or private contract, and the aforesaid power shall be deemed to be a power to sell within the meaning of Section 69 of the Transfer of Property Act.\n\n13.4.2 The power of sale and/or assignment hereinbefore contained shall be exercised by the Company unless and until:\n(i) a default is made by the Borrower/Mortgagor in payment of any principal or part thereof for a period of 3 (three) calendar months after the notice in writing required by sub section (2) of Section 69 of the Transfer of Property Act.\n(ii) interest on the Obligations shall be in arrears and remain unpaid for three (3) months after becoming due.\n\n13.4.3 No purchaser or other person dealing with the Company shall be bound to see or inquire whether either of the events mentioned in 13.4.2 has happened.\n\n13.4.4 All other provisions and trusts ancillary to the power of sale which are contained in Section 69 of the Transfer of Property Act, shall apply to this security.\n\n13.4.5 Upon any such sale/assignment the receipt by the Company for the purchase money shall effectually discharge the purchasers.\n\n13.4.6 Nothing contained herein shall affect the powers of the Company conferred under the Securitisation and Reconstruction of Financial Assets and Enforcement of Security Interest Act, 2002."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="2dc31073-2c56-4f9a-8179-5886016f21ec"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["14. TRANSFER OF PROPERTY ACT\n\n14.1 Section 67A\nThe provisions of Section 67A of the Transfer of Property Act shall not apply to this Indenture and the Company, notwithstanding that the Company may hold two or more mortgages executed by the Mortgagor including this Indenture.\n\n14.2 Continued Possession\nIt shall be lawful for the Mortgagor to retain possession of, and the Mortgagor may use the Mortgaged Property in accordance with the Loan Documents until the Company shall be entitled to take possession thereof.\n\n14.3 Section 65A\nThe Mortgagor shall, while in lawful possession of the Mortgaged Property, have no power to make leases thereof, save and except in accordance with the terms of the Loan Documents.\n\n15. APPOINTMENT OF RECEIVER\n\n15.1 Right to Appoint a Receiver\nSubject to such restrictions as may be imposed by Section 69A of the Transfer of Property Act, the Company, at any time after the security hereby constituted shall have become enforceable, may by writing appoint as receiver of the Mortgaged Property.\n\n15.2 Status, Powers, and Remuneration of Receiver\n\n15.2.1 Appointment of any receiver may be made either before or after the Company shall have entered into or taken possession of the Mortgaged Property.\n15.2.2 Such receiver may be invested with such of the rights, powers, authorities, and discretions exercisable by the Company.\n15.2.3 Unless otherwise directed by the Company such receiver may exercise all the rights, powers, authorities, and discretions vested in the Company.\n15.2.4 The receiver shall conform to the instructions, directions and regulations given by the Company.\n15.2.5 Subject to the provisions of Section 69A, the Company may fix the remuneration of such receiver.\n15.2.6 The Company may require any such receiver to give security for the due performance of its duties.\n15.2.7 The Company shall be in no way responsible for any misconduct, misfeasance, malfeasance, or gross negligence on the part of any such receiver.\n15.2.8 All the powers, provisions and trusts contained in Section 69A of the Transfer of Property Act shall apply to the receiver appointed under this Clause.\n15.2.9 Every such receiver shall be the agent of the Mortgagor for all purposes and the Mortgagor alone shall be responsible for his acts, defaults, or misconduct."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="a20d994d-8d8b-420e-ace8-04ca98d34f34"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["16. NOT MORTGAGEE IN POSSESSION\n\n16.1 Without prejudice to the rights and remedies available to the Company, it is hereby clarified that the Mortgagor has not delivered possession of the Mortgaged Properties to the Company simultaneous with this Indenture.\n\n16.2 Without prejudice to the generality of Clause 20.1 (Appointment), the Mortgagor agrees with the Company that neither the Company nor any receiver appointed as aforesaid shall, by reason of the Company or such receiver entering into or taking possession of the Mortgaged Properties or any part thereof, be liable to the Mortgagor to account as a mortgagee-in-possession for anything.\n\n17. PROTECTION OF COMPANY AND RECEIVER: LIMITATION OF LIABILITY\n\nNeither the Company nor any receiver shall be liable in respect of any loss or damage which arises out of the exercise or the attempted or purported exercise of or the failure to exercise any of their respective rights, powers, authorities, discretion's, and trusts that may be vested in the Company or the receiver unless such loss or damage is caused by the Company's or the receiver's gross negligence or willful misconduct or fraud (as determined by a court of competent jurisdiction).\n\n18. COSTS AND EXPENSES\n\n18.1 Legal Fees and Other Expenses\nThe Mortgagor shall, upon notice from the Company pay or reimburse to the Company all fees for services performed by the Company, all out of pocket and travelling expenses, legal costs and other costs, charges and expenses in any way incurred by the Company in connection with the negotiation, preparation, execution, modification or amendment of or the preservation, protection or release of the rights of the Company under these presents.\n\n18.2 Stamp Duty and Other Fees on Execution, Registration etc.\nThe Borrower/Mortgagor shall pay all stamp duty, registration charges, other duties, taxes, fees, penalties, or other charges payable on or in connection with the execution, issue, delivery, registration of this Indenture. If the Borrower/Mortgagor fails to pay, then the Company may pay such amounts on behalf of the Borrower/Mortgagor. All such sums and costs shall be added to the Obligations and be secured under these presents."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="3f8172e7-f854-460a-8f1f-800ea4c5fc2f"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["19. INDEMNITY\n\nThe Company and every receiver, attorney, director, manager, agent or other person appointed by it shall be entitled to be indemnified by the Borrower and Mortgagor, jointly, in respect of all liabilities and expenses incurred by it in the execution or purported execution of the powers and trusts thereof.\n\n20. COMPANY/RECEIVER AS MORTGAGOR'S ATTORNEY\n\n20.1 Appointment\nThe Mortgagor hereby irrevocably appoints the Company as well as each receiver appointed under this Indenture:\n(a) to be its attorney or attorneys, and in the name and on behalf of the Mortgagor to act and execute all deeds and things;\n(b) to generally to use the name of the Mortgagor in the exercise of all or any of the powers;\n(c) to execute on behalf of the Mortgagor at the cost of the Mortgagor the powers hereunder; and\n(d) to execute on behalf of the Mortgagor such documents and deeds as may be necessary.\n\n20.2 Ratification\nThe Mortgagor covenants with the Company to ratify and confirm all acts or things made, done, or executed by any attorney as contemplated by Clause 20.1 above.\n\n21. LIABILITY TO COMPANY FOR DEFICIENCY\n\nIn the event that the monies received by the Company, or the receiver hereunder are insufficient to discharge the Obligations, the Company shall be entitled to recover the same from the Mortgagor as provided under the Loan Documents. The Mortgagor shall remain liable to the Company for any deficiency in recovery of the Obligations.\n\n22. WAIVER\n\n22.1 No implied waiver or impairment\nNo failure or delay by the Company in exercising any right under this Indenture shall operate as a waiver thereof.\n\n22.2 Express Waiver\nA waiver or consent granted by the Company under this Indenture will be effective only if given in writing and only in the instance and for the purpose for which it is given.\n\n23. MISCELLANEOUS\n\n23.1 Discharges and Releases\nNotwithstanding any discharge, release or settlement from time to time between the Company and the Mortgagor, if any discharge or payment in respect of the Obligations is avoided or set aside, the Company shall be entitled hereafter to enforce this Indenture.\n\n23.2 Amendment\nSubject to the Loan Documents, the Mortgagor and the Company may amend or supplement the terms of this Indenture by mutual agreement in writing.\n\n23.3 Limitation on Rights of Others\nNothing in this Indenture shall be construed to give to any person other than the Company any legal or equitable right, remedy or claim.\n\n23.4 No Legal Title for the Company\nThe Company shall not have any legal title to any part of the Mortgaged Property; provided however, that the Company shall have a beneficial interest in the Mortgaged Property.\n\n23.5 Acquisition by Government, etc.\nIn the event the Mortgaged Property or any portion thereof is acquired by the Government of India, the Company shall be entitled to receive the compensation.\n\n23.6 Notices and Communications\n(a) Any communication made under this Indenture must be made in writing and must be made by email, facsimile transmission, or registered post.\n(b) Any notice or communication given to a Party by email, facsimile or post shall be deemed to have been duly received.\n\n23.7 Provisions Severable\nEvery provision contained in this Indenture shall be severable and distinct from every other such provision.\n\n23.8 Assignment\nThe Mortgagor shall not assign or transfer all or any of its rights, benefits, or obligations under this Indenture. The Company may, at any time, assign, novate, transfer, or dispose of all or any of its rights.\n\n23.9 Governing Law\nThis Indenture shall be governed by and construed in accordance with Indian law.\n\n23.10 Jurisdiction\nThe Mortgagor agrees that the courts and tribunals in the State of India where the Mortgaged Property or any part thereof is located, shall have exclusive jurisdiction to settle any disputes which may arise out of or in connection with this Indenture."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement style="Bold" x="0" y="5" width="535" height="20" uuid="4fb92c35-e9b9-4b44-a8df-10982b8067ce"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SCHEDULE I]]></text>
+			</staticText>
+		</band>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement style="Bold" positionType="Float" x="0" y="2" width="535" height="15" uuid="00f8360b-bdd3-4bf9-8d70-aba9525def90"/>
+				<text><![CDATA[1. PART A: DETAILS OF MORTGAGED PROPERTY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Body" positionType="Float" x="0" y="18" width="535" height="15" uuid="b3a3c58c-377d-4680-a35b-63e9ab747e2c"/>
+				<text><![CDATA[Date of Execution of Indenture: _________________]]></text>
+			</staticText>
+		</band>
+		<band height="30" splitType="Stretch">
+			<componentElement>
+				<reportElement positionType="Float" x="0" y="2" width="535" height="25" uuid="e1000001-0000-0000-0000-400000000006"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="PropertyListDS" uuid="f1000001-0000-0000-0000-400000000007">
+						<dataSourceExpression><![CDATA[$P{PropertyListDataSource}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="70" width="535">
+						<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="0" y="0" width="535" height="70" uuid="be42b371-103b-44a6-a028-6fb9f8ae57a9"/>
+							<textElement textAlignment="Left" verticalAlignment="Top">
+								<font fontName="SansSerif" size="10"/>
+							</textElement>
+							<textFieldExpression><![CDATA["\nProperty " + $F{propertyIndex} + ":\nName: " + $F{ownerNames} + "\nProperty Details: " + $F{propertyAddress} + "\nProperty Type: " + $F{propertyType} + "\nProperty Area: " + $F{propertyArea} + "\nConstruction Area: " + $F{constructionArea}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement style="Bold" positionType="Float" x="0" y="2" width="535" height="15" uuid="01c0c572-c26a-4b96-9296-6d371c03a362"/>
+				<text><![CDATA[2. PART B: DETAILS OF MORTGAGOR]]></text>
+			</staticText>
+		</band>
+		<band height="30" splitType="Stretch">
+			<componentElement>
+				<reportElement positionType="Float" x="0" y="2" width="535" height="25" uuid="e1000002-0000-0000-0000-400000000009"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="OwnersListDS" uuid="f1000002-0000-0000-0000-400000000010">
+						<dataSourceExpression><![CDATA[$P{OwnersListDataSource}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="90" width="535">
+						<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="0" y="0" width="535" height="90" uuid="7dff6c39-05d3-42f4-bc6a-747a8aff0d4c"/>
+							<textElement textAlignment="Left" verticalAlignment="Top">
+								<font fontName="SansSerif" size="10"/>
+							</textElement>
+							<textFieldExpression><![CDATA["\n(i) Name: " + $F{propertyOwnerName} + "\n(ii) Address: " + $F{address} + "\n(iii) Date of Birth: " + $F{dateOfBirth} + "\n(iv) Occupation: " + $F{occupation} + "\n(v) Email ID:\n(vi) Registered Mobile Number: " + $F{mobileNumber} + "\n(vii) State Code: " + $F{stateCode}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="55e94485-2fba-4ce7-be02-9a97132fc250"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["3. PART C: DETAILS OF THE BORROWER, LOAN AND AGREEMENT\n\n(i) Amount of the Loan: " + $P{loanAmount} + "\n(ii) Date of execution of the Agreement: " + $P{dateOfExecutionOfAgreement} + "\n(iii) Name and details of Borrower: " + $P{applicantNameAndCoApplicantDetail} + "\n(iv) Address: " + $P{currentAddress} + "\n\n4. PART D: NOTICE DETAILS OF THE COMPANY AND MORTGAGOR\n\n(ii) Notice details of the Company:\nAddress: SARVAGRAM FINCARE PRIVATE LIMITED " + $P{branchName} + "\nAttention: SARVAGRAM FINCARE PVT LTD\nTelephone:\nE-mail:"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement style="Bold" positionType="Float" x="0" y="2" width="535" height="20" uuid="4c003c81-4e56-4ca5-9224-cf9f51e50114"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(Description of Property)]]></text>
+			</staticText>
+		</band>
+		<band height="30" splitType="Stretch">
+			<componentElement>
+				<reportElement positionType="Float" x="0" y="2" width="535" height="25" uuid="e1000003-0000-0000-0000-400000000012"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="BoundariesDS" uuid="f1000003-0000-0000-0000-400000000013">
+						<dataSourceExpression><![CDATA[$P{BoundariesDataSource}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="80" width="535">
+						<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="0" y="0" width="535" height="80" uuid="0dc1ac53-371d-4f3b-8d2c-cfef64ae9641"/>
+							<textElement textAlignment="Left" verticalAlignment="Top">
+								<font fontName="SansSerif" size="10" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA["\nProperty " + $F{propertyIndex} + ":\nProperty address: " + $F{propertyAddress} + "\nBoundaries as under:\nOn or towards the East: " + $F{boundariesOnEast} + "\nOn or towards the West: " + $F{boundariesOnWest} + "\nOn or towards the North: " + $F{boundariesOnNorth} + "\nOn or towards the South: " + $F{boundariesOnSouth}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="fbd0c4b1-0bc2-486a-8de7-89da360366f7"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Signature Page"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="57a0d13b-235c-46e2-ade8-c6e7766595bc"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["IN WITNESS WHEREOF, this Indenture has been executed by the Mortgagor and the Company at the place and on the date mentioned above.\n\n\nSIGNED AND DELIVERED by the within named MORTGAGOR in the presence of such a person whose details are specified under Schedule I (authorised signatory) who has, in token thereof, affixed his signatures hereto.\n\n\n\n\nSIGNED AND DELIVERED by SARVAGRAM FINCARE PRIVATE LIMITED, by the hand of __________________ its authorized official acting in its capacity as the Company.\n\n\n\n\n"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement style="Bold" positionType="Float" x="0" y="2" width="535" height="15" uuid="cf3b65c7-25c2-43c7-8982-11588d3e322f"/>
+				<text><![CDATA[SIGNED AND DELIVERED by:]]></text>
+			</staticText>
+		</band>
+		<band height="30" splitType="Stretch">
+			<componentElement>
+				<reportElement positionType="Float" x="0" y="2" width="535" height="25" uuid="e1000004-0000-0000-0000-400000000015"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="SignatoryDS" uuid="f1000004-0000-0000-0000-400000000016">
+						<dataSourceExpression><![CDATA[$P{SignatoryDataSource}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="18" width="535">
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="0" width="535" height="18" uuid="9e881b6b-edfd-49a3-b833-bb91020c19b1"/>
+							<textElement textAlignment="Left" verticalAlignment="Middle">
+								<font fontName="SansSerif" size="10" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{propertyOwnerName} + ","]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+		<band height="120" splitType="Stretch">
+			<staticText>
+				<reportElement style="Bold" positionType="Float" x="0" y="5" width="535" height="15" uuid="17e11fee-c2a3-447d-a921-9eced837d48d"/>
+				<text><![CDATA[WITNESS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Body" positionType="Float" x="0" y="40" width="535" height="15" uuid="5d69dc75-68af-4885-9b8d-7284ecea4d0a"/>
+				<text><![CDATA[1. _________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Body" positionType="Float" x="0" y="80" width="535" height="15" uuid="fa12af1a-24d5-44bc-90f0-98d2f92bc490"/>
+				<text><![CDATA[2. __________________________]]></text>
+			</staticText>
+		</band>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement style="Bold" positionType="Float" x="0" y="5" width="535" height="15" uuid="51a0b3c4-d5e6-7890-abcd-500000000017"/>
+				<text><![CDATA[SIGNED AND DELIVERED by SARVAGRAM FINCARE PRIVATE LIMITED,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Bold" positionType="Float" x="0" y="35" width="535" height="15" uuid="51a0b3c4-d5e6-7890-abcd-500000000018"/>
+				<text><![CDATA[WITNESS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Body" positionType="Float" x="0" y="50" width="535" height="15" uuid="51a0b3c4-d5e6-7890-abcd-500000000019"/>
+				<text><![CDATA[1. _________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Body" positionType="Float" x="0" y="65" width="535" height="15" uuid="51a0b3c4-d5e6-7890-abcd-500000000020"/>
+				<text><![CDATA[2. __________________________]]></text>
+			</staticText>
+		</band>
+		<band height="30" splitType="Stretch">
+			<break>
+				<reportElement x="0" y="0" width="535" height="1" uuid="51a0b3c4-d5e6-7890-abcd-500000000021"/>
+			</break>
+			<staticText>
+				<reportElement style="Title" x="0" y="5" width="535" height="22" uuid="51a0b3c4-d5e6-7890-abcd-500000000022"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MEMORANDUM OF ENTRY RECORDING MORTGAGE BY DEPOSIT OF TITLE DEEDS]]></text>
+			</staticText>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement style="Bold" positionType="Float" x="0" y="2" width="535" height="25" uuid="51a0b3c4-d5e6-7890-abcd-500000000023"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["LOAN ID :- " + $P{lan}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="51a0b3c4-d5e6-7890-abcd-500000000024"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["1. This memorandum relating to deposit of title deeds is executed on " + $P{dateOfExecutionOfAgreement} + " (\"Memorandum\") by Mr./Ms. " + $P{applicantNameAndCoApplicantDetail} + ", currently residing at " + $P{currentAddress} + " and having his/her permanent residence at " + $P{currentAddress} + " (hereinafter referred to as \"the Mortgagor\") (which expression shall unless repugnant to the meaning or context thereof shall include his/her/its heirs, legal representatives, executors, administrators, successors and assigns) in favour of Sarvagram Fincare Private Limited, a company registered under the Companies Act, 2013 and having its registered office at Office No. 22, 4th Floor, Primrose Mall, Baner Road, Baner Gaon, Haveli, Pune - 411045, Maharashtra and amongst others, a branch at " + $P{branchName} + " (hereinafter referred to as \"the Mortgagee\")."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="51a0b3c4-d5e6-7890-abcd-500000000025"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["2. The Mortgagor delivered and deposited the title deeds specified in the FIRST SCHEDULE hereunder written (\"the said title deeds\") representing the Mortgagor's ownership right, title and/or interest to and in the immovable properties being the parcels of land specified in the SECOND SCHEDULE hereunder written, with the intention to create a first charge, by way of mortgage by deposit of the title deeds, in favour of the Mortgagee to secure, on a first ranking exclusive basis, (i) the repayment of the amounts due under the Loan Agreement (as defined below); and (ii) discharge of the obligations of the Mortgagor and/ or the Borrower(s) under the Loan Agreement (as defined below) (hereinafter collectively referred to as the \"Obligations\")."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="51a0b3c4-d5e6-7890-abcd-500000000026"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["3. Whilst making the deposit of the said title deeds, the Mortgagor stated that he/she was doing so with the intent to create a security by way of mortgage by deposit of title deeds on the Mortgagor's immovable properties more particularly described in the Second Schedule hereunder written together with all the common areas/ easements privileges/ development rights/ benefits/ fixtures and fittings/ buildings and structures, present and future, all tangible and/ or intangible properties, all accretions, additions, accessories, fixtures and fittings, buildings, structures constructed or erected thereon (hereinafter collectively referred to as \"the said immovable properties\") to secure due repayment, discharge and redemption of the following financial assistance granted by the Mortgagee to the Mortgagor and/ or the Borrower(s), as applicable:\n\n(a) Loan of INR " + $P{loanAmount} + "/- (Indian Rupees " + $P{loanAmountWord} + " Only), together with interests, costs, charges, expenses and other monies payable by the Borrower under the loan agreement dated " + $P{dateOfExecutionOfAgreement} + " (\"Loan Agreement\"), as amended or varied from time to time."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="51a0b3c4-d5e6-7890-abcd-500000000027"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["4. While making the deposit of the said title deeds, the Mortgagor declared and affirmed that:\n\n(a) the Mortgagor is the sole and absolute owner of the said immovable properties and is in exclusive undisturbed possession and occupation thereof;\n\n(b) the said title deeds are the only documents relating to the said immovable properties in the possession, power and control of the Mortgagor and the Mortgagor has clear and marketable ownership, right, title and interest in respect of the said immovable properties free and clear from all encumbrances and absolute authority to mortgage the said immovable properties and/or create security by deposit of the said title deeds;\n\n(c) the said immovable properties is free from any and all encumbrances including mortgages, charges, liens, lis-pendens, attachments either before or after judgment and there is no money decree passed against the Mortgagor regarding the ownership of the said immovable properties or any rights, claims or demands or suits or actions and that there are no other encroachments, trespassers, tenants, leases or licensees on the said immovable properties or any part thereof;\n\n(d) the Mortgagor has not earlier and shall henceforth not enter into any agreement whether oral or in writing with any person for creating or transferring any rights, title or interest of whatsoever nature in respect of the said immovable properties until the payment or discharge of all liabilities/ Obligations under the Loan Agreement;\n\n(e) there is no prohibitory order or any statutory order or otherwise any restrictive order restricting the Mortgagor from creating an equitable mortgage over the said immovable properties and executing this Memorandum of Entry on the terms and conditions contained herein;\n\n(f) the Mortgagor has the necessary power and authority and is duly competent to create equitable mortgage by deposit of title deeds over the said immovable properties;\n\n(g) the Mortgagor has obtained all requisite consents, governmental approvals, authorizations and clearances for creation of the mortgage;\n\n(h) the deposit of the said title deeds is being made with an intent to create a first and exclusive mortgage and charge as and by way of security for the due repayment and discharge of the Obligations by the Mortgagor and/ or the Borrower(s) in terms of the Loan Agreement to the satisfaction of the Mortgagee; and\n\n(i) the Mortgagee shall hold the said title deeds together with any additional documents of title, evidences, writings if any and all related documents, as security for the due repayment and discharge in full of all the Obligations by the Mortgagor and/ or the Borrower(s)."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="51a0b3c4-d5e6-7890-abcd-500000000028"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["5. The stamp duty and registration charges, payable on this Memorandum of Entry including all incidental cost and expenses thereof shall be borne and paid solely by the Mortgagor.\n\n6. For the purposes of the foregoing, the capitalized terms used in this Memorandum of Entry, where not so defined herein, shall have the meaning set out in the Loan Agreement, as amended from time to time."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="51a0b3c4-d5e6-7890-abcd-500000000029"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["IN WITNESS WHEREOF the Mortgagor has subscribed their signatures at ____________ on the day, month and year first above mentioned.\n\nSigned and delivered by the withinnamed Mortgagor Mr./Ms. " + $P{applicantNameAndCoApplicantDetail} + " in the presence of"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<break>
+				<reportElement x="0" y="0" width="535" height="1" uuid="51a0b3c4-d5e6-7890-abcd-500000000030"/>
+			</break>
+			<staticText>
+				<reportElement style="Title" x="0" y="5" width="535" height="22" uuid="51a0b3c4-d5e6-7890-abcd-500000000031"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FIRST SCHEDULE]]></text>
+			</staticText>
+		</band>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="15" uuid="51a0b3c4-d5e6-7890-abcd-500000000032"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[(List of Title Deeds)]]></text>
+			</staticText>
+		</band>
+		<band height="130" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="5" width="55" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000033"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sl. No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="5" width="240" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000034"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nature of the Document]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="5" width="240" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000035"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Description (original/Certified True Copy/Photocopy)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="25" width="55" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000036"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="25" width="240" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000037"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="25" width="240" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000038"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="45" width="55" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000039"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="45" width="240" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000040"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="45" width="240" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000041"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="65" width="55" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000042"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="65" width="240" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000043"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="65" width="240" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000044"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="85" width="55" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000045"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="85" width="240" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000046"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="85" width="240" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000047"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="105" width="55" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000048"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="105" width="240" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000049"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="105" width="240" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000050"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+		<band height="30" splitType="Stretch">
+			<break>
+				<reportElement x="0" y="0" width="535" height="1" uuid="51a0b3c4-d5e6-7890-abcd-500000000051"/>
+			</break>
+			<staticText>
+				<reportElement style="Title" x="0" y="5" width="535" height="22" uuid="51a0b3c4-d5e6-7890-abcd-500000000052"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SECOND SCHEDULE]]></text>
+			</staticText>
+		</band>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="15" uuid="51a0b3c4-d5e6-7890-abcd-500000000053"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[(Description of Property)]]></text>
+			</staticText>
+		</band>
+		<band height="30" splitType="Stretch">
+			<componentElement>
+				<reportElement positionType="Float" x="0" y="2" width="535" height="25" uuid="51a0b3c4-d5e6-7890-abcd-500000000054"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="SecondScheduleDS" uuid="51a0b3c4-d5e6-7890-abcd-500000000055">
+						<dataSourceExpression><![CDATA[$P{SecondScheduleDataSource}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="120" width="535">
+						<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="0" y="0" width="535" height="120" uuid="51a0b3c4-d5e6-7890-abcd-500000000056"/>
+							<textElement textAlignment="Left" verticalAlignment="Top">
+								<font fontName="SansSerif" size="10" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA["\nProperty " + $F{propertyIndex} + ":\nProperty Address: " + $F{propertyAddress} + "\nProperty Type: " + $F{propertyType} + "\nProperty Area: " + $F{propertyArea} + "\nConstruction Area: " + $F{constructionArea} + "\n\nBoundary:\nOn or towards the East: " + $F{boundariesOnEast} + "\nOn or towards the West: " + $F{boundariesOnWest} + "\nOn or towards the North: " + $F{boundariesOnNorth} + "\nOn or towards the South: " + $F{boundariesOnSouth}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="51a0b3c4-d5e6-7890-abcd-500000000057"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["together with all the common areas/ easements privileges/ development rights/ benefits/ fixtures and fittings/ buildings and structures, present and future, all tangible and/ or intangible properties, all accretions, additions, accessories, fixtures and fittings, buildings, structures constructed or erected thereon, whether owned, acquired/ occupied or to be owned/ acquired/ occupied by the Mortgagor (whether financed by the Mortgagee in whole or in part, or not and/or such property(ies) as may be substituted instead of or added to such property(ies) or both, with the Mortgagee's consent.\n\nDated this _____ day of ____________\n\n\nSignature:\nName:\nDesignation:"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20">
+			<staticText>
+				<reportElement style="Ftr" x="0" y="5" width="100" height="15" uuid="59750a33-fd77-4a0e-b84e-4dda5c82ac52"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[MORTGAGOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Ftr" x="435" y="5" width="100" height="15" uuid="f23627f8-d366-4310-b799-19ed762cb1f0"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[COMPANY]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>
