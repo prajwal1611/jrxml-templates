@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.1.4/tailwind.min.css"
+          integrity="sha512-..." rel="stylesheet" />
+    <style>
+        table,
+        th,
+        tr {
+            border: 1px dotted black;
+        }
+
+        @media print {
+            .page-break-before {
+                page-break-before: always;
+            }
+
+            .page-break-after {
+                page-break-after: always;
+            }
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid black;
+            width: 25%;
+        }
+
+        table,
+        td,
+        tr {
+            border: 1px solid black;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        body {
+            font-family: "Calibri", sans-serif;
+        }
+
+        .main-table {
+            width: 100%;
+        }
+
+        .footer,
+        .footer-space {
+            height: 100px;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+        }
+
+        .main-table,
+        .main-table-body,
+        .main-table-row,
+        .main-table-td,
+        .footer-space,
+        .footer {
+            border: none;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+<table class="main-table">
+    <tbody class="main-table-body">
+    <tr class="main-table-row">
+        <td class="main-table-td">
+            <div class="p-4 text-xs" style="font-size: 9px;" th:fragment="content(templateData)">
+                <div class="max-w-screen-sm print:max-w-full print:p-0 print:pt-2 page-break-before">
+
+
+                    <div class="grid grid-cols-3 w-full">
+                        <div style="width: 16rem;">
+                                    <span class="flex"> <input type="checkbox"> <span class="ml-1 font-bold">Kotak Group
+                                            Assure
+                                            (UIN:107N051V03)</span></span>
+                            <span class="flex"> <input type="checkbox" checked="checked"> <span class="ml-1 font-bold">Kotak
+                                            Complete Cover Group
+                                            Plan (UIN:107N018V06)</span></span>
+                        </div>
+                        <div class="ml-12">
+                            <div style="width: 16rem;">
+                                        <span class="flex"> <input type="checkbox" checked="checked"> <span class="ml-1 font-bold">Kotak
+                                                Group Shield
+                                                (UIN:107N050V04)</span></span>
+                                <span class="flex"> <input type="checkbox"> <span class="ml-1 font-bold">Kotak
+                                                Credit Term Group
+                                                (UIN:107N006V04)</span></span>
+                            </div>
+                        </div>
+<!--                        <div class="ml-20">-->
+                            <div class="flex" style="width: 17rem; justify-content: flex-end">
+                                          <img src="data:image/png;base64,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"
+                                               width="150" height="100" alt="logo">
+                            </div>
+<!--                        </div>-->
+                    </div>
+                    <p class="font-bold text-center">Membership Form cum Declaration of Good Health</p>
+                    <p class="absolute  font-bold flex"
+                       style="width: 44rem; border: 1px solid black; font-size: 8px;">IMPORTANT
+                        NOTE : Any additional text written or qualification given in the form would make it
+                        invalid.</p>
+                    <br>
+                    <div class="grid grid-cols-2 w-full font-bold">
+                        <span>Name of the Policyholder: <span class="underline">SARVAGRAM FINCARE PRIVATE LIMITED</span> </span>
+                        <span>Policy Number: <span class="underline">CD000053 & CD000054, GS000428</span> </span>
+                    </div>
+
+                    <p class="absolute  font-bold flex"
+                       style="width: 44rem; background-color: red; color: white;">
+                        PLAN DETAILS:
+                    </p><br>
+                    <div class="grid grid-cols-4 w-full font-bold">
+                        <span>Sum Assured(₹) : <span class="underline"><span th:text="${templateData?.amount}"></span></span> </span>
+                        <span>Premium(₹) : <span class="underline"><span th:text="${templateData?.insuranceAmount}"></span></span> </span>
+                        <span>Cover Term : <span class="underline">1Yr,10Yrs</span> </span>
+                        <span>Plan Option : <span class="underline">Life Cover, Easy Group Shield</span> </span>
+                    </div>
+
+                    <div class="flex w-full">
+                                <span class="font-bold" style="width: 5rem;">Premium Payment
+                                    Term:</span>
+                        <span class="flex ml-1">
+                                    <input type="checkbox" checked="checked"> <span class="mt-2">Singly Pay</span>
+                                </span>
+                        <span class="flex ml-1">
+                                    <input type="checkbox"> <span class="mt-2">Limited Pay</span>
+                                </span>
+                        <span class="flex ml-1">
+                                    <input type="checkbox"> <span class="mt-2">Regular
+                                        Premium</span>
+                                </span>
+
+                        <span class="font-bold ml-4" style="width: 5rem;">Premium Payment
+                                    Mode:</span>
+                        <span class="flex ml-1">
+                                    <input type="checkbox" checked="checked"> <span class="mt-2">Single</span>
+                                </span>
+                        <span class="flex ml-2">
+                                    <input type="checkbox"> <span class="mt-2">Yearly</span>
+                                </span>
+                        <span class="flex ml-2">
+                                    <input type="checkbox"> <span class="mt-2">HalfYearly</span>
+                                </span>
+                        <span class="flex ml-2">
+                                    <input type="checkbox"> <span class="mt-2">Quarterly</span>
+                                </span>
+                        <span class="flex ml-2">
+                                    <input type="checkbox"> <span class="mt-2">Monthly</span>
+                                </span>
+                    </div>
+
+                    <div class="flex w-full">
+                        <span class="font-bold mt-1">Cover Type:</span>
+                        <span class="flex ml-1">
+                                    <input type="checkbox" checked="checked"> <span class="mt-1 ml-1">Single Life</span>
+                                </span>
+                        <span class="flex ml-1">
+                                    <input type="checkbox"> <span class="mt-1 ml-1">Joint Life</span>
+                                </span>
+                        <span class="ml-4 font-bold mt-1">Interest Rate: 20% - 30% </span>
+                        <span class="font-bold mt-1 ml-2">Benefit Multiplier :</span>
+                        <span class="flex ml-1">
+                                    <input type="checkbox" checked="checked"> <span class="mt-1 ml-1">100%</span>
+                                </span>
+                        <span class="flex ml-1">
+                                    <input type="checkbox"> <span class="mt-1 ml-1">110%</span>
+                                </span>
+                        <span class="flex ml-1">
+                                    <input type="checkbox"> <span class="mt-1 ml-1">120%</span>
+                                </span>
+
+                        <span class="font-bold mt-1 ml-2">
+                                    Moratorium Period : NA
+                                </span>
+                    </div>
+
+                    <p class="absolute  font-bold flex"
+                       style="width: 44rem; background-color: red; color: white;">
+                        LIFE ASSURED'S DETAILS:
+                    </p><br>
+                    <div class="flex w-full font-bold">
+                                <span>Loan Account No. :<span class="underline"
+                                                              th:text="${templateData?.lan}"></span> </span>
+                        <span class="ml-auto">Customer ID :<span class="underline"
+                                                                 th:text="${templateData?.applicantId}"></span> </span>
+                    </div>
+                    <div class="flex w-full font-bold">
+                                <span>Member Name: Mr. / Ms. :<span class="underline"
+                                                                    th:text="${templateData?.applicantName}"></span>
+                                </span>
+                        <span class="ml-auto">Date of Birth : <span class="underline" th:text="${templateData?.dob}"></span></span>
+                    </div>
+                    <div class="flex w-full font-bold">
+                                <span>Address :<span class="underline"
+                                                     th:text="${templateData?.applicantAddress}"></span> </span>
+                        <span class="ml-auto flex">Gender :
+                                    <span class="flex ml-3">
+                                        <input type="checkbox" th:checked="${templateData?.gender.toLowerCase() == 'male'}"> <span class="mt-1 ml-1">M</span>
+                                    </span>
+                                    <span class="flex ml-3">
+                                        <input type="checkbox"th:checked="${templateData?.gender.toLowerCase() == 'female'}"> <span class="mt-1 ml-1">F</span>
+                                    </span>
+
+                                </span> </span>
+                    </div>
+                    <span class="font-bold flex">
+                                <span>Name of Joint Life Insured (if any): Mr. / Ms</span>
+                                <span class="underline ml-2"></span>
+                            </span>
+
+                    <div class="grid grid-cols-3 w-full font-bold">
+                                <span>
+                                    Date of Birth :
+                                </span>
+                        <span class="ml-auto flex">Gender :
+                                    <span class="flex ml-3">
+                                        <input type="checkbox" > <span class="mt-1 ml-1">M</span>
+                                    </span>
+                                    <span class="flex ml-3">
+                                        <input type="checkbox" > <span class="mt-1 ml-1">F</span>
+                                    </span>
+
+                                </span>
+
+                        <span class="ml-4">
+                                    Relationship with Member:<span></span>
+                                </span>
+                    </div>
+
+                    <div>
+                        <p class="absolute  font-bold flex" style="width: 44rem; background-color: red; color: white;">
+                            NOMINEE DETAILS <span style="font-size: 7px;">&nbsp; (needs to be a major i.e. above 18
+                                    years of age and
+                                    should be one of the following: Husband, Wife, Son, Daughter, Father, Mother,
+                                    Brother, Sister,
+                                    Grandfather or Grandmother)</span>
+                        </p>
+                    </div>
+                    <div>&nbsp;<br><br></div>
+                    <div>
+                        <div class="font-bold grid w-full font-bold">
+                            <span>Name: <span class="underline" th:text="${templateData?.nomineeName}"></span></span>
+                        </div>
+                        <div class="font-bold grid w-full font-bold">
+                            <span>Relationship to Life to be Insured :<span class="underline" th:text="${templateData?.nomineeRelation}"></span></span>
+                        </div>
+                        <p>*Incase of Nominee being a Proprietor/Partnership Firm/Limited Company the above
+                            condition would not
+                            apply</p>
+                        <span class="flex">
+                                    <input type="checkbox" checked="checked" />
+                                    <span class="ml-1">Do your bit for green world & Switch to e-communication. Kindly
+                                        (✔) if you would
+                                        like to receive your communication only through electronic mode
+                                    </span>
+                        </span>
+                    </div>
+
+                    <p class="absolute  font-bold flex"
+                       style="width: 44rem; background-color: red; color: white;">
+                        DECLARATION OF GOOD HEALTH
+                    </p><br>
+                    <div style="width: 44rem;">
+                        I hereby declare that :<br>
+                        1. I am in good health and perform all my routine activities independently<br>
+                        2. I have never had any physical defect, deformity or disability (means inability to
+                        function normally,
+                        physically or mentally) affecting my day to day activities.<br>
+                        3. I have never undergone nor have I been advised to undergo any major surgical
+                        procedure.<br>
+                        4. I have never suffered and am not currently suffering from:<br>
+                        <div class="ml-2">
+                            a. High Blood Pressure, Heart Attack or any other Heart Disease. <span class="ml-4">
+                                        b. Stroke,
+                                        Paralysis in any form,
+                                        or any other Cerebrovascular Disease;</span><br>
+                            c. Diabetes or any other Endocrinal Disease, Kidney Disease; <span class="ml-8">d.
+                                        Any Chronic Liver
+                                        Disease or any
+                                        Cancer or Cancerous growth;</span><br>
+                            e. Any Lung Disease (eg. Chronic Obstructive Pulmonary Diseases,TB,Parenchymal lung
+                            Disease,
+                            Pulmonary Embolism etc).<br>
+                            f. Blood Disorders, Gastro-Intestinal Diseases, or any other disorder of the bones,
+                            spine or
+                            muscle;<br>
+                            g. Any Mental or Psychiatric condition, Epilepsy, any Genetic Disease or any disease
+                            related to
+                            central nervous system (disease related to brain);<br>
+                            h. HIV / AIDS or AIDS related complications.<br>
+                        </div>
+                        5. In the last 2 years, I have not -<br>
+                        <div class="ml-2">
+                            a) Have a reduction in weight (of more than 10 kgs) <span class="ml-4">b) been
+                                        continuously
+                                        hospitalised for more than 7 days (other than fractures of leg or
+                                        arm).<br></span>
+                            c) undergone any investigations (including basic radiological and blood tests) other
+                            than normal
+                            Health
+                            Check-ups and Insurance Medicals, or<br>
+                            d) had adverse result for any blood tests, X-Rays, ECG, Stress Test, Biopsies, CT
+                            Scan, MRI,
+                            Ultrasonography or 2D / 3D Echo etc.<br>
+                        </div>
+
+                        6. I do not engage or intend to engage in any business, sport or occupation or any hobby
+                        of a hazardous
+                        nature<br>
+                        7. For Females Lives Only: -<br>
+                        <div class="ml-2">
+                            a) I am currently not pregnant. I am not suffering from or nor have suffered from
+                            any complication
+                            of
+                            pregnancy.<br>
+                            b) I am not suffering from or nor have suffered from any diseases of breast/ uterus/
+                            cervix?<br>
+                        </div>
+                        <strong class="italic" style="font-size: 12px;">Following questions are applicable ONLY
+                            when "Critical
+                            Illness Cover/Disability Cover" are
+                            opted</strong><br>
+                        8. I have not had any proposal and / or policy for life, health, accident or critical
+                        illness, including
+                        renewals / revivals therefor, declined or deferred by any insurance company in India or
+                        Overseas. I do
+                        not
+                        engage or intend to engage in any business, sport or occupation or any hobby of a
+                        hazardous nature.<br>
+                        9. I have never been diagnosed with any form of internal or external congenital anomaly
+                        or defect. i.e.
+                        any condition(s) which is present since birth, and which is abnormal with reference to
+                        form,
+                        structure or position.
+                    </div>
+                    <div class="page-break-before"></div>
+                    <p class="absolute  font-bold flex"
+                       style="width: 44rem; background-color: red; color: white;">
+                        DECLARATION BY THE MEMBER
+                    </p><br>
+                    <p style="width: 44rem; text-align: justify; padding: 0px;">I further declare that the above
+                        statements are true
+                        and complete in every respect related to my health
+                        and will form the basis of granting insurance cover to me,from Kotak Mahindra Life
+                        Insurance
+                        Company Ltd."[KLI]".I further hereby agree and give my consent to, the Policyholder for
+                        use of the
+                        contents of this declaration by KLI for examining and processing any claim arising, in
+                        respect of the
+                        insurance cover that may be provided to me under the referred group policy.I hereby
+                        confirm that my
+                        intent to participate in the above plan for the Policyholder's customers is purely on a
+                        voluntary
+                        basis,I
+                        confirm and I confirm and agree that the insurance cover,if provided, will be governed
+                        by the provisions
+                        of the Insurance Act,1938 and the Policy Contract under which the cover will be offered
+                        to me.I
+                        agree and understand that if I contract any of the above diseases between submitting
+                        this document and
+                        the date of commencement of the cover, I shall not be covered under the policy.I have
+                        also not
+                        withheld any material information or suppressed any fact. I undertake to notify KLI('The
+                        Company') of
+                        any change in my state of health or occupation or any decisions subsequent to the
+                        signing of this
+                        declaration form and before the acceptance of the risk by the Company. I understand and
+                        agree that if
+                        any untrue statement be contained herein, I, my heirs, executors, administrators or
+                        assignees shall
+                        not be entitled to receive any benefits which may be provided to me on the faith of this
+                        declaration,
+                        including, inter alia the aforesaid insurance cover.I understand and acknowledge that
+                        insurance cover
+                        shall be as per terms and conditions detailed in the Policy Contract issued by KLI in
+                        favour of the
+                        policyholder and that KLI's decision in respect of all aspects of the referred group
+                        life insurance plan
+                        shall
+                        be final & binding. I hereby agree to and authorize the Policyholder/my
+                        Doctor/Hospital/Local, State,
+                        Central authority/Dealer/Distributor/my Employer to divulge or convey any information or
+                        particulars
+                        relevant to this Form/my admission into the referred Group Insurance Policy to KLI at
+                        any point during
+                        the continuance of my cover hereunder including any claim under the said Policy. I also
+                        permit KLI to
+                        approach me directly for any clarification related to this proposal and resulting policy
+                        I further agree
+                        that in case of fraud/misrepresentation by me, the Policy will be treated in accordance
+                        with the Section
+                        45 of the Insurance Act,1938 and amendments there to from time to time.</p>
+
+                    <div class="font-bold grid grid-cols-3 w-full font-bold">
+                        <span>Place: <span class="underline ml-1" th:text="${templateData?.branchName}"></span> </span>
+                        <span style="margin-left: -3rem;">Date: <span class="underline ml-1"></span> </span>
+                        <span style="margin-left: -8rem;">Signature/Right Thumb impressions of life to insured:
+                                    <span class="underline ml-1"></span> </span>
+                    </div>
+
+
+                    <p class="absolute  font-bold flex"
+                       style="width: 44rem; background-color: red; color: white;">
+                        AUTHORISATION OF CLAIM PAYMENT <span style="font-size: 7px;">(applicable only for
+                                    Regulated
+                                    Entities*)</span>
+                    </p><br>
+                    <p style="width: 44rem;">I authorise KLI to apply the benefits under this policy, first
+                        towards the loan
+                        outstanding, by paying
+                        the same directly to the Policyholder and the balance, if any, may be paid to myself
+                        and/or my
+                        nominee/legal heirs, as the case may be. I certify that this authorization is being
+                        effected in
+                        consideration of a loan obtained from the Policyholder. I further certify that the loan
+                        outstanding
+                        amount as
+                        confirmed by the Policyholder shall be considered as final and binding. I declare that
+                        the receipt of
+                        the benefits by the Policyholder and/or my nominee/ legal heirs shall be a valid and
+                        sufficient
+                        discharge
+                        of KLI's liabilities with respect to the life cover provided to me.
+                        *Regulated Entities shall include: I. (a) Reserve Bank of India ("RBI") regulated
+                        Scheduled Banks
+                        (including co-operative Banks), (b)NBFCs having Certificate of Registration from RBI or
+                        (c)National
+                        Housing Bank ("NHB") regulated Housing Finance Companies (d) National Minority
+                        Development Finance
+                        Corporation (NMDFC) and its State Channelizing Agencies (e) Small Finance Banks
+                        regulated by
+                        RBI; II. Other Entities shall include the entities other than Regulated Entities.</p>
+
+                    <div class="font-bold grid grid-cols-3 w-full font-bold">
+                        <span>Place: <span class="underline ml-1" th:text="${templateData?.branchName}"></span> </span>
+                        <span style="margin-left: -3rem;">Date: <span class="underline ml-1"></span> </span>
+                        <span style="margin-left: -8rem;">Signature/Right Thumb impressions of life to insured:
+                                    <span class="underline ml-1"></span> </span>
+                    </div>
+
+
+                    <p class="absolute  font-bold flex"
+                       style="width: 44rem; background-color: red; color: white;">
+                        DECLARATION WHERE SCRIBE IS INVOLVED (COMPULSORY FOR ALL DECLARATIONS SIGNED IN ANY
+                        VERNACULAR LANGUAGE)
+                    </p><br>
+                    <p style="width: 44rem;">I <span>NAME</span> (full name of scribe) have explained to the
+                        borrower the
+                        contents
+                        of this form in his
+                        own language and he/ she has fully understood the same. Also, I
+                        have explained that if any untrue statement is contained herein, the borrower, and/or
+                        the heirs,
+                        executors, administrators, assignees of the borrower shall not be entitled to receive
+                        any benefits,
+                        including,
+                        inter alia, benefits under any insurance policy procured on the faith of this Form</p>
+
+                    <div class="font-bold grid grid-cols-3 w-full font-bold">
+                        <span>Place: <span class="underline ml-1" th:text="${templateData?.branchName}"></span> </span>
+                        <span style="margin-left: -3rem;">Date: <span class="underline ml-1"></span> </span>
+                        <span style="margin-left: -8rem;">Signature of the Scribe: <span
+                                class="underline ml-1"></span> </span>
+                    </div>
+
+                    <div class="font-bold grid grid-cols-3 w-full font-bold"
+                         style="border-top: 3px solid red; width: 44rem;">
+                        <span>Place: <span class="underline ml-1" th:text="${templateData?.branchName}"></span> </span>
+                        <span style="margin-left: -4.4rem;">Date: <span class="underline ml-1"></span> </span>
+                        <span style="margin-left: -10.5rem;">Witness / Policyholder Authorized Signatory: <span
+                                class="underline ml-1"></span> </span>
+                    </div>
+
+                    <div style="border-top: 3px solid red; width: 44rem;">
+                        <p style="width: 44rem;"><strong>Section 41 of the Insurance Act, 1938 states:</strong>
+                            (1) No person
+                            shall
+                            allow or offer to allow, either directly or indirectly, as an inducement to any
+                            person to take or
+                            renew
+                            or continue an insurance in
+                            respect of any kind of risk relating to lives or property in India, any rebate of
+                            the whole or part
+                            of
+                            the commission payable or any rebate of the premium shown on the policy, nor shall
+                            any person taking
+                            out
+                            or renewing or continuing a policy accept any rebate, except such rebate as may be
+                            allowed in
+                            accordance
+                            with the published prospectuses or tables of the insurer: (2) Any person making
+                            default in
+                            complying with the provisions of this section shall be liable for a penalty which
+                            may extend to ten
+                            lakh
+                            rupees.<br>
+                            <strong> Section 45 of the Insurance Act, 1938 States:</strong> The provisions of
+                            Section 45 of the
+                            Insurance Act, 1938 are applicable in the above contract. Please refer to Section 45
+                            either on our
+                            website or contact
+                            our intermediary or visit the nearest branch for the full text.<br>
+                            <strong> Free Look Period :</strong> The member is offered 15 days free look period
+                            from the date of
+                            receipt of the Certificate of Insurance wherein the Member may choose to return the
+                            Certificate of
+                            Insurance within 30
+                            days of receipt if s/he is not agreeable with any of the terms and conditions of the
+                            plan and
+                            receive
+                            the applicable refund amount
+                        </p>
+                    </div>
+
+                    <div style="border-top: 3px solid red; width: 44rem;">
+                        <p>
+                            <strong> Kotak Mahindra Life Insurance Company Ltd. (Formerly known as Kotak
+                                Mahindra Old Mutual
+                                Life
+                                Insurance Ltd.).;</strong> CIN : U66030MH2000PLC128503, Regn. No.: 107, Regd.
+                            Office: 2nd Floor,
+                            Plot# C-12, G-Block, BKC, Bandra (E),Mumbai- 400 051. Website:
+                            http://insurance.kotak.com
+                            Email:clientservicedesk@kotak.com. Toll Free No.-1800 209 8800
+                        </p>
+                        <span class="flex">
+                                    <span class="ml-auto font-bold">Ref No.KLI /20-21/Jul-04</span>
+                                </span>
+                    </div>
+
+                    <div style="border-top: 3px solid red; width: 44rem;">
+                        <p class="font-bold" style="text-align: center;">Trade Logo displayed above belongs to
+                            Kotak Mahindra
+                            Bank
+                            Limited and is used by Kotak Mahindra Life Insurance Company Ltd.under license</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr class="main-table-row">
+        <td class="main-table-td">
+            <div class="footer-space"></div>
+        </td>
+    </tr>
+    </tfoot>
+</table>
+<div class="footer"></div>
+</body>
+
+</html>
