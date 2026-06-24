@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="IndentureMortgage" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="40" uuid="a1a2b3c4-d5e6-7890-abcd-400000000001">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="IndentureMortgageRajasthan" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="40" uuid="a1a2b3c4-d5e6-7890-abcd-500000000001">
 	<property name="net.sf.jasperreports.print.keep.full.text" value="true"/>
 	<style name="Body" hTextAlign="Justified" vTextAlign="Top" fontName="SansSerif" fontSize="10"/>
 	<style name="Bold" hTextAlign="Left" vTextAlign="Top" fontName="SansSerif" fontSize="10" isBold="true"/>
@@ -17,6 +17,7 @@
 	<subDataset name="OwnersListDS" uuid="d1000002-0000-0000-0000-400000000003">
 		<field name="propertyOwnerName" class="java.lang.String"/>
 		<field name="address" class="java.lang.String"/>
+		<field name="permanentAddress" class="java.lang.String"/>
 		<field name="dateOfBirth" class="java.lang.String"/>
 		<field name="occupation" class="java.lang.String"/>
 		<field name="mobileNumber" class="java.lang.String"/>
@@ -33,6 +34,17 @@
 	<subDataset name="SignatoryDS" uuid="d1000004-0000-0000-0000-400000000005">
 		<field name="propertyOwnerName" class="java.lang.String"/>
 	</subDataset>
+	<subDataset name="SecondScheduleDS" uuid="d1000005-0000-0000-0000-500000000006">
+		<field name="propertyIndex" class="java.lang.String"/>
+		<field name="propertyAddress" class="java.lang.String"/>
+		<field name="propertyType" class="java.lang.String"/>
+		<field name="propertyArea" class="java.lang.String"/>
+		<field name="constructionArea" class="java.lang.String"/>
+		<field name="boundariesOnEast" class="java.lang.String"/>
+		<field name="boundariesOnWest" class="java.lang.String"/>
+		<field name="boundariesOnNorth" class="java.lang.String"/>
+		<field name="boundariesOnSouth" class="java.lang.String"/>
+	</subDataset>
 	<parameter name="officeAddress" class="java.lang.String"/>
 	<parameter name="loanAmount" class="java.lang.String"/>
 	<parameter name="loanAmountWord" class="java.lang.String"/>
@@ -40,10 +52,13 @@
 	<parameter name="applicantNameAndCoApplicantDetail" class="java.lang.String"/>
 	<parameter name="currentAddress" class="java.lang.String"/>
 	<parameter name="branchName" class="java.lang.String"/>
+	<parameter name="lan" class="java.lang.String"/>
 	<parameter name="PropertyListDataSource" class="net.sf.jasperreports.engine.JRDataSource"/>
 	<parameter name="OwnersListDataSource" class="net.sf.jasperreports.engine.JRDataSource"/>
 	<parameter name="BoundariesDataSource" class="net.sf.jasperreports.engine.JRDataSource"/>
 	<parameter name="SignatoryDataSource" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<parameter name="MemoOwnersListDataSource" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<parameter name="SecondScheduleDataSource" class="net.sf.jasperreports.engine.JRDataSource"/>
 	<title>
 		<band height="25">
 			<staticText>
@@ -335,6 +350,345 @@
 				<reportElement style="Body" positionType="Float" x="0" y="80" width="535" height="15" uuid="fa12af1a-24d5-44bc-90f0-98d2f92bc490"/>
 				<text><![CDATA[2. __________________________]]></text>
 			</staticText>
+		</band>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement style="Bold" positionType="Float" x="0" y="5" width="535" height="15" uuid="51a0b3c4-d5e6-7890-abcd-500000000017"/>
+				<text><![CDATA[SIGNED AND DELIVERED by SARVAGRAM FINCARE PRIVATE LIMITED,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Bold" positionType="Float" x="0" y="35" width="535" height="15" uuid="51a0b3c4-d5e6-7890-abcd-500000000018"/>
+				<text><![CDATA[WITNESS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Body" positionType="Float" x="0" y="50" width="535" height="15" uuid="51a0b3c4-d5e6-7890-abcd-500000000019"/>
+				<text><![CDATA[1. _________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Body" positionType="Float" x="0" y="65" width="535" height="15" uuid="51a0b3c4-d5e6-7890-abcd-500000000020"/>
+				<text><![CDATA[2. __________________________]]></text>
+			</staticText>
+		</band>
+		<band height="30" splitType="Stretch">
+			<break>
+				<reportElement x="0" y="0" width="535" height="1" uuid="51a0b3c4-d5e6-7890-abcd-500000000021"/>
+			</break>
+			<staticText>
+				<reportElement style="Title" x="0" y="5" width="535" height="22" uuid="51a0b3c4-d5e6-7890-abcd-500000000022"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MEMORANDUM OF ENTRY RECORDING MORTGAGE BY DEPOSIT OF TITLE DEEDS]]></text>
+			</staticText>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true" markup="styled">
+				<reportElement style="Bold" positionType="Float" x="0" y="2" width="535" height="25" uuid="51a0b3c4-d5e6-7890-abcd-500000000023"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["LOAN ID :- " + $P{lan}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true" markup="styled">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="51a0b3c4-d5e6-7890-abcd-500000000024"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["1. This memorandum relating to deposit of title deeds is executed on " + $P{dateOfExecutionOfAgreement} + " (\"Memorandum\") by Mr./Ms. " + $P{applicantNameAndCoApplicantDetail} + ", currently residing at " + $P{currentAddress} + " and having his/her permanent residence at " + $P{currentAddress} + " (hereinafter referred to as \"the Mortgagor\") (which expression shall unless repugnant to the meaning or context thereof shall include his/her/its heirs, legal representatives, executors, administrators, successors and assigns) in favour of Sarvagram Fincare Private Limited, a company registered under the Companies Act, 2013 and having its registered office at Office No. 22, 4th Floor, Primrose Mall, Baner Road, Baner Gaon, Haveli, Pune - 411045, Maharashtra and amongst others, a branch at " + $P{branchName} + " (hereinafter referred to as \"the Mortgagee\")."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true" markup="styled">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="51a0b3c4-d5e6-7890-abcd-500000000025"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["2. The Mortgagor delivered and deposited the title deeds specified in the FIRST SCHEDULE hereunder written (\"the said title deeds\") representing the Mortgagor's ownership right, title and/or interest to and in the immovable properties being the parcels of land specified in the SECOND SCHEDULE hereunder written, with the intention to create a first charge, by way of mortgage by deposit of the title deeds, in favour of the Mortgagee to secure, on a first ranking exclusive basis, (i) the repayment of the amounts due under the Loan Agreement (as defined below); and (ii) discharge of the obligations of the Mortgagor and/ or the Borrower(s) under the Loan Agreement (as defined below) (hereinafter collectively referred to as the \"Obligations\")."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true" markup="styled">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="51a0b3c4-d5e6-7890-abcd-500000000026"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["3. Whilst making the deposit of the said title deeds, the Mortgagor stated that he/she was doing so with the intent to create a security by way of mortgage by deposit of title deeds on the Mortgagor's immovable properties more particularly described in the Second Schedule hereunder written together with all the common areas/ easements privileges/ development rights/ benefits/ fixtures and fittings/ buildings and structures, present and future, all tangible and/ or intangible properties, all accretions, additions, accessories, fixtures and fittings, buildings, structures constructed or erected thereon (hereinafter collectively referred to as \"the said immovable properties\") to secure due repayment, discharge and redemption of the following financial assistance granted by the Mortgagee to the Mortgagor and/ or the Borrower(s), as applicable:\n\n(a) Loan of INR " + $P{loanAmount} + "/- (Indian Rupees " + $P{loanAmountWord} + " Only), together with interests, costs, charges, expenses and other monies payable by the Borrower under the loan agreement dated " + $P{dateOfExecutionOfAgreement} + " (\"Loan Agreement\"), as amended or varied from time to time."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true" markup="styled">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="51a0b3c4-d5e6-7890-abcd-500000000027"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["4. While making the deposit of the said title deeds, the Mortgagor declared and affirmed that:\n\n(a) the Mortgagor is the sole and absolute owner of the said immovable properties and is in exclusive undisturbed possession and occupation thereof;\n\n(b) the said title deeds are the only documents relating to the said immovable properties in the possession, power and control of the Mortgagor and the Mortgagor has clear and marketable ownership, right, title and interest in respect of the said immovable properties free and clear from all encumbrances and absolute authority to mortgage the said immovable properties and/or create security by deposit of the said title deeds;\n\n(c) the said immovable properties is free from any and all encumbrances including mortgages, charges, liens, lis-pendens, attachments either before or after judgment and there is no money decree passed against the Mortgagor regarding the ownership of the said immovable properties or any rights, claims or demands or suits or actions and that there are no other encroachments, trespassers, tenants, leases or licensees on the said immovable properties or any part thereof;\n\n(d) the Mortgagor has not earlier and shall henceforth not enter into any agreement whether oral or in writing with any person for creating or transferring any rights, title or interest of whatsoever nature in respect of the said immovable properties until the payment or discharge of all liabilities/ Obligations under the Loan Agreement;\n\n(e) there is no prohibitory order or any statutory order or otherwise any restrictive order restricting the Mortgagor from creating an equitable mortgage over the said immovable properties and executing this Memorandum of Entry on the terms and conditions contained herein;\n\n(f) the Mortgagor has the necessary power and authority and is duly competent to create equitable mortgage by deposit of title deeds over the said immovable properties;\n\n(g) the Mortgagor has obtained all requisite consents, governmental approvals, authorizations and clearances for creation of the mortgage;\n\n(h) the deposit of the said title deeds is being made with an intent to create a first and exclusive mortgage and charge as and by way of security for the due repayment and discharge of the Obligations by the Mortgagor and/ or the Borrower(s) in terms of the Loan Agreement to the satisfaction of the Mortgagee; and\n\n(i) the Mortgagee shall hold the said title deeds together with any additional documents of title, evidences, writings if any and all related documents, as security for the due repayment and discharge in full of all the Obligations by the Mortgagor and/ or the Borrower(s)."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true" markup="styled">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="51a0b3c4-d5e6-7890-abcd-500000000028"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["5. The stamp duty and registration charges, payable on this Memorandum of Entry including all incidental cost and expenses thereof shall be borne and paid solely by the Mortgagor.\n\n6. For the purposes of the foregoing, the capitalized terms used in this Memorandum of Entry, where not so defined herein, shall have the meaning set out in the Loan Agreement, as amended from time to time."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true" markup="styled">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="51a0b3c4-d5e6-7890-abcd-500000000029"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["IN WITNESS WHEREOF the Mortgagor has subscribed their signatures at ____________ on the day, month and year first above mentioned.\n\nSigned and delivered by the withinnamed Mortgagor Mr./Ms. " + $P{applicantNameAndCoApplicantDetail} + " in the presence of"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<break>
+				<reportElement x="0" y="0" width="535" height="1" uuid="51a0b3c4-d5e6-7890-abcd-500000000030"/>
+			</break>
+			<staticText>
+				<reportElement style="Title" x="0" y="5" width="535" height="22" uuid="51a0b3c4-d5e6-7890-abcd-500000000031"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FIRST SCHEDULE]]></text>
+			</staticText>
+		</band>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="15" uuid="51a0b3c4-d5e6-7890-abcd-500000000032"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[(List of Title Deeds)]]></text>
+			</staticText>
+		</band>
+		<band height="130" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="5" width="55" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000033"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sl. No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="5" width="240" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000034"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nature of the Document]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="5" width="240" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000035"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Description (original/Certified True Copy/Photocopy)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="25" width="55" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000036"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="25" width="240" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000037"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="25" width="240" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000038"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="45" width="55" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000039"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="45" width="240" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000040"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="45" width="240" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000041"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="65" width="55" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000042"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="65" width="240" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000043"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="65" width="240" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000044"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="85" width="55" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000045"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="85" width="240" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000046"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="85" width="240" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000047"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="105" width="55" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000048"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="105" width="240" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000049"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="105" width="240" height="20" uuid="51a0b3c4-d5e6-7890-abcd-500000000050"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+		<band height="30" splitType="Stretch">
+			<break>
+				<reportElement x="0" y="0" width="535" height="1" uuid="51a0b3c4-d5e6-7890-abcd-500000000051"/>
+			</break>
+			<staticText>
+				<reportElement style="Title" x="0" y="5" width="535" height="22" uuid="51a0b3c4-d5e6-7890-abcd-500000000052"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SECOND SCHEDULE]]></text>
+			</staticText>
+		</band>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="15" uuid="51a0b3c4-d5e6-7890-abcd-500000000053"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[(Description of Property)]]></text>
+			</staticText>
+		</band>
+		<band height="30" splitType="Stretch">
+			<componentElement>
+				<reportElement positionType="Float" x="0" y="2" width="535" height="25" uuid="51a0b3c4-d5e6-7890-abcd-500000000054"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="SecondScheduleDS" uuid="51a0b3c4-d5e6-7890-abcd-500000000055">
+						<dataSourceExpression><![CDATA[$P{SecondScheduleDataSource}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="120" width="535">
+						<textField textAdjust="StretchHeight" isBlankWhenNull="true" markup="styled">
+							<reportElement positionType="Float" x="0" y="0" width="535" height="120" uuid="51a0b3c4-d5e6-7890-abcd-500000000056"/>
+							<textElement textAlignment="Left" verticalAlignment="Top">
+								<font fontName="SansSerif" size="10" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA["\nProperty " + $F{propertyIndex} + ":\nProperty Address: " + $F{propertyAddress} + "\nProperty Type: " + $F{propertyType} + "\nProperty Area: " + $F{propertyArea} + "\nConstruction Area: " + $F{constructionArea} + "\n\nBoundary:\nOn or towards the East: " + $F{boundariesOnEast} + "\nOn or towards the West: " + $F{boundariesOnWest} + "\nOn or towards the North: " + $F{boundariesOnNorth} + "\nOn or towards the South: " + $F{boundariesOnSouth}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true" markup="styled">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="51a0b3c4-d5e6-7890-abcd-500000000057"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["together with all the common areas/ easements privileges/ development rights/ benefits/ fixtures and fittings/ buildings and structures, present and future, all tangible and/ or intangible properties, all accretions, additions, accessories, fixtures and fittings, buildings, structures constructed or erected thereon, whether owned, acquired/ occupied or to be owned/ acquired/ occupied by the Mortgagor (whether financed by the Mortgagee in whole or in part, or not and/or such property(ies) as may be substituted instead of or added to such property(ies) or both, with the Mortgagee's consent.\n\nDated this _____ day of ____________\n\n\nSignature:\nName:\nDesignation:"]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<pageFooter>
