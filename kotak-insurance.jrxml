@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="KotakInsurance" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="20" bottomMargin="20" uuid="a1a2b3c4-d5e6-7890-abcd-600000000001">
+	<property name="net.sf.jasperreports.print.keep.full.text" value="true"/>
+	<style name="Body" fontName="SansSerif" fontSize="7"/>
+	<style name="Bold" fontName="SansSerif" fontSize="7" isBold="true"/>
+	<style name="Header" fontName="SansSerif" fontSize="7" isBold="true" forecolor="#FFFFFF" backcolor="#FF0000"/>
+	<style name="Title" hTextAlign="Center" fontName="SansSerif" fontSize="8" isBold="true"/>
+	<parameter name="amount" class="java.lang.String"/>
+	<parameter name="amountText" class="java.lang.String"/>
+	<parameter name="accountNumber" class="java.lang.String"/>
+	<parameter name="applicantName" class="java.lang.String"/>
+	<parameter name="applicantId" class="java.lang.String"/>
+	<parameter name="applicantAddress" class="java.lang.String"/>
+	<parameter name="dob" class="java.lang.String"/>
+	<parameter name="gender" class="java.lang.String"/>
+	<parameter name="nomineeName" class="java.lang.String"/>
+	<parameter name="nomineeDob" class="java.lang.String"/>
+	<parameter name="nomineeGender" class="java.lang.String"/>
+	<parameter name="nomineeRelation" class="java.lang.String"/>
+	<parameter name="officeAddress" class="java.lang.String"/>
+	<parameter name="branchName" class="java.lang.String"/>
+	<parameter name="lan" class="java.lang.String"/>
+	<parameter name="insuranceAmount" class="java.lang.String"/>
+	<parameter name="loanType" class="java.lang.String"/>
+	<parameter name="annualIncome" class="java.lang.String"/>
+	<parameter name="termCover" class="java.lang.String"/>
+	<parameter name="insurer" class="java.lang.String"/>
+	<parameter name="title" class="java.lang.String"/>
+	<parameter name="state" class="java.lang.String"/>
+	<parameter name="pincode" class="java.lang.String"/>
+	<parameter name="applicantOccupation" class="java.lang.String"/>
+	<parameter name="nomineeOccupation" class="java.lang.String"/>
+	<parameter name="nomineeShare" class="java.lang.String"/>
+	<parameter name="nomineeTitle" class="java.lang.String"/>
+	<parameter name="currentDate" class="java.lang.String"/>
+	<parameter name="employeeName" class="java.lang.String"/>
+	<parameter name="checkedBoxBase64" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA0klEQVQoz6WSQQ6CQBBE3yA7jyDseARP4lG8h3fxJO7YuXPpDTyCsMEYDUFjwk5+0pme1EyquwcSCeAFuAJn4JQxGnhKAl4TyVMBLaAAemYkMK0kvyXKgJPZaJR8E/gAtsCRfjkkbQN2QB+4A7bABdgAR+BmdgLwlLQD5sA0wfNsthzSqz+AM7A08yeB1+z2k8JiTPf41D/sClhn97GCT1YbzMJDGnOv5tY/avUCaPV/sZMkL5MmKXuPwO3fBL8SJi5DqYATve5GGfn77z7gDUYpSfMQjBqZAAAAAElFTkSuQmCC"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="uncheckedBoxBase64" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAXklEQVQoz2P8////fwYKACNIgomBQsCEToGJgULAhE4Bs4GBwX8GBoYGBgYGexAbwjZgAJsCFMBCjKb/DAwMDQwMDBkMDAz7GRgYMqA0EJsBUwdiMVAIWIjV9J+BcgAAR6EXEEnHmVsAAAAASUVORK5CYII="]]></defaultValueExpression>
+	</parameter>
+	<parameter name="logoBase64" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<title>
+		<band height="802">
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement style="Bold" x="0" y="0" width="180" height="10" uuid="60000001-0001-0001-0001-600000000001"/>
+				<textElement markup="styled">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{insurer} != null && $P{insurer}.contains("Group Assure") ? "\u2611" : "\u2610") + " Kotak Group Assure (UIN:107N051V03)"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement style="Bold" x="0" y="11" width="180" height="10" uuid="60000001-0001-0001-0001-600000000002"/>
+				<textElement markup="styled">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{insurer} != null && $P{insurer}.contains("Complete Cover") ? "\u2611" : "\u2610") + " Kotak Complete Cover Group Plan (UIN:107N018V06)"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement style="Bold" x="190" y="0" width="180" height="10" uuid="60000001-0001-0001-0001-600000000003"/>
+				<textElement markup="styled">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{insurer} != null && $P{insurer}.contains("Group Shield") ? "\u2611" : "\u2610") + " Kotak Group Shield (UIN:107N050V04)"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement style="Bold" x="190" y="11" width="180" height="10" uuid="60000001-0001-0001-0001-600000000004"/>
+				<textElement markup="styled">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{insurer} != null && $P{insurer}.contains("Credit Term") ? "\u2611" : "\u2610") + " Kotak Credit Term Group (UIN:107N006V04)"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Title" x="0" y="28" width="535" height="12" uuid="60000001-0001-0001-0001-600000000005"/>
+				<text><![CDATA[Membership Form cum Declaration of Good Health]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Bold" x="0" y="42" width="535" height="10" uuid="60000001-0001-0001-0001-600000000006">
+					<property name="net.sf.jasperreports.style.box.pen.lineWidth" value="1"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[IMPORTANT NOTE : Any additional text written or qualification given in the form would make it invalid.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Bold" x="0" y="54" width="100" height="10" uuid="60000001-0001-0001-0001-600000000007"/>
+				<text><![CDATA[Name of the Policyholder:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Body" x="100" y="54" width="170" height="10" uuid="60000001-0001-0001-0001-600000000008"/>
+				<text><![CDATA[SARVAGRAM FINCARE PRIVATE LIMITED]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Bold" x="280" y="54" width="60" height="10" uuid="60000001-0001-0001-0001-600000000009"/>
+				<text><![CDATA[Policy Number:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Body" x="340" y="54" width="195" height="10" uuid="60000001-0001-0001-0001-600000000010"/>
+				<text><![CDATA[CD000053 & CD000054, GS000428]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Header" x="0" y="68" width="535" height="12" uuid="60000001-0001-0001-0001-600000000011"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ PLAN DETAILS:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Bold" x="0" y="82" width="130" height="10" uuid="60000001-0001-0001-0001-600000000012"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA["Sum Assured(\u20B9) : " + $P{amount}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Bold" x="130" y="82" width="130" height="10" uuid="60000001-0001-0001-0001-600000000013"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA["Premium(\u20B9) : " + $P{insuranceAmount}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Bold" x="260" y="82" width="130" height="10" uuid="60000001-0001-0001-0001-600000000014"/>
+				<text><![CDATA[Cover Term : 1Yr,10Yrs]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Bold" x="390" y="82" width="145" height="10" uuid="60000001-0001-0001-0001-600000000015"/>
+				<text><![CDATA[Plan Option : Life Cover, Easy Group Shield]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement style="Bold" x="0" y="94" width="535" height="10" uuid="60000001-0001-0001-0001-600000000016"/>
+				<textElement markup="styled">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Premium Payment Term:  \u2611 Singly Pay  \u2610 Limited Pay  \u2610 Regular Premium          Premium Payment Mode:  \u2611 Single  \u2610 Yearly  \u2610 HalfYearly  \u2610 Quarterly  \u2610 Monthly"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement style="Bold" x="0" y="106" width="535" height="10" uuid="60000001-0001-0001-0001-600000000017"/>
+				<textElement markup="styled">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Cover Type:  \u2611 Single Life  \u2610 Joint Life     Interest Rate: 20% - 30%     Benefit Multiplier:  \u2611 100%  \u2610 110%  \u2610 120%     Moratorium Period : NA"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Header" x="0" y="120" width="535" height="12" uuid="60000001-0001-0001-0001-600000000018"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ LIFE ASSURED'S DETAILS:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Bold" x="0" y="134" width="270" height="10" uuid="60000001-0001-0001-0001-600000000019"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA["Loan Account No. : " + $P{lan}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Bold" x="280" y="134" width="255" height="10" uuid="60000001-0001-0001-0001-600000000020"/>
+				<textElement markup="styled" textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Customer ID : " + $P{applicantId}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Bold" x="0" y="146" width="270" height="10" uuid="60000001-0001-0001-0001-600000000021"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA["Member Name: Mr. / Ms. : " + $P{applicantName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Bold" x="280" y="146" width="255" height="10" uuid="60000001-0001-0001-0001-600000000022"/>
+				<textElement markup="styled" textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Date of Birth : " + $P{dob}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement style="Bold" x="0" y="158" width="350" height="10" uuid="60000001-0001-0001-0001-600000000023"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA["Address : " + $P{applicantAddress}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Bold" x="360" y="158" width="175" height="10" uuid="60000001-0001-0001-0001-600000000024"/>
+				<textElement markup="styled" textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Gender :  " + ($P{gender} != null && $P{gender}.equalsIgnoreCase("Male") ? "\u2611 M  \u2610 F" : "\u2610 M  \u2611 F")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Bold" x="0" y="170" width="535" height="10" uuid="60000001-0001-0001-0001-600000000025"/>
+				<text><![CDATA[Name of Joint Life Insured (if any): Mr. / Ms _______________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Bold" x="0" y="182" width="130" height="10" uuid="60000001-0001-0001-0001-600000000026"/>
+				<text><![CDATA[Date of Birth :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Bold" x="130" y="182" width="200" height="10" uuid="60000001-0001-0001-0001-600000000027"/>
+				<text><![CDATA[Gender :  ☐ M  ☐ F]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Bold" x="330" y="182" width="205" height="10" uuid="60000001-0001-0001-0001-600000000028"/>
+				<text><![CDATA[Relationship with Member:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Header" x="0" y="196" width="535" height="12" uuid="60000001-0001-0001-0001-600000000029"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ NOMINEE DETAILS  (needs to be a major i.e. above 18 years of age and should be one of the following: Husband, Wife, Son, Daughter, Father, Mother, Brother, Sister, Grandfather or Grandmother)]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Bold" x="0" y="212" width="535" height="10" uuid="60000001-0001-0001-0001-600000000030"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA["Name: " + ($P{nomineeName} != null ? $P{nomineeName} : "")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Bold" x="0" y="224" width="535" height="10" uuid="60000001-0001-0001-0001-600000000031"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA["Relationship to Life to be Insured : " + ($P{nomineeRelation} != null ? $P{nomineeRelation} : "")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Body" x="0" y="236" width="535" height="10" uuid="60000001-0001-0001-0001-600000000032"/>
+				<text><![CDATA[*Incase of Nominee being a Proprietor/Partnership Firm/Limited Company the above condition would not apply]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Body" x="0" y="248" width="535" height="10" uuid="60000001-0001-0001-0001-600000000033"/>
+				<text><![CDATA[☑ Do your bit for green world & Switch to e-communication. Kindly (✔) if you would like to receive your communication only through electronic mode]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Header" x="0" y="262" width="535" height="12" uuid="60000001-0001-0001-0001-600000000034"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ DECLARATION OF GOOD HEALTH]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement style="Body" x="0" y="276" width="535" height="200" uuid="60000001-0001-0001-0001-600000000035"/>
+				<textElement markup="styled" textAlignment="Justified">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["I hereby declare that :\n1. I am in good health and perform all my routine activities independently\n2. I have never had any physical defect, deformity or disability (means inability to function normally, physically or mentally) affecting my day to day activities.\n3. I have never undergone nor have I been advised to undergo any major surgical procedure.\n4. I have never suffered and am not currently suffering from:\n   a. High Blood Pressure, Heart Attack or any other Heart Disease.     b. Stroke, Paralysis in any form, or any other Cerebrovascular Disease;\n   c. Diabetes or any other Endocrinal Disease, Kidney Disease;     d. Any Chronic Liver Disease or any Cancer or Cancerous growth;\n   e. Any Lung Disease (eg. Chronic Obstructive Pulmonary Diseases, TB, Parenchymal lung Disease, Pulmonary Embolism etc).\n   f. Blood Disorders, Gastro-Intestinal Diseases, or any other disorder of the bones, spine or muscle;\n   g. Any Mental or Psychiatric condition, Epilepsy, any Genetic Disease or any disease related to central nervous system (disease related to brain);\n   h. HIV / AIDS or AIDS related complications.\n5. In the last 2 years, I have not -\n   a) Have a reduction in weight (of more than 10 kgs)     b) been continuously hospitalised for more than 7 days (other than fractures of leg or arm).\n   c) undergone any investigations (including basic radiological and blood tests) other than normal Health Check-ups and Insurance Medicals, or\n   d) had adverse result for any blood tests, X-Rays, ECG, Stress Test, Biopsies, CT Scan, MRI, Ultrasonography or 2D / 3D Echo etc.\n6. I do not engage or intend to engage in any business, sport or occupation or any hobby of a hazardous nature\n7. For Females Lives Only: -\n   a) I am currently not pregnant. I am not suffering from or nor have suffered from any complication of pregnancy.\n   b) I am not suffering from or nor have suffered from any diseases of breast/ uterus/ cervix?\n<b><i>Following questions are applicable ONLY when \"Critical Illness Cover/Disability Cover\" are opted</i></b>\n8. I have not had any proposal and / or policy for life, health, accident or critical illness, including renewals / revivals therefor, declined or deferred by any insurance company in India or Overseas. I do not engage or intend to engage in any business, sport or occupation or any hobby of a hazardous nature.\n9. I have never been diagnosed with any form of internal or external congenital anomaly or defect. i.e. any condition(s) which is present since birth, and which is abnormal with reference to form, structure or position."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Header" x="0" y="480" width="535" height="12" uuid="60000001-0001-0001-0001-600000000036"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ DECLARATION BY THE MEMBER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Body" x="0" y="494" width="535" height="130" uuid="60000001-0001-0001-0001-600000000037"/>
+				<textElement textAlignment="Justified">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[I further declare that the above statements are true and complete in every respect related to my health and will form the basis of granting insurance cover to me, from Kotak Mahindra Life Insurance Company Ltd."[KLI]". I further hereby agree and give my consent to, the Policyholder for use of the contents of this declaration by KLI for examining and processing any claim arising, in respect of the insurance cover that may be provided to me under the referred group policy. I hereby confirm that my intent to participate in the above plan for the Policyholder's customers is purely on a voluntary basis, I confirm and I confirm and agree that the insurance cover, if provided, will be governed by the provisions of the Insurance Act, 1938 and the Policy Contract under which the cover will be offered to me. I agree and understand that if I contract any of the above diseases between submitting this document and the date of commencement of the cover, I shall not be covered under the policy. I have also not withheld any material information or suppressed any fact. I undertake to notify KLI('The Company') of any change in my state of health or occupation or any decisions subsequent to the signing of this declaration form and before the acceptance of the risk by the Company. I understand and agree that if any untrue statement be contained herein, I, my heirs, executors, administrators or assignees shall not be entitled to receive any benefits which may be provided to me on the faith of this declaration, including, inter alia the aforesaid insurance cover. I understand and acknowledge that insurance cover shall be as per terms and conditions detailed in the Policy Contract issued by KLI in favour of the policyholder and that KLI's decision in respect of all aspects of the referred group life insurance plan shall be final & binding. I hereby agree to and authorize the Policyholder/my Doctor/Hospital/Local, State, Central authority/Dealer/Distributor/my Employer to divulge or convey any information or particulars relevant to this Form/my admission into the referred Group Insurance Policy to KLI at any point during the continuance of my cover hereunder including any claim under the said Policy. I also permit KLI to approach me directly for any clarification related to this proposal and resulting policy I further agree that in case of fraud/misrepresentation by me, the Policy will be treated in accordance with the Section 45 of the Insurance Act, 1938 and amendments there to from time to time.]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Bold" x="0" y="626" width="180" height="10" uuid="60000001-0001-0001-0001-600000000038"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA["Place: " + $P{branchName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Bold" x="180" y="626" width="100" height="10" uuid="60000001-0001-0001-0001-600000000039"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA["Date: " + $P{currentDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Bold" x="280" y="626" width="255" height="10" uuid="60000001-0001-0001-0001-600000000040"/>
+				<text><![CDATA[Signature/Right Thumb impressions of life to insured:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Header" x="0" y="640" width="535" height="12" uuid="60000001-0001-0001-0001-600000000041"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ AUTHORISATION OF CLAIM PAYMENT (applicable only for Regulated Entities*)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Body" x="0" y="654" width="535" height="70" uuid="60000001-0001-0001-0001-600000000042"/>
+				<textElement textAlignment="Justified">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[I authorise KLI to apply the benefits under this policy, first towards the loan outstanding, by paying the same directly to the Policyholder and the balance, if any, may be paid to myself and/or my nominee/legal heirs, as the case may be. I certify that this authorization is being effected in consideration of a loan obtained from the Policyholder. I further certify that the loan outstanding amount as confirmed by the Policyholder shall be considered as final and binding. I declare that the receipt of the benefits by the Policyholder and/or my nominee/ legal heirs shall be a valid and sufficient discharge of KLI's liabilities with respect to the life cover provided to me. *Regulated Entities shall include: I. (a) Reserve Bank of India ("RBI") regulated Scheduled Banks (including co-operative Banks), (b)NBFCs having Certificate of Registration from RBI or (c)National Housing Bank ("NHB") regulated Housing Finance Companies (d) National Minority Development Finance Corporation (NMDFC) and its State Channelizing Agencies (e) Small Finance Banks regulated by RBI; II. Other Entities shall include the entities other than Regulated Entities.]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Bold" x="0" y="726" width="180" height="10" uuid="60000001-0001-0001-0001-600000000043"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA["Place: " + $P{branchName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Bold" x="180" y="726" width="100" height="10" uuid="60000001-0001-0001-0001-600000000044"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA["Date: " + $P{currentDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Bold" x="280" y="726" width="255" height="10" uuid="60000001-0001-0001-0001-600000000045"/>
+				<text><![CDATA[Signature/Right Thumb impressions of life to insured:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Header" x="0" y="740" width="535" height="12" uuid="60000001-0001-0001-0001-600000000046"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ DECLARATION WHERE SCRIBE IS INVOLVED (COMPULSORY FOR ALL DECLARATIONS SIGNED IN ANY VERNACULAR LANGUAGE)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Body" x="0" y="754" width="535" height="30" uuid="60000001-0001-0001-0001-600000000047"/>
+				<textElement textAlignment="Justified">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[I NAME (full name of scribe) have explained to the borrower the contents of this form in his own language and he/ she has fully understood the same. Also, I have explained that if any untrue statement is contained herein, the borrower, and/or the heirs, executors, administrators, assignees of the borrower shall not be entitled to receive any benefits, including, inter alia, benefits under any insurance policy procured on the faith of this Form]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Bold" x="0" y="786" width="180" height="10" uuid="60000001-0001-0001-0001-600000000048"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA["Place: " + $P{branchName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Bold" x="180" y="786" width="100" height="10" uuid="60000001-0001-0001-0001-600000000049"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA["Date: " + $P{currentDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Bold" x="280" y="786" width="255" height="10" uuid="60000001-0001-0001-0001-600000000050"/>
+				<text><![CDATA[Signature of the Scribe:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="80" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement style="Bold" x="0" y="2" width="180" height="10" uuid="60000001-0001-0001-0001-600000000051"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA["Place: " + $P{branchName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Bold" x="180" y="2" width="100" height="10" uuid="60000001-0001-0001-0001-600000000052"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA["Date: " + $P{currentDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Bold" x="280" y="2" width="255" height="10" uuid="60000001-0001-0001-0001-600000000053"/>
+				<text><![CDATA[Witness / Policyholder Authorized Signatory:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Body" x="0" y="16" width="535" height="50" uuid="60000001-0001-0001-0001-600000000054"/>
+				<box>
+					<topPen lineWidth="2.0" lineColor="#FF0000"/>
+				</box>
+				<textElement textAlignment="Justified">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Section 41 of the Insurance Act, 1938 states: (1) No person shall allow or offer to allow, either directly or indirectly, as an inducement to any person to take or renew or continue an insurance in respect of any kind of risk relating to lives or property in India, any rebate of the whole or part of the commission payable or any rebate of the premium shown on the policy, nor shall any person taking out or renewing or continuing a policy accept any rebate, except such rebate as may be allowed in accordance with the published prospectuses or tables of the insurer: (2) Any person making default in complying with the provisions of this section shall be liable for a penalty which may extend to ten lakh rupees.
+Section 45 of the Insurance Act, 1938 States: The provisions of Section 45 of the Insurance Act, 1938 are applicable in the above contract. Please refer to Section 45 either on our website or contact our intermediary or visit the nearest branch for the full text.
+Free Look Period : The member is offered 15 days free look period from the date of receipt of the Certificate of Insurance wherein the Member may choose to return the Certificate of Insurance within 30 days of receipt if s/he is not agreeable with any of the terms and conditions of the plan and receive the applicable refund amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Body" x="0" y="68" width="535" height="10" uuid="60000001-0001-0001-0001-600000000055"/>
+				<box>
+					<topPen lineWidth="2.0" lineColor="#FF0000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kotak Mahindra Life Insurance Company Ltd.; CIN: U66030MH2000PLC128503, Regn. No.: 107, Regd. Office: 2nd Floor, Plot# C-12, G-Block, BKC, Bandra (E), Mumbai-400 051. Website: http://insurance.kotak.com Email: clientservicedesk@kotak.com. Toll Free No.-1800 209 8800]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>
