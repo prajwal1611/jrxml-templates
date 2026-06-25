@@ -53,12 +53,13 @@
 	<parameter name="currentAddress" class="java.lang.String"/>
 	<parameter name="branchName" class="java.lang.String"/>
 	<parameter name="lan" class="java.lang.String"/>
-	<parameter name="PropertyListDataSource" class="net.sf.jasperreports.engine.JRDataSource"/>
-	<parameter name="OwnersListDataSource" class="net.sf.jasperreports.engine.JRDataSource"/>
-	<parameter name="BoundariesDataSource" class="net.sf.jasperreports.engine.JRDataSource"/>
-	<parameter name="SignatoryDataSource" class="net.sf.jasperreports.engine.JRDataSource"/>
-	<parameter name="MemoOwnersListDataSource" class="net.sf.jasperreports.engine.JRDataSource"/>
-	<parameter name="SecondScheduleDataSource" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<parameter name="PropertyListDataSource" class="java.util.List"/>
+	<parameter name="OwnersListDataSource" class="java.util.List"/>
+	<parameter name="BoundariesDataSource" class="java.util.List"/>
+	<parameter name="SignatoryDataSource" class="java.util.List"/>
+	<parameter name="MemoOwnersListDataSource" class="java.util.List"/>
+	<parameter name="SecondScheduleDataSource" class="java.util.List"/>
+	<parameter name="NoticeOwnersListDataSource" class="java.util.List"/>
 	<title>
 		<band height="25">
 			<staticText>
@@ -218,7 +219,7 @@
 				<reportElement positionType="Float" x="0" y="2" width="535" height="25" uuid="e1000001-0000-0000-0000-400000000006"/>
 				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
 					<datasetRun subDataset="PropertyListDS" uuid="f1000001-0000-0000-0000-400000000007">
-						<dataSourceExpression><![CDATA[$P{PropertyListDataSource}]]></dataSourceExpression>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{PropertyListDataSource})]]></dataSourceExpression>
 					</datasetRun>
 					<jr:listContents height="70" width="535">
 						<textField textAdjust="StretchHeight" isBlankWhenNull="true">
@@ -243,7 +244,7 @@
 				<reportElement positionType="Float" x="0" y="2" width="535" height="25" uuid="e1000002-0000-0000-0000-400000000009"/>
 				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
 					<datasetRun subDataset="OwnersListDS" uuid="f1000002-0000-0000-0000-400000000010">
-						<dataSourceExpression><![CDATA[$P{OwnersListDataSource}]]></dataSourceExpression>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{OwnersListDataSource})]]></dataSourceExpression>
 					</datasetRun>
 					<jr:listContents height="90" width="535">
 						<textField textAdjust="StretchHeight" isBlankWhenNull="true">
@@ -263,7 +264,47 @@
 				<textElement markup="styled" textAlignment="Left">
 					<font fontName="SansSerif" size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA["3. PART C: DETAILS OF THE BORROWER, LOAN AND AGREEMENT\n\n(i) Amount of the Loan: " + $P{loanAmount} + "\n(ii) Date of execution of the Agreement: " + $P{dateOfExecutionOfAgreement} + "\n(iii) Name and details of Borrower: " + $P{applicantNameAndCoApplicantDetail} + "\n(iv) Address: " + $P{currentAddress} + "\n\n4. PART D: NOTICE DETAILS OF THE COMPANY AND MORTGAGOR\n\n(ii) Notice details of the Company:\nAddress: SARVAGRAM FINCARE PRIVATE LIMITED " + $P{branchName} + "\nAttention: SARVAGRAM FINCARE PVT LTD\nTelephone:\nE-mail:"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["3. PART C: DETAILS OF THE BORROWER, LOAN AND AGREEMENT\n\n(i) Amount of the Loan: " + $P{loanAmount} + "\n(ii) Date of execution of the Agreement: " + $P{dateOfExecutionOfAgreement} + "\n(iii) Name and details of Borrower: " + $P{applicantNameAndCoApplicantDetail} + "\n(iv) Address: " + $P{currentAddress}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement style="Bold" positionType="Float" x="0" y="2" width="535" height="15" uuid="55e94485-2fba-4ce7-be02-9a97132fc260"/>
+				<text><![CDATA[4. PART D: NOTICE DETAILS OF THE COMPANY AND MORTGAGOR]]></text>
+			</staticText>
+		</band>
+		<band height="15" splitType="Stretch">
+			<staticText>
+				<reportElement style="Bold" positionType="Float" x="0" y="2" width="535" height="12" uuid="55e94485-2fba-4ce7-be02-9a97132fc261"/>
+				<text><![CDATA[(i) Notice details of the Mortgagor:]]></text>
+			</staticText>
+		</band>
+		<band height="30" splitType="Stretch">
+			<componentElement>
+				<reportElement positionType="Float" x="0" y="2" width="535" height="25" uuid="55e94485-2fba-4ce7-be02-9a97132fc262"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="OwnersListDS" uuid="55e94485-2fba-4ce7-be02-9a97132fc263">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{NoticeOwnersListDataSource})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="60" width="535">
+						<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="0" y="0" width="535" height="60" uuid="55e94485-2fba-4ce7-be02-9a97132fc264"/>
+							<textElement markup="styled" textAlignment="Left" verticalAlignment="Top">
+								<font fontName="SansSerif" size="10"/>
+							</textElement>
+							<textFieldExpression><![CDATA["\nAddress: " + $F{address} + "\nAttention: " + $F{propertyOwnerName} + "\nTelephone: " + $F{mobileNumber} + "\nE-mail:"]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+		<band height="30" splitType="Stretch">
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement style="Body" positionType="Float" x="0" y="2" width="535" height="25" uuid="55e94485-2fba-4ce7-be02-9a97132fc265"/>
+				<textElement markup="styled" textAlignment="Left">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["(ii) Notice details of the Company:\nAddress: SARVAGRAM FINCARE PRIVATE LIMITED " + $P{branchName} + "\nAttention: SARVAGRAM FINCARE PVT LTD\nTelephone:\nE-mail:"]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="40" splitType="Stretch">
@@ -280,7 +321,7 @@
 				<reportElement positionType="Float" x="0" y="2" width="535" height="25" uuid="e1000003-0000-0000-0000-400000000012"/>
 				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
 					<datasetRun subDataset="BoundariesDS" uuid="f1000003-0000-0000-0000-400000000013">
-						<dataSourceExpression><![CDATA[$P{BoundariesDataSource}]]></dataSourceExpression>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{BoundariesDataSource})]]></dataSourceExpression>
 					</datasetRun>
 					<jr:listContents height="80" width="535">
 						<textField textAdjust="StretchHeight" isBlankWhenNull="true">
@@ -323,7 +364,7 @@
 				<reportElement positionType="Float" x="0" y="2" width="535" height="25" uuid="e1000004-0000-0000-0000-400000000015"/>
 				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
 					<datasetRun subDataset="SignatoryDS" uuid="f1000004-0000-0000-0000-400000000016">
-						<dataSourceExpression><![CDATA[$P{SignatoryDataSource}]]></dataSourceExpression>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{SignatoryDataSource})]]></dataSourceExpression>
 					</datasetRun>
 					<jr:listContents height="18" width="535">
 						<textField isBlankWhenNull="true">
@@ -667,7 +708,7 @@
 				<reportElement positionType="Float" x="0" y="2" width="535" height="25" uuid="51a0b3c4-d5e6-7890-abcd-500000000054"/>
 				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
 					<datasetRun subDataset="SecondScheduleDS" uuid="51a0b3c4-d5e6-7890-abcd-500000000055">
-						<dataSourceExpression><![CDATA[$P{SecondScheduleDataSource}]]></dataSourceExpression>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{SecondScheduleDataSource})]]></dataSourceExpression>
 					</datasetRun>
 					<jr:listContents height="120" width="535">
 						<textField textAdjust="StretchHeight" isBlankWhenNull="true">
