@@ -1,0 +1,1210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SanctionLetter_PersonalLoan_Unsecured" pageWidth="595" pageHeight="842" columnWidth="495" leftMargin="50" rightMargin="50" topMargin="40" bottomMargin="40" uuid="fbdb0521-1b70-4c2b-a0e1-1962defa4289">
+	<property name="net.sf.jasperreports.export.pdf.force.linebreak.policy" value="true"/>
+	<property name="net.sf.jasperreports.print.keep.full.text" value="true"/>
+	<style name="TableCell" fontName="SansSerif" fontSize="10">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="CoApplicantDataset" uuid="c4a7e8b1-2d3f-4a5b-9c6d-7e8f90a1b2c3">
+		<field name="applicantName" class="java.lang.String"/>
+		<field name="address" class="java.lang.String"/>
+		<field name="mobile" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="CoApplicantSignDataset" uuid="d5b8f9c2-3e4a-5b6c-0d7e-8f9a01b2c3d4">
+		<parameter name="date" class="java.lang.String"/>
+		<field name="applicantName" class="java.lang.String"/>
+		<field name="address" class="java.lang.String"/>
+		<field name="mobile" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="TrancheDataset" uuid="e6c9a0d3-4f5b-6c7d-1e8f-9a0b12c3d4e5">
+		<field name="eventDate" class="java.lang.String"/>
+		<field name="trancheAmount" class="java.lang.String"/>
+		<field name="trancheNumber" class="java.lang.Integer"/>
+		<field name="trancheCondition" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="TrancheConditionDataset" uuid="f7d0b1e4-5a6c-7d8e-2f9a-0b1c23d4e5f6">
+		<field name="condition" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="CollateralDataset" uuid="a8e1c2f5-6b7d-8e9f-3a0b-1c2d34e5f6a7">
+		<field name="propertyName" class="java.lang.String"/>
+		<field name="propertyAddress" class="java.lang.String"/>
+		<field name="totalAmount" class="java.lang.Double"/>
+		<field name="ownerName" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="SpecialConditionDataset" uuid="b9f2d3a6-7c8e-9f0a-4b1c-2d3e45f6a7b8">
+		<field name="condition" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="officeAddress" class="java.lang.String"/>
+	<parameter name="title" class="java.lang.String"/>
+	<parameter name="loanType" class="java.lang.String"/>
+	<parameter name="sanctionDate" class="java.lang.String"/>
+	<parameter name="date" class="java.lang.String"/>
+	<parameter name="applicantName" class="java.lang.String"/>
+	<parameter name="appplicantAddress" class="java.lang.String"/>
+	<parameter name="amount" class="java.lang.String"/>
+	<parameter name="amountText" class="java.lang.String"/>
+	<parameter name="tenure" class="java.lang.String"/>
+	<parameter name="roi" class="java.lang.String"/>
+	<parameter name="loanPurpose" class="java.lang.String"/>
+	<parameter name="processingFee" class="java.lang.String"/>
+	<parameter name="legalCharges" class="java.lang.String"/>
+	<parameter name="insurance" class="java.lang.String"/>
+	<parameter name="stampDuty" class="java.lang.String"/>
+	<parameter name="otherDeductions" class="java.lang.String"/>
+	<parameter name="netDisbursementAmount" class="java.lang.Integer"/>
+	<parameter name="emi" class="java.lang.String"/>
+	<parameter name="emiAmountText" class="java.lang.String"/>
+	<parameter name="repaymentDate" class="java.lang.String"/>
+	<parameter name="frequency" class="java.lang.String"/>
+	<parameter name="modeOfPayment" class="java.lang.String"/>
+	<parameter name="branchName" class="java.lang.String"/>
+	<parameter name="bcoName" class="java.lang.String"/>
+	<parameter name="lan" class="java.lang.String"/>
+	<parameter name="bouncingCharges" class="java.lang.String"/>
+	<parameter name="displayConditions" class="java.lang.Boolean"/>
+	<parameter name="coApplicantDetailList" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<parameter name="coApplicantSignList" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<parameter name="trancheDetails" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<parameter name="trancheConditions" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<parameter name="collateralList" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<parameter name="specialConditions" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<title>
+		<band height="762" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="495" height="20" uuid="10a1b2c3-d4e5-f6a7-b8c9-d0e1f2a3b4c5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SARVAGRAM FINCARE PRIVATE LIMITED]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="495" height="13" uuid="20b2c3d4-e5f6-a7b8-c9d0-e1f2a3b4c5d6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[CIN: U65990PN2018PTC224688]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement x="0" y="33" width="495" height="13" uuid="30c3d4e5-f6a7-b8c9-d0e1-f2a3b4c5d6e7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Registered Office: " + ($P{officeAddress} != null ? $P{officeAddress} : "")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="46" width="165" height="13" uuid="40d4e5f6-a7b8-c9d0-e1f2-a3b4c5d6e7f8"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[Email Id: cs@sarvagram.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="165" y="46" width="165" height="13" uuid="50e5f6a7-b8c9-d0e1-f2a3-b4c5d6e7f8a9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[Website: www.sarvagram.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="46" width="165" height="13" uuid="60f6a7b8-c9d0-e1f2-a3b4-c5d6e7f8a9b0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[Mob: 91-81011777555]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="62" width="495" height="1" forecolor="#C9C7C7" uuid="70a7b8c9-d0e1-f2a3-b4c5-d6e7f8a9b0c1"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineColor="#C9C7C7"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="68" width="495" height="18" uuid="80b8c9d0-e1f2-a3b4-c5d6-e7f8a9b0c1d2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Sanction Letter]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="86" width="495" height="18" uuid="90c9d0e1-f2a3-b4c5-d6e7-f8a9b0c1d2e3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{title} != null ? $P{title} : "") + " LOANS - " + ($P{loanType} != null ? $P{loanType} : "")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="112" width="495" height="16" uuid="a0d0e1f2-a3b4-c5d6-e7f8-a9b0c1d2e3f4"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Date of Sanction : " + ($P{sanctionDate} != null ? $P{sanctionDate} : "__________")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="134" width="495" height="16" uuid="b1e1f2a3-b4c5-d6e7-f8a9-b0c1d2e3f4a5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[To :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="30" y="150" width="465" height="16" uuid="c2f2a3b4-c5d6-e7f8-a9b0-c1d2e3f4a5b6"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Borrower's name : " + ($P{applicantName} != null ? $P{applicantName} : "__________")]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="30" y="166" width="465" height="16" uuid="d3a3b4c5-d6e7-f8a9-b0c1-d2e3f4a5b6c7"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Borrower's address : " + ($P{appplicantAddress} != null ? $P{appplicantAddress} : "__________")]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement positionType="Float" x="30" y="186" width="465" height="30" uuid="e4b4c5d6-e7f8-a9b0-c1d2-e3f4a5b6c7d8"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="CoApplicantDataset" uuid="f5c5d6e7-f8a9-b0c1-d2e3-f4a5b6c7d8e9">
+						<dataSourceExpression><![CDATA[$P{coApplicantDetailList}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="30" width="465">
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="0" width="465" height="14" uuid="a6d6e7f8-a9b0-c1d2-e3f4-a5b6c7d8e9f0"/>
+							<textElement textAlignment="Left">
+								<font fontName="SansSerif" size="10"/>
+							</textElement>
+							<textFieldExpression><![CDATA["Co-Applicant's name : " + $F{applicantName}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="14" width="465" height="14" uuid="b7e7f8a9-b0c1-d2e3-f4a5-b6c7d8e9f0a1"/>
+							<textElement textAlignment="Left">
+								<font fontName="SansSerif" size="10"/>
+							</textElement>
+							<textFieldExpression><![CDATA["Co-Applicant's address : " + $F{address}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<textField textAdjust="StretchHeight">
+				<reportElement positionType="Float" x="0" y="222" width="495" height="16" uuid="c8f8a9b0-c1d2-e3f4-a5b6-c7d8e9f0a1b2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style isBold=\"true\">Re : </style>Financial assistance to be provided by Sarvagram Fincare Private Limited (the <style isBold=\"true\">\"Lender\"</style>) to the Borrower"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement positionType="Float" x="0" y="248" width="495" height="55" uuid="d9a9b0c1-d2e3-f4a5-b6c7-d8e9f0a1b2c3"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" markup="styled">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["We refer to your application requesting to grant credit facilities and the subsequent correspondence / discussions and clarifications on the captioned matter. Your proposal has been considered and the Lender is agreeable to offer to the Borrower a loan of INR. " + ($P{amount} != null ? $P{amount} : "__________") + ". (Rupees. " + ($P{amountText} != null ? $P{amountText} : "__________") + " only) (the <style isBold=\"true\">\"Loan\"</style>) on the terms and conditions more particularly mentioned in this Letter and the schedules/annexures attached hereto (the <style isBold=\"true\">\"Sanction Letter\"</style>) and (ii) the <style isBold=\"true\" isUnderline=\"true\">" + ($P{title} != null ? $P{title} : "") + " LOANS - " + ($P{loanType} != null ? $P{loanType} : "") + "</style> agreement to be entered into between the Lender and the Borrower (the <style isBold=\"true\">\"Agreement\"</style>)."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="313" width="495" height="55" uuid="e0b0c1d2-e3f4-a5b6-c7d8-e9f0a1b2c3d4"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[Please note that this communication should not be construed as giving rise to any binding obligation on the part of the Lender with regards to the Loan unless the Lender receives a counterpart of this Sanction Letter duly signed by the Borrower in token of acceptance of the terms and conditions of this Sanction Letter and unless the Agreement and other documents relating to the Loan are executed by the Borrower in such form as may be allowed by the Lender in its absolute discretion.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="378" width="495" height="50" uuid="f1c1d2e3-f4a5-b6c7-d8e9-f0a1b2c3d4e5"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[Please note only after due consideration of all the available information (including financial information provided to us by you), we have decided the applicable rate of interest which shall be charged to you, basis inter alia our internal policies, cost of funds, KYC checks carried out by us in this regard, customer profile, credit score and risk management.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="438" width="495" height="30" uuid="a2d2e3f4-a5b6-c7d8-e9f0-a1b2c3d4e5f6"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[Final approval/disbursal of the Loan is subject to legal/technical verification by the Lender. The Lender reserves the right to amend any of the terms and conditions hereof at its sole discretion.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="480" width="495" height="14" uuid="b3e3f4a5-b6c7-d8e9-f0a1-b2c3d4e5f6a7"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[Yours sincerely,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="498" width="495" height="14" uuid="c4f4a5b6-c7d8-e9f0-a1b2-c3d4e5f6a7b8"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[For and on behalf of <style isBold="true">Sarvagram Fincare Private Limited</style>]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="516" width="495" height="14" uuid="d5a5b6c7-d8e9-f0a1-b2c3-d4e5f6a7b8c9"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Name : " + ($P{bcoName} != null ? $P{bcoName} : "__________")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="534" width="495" height="28" uuid="e6b6c7d8-e9f0-a1b2-c3d4-e5f6a7b8c9d0"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[Title : Branch Credit Manager
+
+Sign:___________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="576" width="495" height="14" uuid="f7c7d8e9-f0a1-b2c3-d4e5-f6a7b8c9d0e1"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[We hereby agree to the terms set out in this Sanction Letter.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="594" width="495" height="14" uuid="a8d8e9f0-a1b2-c3d4-e5f6-a7b8c9d0e1f2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[For and on behalf of]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="618" width="300" height="14" uuid="b9e9f0a1-b2c3-d4e5-f6a7-b8c9d0e1f2a3"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Name: " + ($P{applicantName} != null ? $P{applicantName} : "__________")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="632" width="300" height="14" uuid="c0f0a1b2-c3d4-e5f6-a7b8-c9d0e1f2a3b4"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Date: " + ($P{date} != null ? $P{date} : "__________")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="650" width="300" height="14" uuid="d1a1b2c3-d4e5-f6a7-b8c9-d0e1f2a3b4c5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[Sign:___________________________]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement positionType="Float" x="0" y="674" width="300" height="50" uuid="e2b2c3d4-e5f6-a7b8-c9d0-e1f2a3b4c5d6"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="CoApplicantSignDataset" uuid="f3c3d4e5-f6a7-b8c9-d0e1-f2a3b4c5d6e7">
+						<datasetParameter name="date">
+							<datasetParameterExpression><![CDATA[$P{date}]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[$P{coApplicantSignList}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="50" width="300">
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="0" width="300" height="14" uuid="a4d4e5f6-a7b8-c9d0-e1f2-a3b4c5d6e7f8"/>
+							<textElement textAlignment="Left">
+								<font fontName="SansSerif" size="10"/>
+							</textElement>
+							<textFieldExpression><![CDATA["Name: " + ($F{applicantName} != null ? $F{applicantName} : "__________")]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="14" width="300" height="14" uuid="b5e5f6a7-b8c9-d0e1-f2a3-b4c5d6e7f8a9"/>
+							<textElement textAlignment="Left">
+								<font fontName="SansSerif" size="10"/>
+							</textElement>
+							<textFieldExpression><![CDATA["Date: " + ($P{date} != null ? $P{date} : "__________")]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="0" y="30" width="300" height="14" uuid="c6f6a7b8-c9d0-e1f2-a3b4-c5d6e7f8a9b0"/>
+							<textElement textAlignment="Left">
+								<font fontName="SansSerif" size="10"/>
+							</textElement>
+							<text><![CDATA[Sign:___________________________]]></text>
+						</staticText>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</title>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<detail>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="5" width="495" height="16" uuid="d7a7b8c9-d0e1-f2a3-b4c5-d6e7f8a9b0c1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LOAN SUMMARY SCHEDULE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="21" width="495" height="14" uuid="e8b8c9d0-e1f2-a3b4-c5d6-e7f8a9b0c1d2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[(Terms and conditions of the financial assistance)]]></text>
+			</staticText>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="01000001-0000-0000-0000-000000000001"/>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="01000002-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[i.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="40" y="0" width="145" height="20" uuid="01000003-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[Loan Amount]]></text>
+				</staticText>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TableCell" x="185" y="0" width="310" height="20" uuid="01000004-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Rs. " + ($P{amount} != null ? $P{amount} : "__________") + "\nRupees. (" + ($P{amountText} != null ? $P{amountText} : "__________") + " Only)"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="02000001-0000-0000-0000-000000000001"/>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="02000002-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[ii.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="40" y="0" width="145" height="20" uuid="02000003-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[Loan Tenure (months)]]></text>
+				</staticText>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TableCell" x="185" y="0" width="310" height="20" uuid="02000004-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10" isUnderline="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{tenure} != null ? $P{tenure} : "__________"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="03000001-0000-0000-0000-000000000001"/>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="03000002-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[iii.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="40" y="0" width="145" height="20" uuid="03000003-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[Applicable Rate of Interest]]></text>
+				</staticText>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TableCell" x="185" y="0" width="310" height="20" uuid="03000004-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Fixed Interest Rate " + ($P{roi} != null ? $P{roi} : "__________") + "% p.a."]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="04000001-0000-0000-0000-000000000001"/>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="04000002-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[iv.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="40" y="0" width="145" height="20" uuid="04000003-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[Purpose]]></text>
+				</staticText>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TableCell" x="185" y="0" width="310" height="20" uuid="04000004-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{loanPurpose} != null ? $P{loanPurpose} : "__________"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="05000001-0000-0000-0000-000000000001"/>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="05000002-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[v.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="40" y="0" width="145" height="20" uuid="05000003-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[Processing Fee + 18% GST]]></text>
+				</staticText>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TableCell" x="185" y="0" width="310" height="20" uuid="05000004-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Rs. " + ($P{processingFee} != null ? $P{processingFee} : "__________") + "\nAll applicable stamp duties on Loan documentation and other charges/expenses/taxes/levies to be borne by the Borrower."]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="06000001-0000-0000-0000-000000000001"/>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="06000002-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[vi.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="40" y="0" width="145" height="20" uuid="06000003-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[Legal & Valuation Charges + 18% GST (Subject to change as applicable)]]></text>
+				</staticText>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TableCell" x="185" y="0" width="310" height="20" uuid="06000004-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Rs." + ($P{legalCharges} != null ? $P{legalCharges} : "__________")]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="07000001-0000-0000-0000-000000000001"/>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="07000002-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[vii.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="40" y="0" width="145" height="20" uuid="07000003-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[Insurance Deduction (Insurance Amount + General Insurance amount)]]></text>
+				</staticText>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TableCell" x="185" y="0" width="310" height="20" uuid="07000004-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Rs." + ($P{insurance} != null ? $P{insurance} : "__________") + "\nThe Borrower acknowledges and confirms that the Insurance Premium Amount may vary on the date of disbursement under the Loan. The Borrower further agrees and confirms that the Insurance Premium Amount shall be deducted from the first disbursement under Loan."]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="08000001-0000-0000-0000-000000000001"/>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="08000002-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[viii.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="40" y="0" width="145" height="20" uuid="08000003-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[Stamp Duty Charges]]></text>
+				</staticText>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TableCell" x="185" y="0" width="310" height="20" uuid="08000004-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Rs." + ($P{stampDuty} != null ? $P{stampDuty} : "__________")]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="09000001-0000-0000-0000-000000000001"/>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="09000002-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[ix.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="40" y="0" width="145" height="20" uuid="09000003-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[Other Deductions]]></text>
+				</staticText>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TableCell" x="185" y="0" width="310" height="20" uuid="09000004-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Rs." + ($P{otherDeductions} != null ? $P{otherDeductions} : "__________")]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="10000001-0000-0000-0000-000000000001"/>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="10000002-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[x.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="40" y="0" width="145" height="20" uuid="10000003-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[Disbursement Schedule]]></text>
+				</staticText>
+				<frame>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="185" y="0" width="310" height="20" uuid="10000004-0000-0000-0000-000000000001"/>
+					<staticText>
+						<reportElement x="0" y="0" width="155" height="16" uuid="10000005-0000-0000-0000-000000000001"/>
+						<box>
+							<pen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="9" isBold="true"/>
+						</textElement>
+						<text><![CDATA[On or Before Date/Event]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="155" y="0" width="155" height="16" uuid="10000006-0000-0000-0000-000000000001"/>
+						<box>
+							<pen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="9" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Amount (Rs.)]]></text>
+					</staticText>
+					<componentElement>
+						<reportElement positionType="Float" x="0" y="16" width="310" height="4" uuid="10000007-0000-0000-0000-000000000001"/>
+						<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+							<datasetRun subDataset="TrancheDataset" uuid="10000008-0000-0000-0000-000000000001">
+								<dataSourceExpression><![CDATA[$P{trancheDetails}]]></dataSourceExpression>
+							</datasetRun>
+							<jr:listContents height="16" width="310">
+								<textField isBlankWhenNull="true">
+									<reportElement x="0" y="0" width="155" height="16" uuid="10000009-0000-0000-0000-000000000001"/>
+									<box>
+										<pen lineWidth="0.5"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="SansSerif" size="9"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{eventDate}]]></textFieldExpression>
+								</textField>
+								<textField isBlankWhenNull="true">
+									<reportElement x="155" y="0" width="155" height="16" uuid="10000010-0000-0000-0000-000000000001"/>
+									<box>
+										<pen lineWidth="0.5"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="SansSerif" size="9"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{trancheAmount}]]></textFieldExpression>
+								</textField>
+							</jr:listContents>
+						</jr:list>
+					</componentElement>
+				</frame>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="11000001-0000-0000-0000-000000000001"/>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="11000002-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[xi.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="40" y="0" width="145" height="20" uuid="11000003-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[Fixed EMI Amount]]></text>
+				</staticText>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TableCell" x="185" y="0" width="310" height="20" uuid="11000004-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Rs." + ($P{emi} != null ? $P{emi} : "__________") + "\n(Rupees " + ($P{emiAmountText} != null ? $P{emiAmountText} : "__________") + " only)\nActual EMI may vary marginally on account, the same will be communicated in due course."]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="12000001-0000-0000-0000-000000000001"/>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="12000002-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[xii.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="40" y="0" width="145" height="20" uuid="12000003-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[First EMI Payment Date (DD/MM/YY)]]></text>
+				</staticText>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TableCell" x="185" y="0" width="310" height="20" uuid="12000004-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{repaymentDate} != null ? $P{repaymentDate} : "__________"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="13000001-0000-0000-0000-000000000001"/>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="13000002-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[xiii.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="40" y="0" width="145" height="20" uuid="13000003-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[EMI Payment Frequency]]></text>
+				</staticText>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TableCell" x="185" y="0" width="310" height="20" uuid="13000004-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{frequency} != null ? $P{frequency} : "__________"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="14000001-0000-0000-0000-000000000001"/>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="14000002-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[xiv.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="40" y="0" width="145" height="20" uuid="14000003-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[Mode of Repayment]]></text>
+				</staticText>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TableCell" x="185" y="0" width="310" height="20" uuid="14000004-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{modeOfPayment} != null ? $P{modeOfPayment} : "__________"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="15000001-0000-0000-0000-000000000001"/>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="15000002-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[xv.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="40" y="0" width="145" height="20" uuid="15000003-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[Tranche Condition]]></text>
+				</staticText>
+				<frame>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="185" y="0" width="310" height="20" uuid="15000004-0000-0000-0000-000000000001"/>
+					<componentElement>
+						<reportElement x="2" y="2" width="306" height="16" uuid="15000005-0000-0000-0000-000000000001"/>
+						<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+							<datasetRun subDataset="TrancheConditionDataset" uuid="15000006-0000-0000-0000-000000000001">
+								<dataSourceExpression><![CDATA[$P{trancheConditions}]]></dataSourceExpression>
+							</datasetRun>
+							<jr:listContents height="16" width="306">
+								<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+									<reportElement x="0" y="0" width="306" height="16" uuid="15000007-0000-0000-0000-000000000001"/>
+									<textElement textAlignment="Left" verticalAlignment="Top">
+										<font fontName="SansSerif" size="10"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{condition}]]></textFieldExpression>
+								</textField>
+							</jr:listContents>
+						</jr:list>
+					</componentElement>
+				</frame>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="16000001-0000-0000-0000-000000000001"/>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="16000002-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[xvi.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="40" y="0" width="145" height="20" uuid="16000003-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[Security]]></text>
+				</staticText>
+				<frame>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="185" y="0" width="310" height="20" uuid="16000004-0000-0000-0000-000000000001"/>
+					<componentElement>
+						<reportElement x="2" y="2" width="306" height="16" uuid="16000005-0000-0000-0000-000000000001"/>
+						<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+							<datasetRun subDataset="CollateralDataset" uuid="16000006-0000-0000-0000-000000000001">
+								<dataSourceExpression><![CDATA[$P{collateralList}]]></dataSourceExpression>
+							</datasetRun>
+							<jr:listContents height="70" width="306">
+								<staticText>
+									<reportElement x="0" y="0" width="306" height="10" uuid="16000007-0000-0000-0000-000000000001"/>
+									<textElement>
+										<font fontName="SansSerif" size="8"/>
+									</textElement>
+									<text><![CDATA[Exclusive mortgage and charge over the immoveable/movable asset]]></text>
+								</staticText>
+								<staticText>
+									<reportElement x="0" y="10" width="306" height="10" uuid="16000008-0000-0000-0000-000000000001"/>
+									<textElement>
+										<font fontName="SansSerif" size="8"/>
+									</textElement>
+									<text><![CDATA[Security : Immovable / Movable]]></text>
+								</staticText>
+								<textField isBlankWhenNull="true">
+									<reportElement x="0" y="20" width="306" height="10" uuid="16000009-0000-0000-0000-000000000001"/>
+									<textElement>
+										<font fontName="SansSerif" size="8"/>
+									</textElement>
+									<textFieldExpression><![CDATA["Security Type : " + ($F{propertyName} != null ? $F{propertyName} : "")]]></textFieldExpression>
+								</textField>
+								<staticText>
+									<reportElement x="0" y="30" width="306" height="10" uuid="16000010-0000-0000-0000-000000000001"/>
+									<textElement>
+										<font fontName="SansSerif" size="8"/>
+									</textElement>
+									<text><![CDATA[Make (movable) :          Model (movable) :]]></text>
+								</staticText>
+								<textField isBlankWhenNull="true">
+									<reportElement x="0" y="40" width="306" height="10" uuid="16000011-0000-0000-0000-000000000001"/>
+									<textElement>
+										<font fontName="SansSerif" size="8"/>
+									</textElement>
+									<textFieldExpression><![CDATA["Estimated Value : " + ($F{totalAmount} != null ? String.valueOf($F{totalAmount}) : "")]]></textFieldExpression>
+								</textField>
+								<textField isBlankWhenNull="true">
+									<reportElement x="0" y="50" width="306" height="10" uuid="16000012-0000-0000-0000-000000000001"/>
+									<textElement>
+										<font fontName="SansSerif" size="8"/>
+									</textElement>
+									<textFieldExpression><![CDATA["Address(Immovable): " + ($F{propertyAddress} != null ? $F{propertyAddress} : "")]]></textFieldExpression>
+								</textField>
+								<line>
+									<reportElement x="0" y="63" width="306" height="1" uuid="16000013-0000-0000-0000-000000000001"/>
+									<graphicElement>
+										<pen lineWidth="1.0"/>
+									</graphicElement>
+								</line>
+							</jr:listContents>
+						</jr:list>
+					</componentElement>
+				</frame>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="17000001-0000-0000-0000-000000000001"/>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="17000002-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[xvii.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="40" y="0" width="145" height="20" uuid="17000003-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[Place of Arbitration]]></text>
+				</staticText>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TableCell" x="185" y="0" width="310" height="20" uuid="17000004-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10" isUnderline="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{branchName} != null ? $P{branchName} : "__________"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="18000001-0000-0000-0000-000000000001"/>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="18000002-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[xviii.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="40" y="0" width="145" height="20" uuid="18000003-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[Court of Jurisdiction]]></text>
+				</staticText>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="TableCell" x="185" y="0" width="310" height="20" uuid="18000004-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="9"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Subject to Clause 12.10 (Dispute Resolution) of the Agreement, the competent courts at " + ($P{branchName} != null ? $P{branchName} : "__________") + " shall have exclusive jurisdiction over any matter or legal proceedings arising out of or in relation to this Agreement. This shall not however limit the rights of the Lender to file/take proceedings in any other court of law or tribunal of competent jurisdiction."]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="19000001-0000-0000-0000-000000000001"/>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="19000002-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[xix.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="40" y="0" width="145" height="20" uuid="19000003-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[Part Prepayment of Loan]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="185" y="0" width="310" height="20" uuid="19000004-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[2% of every part pre-payment amount + 18% GST]]></text>
+				</staticText>
+			</frame>
+		</band>
+		<band height="125" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="20000001-0000-0000-0000-000000000001"/>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="0" y="0" width="40" height="125" uuid="20000002-0000-0000-0000-000000000001">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[xx.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="40" y="0" width="145" height="125" uuid="20000003-0000-0000-0000-000000000001">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[Foreclosure Charges]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="185" y="0" width="310" height="125" uuid="20000004-0000-0000-0000-000000000001">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="9"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[Any foreclosure of the Loan shall attract prepayment charges at the rate of:
+
+(a) 4% (four percent) of the outstanding amount of Loan in case prepayment is effectuated before the payment of 50% (fifty percent) of the total EMIs payable (in number) under the Loan
+
+(b) 3% (three percent) of the outstanding amount of Loan in case prepayment is effectuated after the payment of 50% (fifty percent) of the total EMIs payable (in number) under the Loan.]]></text>
+				</staticText>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="21000001-0000-0000-0000-000000000001"/>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="21000002-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[xxi.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="40" y="0" width="145" height="20" uuid="21000003-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[Cheque/ Instruction Dishonor Charges]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="185" y="0" width="310" height="20" uuid="21000004-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="9"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[Rs.500 (Rupees Five Hundred Only) + Applicable GST per instrument per instance.]]></text>
+				</staticText>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="22000001-0000-0000-0000-000000000001"/>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="22000002-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[xxii.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="40" y="0" width="145" height="20" uuid="22000003-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[Service Charges (on request)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="185" y="0" width="310" height="20" uuid="22000004-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="9"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[Statement of Account: INR 500 + applicable GST per instance;
+Foreclosure simulation / letter: INR 500 + applicable GST per instance;
+List of documents submitted: INR 500 + applicable GST per instance.]]></text>
+				</staticText>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="23000001-0000-0000-0000-000000000001"/>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="23000002-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[xxiii.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="40" y="0" width="145" height="20" uuid="23000003-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[Penal Charge]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="185" y="0" width="310" height="20" uuid="23000004-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[30% penal charges applicable on due non payment of Principal amount.]]></text>
+				</staticText>
+			</frame>
+		</band>
+		<band height="700" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="700" uuid="24000001-0000-0000-0000-000000000001">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="0" y="0" width="40" height="700" uuid="24000002-0000-0000-0000-000000000001">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[xxiv.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="40" y="0" width="145" height="700" uuid="24000003-0000-0000-0000-000000000001">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[General Conditions]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="185" y="0" width="310" height="700" uuid="24000004-0000-0000-0000-000000000001">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="9"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[1. The Borrower agrees and authorises the Lender to debit to and recover from any account maintained by on or behalf of the Borrower with the Lender, now or in future, towards recovery of any and all costs, charges and expenses stipulated herein or in connection with or incidental to the Loan.
+
+2. The Borrower shall upon demand pay to or reimburse the Lender in full:
+   a. The legal costs of the preparation of financing/security document, creation of security etc.;
+   b. All costs, expenses and other charges at actuals including but not limited to all costs, expenses and fees relating to the periodic valuation, title search, site visit, inspection, insurance and protection/preservation in any other manner of the security tendered to the Lender; and
+   c. All costs (including legal fees) incurred by the Lender in preserving perfecting or enforcing any of its rights under or in respect of this letter/financing documents, or any present or future security and other documents.
+
+3. Borrower understands, acknowledges and agrees that the undrawn portion of the Loan may be cancelled and repudiated in part or in entirety by the Lender, at any time without notice and without giving any reason.
+
+4. All costs, charges, interest rates are exclusive of applicable taxes.
+
+5. Change in Applicable Rate of Interest and other pricing parameters may be communicated by the Lender through any of the following modes - through Email ID as updated in Lender's records, letter sent to Borrower's address as updated in Lender's records, over website of the Lender, through account statements, through Short Message Service (SMS) or through its branches or such other medium as the Lender may consider appropriate.
+
+6. I /We hereby authorize and give consent to SFPL to disclose without notice to me/us, information furnished by me/us in application form/related documents executed/or to be executed in relation to the loans availed from SFPL, to SFPL's other branches, subsidiaries, affiliates, group companies & sister concerns, credit bureaus, rating agencies, service providers, banks/financial institutions, Government/Regulatory authorities or third parties for KYC information verification, credit risk analysis, or for other related purposes that SFPL may deem fit. I /We waive the privilege of privacy and privacy of contract. I /We hereby authorize SFPL to conduct a credit bureau check based on details furnished with respect to the loan application.
+
+7. Release of Original movable / immovable property documents: Borrower can collect the original movable/ immovable property documents from the branch where the loan account was serviced, within 30 days after full repayment/settlement of the loan.
+
+8. The Company does not charge any fee for regular EMI repayment. Repayments made through third-party payment gateways via the Mobile App or any other online mode may attract convenience fees/ service charges levied by the third-party payment service providers, where applicable.]]></text>
+				</staticText>
+			</frame>
+		</band>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="25000001-0000-0000-0000-000000000001">
+					<printWhenExpression><![CDATA[$P{displayConditions} != null && $P{displayConditions} == true]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="25000002-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[xxv.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="40" y="0" width="145" height="20" uuid="25000003-0000-0000-0000-000000000001"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<text><![CDATA[Special Terms & Conditions]]></text>
+				</staticText>
+				<frame>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="185" y="0" width="310" height="20" uuid="25000004-0000-0000-0000-000000000001"/>
+					<componentElement>
+						<reportElement x="2" y="2" width="306" height="16" uuid="25000005-0000-0000-0000-000000000001"/>
+						<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+							<datasetRun subDataset="SpecialConditionDataset" uuid="25000006-0000-0000-0000-000000000001">
+								<dataSourceExpression><![CDATA[$P{specialConditions}]]></dataSourceExpression>
+							</datasetRun>
+							<jr:listContents height="18" width="306">
+								<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+									<reportElement x="0" y="0" width="306" height="18" uuid="25000007-0000-0000-0000-000000000001"/>
+									<textElement textAlignment="Left" verticalAlignment="Top">
+										<font fontName="SansSerif" size="9"/>
+									</textElement>
+									<textFieldExpression><![CDATA[($V{REPORT_COUNT}) + ". " + $F{condition}]]></textFieldExpression>
+								</textField>
+							</jr:listContents>
+						</jr:list>
+					</componentElement>
+				</frame>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>
