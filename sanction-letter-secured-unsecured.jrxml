@@ -33,6 +33,10 @@
 		<field name="propertyAddress" class="java.lang.String"/>
 		<field name="totalAmount" class="java.lang.Double"/>
 		<field name="ownerName" class="java.lang.String"/>
+		<field name="landArea" class="java.lang.Double"/>
+		<field name="city" class="java.lang.String"/>
+		<field name="state" class="java.lang.String"/>
+		<field name="pinCode" class="java.lang.Long"/>
 	</subDataset>
 	<subDataset name="SpecialConditionDataset" uuid="b9f2d3a6-7c8e-9f0a-4b1c-2d3e45f6a7b8">
 		<field name="condition" class="java.lang.String"/>
@@ -830,6 +834,11 @@ Sign:___________________________]]></text>
 				</frame>
 			</frame>
 		</band>
+		<band height="5" splitType="Stretch">
+			<break>
+				<reportElement x="0" y="0" width="495" height="1" uuid="15999999-0000-0000-0000-000000000001"/>
+			</break>
+		</band>
 		<band height="80" splitType="Stretch">
 			<frame>
 				<reportElement positionType="Float" x="0" y="0" width="495" height="80" uuid="16000001-0000-0000-0000-000000000001"/>
@@ -878,13 +887,13 @@ Sign:___________________________]]></text>
 									</textElement>
 									<textFieldExpression><![CDATA["Security Type : " + ($F{propertyName} != null ? $F{propertyName} : "")]]></textFieldExpression>
 								</textField>
-								<staticText>
+								<textField isBlankWhenNull="true">
 									<reportElement x="0" y="30" width="306" height="10" uuid="16000010-0000-0000-0000-000000000001"/>
 									<textElement>
 										<font fontName="SansSerif" size="8"/>
 									</textElement>
-									<text><![CDATA[Make (movable) :          Model (movable) :]]></text>
-								</staticText>
+									<textFieldExpression><![CDATA["Owner Name : " + ($F{ownerName} != null ? $F{ownerName} : "")]]></textFieldExpression>
+								</textField>
 								<textField isBlankWhenNull="true">
 									<reportElement x="0" y="40" width="306" height="10" uuid="16000011-0000-0000-0000-000000000001"/>
 									<textElement>
@@ -892,7 +901,7 @@ Sign:___________________________]]></text>
 									</textElement>
 									<textFieldExpression><![CDATA["Estimated Value : " + ($F{totalAmount} != null ? String.valueOf($F{totalAmount}) : "")]]></textFieldExpression>
 								</textField>
-								<textField isBlankWhenNull="true">
+								<textField textAdjust="StretchHeight" isBlankWhenNull="true">
 									<reportElement x="0" y="50" width="306" height="10" uuid="16000012-0000-0000-0000-000000000001"/>
 									<textElement>
 										<font fontName="SansSerif" size="8"/>
@@ -1092,18 +1101,18 @@ List of documents submitted: INR 500 + applicable GST per instance.]]></text>
 				</staticText>
 			</frame>
 		</band>
-		<band height="20" splitType="Stretch">
+		<band height="30" splitType="Stretch">
 			<frame>
-				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="23000001-0000-0000-0000-000000000001"/>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="30" uuid="23000001-0000-0000-0000-000000000001"/>
 				<staticText>
-					<reportElement style="TableCell" stretchType="ContainerHeight" x="0" y="0" width="40" height="20" uuid="23000002-0000-0000-0000-000000000001"/>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="0" y="0" width="40" height="30" uuid="23000002-0000-0000-0000-000000000001"/>
 					<textElement textAlignment="Center" verticalAlignment="Top">
 						<font fontName="SansSerif" size="10"/>
 					</textElement>
 					<text><![CDATA[xxiii.]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="TableCell" stretchType="ContainerHeight" x="40" y="0" width="145" height="20" uuid="23000003-0000-0000-0000-000000000001"/>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="40" y="0" width="145" height="30" uuid="23000003-0000-0000-0000-000000000001"/>
 					<textElement textAlignment="Left" verticalAlignment="Top">
 						<font fontName="SansSerif" size="10" isBold="true"/>
 						<paragraph leftIndent="4"/>
@@ -1111,14 +1120,19 @@ List of documents submitted: INR 500 + applicable GST per instance.]]></text>
 					<text><![CDATA[Penal Charge]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="TableCell" stretchType="ContainerHeight" x="185" y="0" width="310" height="20" uuid="23000004-0000-0000-0000-000000000001"/>
+					<reportElement style="TableCell" stretchType="ContainerHeight" x="185" y="0" width="310" height="30" uuid="23000004-0000-0000-0000-000000000001"/>
 					<textElement textAlignment="Left" verticalAlignment="Top">
-						<font fontName="SansSerif" size="10" isBold="true"/>
+						<font fontName="SansSerif" size="9" isBold="true"/>
 						<paragraph leftIndent="4"/>
 					</textElement>
 					<text><![CDATA[30% penal charges applicable on due non payment of Principal amount.]]></text>
 				</staticText>
 			</frame>
+		</band>
+		<band height="5" splitType="Stretch">
+			<break>
+				<reportElement x="0" y="0" width="495" height="1" uuid="23999999-0000-0000-0000-000000000001"/>
+			</break>
 		</band>
 		<band height="700" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
