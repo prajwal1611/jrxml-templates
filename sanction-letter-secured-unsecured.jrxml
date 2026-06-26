@@ -1007,7 +1007,7 @@ Sign:___________________________]]></text>
 		<band height="125" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<frame>
-				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="20000001-0000-0000-0000-000000000001"/>
+				<reportElement positionType="Float" x="0" y="0" width="495" height="125" uuid="20000001-0000-0000-0000-000000000001"/>
 				<staticText>
 					<reportElement style="TableCell" stretchType="ContainerHeight" x="0" y="0" width="40" height="125" uuid="20000002-0000-0000-0000-000000000001">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
