@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.1.4/tailwind.min.css"
+          integrity="sha512-..." rel="stylesheet" />
+    <style>
+        table,
+        th,
+        tr {
+            border: 1px dotted black;
+        }
+
+        @media print {
+            .page-break-before {
+                page-break-before: always;
+            }
+
+            .page-break-after {
+                page-break-after: always;
+            }
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid black;
+            width: 25%;
+        }
+
+        .table-solid table,
+        td,
+        tr {
+            border: 1px solid black !important;
+        }
+
+        .table-dot table,
+        th,
+        tr {
+            border: 1px dotted black !important;
+        }
+
+        .page-break {
+            page-break-before: always !important;
+        }
+
+        span,
+        p,
+        div {
+            text-align: justify;
+        }
+
+        body {
+            font-family: "Calibri", sans-serif;
+        }
+
+
+        .main-table {
+            width: 100%;
+        }
+
+        .footer,
+        .footer-space {
+            height: 100px;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+        }
+
+        .main-table,
+        .main-table-body,
+        .main-table-row,
+        .main-table-td,
+        .footer-space,
+        .footer {
+            border: none;
+        }
+    </style>
+
+</head>
+
+<body>
+<table class="main-table">
+    <tbody class="main-table-body">
+    <tr class="main-table-row">
+        <td class="main-table-td">
+            <div class="w-full container mx-auto px-4 mt-4 max-w-screen-sm print:max-w-full print:p-0 print:pt-4 page-break-before"
+                 th:fragment="content(templateData)">
+
+                <p style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:0in;font-size:14.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'>
+                    <strong>
+                        SARVAGRAM FINCARE PRIVATE LIMITED
+                    </strong>
+                </p>
+                <p style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:0in;font-size:9.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'>
+                    CIN: U65990PN2018PTC224688
+                </p>
+                <p style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:0in;font-size:9.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'>
+                    Registered Office: <span th:text="${templateData?.officeAddress}"></span>
+                </p>
+                <p style='text-align:center;'>
+                    <span style='font-size:9.0pt;font-family:"Calibri",sans-serif;float: left;line-height:normal;'>Email Id: cs@sarvagram.com</span>
+                    <span style='font-size:9.0pt;font-family:"Calibri",sans-serif;display: inline-block;line-height:normal;'>Website: www.sarvagram.com</span>
+                    <span style='font-size:9.0pt;font-family:"Calibri",sans-serif;float:right;line-height:normal;'>Mob: 91-81011777555</span>
+                </p>
+                <hr style='width: 100%;border-top: 2px solid #c9c7c7;'>
+                <!--    header End-->
+
+                <div>
+                    <div>
+                        <div class="text-center">
+                            <h4><u><span class="font-bold">Sanction Letter</span></u></h4>
+                            <h4><span class="font-bold"><span th:text="${templateData?.title}"></span> LOANS - <span th:text="${templateData?.loanType}"></span></span></h4>
+                        </div>
+
+                        <div class="text-left">
+                            <p>Date of Sanction : <span th:text="${templateData.sanctionDate}"></span></p>
+                        </div>
+                        <div><br>
+
+                            <div class="text-left">
+                                <p>To :</p>
+                                <div class="container mx-auto px-9 max-w-screen-sm print:max-w-full print:p-0 print:pt-4">
+                                    <p>Borrower's name : <span th:text="${templateData.applicantName}"></span></p>
+                                    <p>Borrower's address : <span th:text="${templateData.appplicantAddress}"></span></p>
+                                    <p th:each="coApplicants : ${templateData?.coApplicantDetailList}">
+                                        Co-Applicant's name : <span th:text="${coApplicants?.applicantName}"></span><br>
+                                        Co-Applicant's address : <span th:text="${coApplicants?.address}"></span><br>
+                                    </p><br>
+                                </div>
+                            </div>
+                            <p class="p-3"><b>Re : </b>Financial assistance to be provided by Sarvagram Fincare Private Limited (the <b>“Lender”</b>) to the Borrower</p>
+                        </div>
+                        <br>
+
+                        <p>We refer to your application requesting to grant credit facilities and the subsequent
+                            correspondence /
+                            discussions and clarifications on the captioned matter. Your proposal has been considered and the Lender
+                            is agreeable to offer to the
+                            Borrower a loan of INR. <span th:text="${templateData.amount}"></span>. (Rupees.
+                            <span th:text="${templateData.amountText}"></span> only) (the
+                            <b>“Loan”</b>) on the terms and conditions more particularly mentioned in this Letter and the
+                            schedules/annexures attached hereto (the <b>“Sanction Letter”</b>) and (ii) the
+                            <u><b><span th:text="${templateData?.title}"></span> LOANS - <span th:text="${templateData?.loanType}"></span></b></u> agreement to be entered into between the Lender and the
+                            Borrower (the <b>“Agreement”</b>).
+                        </p><br>
+                        <p>Please note that this communication should not be construed as giving rise to any binding obligation on the part
+                            of the Lender with regards to the Loan unless the Lender receives a counterpart of this Sanction Letter
+                            duly signed by the Borrower in token of acceptance of the terms and conditions of this
+                            Sanction Letter and unless the
+                            Agreement and other documents relating to the Loan are executed by the Borrower in such form as may be
+                            allowed by the Lender in its absolute discretion.
+                        </p><br>
+                        <p>Please note only after due consideration of all the available information (including financial information
+                            provided to us by you), we have decided the applicable rate of interest which shall be charged to you,
+                            basis inter alia our internal policies, cost of funds, KYC checks carried out by us in this regard,
+                            customer profile, credit score and risk management.
+                        </p><br>
+                        <p>Final approval/disbursal of the Loan is subject to legal/technical verification by the Lender. The Lender
+                            reserves the right to amend any of the terms and conditions hereof at its sole discretion.
+                        </p><br><br>
+                        <p>Yours sincerely,</p></br>
+                        <p>For and on behalf of <b>Sarvagram Fincare Private Limited </b></p>
+                        <p>Name : <span th:text="${templateData.bcoName ?:'\_\_\_\_\_\_\_\_\_\_'}"></span></p>
+                        <p>
+                            title : Branch Credit Manager<br><br>
+                            Sign:___________________________
+                        </p>
+                        <br>
+                        <p>We hereby agree to the terms set out in this Sanction Letter.</p>
+                        <p>For and on behalf of</p><br>
+                        <div class="flex">
+                            <div class="w-1/3">
+                                <p class="text-left">
+                                    Name: <span th:text="${templateData.applicantName ?:'\_\_\_\_\_\_\_\_\_\_'}"></span><br>
+                                    Date: <span th:text="${templateData.date ?:'\_\_\_\_\_\_\_\_\_\_'}"></span><br><br>
+                                    Sign:___________________________<br>
+                                </p>
+                            </div>
+
+                        </div>
+                        <p class="text-left"></p>
+                        <div class="flex">
+                            <div class="w-1/3"><br>
+                                <p class="text-left" th:each="coApplicants : ${templateData?.coApplicantDetailList}">
+                                    Name: <span th:text="${coApplicants.applicantName ?:'\_\_\_\_\_\_\_\_\_\_'}"></span><br>
+                                    Date: <span th:text="${templateData.date ?:'\_\_\_\_\_\_\_\_\_\_'}"></span><br><br>
+                                    Sign:___________________________<br>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page-break-before"></div>
+
+                    <div class="mt-8 text-center"><strong>LOAN SUMMARY SCHEDULE</strong><br> (Terms and
+                        conditions of the
+                        financial
+                        assistance)
+                    </div>
+
+                    <div class="text-xs"
+                         style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;'>
+                        <table class="w-full border border-black" style="font-size: 13px;">
+                            <tr>
+                                <td class="text-center w-1/12 border border-black">i.</td>
+                                <td class="font-bold w-3/12 border border-black">Loan Amount</td>
+                                <td class="w-8/12 border-black">Rs. <span th:text="${templateData?.amount}"></span><br>
+                                    Ruppes. (<span th:text="${templateData?.amountText}"></span> Only)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center w-1/12 border border-black">ii.</td>
+                                <td class="font-bold w-3/12 border border-black">
+                                            <span>
+                                                Loan Tenure (months)
+                                            </span>
+                                </td>
+                                <td class="w-8/12 border border-black">
+                                    <span class="underline" th:text="${templateData?.tenure}"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center w-1/12 border border-black">iii.</td>
+                                <td class="font-bold w-3/12 border border-black">
+                                    <span>Applicable Rate of Interest </span>
+                                </td>
+                                <td class="w-8/12 border border-black">
+                                    Fixed Interest Rate<span th:text="${templateData?.roi}"></span>% p.a.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center w-1/12 border border-black">iv.</td>
+                                <td class="font-bold w-3/12 border border-black">
+                                    <span>Purpose</span>
+                                </td>
+                                <td class="w-8/12 border border-black">
+                                    <span th:text="${templateData?.loanPurpose}"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center w-1/12 border border-black">v.</td>
+                                <td class="font-bold w-3/12 border border-black">
+                                    <span>Processing Fee + 18% GST</span>
+                                </td>
+                                <td class="w-8/12 border border-black">
+                                    Rs. <span th:text="${templateData?.processingFee}"></span><br>
+                                    All applicable stamp duties on Loan documentation and other
+                                    charges/expenses/taxes/levies to
+                                    be
+                                    borne by the Borrower.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center w-1/12 border border-black">vi.</td>
+                                <td class="font-bold w-3/12 border border-black">
+                                    <span>Legal & Valuation Charges + 18% GST(Subject to change as applicable)</span>
+                                </td>
+                                <td class="w-8/12 border border-black">
+                                    Rs.<span th:text="${templateData?.legalCharges}"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center w-1/12 border border-black">vii.</td>
+                                <td class="font-bold w-3/12 border border-black">
+                                    <span>Insurance Deduction(Insurance Amount+General Insurance amount)</span>
+                                </td>
+                                <td class="w-8/12 border border-black">
+                                    Rs.<span th:text="${templateData?.insurance}"></span><br>
+                                    The Borrower acknowledges and confirms that the Insurance Premium Amount may
+                                    vary on the
+                                    date of
+                                    disbursement under the Loan. The Borrower further agrees and confirms that
+                                    the Insurance
+                                    Premium
+                                    Amount shall be deducted from the first disbursement under Loan.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center w-1/12 border border-black">viii.</td>
+                                <td class="font-bold w-3/12 border border-black">
+                                    <span>Stamp Duty Charges</span>
+                                </td>
+                                <td class="w-8/12 border border-black">
+                                    Rs.<span th:text="${templateData?.stampDuty}"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center w-1/12 border border-black">viii.</td>
+                                <td class="font-bold w-3/12 border border-black">
+                                    <span>Other Deductions</span>
+                                </td>
+                                <td class="w-8/12 border border-black">
+                                    Rs.<span th:text="${templateData?.otherDeductions}"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center w-1/12 border border-black">ix.</td>
+                                <td class="font-bold w-3/12 border border-black">
+                                    Disbursement Schedule
+                                </td>
+                                <td class="w-8/12 border border-black">
+                                    <table class="w-full border border-black" style="font-size: 13px;">
+                                        <tr>
+                                            <th class="font-bold w-3/12 border border-black text-center">On or Before Date/Event</th>
+                                            <th class="font-bold w-3/12 border border-black text-center">Amount (Rs.)</th>
+                                        </tr>
+                                        <tr th:each="tranche : ${templateData?.trancheDetails}">
+                                            <td class="font-bold w-3/12 border border-black text-center"><span th:text="${tranche.eventDate}"></span></td>
+                                            <td class="font-bold w-3/12 border border-black text-center"><span th:text="${tranche.trancheAmount}"></span></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center w-1/12 border border-black">x.</td>
+                                <td class="font-bold w-3/12 border border-black">
+                                    <span>Fixed EMI Amount</span>
+                                </td>
+                                <td class="w-8/12 border border-black">
+                                    Rs.<span th:text="${templateData?.emi}"></span><br>
+                                    (Rupees <span th:text="${templateData?.emiAmountText}"></span>only)
+                                    <br>
+                                    Actual EMI may vary marginally on account, the same will be communicated in due
+                                    course.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center w-1/12 border border-black">xi.</td>
+                                <td class="font-bold w-3/12 border border-black">
+                                    <span>First EMI Payment Date (DD/MM/YY)</span>
+                                </td>
+                                <td class="w-8/12 border border-black">
+                                    <span th:text="${templateData?.repaymentDate}"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center w-1/12 border border-black">xii.</td>
+                                <td class="font-bold w-3/12 border border-black">
+                                    <span>EMI Payment Frequency</span>
+                                </td>
+                                <td class="w-8/12 border border-black">
+                                    <span th:text="${templateData?.frequency}"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center w-1/12 border border-black">xiii.</td>
+                                <td class="font-bold w-3/12 border border-black">
+                                    <span>Mode of Repayment </span>
+                                </td>
+                                <td class="w-8/12 border border-black">
+                                    <span th:text="${templateData?.modeOfPayment}"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center w-1/12 border border-black">xiv.</td>
+                                <td class="font-bold w-3/12 border border-black">
+                                    <span>Tranche Condition </span>
+                                </td>
+                                <td class="w-8/12 border border-black">
+                                    <div th:each="tranch : ${templateData?.trancheConditions}">
+                                        <span th:text="${tranch}"></span><br><br>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </table>
+                        <div class="page-break-before"></div>
+                        <table class="w-full table-solid border border-black" style="font-size: 13px;">
+                            <tr>
+                                <td class="text-center w-1/12 border border-black">xv.</td>
+                                <td class="font-bold w-3/12 border border-black">
+                                    <span>Security</span>
+                                </td>
+                                <td class="w-8/12 border border-black">
+                                    <div th:each="collateral : ${templateData?.collateralList}">
+                                        Exclusive mortgage and charge over the immoveable/movable asset<br>
+                                        Security : Immovable / Movable<br>
+                                        Security Type : <span th:text="${collateral?.propertyName}"></span><br>
+                                        Make (movable) : <br>
+                                        Model (movable) : <br>
+                                        Estimated Value : <span th:text="${collateral?.totalAmount}"></span><br>
+                                        Address(Immovable): <span th:text="${collateral?.propertyAddress}"></span><br>
+                                        <hr style='width: 100%;border-top: 2px solid black;'>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center w-1/12 border border-black">xvi.</td>
+                                <td class="font-bold w-3/12 border border-black">
+                                    <span>Place of Arbitration</span>
+                                </td>
+                                <td class="w-8/12 border border-black">
+                                    <span><span class="underline" th:text="${templateData?.branchName}"></span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center w-1/12 border border-black">xvii.</td>
+                                <td class="font-bold w-3/12 border border-black">
+                                    <span>Court of Jurisdiction</span>
+                                </td>
+                                <td class="w-8/12 border border-black">
+                                            <span> Subject to Clause 12.10 (Dispute Resolution) of the Agreement, the
+                                                competent courts
+                                                at <span class="underline" th:text="${templateData?.branchName}"></span>
+
+                                                <span></span> shall have exclusive jurisdiction over any matter or legal
+                                                proceedings
+                                                arising out of or in relation to this Agreement. This shall not however
+                                                limit the rights
+                                                of the Lender to file/take proceedings in any other court of law or
+                                                tribunal of
+                                                competent jurisdiction.</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center w-1/12 border border-black">xviii.</td>
+                                <td class="font-bold w-3/12 border border-black">
+                                    <span>Part Prepayment of Loan </span>
+                                </td>
+                                <td class="w-8/12 border border-black">
+                                    <span>2% of every part pre-payment amount + 18% GST</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center w-1/12 border border-black">xix.</td>
+                                <td class="font-bold w-3/12 border border-black">
+                                    <span>Foreclosure Charges</span>
+                                </td>
+                                <td class="w-8/12 border border-black">
+                                            <span>Any foreclosure of the Loan shall attract prepayment charges at the
+                                                rate of <br>
+
+                                                (a) 4% (four percent) of the outstanding amount of Loan in case
+                                                prepayment is
+                                                effectuated before the payment of 50% (fifty percent) of the total EMIs
+                                                payable (in
+                                                number) under the Loan <br>
+
+                                                (b) 3% (three percent) of the outstanding amount of Loan in case
+                                                prepayment is
+                                                effectuated after the payment of 50% (fifty percent) of the total EMIs
+                                                payable (in
+                                                number) under the Loan.</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center w-1/12 border border-black">xx.</td>
+                                <td class="font-bold w-3/12 border border-black">
+                                    <span>Cheque/ Instruction Dishonor Charges</span>
+                                </td>
+                                <td class="w-8/12 border border-black">
+                                    <span>Rs.500 (Rupees Three Hundred Only) + Applicable GST per instrument per instance.</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="text-center w-1/12 border border-black">xxi.</td>
+                                <td class="font-bold w-3/12 border border-black">
+                                    <span>Service Charges (on request)</span>
+                                </td>
+                                <td class="w-8/12 border border-black">
+                                    <span>Statement of Account: INR 500 + applicable GST per instance;<br>
+
+                                        Foreclosure simulation / letter: INR 500 + applicable GST per instance;<br>
+
+                                        List of documents submitted: INR 500 + applicable GST per instance.</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="text-center w-1/12 border border-black">xxii.</td>
+                                <td class="font-bold w-3/12 border border-black">
+                                    <span>Penal Charge</span>
+                                </td>
+                                <td class="w-8/12 border border-black">
+                                    <span><strong>30% penal charges applicable on due non payment of Principal amount.</strong></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center w-1/12 border border-black">xxiii.</td>
+                                <td class="font-bold w-3/12 border border-black">
+                                    <span>General Conditions </span>
+                                </td>
+                                <td class="w-8/12 border border-black">
+                                            <span>
+                                                <strong>1. </strong>&nbsp;The Borrower agrees and authorises the Lender
+                                                to debit to and
+                                                recover from any account maintained by on or behalf of the Borrower with
+                                                the Lender, now
+                                                or in future, towards recovery of any and all costs, charges and
+                                                expenses stipulated
+                                                herein or in connection with or incidental to the Loan.<br>
+
+
+                                                <strong>2. </strong>&nbsp;The Borrower shall upon demand pay to or
+                                                reimburse the Lender
+                                                in full:
+                                                <div class="ml-2">
+                                                    <strong>a. </strong>
+                                                    The legal costs of the preparation of financing/security document,
+                                                    creation of
+                                                    security etc.; <br>
+                                                    <strong>b.</strong>
+                                                    All costs, expenses and other charges at actuals including but not
+                                                    limited to all
+                                                    costs, expenses and fees relating to the periodic valuation, title
+                                                    search, site
+                                                    visit, inspection, insurance and protection/preservation in any
+                                                    other manner of the
+                                                    security tendered to the Lender; and<br>
+                                                    <strong>c.</strong>&nbsp; All costs (including legal fees) incurred
+                                                    by the Lender in
+                                                    preserving perfecting or enforcing any of its rights under or in
+                                                    respect of this
+                                                    letter/financing documents, or any present or future security and
+                                                    other documents.
+
+                                                </div>
+                                                <strong>3. </strong>&nbsp; Borrower understands, acknowledges and agrees
+                                                that the
+                                                undrawn portion of the Loan may be cancelled and repudiated in part or
+                                                in entirety by
+                                                the Lender, at any time without notice and without giving any
+                                                reason.<br>
+
+                                                <strong>4.</strong>&nbsp; All costs, charges, interest rates are
+                                                exclusive of applicable
+                                                taxes.<br>
+
+                                            </span>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="page-break-before"></div>
+                        <table class="w-full table-solid border border-black" style="font-size: 13px;">
+                            <tr>
+                                <td class="text-center w-1/12 border border-black">&nbsp;</td>
+                                <td class="font-bold w-3/12 border border-black">&nbsp;</td>
+                                <td class="w-8/12 border border-black">
+                                    <span>
+                                                <strong>5.</strong>&nbsp; Change in Applicable Rate of Interest and
+                                                other pricing
+                                                parameters may be communicated by the Lender through any of the
+                                                following modes –
+                                                through Email ID as updated in Lender’s records, letter sent to
+                                                Borrower’s address as
+                                                updated in Lender’s records, over website of the Lender, through account
+                                                statements,
+                                                through Short Message Service (SMS) or through its branches or such
+                                                other medium as the
+                                                Lender may consider appropriate.<br>
+
+                                               <strong>6.</strong>&nbsp; I /We hereby authorize and give consent to SFPL to disclose without notice to
+                                                me/us, information furnished by me/us in application form/related documents
+                                                executed/or to be executed in relation to the loans availed from SFPL, to SFPL's
+                                                other branches, subsidiaries, affiliates, group companies & sister concerns, credit
+                                                bureaus, rating agencies, service providers, banks/financial institutions,
+                                                Government/Regulatory authorities or third parties for KYC information
+                                                verification, credit risk analysis, or for other related purposes that SFPL may
+                                                deem fit. I /We waive the privilege of privacy and privacy of contract. I /We
+                                                hereby authorize SFPL to conduct a credit bureau check based on details
+                                                furnished with respect to the loan application.<br>
+
+                                                <strong>7.</strong>&nbsp; Release of Original movable / immovable property documents: Borrower can
+                                                collect the original movable/ immovable property documents from the branch
+                                                where the loan account was serviced, within 30 days after full repayment/settlement of the loan<br>
+
+                                               <strong>8.</strong>&nbsp; The Company does not charge any fee for regular EMI repayment. Repayments made
+                                                through third-party payment gateways via the Mobile App or any other online mode may attract
+                                                convenience fees/ service charges levied by the third-party payment service providers,
+                                                where applicable.
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr th:if="${templateData?.displayConditions}">
+                                <td class="text-center w-1/12 border border-black">xxiv.</td>
+                                <td class="font-bold w-3/12 border border-black">
+                                    <span>Special Terms & Conditions </span>
+                                </td>
+                                <td class="w-8/12 border border-black">
+                                    <div th:each="specialCondition,stat : ${templateData?.specialConditions}">
+                                        <Strong>[[${stat.index + 1}]]. </Strong><span th:text="${specialCondition}"></span><br>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr class="main-table-row">
+        <td class="main-table-td">
+            <div class="footer-space"></div>
+        </td>
+    </tr>
+    </tfoot>
+</table>
+<div class="footer"></div>
+</body>
+
+</html>
