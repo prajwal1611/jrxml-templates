@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DisbursementRequestForm" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="30" uuid="d4f00000-0000-0000-0000-000000000001">
+	<property name="net.sf.jasperreports.default.pdf.encoding" value="Identity-H"/>
+	<property name="net.sf.jasperreports.default.pdf.embedded" value="true"/>
+	<property name="net.sf.jasperreports.print.keep.full.text" value="true"/>
+	<subDataset name="CoBorrowerNameDataset" uuid="d4f00000-0000-0000-0000-000000000002">
+		<field name="_THIS" class="java.lang.String">
+			<fieldDescription><![CDATA[_THIS]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="todayDate" class="java.lang.String"/>
+	<parameter name="sanctionDate" class="java.lang.String"/>
+	<parameter name="branchName" class="java.lang.String"/>
+	<parameter name="loanAmount" class="java.math.BigDecimal"/>
+	<parameter name="nameOfBorrower" class="java.lang.String"/>
+	<parameter name="bankName" class="java.lang.String"/>
+	<parameter name="customerBranchName" class="java.lang.String"/>
+	<parameter name="bankAccountNumber" class="java.lang.String"/>
+	<parameter name="ifsc" class="java.lang.String"/>
+	<parameter name="bankAccountType" class="java.lang.String"/>
+	<parameter name="amount" class="java.math.BigDecimal"/>
+	<parameter name="modeOfPayment" class="java.lang.String"/>
+	<parameter name="coBorrowerName" class="java.util.List"/>
+	<parameter name="officeAddress" class="java.lang.String"/>
+	<detail>
+		<band height="780" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<!-- Title: DISBURSEMENT REQUEST FORM -->
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="535" height="20" uuid="d4f10000-0000-0000-0000-000000000001"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["DISBURSEMENT REQUEST FORM"]]></textFieldExpression>
+			</textField>
+			<!-- Date aligned right -->
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="24" width="535" height="14" uuid="d4f10000-0000-0000-0000-000000000002"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Date : " + ($P{todayDate} == null ? "" : $P{todayDate})]]></textFieldExpression>
+			</textField>
+			<!-- To Address Block -->
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="44" width="535" height="14" uuid="d4f10000-0000-0000-0000-000000000003"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["To,"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="58" width="535" height="14" uuid="d4f10000-0000-0000-0000-000000000004"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["SARVAGRAM FINCARE PRIVATE LIMITED (\"SFPL\" or \"Company\")"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="72" width="535" height="14" uuid="d4f10000-0000-0000-0000-000000000005"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Office No. 22, 4th Floor, Primrose Mall, Baner Road,"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="86" width="535" height="14" uuid="d4f10000-0000-0000-0000-000000000006"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Baner Gaon, Haveli, Pune-411045, Maharashtra"]]></textFieldExpression>
+			</textField>
+			<!-- Branch Name -->
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="110" width="535" height="14" uuid="d4f10000-0000-0000-0000-000000000007"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["BranchName : " + ($P{branchName} == null ? "" : $P{branchName})]]></textFieldExpression>
+			</textField>
+			<!-- Subject Line -->
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="134" width="535" height="28" uuid="d4f10000-0000-0000-0000-000000000008"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Sub: Request for Disbursement of Loan Facility sanctioned to me/us vide sanction letter dated " + ($P{sanctionDate} == null ? "" : $P{sanctionDate}) + "."]]></textFieldExpression>
+			</textField>
+			<!-- Dear Sir/Madam -->
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="170" width="535" height="14" uuid="d4f10000-0000-0000-0000-000000000009"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Dear Sir/ Madam,"]]></textFieldExpression>
+			</textField>
+			<!-- Main body paragraph -->
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="192" width="535" height="40" uuid="d4f10000-0000-0000-0000-000000000010"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["I/we am/are thankful for sanctioning the loan amounting to INR. " + ($P{loanAmount} == null ? "" : $P{loanAmount}.toString()) + " to me/us by the Company vide the sanction letter dated " + ($P{todayDate} == null ? "" : $P{todayDate}) + ". I/ We request you to kindly disburse the loan amount in the below mentioned account:"]]></textFieldExpression>
+			</textField>
+			<!-- Bank Details Table Header -->
+			<!-- Table Border Frame -->
+			<frame>
+				<reportElement positionType="Float" x="20" y="242" width="495" height="16" uuid="d4f20000-0000-0000-0000-000000000001"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement x="0" y="0" width="248" height="16" uuid="d4f20000-0000-0000-0000-000000000002"/>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA["In favour of"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement x="248" y="0" width="247" height="16" uuid="d4f20000-0000-0000-0000-000000000003"/>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{nameOfBorrower} == null ? "" : $P{nameOfBorrower}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<!-- Row: Bank Name -->
+			<frame>
+				<reportElement positionType="Float" x="20" y="258" width="495" height="16" uuid="d4f20000-0000-0000-0000-000000000004"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement x="0" y="0" width="248" height="16" uuid="d4f20000-0000-0000-0000-000000000005"/>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Bank Name"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement x="248" y="0" width="247" height="16" uuid="d4f20000-0000-0000-0000-000000000006"/>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{bankName} == null ? "" : $P{bankName}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<!-- Row: Bank Address -->
+			<frame>
+				<reportElement positionType="Float" x="20" y="274" width="495" height="16" uuid="d4f20000-0000-0000-0000-000000000007"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement x="0" y="0" width="248" height="16" uuid="d4f20000-0000-0000-0000-000000000008"/>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Bank Address"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement x="248" y="0" width="247" height="16" uuid="d4f20000-0000-0000-0000-000000000009"/>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{customerBranchName} == null ? "" : $P{customerBranchName}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<!-- Row: Bank A/C No. -->
+			<frame>
+				<reportElement positionType="Float" x="20" y="290" width="495" height="16" uuid="d4f20000-0000-0000-0000-000000000010"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement x="0" y="0" width="248" height="16" uuid="d4f20000-0000-0000-0000-000000000011"/>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Bank A/C No."]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement x="248" y="0" width="247" height="16" uuid="d4f20000-0000-0000-0000-000000000012"/>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{bankAccountNumber} == null ? "" : $P{bankAccountNumber}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<!-- Row: IFSC Code -->
+			<frame>
+				<reportElement positionType="Float" x="20" y="306" width="495" height="16" uuid="d4f20000-0000-0000-0000-000000000013"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement x="0" y="0" width="248" height="16" uuid="d4f20000-0000-0000-0000-000000000014"/>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA["IFSC Code"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement x="248" y="0" width="247" height="16" uuid="d4f20000-0000-0000-0000-000000000015"/>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{ifsc} == null ? "" : $P{ifsc}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<!-- Row: Bank A/C Type -->
+			<frame>
+				<reportElement positionType="Float" x="20" y="322" width="495" height="16" uuid="d4f20000-0000-0000-0000-000000000016"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement x="0" y="0" width="248" height="16" uuid="d4f20000-0000-0000-0000-000000000017"/>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Bank A/C Type (Savings/ Current/ CC)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement x="248" y="0" width="247" height="16" uuid="d4f20000-0000-0000-0000-000000000018"/>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{bankAccountType} == null ? "" : $P{bankAccountType}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<!-- Row: Amount -->
+			<frame>
+				<reportElement positionType="Float" x="20" y="338" width="495" height="26" uuid="d4f20000-0000-0000-0000-000000000019"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement x="0" y="0" width="248" height="26" uuid="d4f20000-0000-0000-0000-000000000020"/>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Amount (post deduction of processing\nfees and other charges)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement x="248" y="0" width="247" height="26" uuid="d4f20000-0000-0000-0000-000000000021"/>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{amount} == null ? "" : $P{amount}.toString()]]></textFieldExpression>
+				</textField>
+			</frame>
+			<!-- Row: Mode of Payment -->
+			<frame>
+				<reportElement positionType="Float" x="20" y="364" width="495" height="16" uuid="d4f20000-0000-0000-0000-000000000022"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement x="0" y="0" width="248" height="16" uuid="d4f20000-0000-0000-0000-000000000023"/>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Mode of Payment (NACH/ NEFT/ RTGS)"]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement x="248" y="0" width="247" height="16" uuid="d4f20000-0000-0000-0000-000000000024"/>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{modeOfPayment} == null ? "" : $P{modeOfPayment}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<!-- Authorization Paragraph -->
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="394" width="535" height="50" uuid="d4f30000-0000-0000-0000-000000000001"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["I/ We, the borrower/ borrowers, severally/ jointly & severally, do hereby authorize the Company and its authorized representative/s to deposit the disbursal amount as requested above. Further, I/ we request the Company to please deduct the applicable processing fee and other charges as per the sanction terms from the said disbursement."]]></textFieldExpression>
+			</textField>
+			<!-- Borrower Name and Signature -->
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="454" width="270" height="16" uuid="d4f30000-0000-0000-0000-000000000002"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Name of Borrower : " + ($P{nameOfBorrower} == null ? "" : $P{nameOfBorrower})]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="270" y="454" width="265" height="16" uuid="d4f30000-0000-0000-0000-000000000003"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Signature of Borrower : _______________________"]]></textFieldExpression>
+			</textField>
+			<!-- Co-Borrower List (dynamic) -->
+			<componentElement>
+				<reportElement positionType="Float" x="0" y="480" width="535" height="16" uuid="d4f30000-0000-0000-0000-000000000004"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="CoBorrowerNameDataset" uuid="d4f30000-0000-0000-0000-000000000005">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{coBorrowerName} == null ? new java.util.ArrayList() : $P{coBorrowerName})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="30" width="535">
+						<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+							<reportElement x="0" y="0" width="270" height="14" uuid="d4f30000-0000-0000-0000-000000000006"/>
+							<textElement textAlignment="Left">
+								<font fontName="SansSerif" size="9"/>
+							</textElement>
+							<textFieldExpression><![CDATA["Name of Co-Borrower : " + ($F{_THIS} == null ? "" : $F{_THIS})]]></textFieldExpression>
+						</textField>
+						<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+							<reportElement x="270" y="0" width="265" height="14" uuid="d4f30000-0000-0000-0000-000000000007"/>
+							<textElement textAlignment="Left">
+								<font fontName="SansSerif" size="9"/>
+							</textElement>
+							<textFieldExpression><![CDATA["Signature of Co-Borrower : _______________________"]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>
