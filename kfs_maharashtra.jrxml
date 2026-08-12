@@ -318,7 +318,7 @@
 		</band>
 		<band height="20" splitType="Stretch">
 			<frame>
-				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="f493914e-9044-4d44-9485-a95e19701bc2"/>
+				<reportElement stretchType="ContainerHeight" positionType="Float" x="0" y="0" width="495" height="20" uuid="f493914e-9044-4d44-9485-a95e19701bc2"/>
 				<textField textAdjust="StretchHeight">
 					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="8aa30295-254e-4af4-bb29-38f6baa76091"/>
 					<textElement textAlignment="Center" verticalAlignment="Top">
@@ -327,17 +327,17 @@
 					<textFieldExpression><![CDATA["6"]]></textFieldExpression>
 				</textField>
 				<textField textAdjust="StretchHeight">
-					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="240" height="20" uuid="95afec15-59b1-496d-aaa8-65db6ccd36c3"/>
+					<reportElement style="TC" stretchType="ContainerHeight" x="30" y="0" width="385" height="20" uuid="95afec15-59b1-496d-aaa8-65db6ccd36c3"/>
 					<textElement textAlignment="Left" verticalAlignment="Top">
-						<font fontName="Noto Sans Devanagari" size="10" isBold="false"/>
+						<font fontName="Noto Sans Devanagari" size="9" isBold="false"/>
 						<paragraph leftIndent="3"/>
 					</textElement>
 					<textFieldExpression><![CDATA["लागू व्याज दर (%) आणि प्रकार (स्थिर किंवा बदलता किंवा संकरित) [लागू व्याज दर हा कर्ज मंजुरीच्या वेळी मूल्यांकन केलेल्या कर्जदाराच्या जोखीम प्रोफाइलच्या आधारावर निर्धारित करण्यात आला आहे. कंपनीचे व्याज दर धोरण, ज्यामध्ये दरांची श्रेणी आणि जोखीम-आधारित श्रेणीकरण मापदंडांचा समावेश आहे, ते कंपनीच्या www.sarvagram.com या वेबसाइटवर उपलब्ध आहे.]"]]></textFieldExpression>
 				</textField>
 				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
-					<reportElement style="TC" stretchType="ContainerHeight" x="270" y="0" width="225" height="20" uuid="22c6a025-543d-486b-b418-e24674494b8a"/>
-					<textElement textAlignment="Left" verticalAlignment="Top">
-						<font fontName="Noto Sans Devanagari" size="10"/>
+					<reportElement style="TC" stretchType="ContainerHeight" x="415" y="0" width="80" height="20" uuid="22c6a025-543d-486b-b418-e24674494b8a"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Noto Sans Devanagari" size="9"/>
 						<paragraph leftIndent="3"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$P{roi} + " निश्चित"]]></textFieldExpression>
@@ -1699,7 +1699,7 @@
 		</band>
 		<band height="20" splitType="Stretch">
 			<frame>
-				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="e8a3a4c5-3387-4acf-8953-3b5e4f303a52"/>
+				<reportElement stretchType="ContainerHeight" positionType="Float" x="0" y="0" width="495" height="20" uuid="e8a3a4c5-3387-4acf-8953-3b5e4f303a52"/>
 				<textField textAdjust="StretchHeight">
 					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="e10016aa-7819-4560-adb5-8eb6393a9e76"/>
 					<textElement textAlignment="Center" verticalAlignment="Top">
@@ -1727,7 +1727,7 @@
 		</band>
 		<band height="20" splitType="Stretch">
 			<frame>
-				<reportElement positionType="Float" x="0" y="0" width="495" height="20" uuid="b0ad304a-f821-491c-8777-f6d977467bdc"/>
+				<reportElement stretchType="ContainerHeight" positionType="Float" x="0" y="0" width="495" height="20" uuid="b0ad304a-f821-491c-8777-f6d977467bdc"/>
 				<textField textAdjust="StretchHeight">
 					<reportElement style="TC" stretchType="ContainerHeight" x="0" y="0" width="30" height="20" uuid="1f880e6f-026c-48a5-89a8-b504656c29f1"/>
 					<textElement textAlignment="Center" verticalAlignment="Top">
@@ -1752,6 +1752,11 @@
 					<textFieldExpression><![CDATA["IV. सर्व खर्च, शुल्क, व्याजदर लागू असलेले कर वगळता आहेत.\n\nV. मूळ जंगम/अचल मालमत्तेची कागदपात्रांची मुक्तता: कर्जदार कर्जाची पूर्ण परतफेड/सेटलमेंट झाल्यानंतर 30 दिवसांच्या आत, ज्या शाखेतून कर्ज खाते सर्व्हिस केले होते त्या शाखेतून मूळ कागदपत्रे घेऊ शकतात.\n\nVI. कर्जदार याद्वारे कर्ज देणाऱ्याला KYC माहिती पडताळणीसाठी, क्रेडिट जोखीम विश्लेषणासाठी किंवा इतर संबंधित कारणांसाठी कर्जदाराच्या इतर शाखा, उपकंपन्या, क्रेडिट ब्यूरो, रेटिंग एजन्सी, बँका/वित्तीय संस्था, सरकारी अधिकारी यांना माहिती खुलासा करण्यास अधिकृत करतो. कर्जदार गोपनीयतेचे विशेषाधिकार माफ करतो.\n\nVII. लागू व्याज दर आणि इतर किंमतीच्या पॅरामीटर्समधील बदल ईमेल, पत्र, वेबसाइट, खाते स्टेटमेंट, SMS किंवा शाखांद्वारे कळवले जाऊ शकतात."]]></textFieldExpression>
 				</textField>
 			</frame>
+		</band>
+		<band height="1" splitType="Stretch">
+			<break>
+				<reportElement x="0" y="0" width="495" height="1" uuid="b3a40004-0000-0000-0000-500000000401"/>
+			</break>
 		</band>
 		<band height="25" splitType="Stretch">
 			<textField>
@@ -2431,11 +2436,12 @@
 				</jr:table>
 			</componentElement>
 		</band>
-		<band height="40" splitType="Prevent">
+		<band height="60" splitType="Prevent">
 			<textField textAdjust="StretchHeight">
-				<reportElement style="T" positionType="Float" x="0" y="2" width="495" height="38" uuid="a956d012-bc05-4a0c-9a46-7b73fcccded4"/>
-				<textElement textAlignment="Justified">
+				<reportElement style="T" positionType="Float" x="0" y="5" width="495" height="50" uuid="a956d012-bc05-4a0c-9a46-7b73fcccded4"/>
+				<textElement textAlignment="Left">
 					<font fontName="Noto Sans Devanagari" size="9" isItalic="true"/>
+					<paragraph lineSpacing="Single"/>
 				</textElement>
 				<textFieldExpression><![CDATA["** हे परतफेड शेड्यूल तात्पुरते आहे. कर्जाच्या वितरणानंतर अंतिम परतफेडीचे शेड्यूल स्वतंत्रपणे प्रदान केले जाईल आणि त्यात कर्जाच्या परतफेडीच्या अचूक तारखा, मुद्दल आणि व्याज यांच्यातील खंड, परतफेड सुरू झाल्याची अचूक तारीख इत्यादी तपशीलांचा समावेश असेल."]]></textFieldExpression>
 			</textField>
