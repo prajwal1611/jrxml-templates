@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.1.4/tailwind.min.css"
+        integrity="sha512-..." rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@100..900&display=swap" rel="stylesheet">
+
+  <title>Loan Agreement</title>
+</head>
+
+<style>
+
+
+  @media print {
+      .page-break-before {
+          page-break-before: always;
+      }
+
+      .page-break-after {
+          page-break-after: always;
+      }
+  }
+
+  hr {
+      border: none;
+      border-top: 1px solid black;
+      width: 25%;
+  }
+
+  .page-break {
+      page-break-before: always !important;
+  }
+
+  span,
+  p,
+  div {
+      text-align: justify;
+  }
+
+  body {
+      font-family: "Calibri", sans-serif;
+  }
+
+
+  .main-table {
+      width: 100%;
+  }
+
+  .footer,
+  .footer-space {
+      height: 100px;
+  }
+
+  .footer {
+      position: fixed;
+      bottom: 0;
+  }
+
+  .main-table,
+  .main-table-body,
+  .main-table-row,
+  .main-table-td,
+  .footer-space,
+  .footer {
+      border: none;
+  }
+</style>
+
+
+<body>
+
+<div style="font-family: 'Noto Sans Devanagari', sans-serif;" class="w-full container mx-auto px-4 mt-4 max-w-screen-sm print:max-w-full print:p-0 print:pt-4 page-break-before"
+     th:fragment="content(templateData)">
+
+
+
+
+  <p style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:1.0in;font-size:11.0pt;font-family:"Calibri",sans-serif;text-indent:-.5in;line-height:normal; text-align:center; font-weight: bold; margin-top:10px; '>
+    शेड्यूल I</p>
+  <p style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:1.0in;font-size:11.0pt;font-family:"Calibri",sans-serif;text-indent:-.5in;line-height:normal; text-align:center; font-weight: bold; margin-top:10px;'>
+    की फॅक्ट्स स्टेटमेंट</p>
+  <p style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:1.0in;font-size:11.0pt;font-family:"Calibri",sans-serif;text-indent:-.5in;line-height:normal; text-align:center; font-weight: bold; margin-top:10px;'>
+    भाग 1 (व्याज दर आणि फी/शुल्क)</p>
+
+
+  <table style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;border: 1px solid black;'
+         class="w-full">
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;"><strong>1</strong></td>
+      <td style="border: 1px solid black;" colspan="2">कर्ज प्रस्ताव / खाते क्र.</td>
+      <td style="border: 1px solid black;"><span th:text="${templateData?.lan}"></span></td>
+      <td style="border: 1px solid black;" colspan="2"><strong>कर्जाचा प्रकार</strong></td>
+      <td style="border: 1px solid black;" colspan="2"><span th:text="${templateData?.loanType}"></span></td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;"><strong>2</strong></td>
+      <td style="border: 1px solid black;" colspan="4"><strong>मंजूर कर्ज रक्कम (रुपयांमध्ये)</strong></td>
+      <td style="border: 1px solid black;" colspan="3"><span th:text="${templateData?.amount}"></span></td>
+    </tr>
+
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;"><strong>3</strong></td>
+      <td style="border: 1px solid black;" colspan="4"><strong>वितरण शेड्यूल</strong>
+        <br/>
+        (i) टप्प्याटप्प्याने किंवा 100% आगाऊ वितरण.
+        <br/>
+        (ii) टप्प्यानुसार असल्यास, संबंधित तपशील असलेल्या कर्ज कराराच्या कलमाचा उल्लेख करा
+        <br/>
+      </td>
+
+      <td style="border: 1px solid black;" colspan="3">भाग 3(vii) मध्ये प्रदान केल्याप्रमाणे.</td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;"><strong>4</strong></td>
+      <td style="border: 1px solid black;" colspan="4"><strong>कर्ज कालावधी (वर्ष/महीने/दिवस)</strong></td>
+      <td style="border: 1px solid black;" colspan="3"><span th:text="${templateData?.tenure}"></span> महीने</td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;"><strong>5</strong></td>
+      <td style="border: 1px solid black;" colspan="7"><strong>हप्त्याचे तपशील</strong></td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;" colspan="2"><strong>हप्त्यांचे प्रकार</strong></td>
+      <td style="border: 1px solid black;" colspan="2"><strong>EPIs/ EMIs ची संख्या</strong></td>
+      <td style="border: 1px solid black;" colspan="2"><strong>EPI/ EMI (&#8377;)</strong></td>
+      <td style="border: 1px solid black;" colspan="2"><strong>परतफेड सुरूवात, मंजुरीनंतर</strong>
+      </td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;" colspan="2"><span th:text="${templateData?.frequency}"></span></td>
+      <td style="border: 1px solid black;" colspan="2"><span th:text="${templateData?.tenure}"></span></td>
+      <td style="border: 1px solid black;" colspan="2"><span th:text="${templateData?.emi}"></span></td>
+      <td style="border: 1px solid black;" colspan="2"><span th:text="${templateData?.repaymentDate}"></span></td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;"><strong>6</strong></td>
+      <td style="border: 1px solid black;" colspan="6"><strong>लागू व्याज दर (%) आणि प्रकार (स्थिर किंवा बदलता किंवा संकरित)
+        [लागू व्याज दर हा कर्ज मंजुरीच्या वेळी मूल्यांकन केलेल्या कर्जदाराच्या जोखीम प्रोफाइलच्या आधारावर निर्धारित करण्यात आला आहे.
+        कंपनीचे व्याज दर धोरण, ज्यामध्ये दरांची श्रेणी आणि जोखीम-आधारित श्रेणीकरण मापदंडांचा समावेश आहे, ते कंपनीच्या www.sarvagram.com या वेबसाइटवर उपलब्ध आहे.]</strong></td>
+      <td style="border: 1px solid black;" colspan="1"><strong><span th:text="${templateData?.roi}"></span> निश्चित</strong>
+      </td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;"><strong>7</strong></td>
+      <td style="border: 1px solid black;" colspan="7"><strong>फ्लोटिंग व्याज दराच्या बाबतीत अतिरिक्त माहिती</strong></td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;"><strong>संदर्भ बेंचमार्क</strong></td>
+      <td style="border: 1px solid black;"><strong>बेंचमार्क रेट (%) (B)</strong></td>
+      <td style="border: 1px solid black;"><strong>स्प्रेड (%) (S)</strong></td>
+      <td style="border: 1px solid black;"><strong>अंतिम रेट (%) R = (B) + (S) </strong></td>
+      <td style="border: 1px solid black;" colspan="2"><strong>नियतकालिकता रीसेट (महीने)</strong></td>
+      <td style="border: 1px solid black;" colspan="2"><strong>संदर्भ बेंचमार्कमधील बदलाचा प्रभाव
+        ('R' मध्ये 25 bps बदलासाठी, पुढील मधील बदल:)
+      </strong></td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;"></td>
+      <td style="border: 1px solid black;"></td>
+      <td style="border: 1px solid black;"></td>
+      <td style="border: 1px solid black;"></td>
+      <td style="border: 1px solid black;">B</td>
+      <td style="border: 1px solid black;">S</td>
+      <td style="border: 1px solid black;">EPI (&#8377;)</td>
+      <td style="border: 1px solid black;">No. of EPIs</td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">N.A.</td>
+      <td style="border: 1px solid black;">N.A.</td>
+      <td style="border: 1px solid black;">N.A.</td>
+      <td style="border: 1px solid black;">N.A.</td>
+      <td style="border: 1px solid black;">N.A.</td>
+      <td style="border: 1px solid black;">N.A.</td>
+      <td style="border: 1px solid black;">N.A.</td>
+      <td style="border: 1px solid black;">N.A.</td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;"><strong>8</strong></td>
+      <td style="border: 1px solid black;" colspan="7"><strong>फी/ शुल्क</strong></td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;" colspan="2"></td>
+      <td style="border: 1px solid black;" colspan="3"><strong>कंपनीमध्ये पेयेबल(A)</strong></td>
+      <td style="border: 1px solid black;" colspan="3"><strong>कंपनीद्वारे तृतीय पक्षाला पेयेबल (B)</strong></td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;"></td>
+      <td style="border: 1px solid black;"></td>
+      <td style="border: 1px solid black;" colspan="1">एक-वेळ/ आवर्ती</td>
+      <td style="border: 1px solid black;" colspan="2">रक्कम (
+        &#8377;मध्ये) किंवा टक्के (%) लागू असेल त्याप्रमाणे<sup>5</sup>
+      </td>
+      <td style="border: 1px solid black;" colspan="1">एक- वेळ/आवर्ती</td>
+      <td style="border: 1px solid black;" colspan="2">रक्कम (&#8377; मध्ये) किंवा टक्के (%) लागू असेल त्याप्रमाणे<sup>5</sup></td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">(i)</td>
+      <td style="border: 1px solid black;">प्रक्रिया शुल्क</td>
+      <td style="border: 1px solid black;">एक-वेळ</td>
+      <td style="border: 1px solid black;" colspan="2"><span th:text="${templateData?.processingFee}"></span></td>
+      <td style="border: 1px solid black;">NIL</td>
+      <td style="border: 1px solid black;" colspan="2">NIL</td>
+    </tr>
+
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">(ii)</td>
+      <td style="border: 1px solid black;">विमा शुल्क</td>
+      <td style="border: 1px solid black;">N.A.</td>
+      <td style="border: 1px solid black;" colspan="2">N.A.</td>
+      <td style="border: 1px solid black;">एक-वेळ</td>
+      <td style="border: 1px solid black;" colspan="2"><span th:text="${templateData?.insurance}"></span></td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">(iii)</td>
+      <td style="border: 1px solid black;">मूल्यांकन शुल्क</td>
+      <td style="border: 1px solid black;">एक-वेळ</td>
+      <td style="border: 1px solid black;" colspan="2"><span th:text="${templateData?.valuationFee}"></span></td>
+      <td style="border: 1px solid black;">NIL</td>
+      <td style="border: 1px solid black;" colspan="2">NIL</td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">(iv)</td>
+      <td style="border: 1px solid black;">इतर काही (कृपया निर्दिष्ट करा) - विधि शुल्क</td>
+      <td style="border: 1px solid black;">एक-वेळ</td>
+      <td style="border: 1px solid black;" colspan="2"><span th:text="${templateData?.legalCharges}"></span></td>
+      <td style="border: 1px solid black;">NIL</td>
+      <td style="border: 1px solid black;" colspan="2">NIL</td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">(v)</td>
+      <td style="border: 1px solid black;">इतर काही (कृपया निर्दिष्ट करा) - स्टॅम्प ड्यूटी शुल्क</td>
+      <td style="border: 1px solid black;">N.A.</td>
+      <td style="border: 1px solid black;" colspan="2">N.A.</td>
+      <td style="border: 1px solid black;">एक-वेळ</td>
+      <td style="border: 1px solid black;" colspan="2"><span th:text="${templateData?.stampDuty}"></span></td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;"><strong>9</strong></td>
+      <td style="border: 1px solid black;" colspan="2"><strong>वार्षिक टक्केवारी दर (APR) (%)
+        (एक्झिबीट 1 म्हणून दिलेली गणना)</strong></td>
+      <td style="border: 1px solid black;" colspan="5"><span th:text="${templateData?.aprPercentage}"></span></td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;"><strong>10</strong></td>
+      <td style="border: 1px solid black;" colspan="7"><strong>आकस्मिक शुल्काचा तपशील (&#8377; मध्ये किंवा %, लागू असेल त्याप्रमाणे)</strong></td>
+    </tr>
+
+        <tr style="border: 1px solid black;">
+            <td style="border: 1px solid black;">(i)</td>
+            <td colspan="4" style="border: 1px solid black;">पेमेंट विलंब झाल्यास दंडात्मक शुल्क, काही असल्यास</td>
+            <td colspan="3" style="border: 1px solid black;">30% प्रती वर्ष अधिक बाकी मूळ रकमेवर लागू कर
+            </td>
+        </tr>
+    </table>
+    <div class="page-break-before"></div>
+        <table class="w-full"
+               style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;border: 1px solid black;'>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">(ii)</td>
+      <td style="border: 1px solid black;" colspan="4">इतर दंडात्मक शुल्क, काही असल्यास (धनादेश/ NACH डिसऑनर किंवा बाऊन्स शुल्क)
+      </td>
+      <td style="border: 1px solid black;" colspan="3">INR <span th:text="${templateData?.bouncingCharges}"></span> प्रति इन्स्ट्रुमेंट प्रति उदाहरण अधिक लागू कर
+      </td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">(iii)</td>
+      <td style="border: 1px solid black;" colspan="4">फोरक्लोजर शुल्क, लागू असल्यास</td>
+        <td colspan="3" style="border: 1px solid black;">
+            कर्जांतर्गत पेयेबल असलेल्या एकूण EMIच्या (संख्येनुसार) 50%
+            (पन्नास टक्के) पेमेंट करण्यापूर्वी प्रीपेमेंट लागू झाल्यास कर्जाच्या थकित रकमेवर 4% अधिक लागू कर.<br/>
+            3% अधिक कर्जाच्या अंतर्गत पेयेबल एकूण EMIच्या (संख्येने) 50% (पन्नास टक्के) पेमेंट झाल्यानंतर प्रीपेमेंट
+            लागू झाल्यास कर्जाच्या थकित रकमेवर लागू कर.
+        </td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">(iv)</td>
+      <td style="border: 1px solid black;" colspan="4">कर्जे फ्लोटिंगवरून फिक्स दरावर स्विच करणे आणि त्याउलट यासाठीचे शुल्क
+      </td>
+      <td style="border: 1px solid black;" colspan="3">N.A.</td>
+    </tr>
+
+          <tr style="border: 1px solid black;">
+            <td style="border: 1px solid black;">(v)</td>
+            <td colspan="7" style="border: 1px solid black;">
+              इतर कोणतेही शुल्क (कृपया नमूद करा)
+            </td>
+            <td colspan="3" style="border: 1px solid black;">
+             <span th:text="${templateData?.otherDeductions}"></span>
+            </td>
+          </tr>
+          <tr style="border: 1px solid black;">
+            <td style="border: 1px solid black;"> </td>
+            <td colspan="7" style="border: 1px solid black;">
+                  - स्टेटमेंट ऑफ अकाउंट (विनंतीनुसार) <br>
+                  - फोरक्लोजर सिम्युलेशन / पत्र (विनंतीनुसार) <br>
+                  - सादर केलेल्या कागदपत्रांची यादी (विनंतीनुसार, वितरणानंतर)
+            </td>
+            <td colspan="3" style="border: 1px solid black;">
+              <span>प्रति प्रकरण रु. 500 + लागू कर</span>
+            </td>
+          </tr>
+        <tr style="border: 1px solid black;">
+          <td style="border: 1px solid black;">(vi)</td>
+          <td colspan="7" style="border: 1px solid black;">ओव्हरड्यू फॉलो-अप चार्ज</td>
+          <td colspan="3" style="border: 1px solid black;">
+            <span>EMI ओव्हरड्यू फॉलो-अपसाठी फिजिकल व्हिजिट करिता &#8377;500 + लागू टॅक्सेस, पीनल चार्जेस व्यतिरिक्त.</span>
+          </td>
+        </tr>
+
+          <tr style="border: 1px solid black;">
+            <td style="border: 1px solid black;">(vii)</td>
+            <td  colspan="10" style="border: 1px solid black;">थर्ड पार्टी पेमेंट गेटवे शुल्कांबाबत सूचना:<br>
+              कंपनी नियमित ईएमआय परतफेडीसाठी कोणतेही शुल्क आकारत नाही. मोबाईल अ&#8205;ॅप किंवा इतर कोणत्याही ऑनलाइन माध्यमातून
+              थर्ड पार्टी पेमेंट गेटवे द्वारे केलेल्या परतफेडींवर, लागू असल्यास, तृतीय-पक्ष पेमेंट सेवा पुरवठादारांकडून
+              सोयीसाठी शुल्क/सेवा शुल्क आकारले जाऊ शकते.
+            </td>
+          </tr>
+
+  </table>
+
+  <div class="page-break-before"></div>
+
+  <p style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:1.0in;font-size:11.0pt;font-family:"Calibri",sans-serif;text-indent:-.5in;line-height:normal; text-align:center;'>
+    <strong>भाग 2 (इतर गुणात्मक माहिती) </strong></p>
+
+  <table style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;border: 1px solid black;'
+         class="w-full">
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">1</td>
+      <td style="border: 1px solid black;">रिकव्हरी एजंटच्या सहभागाशी संबंधित असलेले कर्ज कराराचे कलम</td>
+      <td style="border: 1px solid black;">N.A.<br><br><br><br>
+      </td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">2</td>
+      <td style="border: 1px solid black;">कर्ज कराराचे कलम जे तक्रार निवारण यंत्रणेचा तपशील देते
+      </td>
+      <td style="border: 1px solid black;">कलम 12.11</td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">3</td>
+      <td style="border: 1px solid black;">नोडल/ तक्रार निवारण अधिकाऱ्याचा फोन नंबर आणि ईमेल आयडी
+      </td>
+      <td style="border: 1px solid black;">कुमारी अश्विनी पुजारी <br />
+        पद: तक्रार निवारण अधिकारी <br />
+        +91 8101777555 <br />
+        पत्ता: प्रमुख प्लाझा, बी विंग, 603, चकाला, अंधेरी (ई), मुंबई - 400099, महाराष्ट्र <br />
+        ईमेल: care@sarvagram.com / ashwini.pujari@sarvagram.com
+      </td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">4</td>
+      <td style="border: 1px solid black;">कर्ज आता किंवा भविष्यात, इतर REs किंवा सिक्युरिटायझेशनच्या अधीन असेल (होय/नाही)
+      </td>
+      <td style="border: 1px solid black;">होय</td>
+    </tr>
+
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">5</td>
+      <td style="border: 1px solid black;" colspan="2">सहयोगी कर्ज व्यवस्थेअंतर्गत कर्ज देण्याच्या बाबतीत (उदा. सह-कर्ज/आउटसोर्सिंग), पुढील अतिरिक्त तपशील सादर केले जाऊ शकतात:
+      </td>
+    </tr>
+
+
+  </table>
+
+
+  <table style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;border: 1px solid black;'
+         class="w-full">
+
+    <thead style="border: 1px solid black;">
+    <th style="border: 1px solid black;">मूळ REचे नाव, त्याच्या निधीच्या प्रमाणासह</th>
+    <th style="border: 1px solid black;">भागीदार REचे नाव त्याच्या निधीच्या प्रमाणासह</th>
+    <th style="border: 1px solid black;">मिश्रित व्याज दर</th>
+    </thead>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">N.A.</td>
+      <td style="border: 1px solid black;">N.A.</td>
+      <td style="border: 1px solid black;">N.A.</td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">6</td>
+      <td style="border: 1px solid black;" colspan="2">डिजिटल कर्जाच्या बाबतीत, खालील विशिष्ट खुलासे दिले जाऊ शकतात:
+      </td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">(i)</td>
+      <td style="border: 1px solid black;">RE च्या बोर्डाने मंजूर केलेल्या पॉलिसीनुसार कूलिंग ऑफ/ लुक-अप कालावधी, ज्या दरम्यान कर्जदाराला कर्जाच्या प्रीपेमेंटवर कोणताही दंड आकारला जाणार नाही.
+      </td>
+      <td style="border: 1px solid black;">N.A.</td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">(ii)</td>
+      <td style="border: 1px solid black;">रिकव्हरी एजंट म्हणून काम करणाऱ्या आणि कर्जदाराशी संपर्क साधण्यासाठी अधिकृत असणाऱ्या LSP चे तपशील
+      </td>
+      <td style="border: 1px solid black;">N.A.</td>
+    </tr>
+
+  </table>
+  <div class="page-break-before"></div>
+  <p style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:1.0in;font-size:11.0pt;font-family:"Calibri",sans-serif;text-indent:-.5in;line-height:normal; text-align:center; margin-top:100px;'>
+    <strong>भाग 3 (संकीर्ण)</strong></p>
+
+  <table style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;border: 1px solid black;'
+         class="w-full">
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">(i)</td>
+      <td style="border: 1px solid black;"><strong>उद्देश</strong></td>
+      <td style="border: 1px solid black;">
+        <span th:text="${templateData?.title}"></span> कर्ज <br/>
+        <span th:text="${templateData?.loanPurpose}"></span>
+      </td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">(ii)</td>
+      <td style="border: 1px solid black;"><strong>कर्जदाराचे तपशील:</strong></td>
+      <td style="border: 1px solid black;">
+        नाव: <span th:text="${templateData?.applicantName}"></span><br/>
+        पत्ता: <span th:text="${templateData?.appplicantAddress}"></span><br/>
+        दूरध्वनी क्रमांक: <span th:text="${templateData?.mobile}"></span><br/>
+        ईमेल आयडी: <br/>
+      </td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">(iii)</td>
+      <td style="border: 1px solid black;"><strong>सह-कर्जदार तपशील:</strong></td>
+      <td style="border: 1px solid black;">
+                <span th:each="coApplicant : ${templateData?.coApplicantDetailList}">
+                    नाव: <span th:text="${coApplicant?.applicantName}"></span><br/>
+                    पत्ता: <span th:text="${coApplicant?.address}"></span><br/>
+                    दूरध्वनी क्रमांक: <span th:text="${coApplicant?.mobile}"></span><br/>
+                    ईमेल आयडी: <br/>
+                    <br/>
+                </span>
+      </td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">(iv)</td>
+      <td style="border: 1px solid black;"><strong>सुरक्षा प्रदात्याचे तपशील, असल्यास:</strong></td>
+      <td style="border: 1px solid black;">
+                <span th:each="collateral : ${templateData?.collateralList}">
+                    नाव: <span th:text="${collateral?.ownerName}"></span><br/>
+                    पत्ता: <span th:text="${collateral?.propertyAddress}"></span><br/>
+                    दूरध्वनी क्रमांक: <span th:text="${collateral?.mobile}"></span><br/>
+                    ईमेल आयडी: <br/>
+                    <br/>
+                </span>
+      </td>
+    </tr>
+
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">(v)</td>
+      <td style="border: 1px solid black;"><strong>परतफेडीची पद्धत </strong></td>
+      <td style="border: 1px solid black;">[&#9679;] नॅशनल ऑटोमेटेड क्लिअरिंग हाऊस (NACH)</td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">(vi)</td>
+      <td style="border: 1px solid black;"><strong>सिक्युरिटी
+      </strong></td>
+      <td style="border: 1px solid black;">
+        <div th:each="collateral : ${templateData?.collateralList}">
+          स्थावर/जंगम मालमत्तेवर एक्सक्लूझीव्ह तारण आणि शुल्क <br />
+          सिक्युरिटी - स्थावर/जंगम <br />
+          सिक्युरिटी प्रकार - वाहन / प्लांट आणि यंत्रसामग्री / स्टॉक / सोने / FD / जीवन विमा / MF / सोने / मालमत्ता <br />
+          उत्पादक (जंगम) :  <br />
+          मॉडेल (जंगम) : <br />
+          अंदाजे मूल्य : <span th:text="${collateral?.totalAmount}"></span><br>
+          पत्ता(स्थावर) : <span th:text="${collateral?.propertyAddress}"></span><br>
+          <hr style='width: 100%;border-top: 2px solid black;'>
+        </div>
+
+        डिमांड प्रॉमिसरी नोट (DPN) <br/>
+        कर्जाअंतर्गत 1ल्या (पहिल्या) वितरणापूर्वी सुरक्षा निर्माण केली जाईल.
+      </td>
+    </tr>
+
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">(vii)</td>
+      <td style="border: 1px solid black;"><strong>कर्जाच्या भागाचे पूर्वपेमेंट </strong></td>
+      <td style="border: 1px solid black;">प्रत्येक भागाच्या पूर्व-पेमेंट रकमेच्या 2%, अधिक लागू कर. </td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">(viii)</td>
+      <td style="border: 1px solid black;"><strong>उपलब्धता कालावधी</strong></td>
+      <td style="border: 1px solid black;">60 (साठ) दिवस</td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">(ix)</td>
+      <td style="border: 1px solid black;"><strong>स्थगिती कालावधी</strong></td>
+      <td style="border: 1px solid black;">N.A.</td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">(x)</td>
+      <td style="border: 1px solid black;"><strong>ट्रँचची स्थिती</strong></td>
+      <td style="border: 1px solid black;">
+        <div th:each="tranche : ${templateData?.trancheConditions}">
+          <span th:text="${tranche}"></span><br><br>
+        </div>
+      </td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">(xi)</td>
+      <td style="border: 1px solid black;"><strong>सामान्य अटी </strong></td>
+      <td style="border: 1px solid black;">
+
+        <ol start="1" style="margin-bottom:0in;list-style-type: upper-roman;margin-left:0.5in;">
+          <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;'>
+            कर्जदाराने कर्ज देणाऱ्यांस यासाठी सहमती देतो आणि अधिकृत करतो की ते आता किंवा भविष्यात, येथे नमूद केलेले कोणतेही आणि सर्व किमती, शुल्क आणि खर्च वसुलीसाठी किंवा कर्जाशी संबंधित किंवा अनुषंगिक कर्जदाराच्या वतीने किंवा त्याच्या वतीने ठेवलेल्या कोणत्याही खात्यातून डेबिट करणे आणि वसूल करणे.
+          </li>
+
+          <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;'>
+            कर्जदाराने मागणी केल्यावर कर्ज देणाऱ्याला पैसे द्यावे किंवा त्याची पूर्ण परतफेड करावी:
+            <p style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'>
+              <b>a.</b> वित्तपुरवठा/सिक्युरिटी दस्तऐवज तयार करणे, सिक्युरिटी तयार करणे इत्यादी कायदेशीर खर्च;</p>
+            <p style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'>
+              <b>b.</b> नियतकालिक मूल्यमापन, टायटल सर्च, जागेला भेट, तपासणी, विमा आणि कर्ज देणाऱ्यास सादर केलेल्या सिक्युरिटी बाबतीमध्ये इतर कोणत्याही प्रकारे सुरक्षा/संरक्षण यासह सर्व किमती, खर्च आणि फी जे यासह आहे परंतु त्यापुरते मर्यादित नाही; आणि</p>
+            <p style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'>
+              <b>c.</b> या पत्र/फायनान्सिंग दस्तऐवजांच्या अंतर्गत किंवा संदर्भात किंवा कोणत्याही वर्तमान किंवा भविष्यातील सिक्युरिटी आणि इतर दस्तऐवजांच्या अंतर्गत किंवा त्याच्या संदर्भात कोणतेही अधिकार यांची पूर्तता करण्यासाठी किंवा त्याची अंमलबजावणी करण्यासाठी कर्ज देणाऱ्याने केलेले सर्व खर्च (कायदेशीर शुल्कासह).</p>
+          </li>
+
+                    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;'>
+                        कर्जदाराला समजतो, कबूल करतो आणि तो सहमत आहे की कर्जाचा न काढलेला भाग कर्ज देणाऱ्याद्वारे
+                        कोणत्याही वेळी सूचना न देता आणि कोणतेही कारण न देता रद्द केला जाऊ शकतो आणि अंशतः किंवा
+                        संपूर्णपणे नाकारला जाऊ शकतो.
+                    </li>
+                </ol>
+            </td>
+        </tr>
+    </table>
+    <div class="page-break-before"></div>
+    <table style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;border: 1px solid black;'
+           class="w-full">
+        <tr style="border: 1px solid black;">
+            <td style="border: 1px solid black;">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td style="border: 1px solid black;"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+            <td style="border: 1px solid black;">
+                <ol start="4" style="margin-bottom:0in;list-style-type: upper-roman;margin-left:0.5in;">
+                    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;'>
+                        सर्व खर्च, शुल्क, व्याजदर लागू असलेले कर वगळता आहेत.
+                    </li>
+                    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;'>
+                        <strong>मूळ जंगम/अचल मालमत्तेची कागदपात्रांची मुक्तता:</strong>
+                        कर्जदार कर्जाची पूर्ण परतफेड / सेटलमेंट झाल्यानंतर 30 (तीस) दिवसांच्या आत, ज्या शाखेतून कर्ज
+                        खाते सर्व्हिस केले होते त्या शाखेतून मूळ जंगम/अचल मालमत्तेची कागदपत्रे घेऊ शकतात.
+                    </li>
+                    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;'>
+                        कर्जदार हा कर्जदाराने अर्जात / अंमलात आणली जाणारी संबंधित कागदपत्रे / किंवा सावकाराकडून
+                        घेतलेल्या कर्जाच्या संबंधात, कर्जदाराच्या इतर शाखा, उपकंपन्या, सहयोगी, समूह कंपन्या आणि भगिनी
+                        समस्या, क्रेडिट ब्यूरो, रेटिंग एजन्सी, सेवा प्रदाते, बँका/वित्तीय संस्था, सरकारी/नियामक अधिकारी
+                        किंवा तृतीय पक्ष यांना दिलेली माहिती KYC माहिती पडताळणीसाठी, क्रेडिट जोखीम विश्लेषणासाठी किंवा
+                        कर्ज देणाऱ्याला योग्य वाटेल अशा इतर संबंधित कारणांसाठी कर्जदाराला सूचना न देता खुलासा करण्यास
+                        कर्ज देणाऱ्यास अधिकृत करतो आणि संमती देतो, कर्जदार गोपनीयतेचे विशेषाधिकार आणि कराराच्या
+                        गोपनीयतेला माफ करतो. कर्जदार याद्वारे कर्ज देणाऱ्याला अर्जाच्या संदर्भात सादर केलेल्या तपशीलांवर
+                        आधारित क्रेडिट ब्युरो तपासणी करण्यासाठी अधिकृत करतो.
+                    </li>
+                    <li style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;'>
+                        लागू व्याज दर आणि इतर किंमतीच्या पॅरामीटर्समधील बदल कर्ज देणाऱ्याकडून खालीलपैकी कोणत्याही
+                        पद्धतीद्वारे कळवले जाऊ शकतात - कर्ज देणाऱ्याच्या नोंदींमध्ये अपडेट केल्याप्रमाणे ईमेल
+                        आयडीद्वारे, कर्जदेणाऱ्याच्या नोंदींमध्ये अपडेट केल्याप्रमाणे कर्जदाराच्या पत्त्यावर पाठवलेले
+                        पत्र, कर्ज देणाऱ्याच्या वेबसाइटवर, खाते स्टेटमेंटद्वारे, लघु संदेश सेवा (SMS) किंवा त्याच्या
+                        शाखांद्वारे किंवा कर्ज देणाऱ्याला योग्य वाटेल त्या इतर माध्यमांद्वारे.
+                    </li>
+                </ol>
+            </td>
+        </tr>
+    </table>
+    <div class="page-break-before"></div>
+    <p style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:1.0in;font-size:11.0pt;font-family:"Calibri",sans-serif;text-indent:-.5in;line-height:normal; text-align: center;'>
+        <strong>एक्झिबीट I</strong></p>
+    <table class="w-full"
+           style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;border: 1px solid black;'>
+        <thead style="border: 1px solid black;">
+        <th style="border: 1px solid black;">अनू.
+            क्र.
+        </th>
+        <th style="border: 1px solid black;">पॅरामिटर</th>
+        <th style="border: 1px solid black;">तपशील</th>
+        </thead>
+        <tr style="border: 1px solid black;">
+            <td style="border: 1px solid black;">1</td>
+            <td style="border: 1px solid black;">मंजूर कर्जाची रक्कम (रुपयांमध्ये)
+                (KFS - भाग 1चे अनू. क्र. 2)
+            </td>
+            <td style="border: 1px solid black;"><span th:text="${templateData?.amount}"></span></td>
+        </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">2</td>
+      <td style="border: 1px solid black;">दीर्घ कालावधी (वर्ष/ महीने/ दिवसांमध्ये)
+        (KFS  - भाग 1 चे अनू. क्र 4)
+      </td>
+      <td style="border: 1px solid black;"><span th:text="${templateData?.tenure}"></span> Months</td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">a)</td>
+      <td style="border: 1px solid black;">समतुल्य नियतकालिक कर्जाच्या बाबतीत, मुद्दलाच्या पेमेंटसाठी हप्त्यांची संख्या
+      </td>
+      <td style="border: 1px solid black;">N.A.</td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">b)</td>
+      <td style="border: 1px solid black;">EPI चा प्रकार <br/>
+
+        प्रत्येक EPI ची रक्कम (रुपयांमध्ये) आणि <br/>
+
+        EPI ची संख्या (उदा., मासिक हप्त्यांच्या बाबतीत EMIची संख्या) <br/>
+        (KFS - भाग 1 चे अनू. क्र. 5)
+      </td>
+      <td style="border: 1px solid black;">मासिक</td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">c)</td>
+      <td style="border: 1px solid black;">भांडवली व्याज भरण्यासाठी हप्त्यांची संख्या, जर असेल तर</td>
+      <td style="border: 1px solid black;">N.A.</td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">d)</td>
+      <td style="border: 1px solid black;">परतफेड सुरू करणे, मंजुरीनंतर
+        (KFS - भाग 1 चे अनू. क्र. 5)
+      </td>
+      <td style="border: 1px solid black;"><span th:text="${templateData?.repaymentDate}"></span></td>
+    </tr>
+
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">3</td>
+      <td style="border: 1px solid black;">व्याजदराचा प्रकार (निश्चित, फ्लोटिंग किंवा हायब्रीड)
+        (KFS - भाग 1 चे अनू. क्र. 6)
+      </td>
+      <td style="border: 1px solid black;"><strong>निश्चित</strong></td>
+    </tr>
+
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">4</td>
+      <td style="border: 1px solid black;">व्याजाचा दर
+        (KFS - भाग 1 चे अनू. क्र. 6)
+      </td>
+      <td style="border: 1px solid black;"><span th:text="${templateData?.roi}"></span></td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">5</td>
+      <td style="border: 1px solid black;">कर्जाच्या संपूर्ण कालावधीत मंजूरीच्या तारखेला प्रचलित असलेल्या दरानुसार आकारण्यात येणारी एकूण व्याजाची रक्कम (रुपयामध्ये)
+      </td>
+      <td style="border: 1px solid black;"><span th:text="${templateData?.totalInterestAmount}"></span></td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">6</td>
+      <td style="border: 1px solid black;">पेयेबल फि/ शुल्क (रुपयांमध्ये)</td>
+      <td style="border: 1px solid black;"></td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">A</td>
+      <td style="border: 1px solid black;">RE ला पेयेबल
+        (KFS - भाग 1 चे अनू. क्र.8A)
+      </td>
+      <td style="border: 1px solid black;"><span th:text="${templateData?.rePayable}"></span></td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">B</td>
+      <td style="border: 1px solid black;">RE च्या माध्यमातून तृतीय पक्षाला पेयेबल
+        (KFS - भाग 1चे अनू. क्र. 8B)
+      </td>
+      <td style="border: 1px solid black;"><span th:text="${templateData?.reThirdPartyPayable}"></span></td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">7</td>
+      <td style="border: 1px solid black;">निव्वळ वितरित रक्कम (1-6) (रुपयांमध्ये)</td>
+      <td style="border: 1px solid black;"><span th:text="${templateData?.netDisbursementAmount}"></span></td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">8</td>
+      <td style="border: 1px solid black;">कर्जदाराने भरायची एकूण रक्कम (1 आणि 5 ची बेरीज) (रुपयांमध्ये)
+      </td>
+      <td style="border: 1px solid black;"><span th:text="${templateData?.borrowerAmount}"></span></td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">9</td>
+      <td style="border: 1px solid black;">वार्षिक टक्केवारी दर- प्रभावी वार्षिक व्याज दर (टक्केवारीत) (KFS - भाग 1 चे अनू. क्र. 9)
+      </td>
+      <td style="border: 1px solid black;"><span th:text="${templateData?.aprPercentage}"></span></td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">10</td>
+      <td style="border: 1px solid black;">नियम व अटींनुसार वितरणाचे वेळापत्रक</td>
+      <td style="border: 1px solid black;">
+        <table style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;border: 1px solid black;'
+               class="w-full border border-black">
+          <tr style="border: 1px solid black;">
+            <th style="border: 1px solid black;" class="font-bold w-3/12 border border-black text-center">On
+              Tranche Number
+            </th>
+            <th style="border: 1px solid black;" class="font-bold w-3/12 border border-black text-center">On
+              Amount (Rs.)
+            </th>
+            <th style="border: 1px solid black;" class="font-bold w-3/12 border border-black text-center">
+              Condition
+            </th>
+          </tr>
+          <tr style="border: 1px solid black;" th:each="tranche : ${templateData?.trancheDetails}">
+            <td style="border: 1px solid black;"
+                class="font-bold w-3/12 border border-black text-center"><span
+                    th:text="${tranche?.trancheNumber}"></span>
+            </td>
+            <td style="border: 1px solid black;"
+                class="font-bold w-3/12 border border-black text-center"><span
+                    th:text="${tranche?.trancheAmount}"></span></td>
+            <td style="border: 1px solid black;"
+                class="font-bold w-3/12 border border-black text-center"><span
+                    th:text="${tranche?.trancheCondition}"></span></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;">11</td>
+      <td style="border: 1px solid black;">हप्ता आणि व्याज भरण्याची देय तारीख</td>
+      <td style="border: 1px solid black;"><span th:utext="${templateData?.emiDate}"></span> of every month</td>
+    </tr>
+
+  </table>
+  <div class="page-break-before"></div>
+  <p style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:1.0in;font-size:11.0pt;font-family:"Calibri",sans-serif;text-indent:-.5in;line-height:normal; text-align:center;'>
+    <strong>एक्झिबीट II</strong></p>
+
+  <p style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:1.0in;font-size:11.0pt;font-family:"Calibri",sans-serif;text-indent:-.5in;line-height:normal; text-align:center'>
+    <strong>एक्झिबीट I मध्ये स्पष्ट केलेल्या कर्जासाठी समतुल्य नियतकालिक हप्त्यांतर्गत उदाहरणा दाखल परतफेड शेड्यूल</strong></p>
+
+
+  <table style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;border: 1px solid black;'
+         class="w-full">
+
+    <thead style="border: 1px solid black;">
+    <th style="border: 1px solid black;">हप्ता
+      क्र.</th>
+    <th style="border: 1px solid black;">बाकी मुद्दल (रुपयांमध्ये)</th>
+    <th style="border: 1px solid black;">मुद्दल (रुपयांमध्ये)</th>
+    <th style="border: 1px solid black;">व्याज (रुपयांमध्ये)</th>
+    <th style="border: 1px solid black;">हप्ता
+      (रुपयांमध्ये)</th>
+    </thead>
+
+    <tr style="border: 1px solid black;" class="table-design" th:each="installment : ${templateData?.installments}">
+      <td style="border: 1px solid black;" class="text-center"><span
+              th:text="${installment?.installmentNo}"></span></td>
+      <td style="border: 1px solid black;" class="text-center"><span
+              th:text="${installment?.principalOutstanding}"></span></td>
+      <td style="border: 1px solid black;" class="text-center"><span
+              th:text="${installment?.principalDue}"></span></td>
+      <td style="border: 1px solid black;" class="text-center"><span th:text="${installment?.interestDue}"></span>
+      </td>
+      <td style="border: 1px solid black;" class="text-center"><span
+              th:text="${installment?.installmentAmount}"></span></td>
+    </tr>
+
+  </table>
+
+  <p style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'>
+    <i>** हे परतफेड शेड्यूल तात्पुरते आहे. कर्जाच्या वितरणानंतर अंतिम परतफेडीचे शेड्यूल स्वतंत्रपणे प्रदान केले जाईल आणि त्यात कर्जाच्या परतफेडीच्या अचूक तारखा, मुद्दल आणि व्याज यांच्यातील खंड, परतफेड सुरू झाल्याची अचूक तारीख इत्यादी तपशीलांचा समावेश असेल.</i></p>
+
+
+
+
+
+
+</div>
+
+<tfoot>
+<tr style="border: 1px solid black;" class="main-table-row">
+  <td style="border: 1px solid black;" class="main-table-td">
+    <div class="footer-space"></div>
+  </td>
+</tr>
+</tfoot>
+
+</body>
+</html>
