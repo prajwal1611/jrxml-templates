@@ -52,7 +52,7 @@
 					<pen lineWidth="1.5" lineColor="#000000"/>
 				</box>
 				<image hAlign="Left" vAlign="Middle" onErrorType="Blank">
-					<reportElement x="5" y="5" width="160" height="30" uuid="3eca63c6-bef7-484b-a14c-fe2d2c07dc18"/>
+					<reportElement x="5" y="5" width="100" height="25" uuid="3eca63c6-bef7-484b-a14c-fe2d2c07dc18"/>
 					<imageExpression><![CDATA["NPCI_LOGO_PLACEHOLDER"]]></imageExpression>
 				</image>
 				<staticText>
