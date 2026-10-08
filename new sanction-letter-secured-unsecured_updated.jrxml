@@ -72,7 +72,7 @@
 	<parameter name="CollateralListDS" class="net.sf.jasperreports.engine.JRDataSource"/>
 	<parameter name="SpecialConditionsDS" class="net.sf.jasperreports.engine.JRDataSource"/>
 	<title>
-		<band height="724" splitType="Stretch">
+		<band height="680" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="0" width="495" height="20" uuid="10a1b2c3-d4e5-f6a7-b8c9-d0e1f2a3b4c5"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -288,7 +288,7 @@ Sign:___________________________]]></text>
 				<text><![CDATA[Sign:___________________________]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement positionType="Float" x="0" y="674" width="300" height="50" uuid="e2b2c3d4-e5f6-a7b8-c9d0-e1f2a3b4c5d6"/>
+				<reportElement positionType="Float" x="0" y="630" width="300" height="40" uuid="e2b2c3d4-e5f6-a7b8-c9d0-e1f2a3b4c5d6"/>
 				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
 					<datasetRun subDataset="CoApplicantSignDataset" uuid="f3c3d4e5-f6a7-b8c9-d0e1-f2a3b4c5d6e7">
 						<datasetParameter name="date">
@@ -296,7 +296,7 @@ Sign:___________________________]]></text>
 						</datasetParameter>
 						<dataSourceExpression><![CDATA[$P{CoApplicantSignListDS}]]></dataSourceExpression>
 					</datasetRun>
-					<jr:listContents height="50" width="300">
+					<jr:listContents height="40" width="300">
 						<textField isBlankWhenNull="true">
 							<reportElement x="0" y="0" width="300" height="14" uuid="a4d4e5f6-a7b8-c9d0-e1f2-a3b4c5d6e7f8"/>
 							<textElement textAlignment="Left">
