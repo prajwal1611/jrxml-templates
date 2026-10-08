@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.1.4/tailwind.min.css"
+          integrity="sha512-..." rel="stylesheet" />
+    <style>
+        @media print {
+            .page-break-before {
+                page-break-before: always;
+            }
+
+            .page-break-after {
+                page-break-after: always;
+            }
+        }
+
+        body {
+            font-family: "Calibri", sans-serif;
+            font-size: xx-small;
+        }
+    </style>
+</head>
+
+<body>
+<div class="p-2 w-full" th:fragment="content(templateData)">
+    <div class="mx-auto print:max-w-full page-break-before" style="border:2px solid #ccc;padding:8px">
+
+        <!-- ================= HEADER: LOGO | UMRN + DATE | SPONSOR + ACTION ================= -->
+        <div style="display: flex; align-items: flex-start;">
+            <div style="width: 20%;">
+
+                <img src="data:image/png;base64,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" alt="NPCI" style="max-width: 70%; max-height: 40px; display: block;">
+            </div>
+
+            <div style="flex:1 1 auto;min-width:0">
+                <!-- UMRN + Date -->
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <div style="display: flex; align-items: center;">
+                        <div style="font-weight:bold;white-space:nowrap;margin-right:6px">UMRN</div>
+                        <div style="display:flex;border-left:1px solid #000">
+                            <div style="width:16px;height:16px;box-sizing:border-box;border:1px solid #000;border-left:0;display:flex;align-items:center;justify-content:center;font-size:xx-small" th:each="i : ${#numbers.sequence(0, 19)}">
+                                <span th:text="${templateData?.umrn.charAt(i)}"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <div style="font-weight:bold;white-space:nowrap;margin-right:6px">Date</div>
+                        <div style="display:flex;border-left:1px solid #000">
+                            <div style="width:16px;height:16px;box-sizing:border-box;border:1px solid #000;border-left:0;display:flex;align-items:center;justify-content:center;font-size:xx-small" th:each="i : ${#numbers.sequence(0, 1)}">
+                                <span th:text="${templateData?.date.charAt(i)}"></span>
+                            </div>
+                        </div>
+                        <div style="display:flex;border-left:1px solid #000;margin-left:3px">
+                            <div style="width:16px;height:16px;box-sizing:border-box;border:1px solid #000;border-left:0;display:flex;align-items:center;justify-content:center;font-size:xx-small" th:each="i : ${#numbers.sequence(2, 3)}">
+                                <span th:text="${templateData?.date.charAt(i)}"></span>
+                            </div>
+                        </div>
+                        <div style="display:flex;border-left:1px solid #000;margin-left:3px">
+                            <div style="width:16px;height:16px;box-sizing:border-box;border:1px solid #000;border-left:0;display:flex;align-items:center;justify-content:center;font-size:xx-small" th:each="i : ${#numbers.sequence(4, 7)}">
+                                <span th:text="${templateData?.date.charAt(i)}"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sponsor Bank Code + Create / Modify / Cancel -->
+                <div style="display:flex;align-items:center;margin-top:5px">
+                    <div style="font-weight:bold;white-space:nowrap;margin-right:6px">Sponsor Bank Code</div>
+                    <div style="border:1px solid #000;height:16px;padding:0 4px;display:flex;align-items:center;box-sizing:border-box;flex:1 1 auto;min-width:0"></div>
+                    <div style="border:1px solid #000;height:16px;padding:0 6px;display:flex;align-items:center;box-sizing:border-box;margin-left:8px">
+                        <label style="display:flex;align-items:center;margin-right:6px;"><input type="radio" checked style="margin:0 4px 0 0;" />Create</label>
+                        <label style="display:flex;align-items:center;margin-right:6px;"><input type="radio" style="margin:0 4px 0 0;" />Modify</label>
+                        <label style="display:flex;align-items:center;"><input type="radio" style="margin:0 4px 0 0;" />Cancel</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= UTILITY CODE | I/WE AUTHORIZE ================= -->
+        <div style="display:flex;align-items:center;margin-top:5px">
+            <div style="font-weight:bold;white-space:nowrap;margin-right:6px">Utility code</div>
+            <div style="border:1px solid #000;height:16px;padding:0 4px;display:flex;align-items:center;box-sizing:border-box;width: 170px">NACH00000000025964</div>
+            <div style="font-weight:bold;white-space:nowrap;margin-right:6px;margin-left:8px">I/We authorize</div>
+            <div style="border:1px solid #000;height:16px;padding:0 4px;display:flex;align-items:center;box-sizing:border-box;flex:1 1 auto;min-width:0">Sarvagram FinCare Private Limited</div>
+        </div>
+
+        <!-- ================= TO DEBIT | BANK A/C NUMBER ================= -->
+        <div style="display:flex;align-items:center;margin-top:5px">
+            <div style="font-weight:bold;white-space:nowrap;margin-right:6px">To debit (tick &#10003;)</div>
+            <div style="border:1px solid #000;height:16px;padding:0 4px;display:flex;align-items:center;box-sizing:border-box;flex:1 1 auto;min-width:0;font-weight: bold">SB / CA / CC / SB-NRE / SB-NRO / OTHER</div>
+            <div style="font-weight:bold;white-space:nowrap;margin-right:6px;margin-left:8px">Bank a/c number</div>
+            <div style="display:flex;border-left:1px solid #000">
+                <div style="width:16px;height:16px;box-sizing:border-box;border:1px solid #000;border-left:0;display:flex;align-items:center;justify-content:center;font-size:xx-small" th:each="char : ${templateData?.accountNumber.toCharArray()}">
+                    <span th:text="${char}"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= WITH BANK | IFSC ================= -->
+        <div style="display:flex;align-items:center;margin-top:5px">
+            <div style="font-weight:bold;white-space:nowrap;margin-right:6px">With Bank</div>
+            <div style="border:1px solid #000;height:16px;padding:0 4px;display:flex;align-items:center;box-sizing:border-box;flex:1 1 auto;min-width:0"><span th:text="${templateData.bankName}"></span></div>
+            <div style="font-weight:bold;white-space:nowrap;margin-right:6px;margin-left:8px">IFSC/MICR</div>
+            <div style="display:flex;border-left:1px solid #000">
+                <div style="width:16px;height:16px;box-sizing:border-box;border:1px solid #000;border-left:0;display:flex;align-items:center;justify-content:center;font-size:xx-small" th:each="char : ${templateData?.ifsc.toCharArray()}">
+                    <span th:text="${char}"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= AMOUNT ================= -->
+        <div style="display:flex;align-items:center;margin-top:5px">
+            <div style="font-weight:bold;white-space:nowrap;margin-right:6px">An amount of Rupees</div>
+            <div style="border:1px solid #000;height:16px;padding:0 4px;display:flex;align-items:center;box-sizing:border-box;flex:1 1 auto;min-width:0"><span th:text="${templateData.amountText}"></span></div>
+            <div style="border:1px solid #000;height:16px;padding:0 4px;display:flex;align-items:center;box-sizing:border-box;margin-left:8px;width: 190px">&#8377;&nbsp;<span th:text="${templateData.amount}"></span></div>
+        </div>
+
+        <!-- ================= DEBIT TYPE | FREQUENCY ================= -->
+        <div style="display:flex;align-items:center;margin-top:5px;margin-top: 6px">
+            <div style="font-weight:bold;white-space:nowrap;margin-right:6px;text-decoration: underline">Debit Type</div>
+            <label style="display:flex;align-items:center;margin-right:10px;white-space:nowrap"><input type="checkbox" style="margin:0 4px 0 0;" />Fixed Amount</label>
+            <label style="display:flex;align-items:center;margin-right:10px;white-space:nowrap"><input type="checkbox" style="margin:0 4px 0 0;" checked="checked" />Maximum Amount</label>
+
+            <div style="font-weight:bold;white-space:nowrap;margin-right:6px;margin-left:8px;text-decoration: underline">Frequency</div>
+            <div style="display:grid;grid-template-columns:repeat(4, auto);column-gap:6px;row-gap:3px">
+                <label style="display:flex;align-items:center;margin-right:0;white-space:nowrap"><input type="checkbox" style="margin:0 4px 0 0;" />Daily</label>
+                <label style="display:flex;align-items:center;margin-right:0;white-space:nowrap"><input type="checkbox" style="margin:0 4px 0 0;" />Weekly</label>
+                <label style="display:flex;align-items:center;margin-right:0;white-space:nowrap"><input type="checkbox" style="margin:0 4px 0 0;" />Bi-Monthly</label>
+                <label style="display:flex;align-items:center;margin-right:0;white-space:nowrap"><input type="checkbox" style="margin:0 4px 0 0;" />Monthly</label>
+                <label style="display:flex;align-items:center;margin-right:0;white-space:nowrap"><input type="checkbox" style="margin:0 4px 0 0;" />Quarterly</label>
+                <label style="display:flex;align-items:center;margin-right:0;white-space:nowrap"><input type="checkbox" style="margin:0 4px 0 0;" />Half-Yearly</label>
+                <label style="display:flex;align-items:center;margin-right:0;white-space:nowrap"><input type="checkbox" style="margin:0 4px 0 0;" />Annually</label>
+                <label style="display:flex;align-items:center;margin-right:0;white-space:nowrap"><input type="checkbox" style="margin:0 4px 0 0;" checked="checked" />As & When presented</label>
+            </div>
+        </div>
+
+        <!-- ================= REFERENCES ================= -->
+        <div style="display:flex;align-items:center;margin-top:5px;margin-top: 6px">
+            <div style="font-weight:bold;white-space:nowrap;margin-right:6px">Reference 1</div>
+            <div style="border:1px solid #000;height:16px;padding:0 4px;display:flex;align-items:center;box-sizing:border-box;flex:1 1 auto;min-width:0"><span th:text="${templateData.lan}"></span></div>
+            <div style="font-weight:bold;white-space:nowrap;margin-right:6px;margin-left:8px">Reference 2</div>
+            <div style="border:1px solid #000;height:16px;padding:0 4px;display:flex;align-items:center;box-sizing:border-box;flex:1 1 auto;min-width:0"></div>
+        </div>
+
+        <!-- ================= DECLARATION NOTES ================= -->
+        <div style="margin-top:6px;line-height:1.35;text-align:justify">1. I agree for the debit of mandate processing charges by the bank whom I am authorizing
+            to debit my account as per the latest schedule of the charges of the bank. 2. This is to confirm that the
+            declaration has been carefully read, understood &amp; made by me/us. I am authorizing the user
+            entity/corporate to debit the account, based on the instructions as agreed and signed by me. 3. I have
+            understood that I am authorized to cancel/amend this mandate by appropriately communicating the
+            cancellation / amendment request to the user entity / corporate or the bank where I have authorized the
+            debit. 4. I/We understand and accept that in case transaction/s initiated against this mandate (within
+            valid period of mandate) is/are rejected due to insufficient funds or such other reason as permitted under
+            applicable law, action may be taken against me/us under applicable law (including Negotiable Instruments
+            Act).</div>
+
+        <!-- ================= FROM / TO  |  SIGNATURES ================= -->
+        <div style="display: flex; align-items: flex-end; justify-content: space-between; margin-top: 6px;">
+            <div>
+                <div style="display: flex; align-items: center;">
+                    <div style="font-weight:bold;white-space:nowrap;margin-right:6px;width: 45px">From</div>
+                    <div style="display:flex;border-left:1px solid #000">
+                        <div style="width:16px;height:16px;box-sizing:border-box;border:1px solid #000;border-left:0;display:flex;align-items:center;justify-content:center;font-size:xx-small" th:each="i : ${#numbers.sequence(0, 1)}">
+                            <span th:text="${templateData?.emiFromDate.charAt(i)}"></span>
+                        </div>
+                    </div>
+                    <div style="display:flex;border-left:1px solid #000;margin-left:3px">
+                        <div style="width:16px;height:16px;box-sizing:border-box;border:1px solid #000;border-left:0;display:flex;align-items:center;justify-content:center;font-size:xx-small" th:each="i : ${#numbers.sequence(2, 3)}">
+                            <span th:text="${templateData?.emiFromDate.charAt(i)}"></span>
+                        </div>
+                    </div>
+                    <div style="display:flex;border-left:1px solid #000;margin-left:3px">
+                        <div style="width:16px;height:16px;box-sizing:border-box;border:1px solid #000;border-left:0;display:flex;align-items:center;justify-content:center;font-size:xx-small" th:each="i : ${#numbers.sequence(4, 7)}">
+                            <span th:text="${templateData?.emiFromDate.charAt(i)}"></span>
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; margin-top: 3px;">
+                    <div style="font-weight:bold;white-space:nowrap;margin-right:6px;width: 45px">To</div>
+                    <div style="display:flex;border-left:1px solid #000">
+                        <div style="width:16px;height:16px;box-sizing:border-box;border:1px solid #000;border-left:0;display:flex;align-items:center;justify-content:center;font-size:xx-small" th:each="i : ${#numbers.sequence(0, 1)}">
+                            <span th:text="${templateData?.emiToDate.charAt(i)}"></span>
+                        </div>
+                    </div>
+                    <div style="display:flex;border-left:1px solid #000;margin-left:3px">
+                        <div style="width:16px;height:16px;box-sizing:border-box;border:1px solid #000;border-left:0;display:flex;align-items:center;justify-content:center;font-size:xx-small" th:each="i : ${#numbers.sequence(2, 3)}">
+                            <span th:text="${templateData?.emiToDate.charAt(i)}"></span>
+                        </div>
+                    </div>
+                    <div style="display:flex;border-left:1px solid #000;margin-left:3px">
+                        <div style="width:16px;height:16px;box-sizing:border-box;border:1px solid #000;border-left:0;display:flex;align-items:center;justify-content:center;font-size:xx-small" th:each="i : ${#numbers.sequence(4, 7)}">
+                            <span th:text="${templateData?.emiToDate.charAt(i)}"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: flex; align-items: flex-end;">
+                <div style="width:150px;margin-left:12px">
+                    <div style="height:20px;border-bottom:1px solid #000"></div>
+                    <div style="height:14px;border-bottom:1px solid #000;padding-top:1px">1. <span th:text="${templateData?.applicant}"></span></div>
+                </div>
+                <div style="width:150px;margin-left:12px">
+                    <div style="height:20px;border-bottom:1px solid #000"></div>
+                    <div style="height:14px;border-bottom:1px solid #000;padding-top:1px">2.</div>
+                </div>
+                <div style="width:150px;margin-left:12px">
+                    <div style="height:20px;border-bottom:1px solid #000"></div>
+                    <div style="height:14px;border-bottom:1px solid #000;padding-top:1px">3.</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+
+</html>
