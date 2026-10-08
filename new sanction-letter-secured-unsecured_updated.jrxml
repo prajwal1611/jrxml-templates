@@ -72,7 +72,7 @@
 	<parameter name="CollateralListDS" class="net.sf.jasperreports.engine.JRDataSource"/>
 	<parameter name="SpecialConditionsDS" class="net.sf.jasperreports.engine.JRDataSource"/>
 	<title>
-		<band height="692" splitType="Stretch">
+		<band height="724" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="0" width="495" height="20" uuid="10a1b2c3-d4e5-f6a7-b8c9-d0e1f2a3b4c5"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
